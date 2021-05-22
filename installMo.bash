@@ -4,7 +4,7 @@ set -euo pipefail
 # Color Templates || #B4AFB6 #716966 #677254 #170D1D #75422C #643D33 #4C312D #DCBC62 #7D5016 #5B3424                      ʕ•̼͛͡•ʕ-̺͛͡•ʔ•̮͛͡•ʔ #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 ln -sfv /usr/share/zoneinfo/$(curl -s https://ipapi.co/timezone) /etc/localtime ; hwclock --systohc ; locale-gen --purge en_US.UTF-8 #  
-echo -n "PC Name? " ; read PN  ; echo -e LANG="en_US.UTF-8" >> /etc/locale.conf ; ; echo "KEYMAP=us" >> /etc/vconsole.conf ###########
+echo -n "PC Name? " ; read PN  ; echo -e LANG="en_US.UTF-8" >> /etc/locale.conf ; echo "KEYMAP=us" >> /etc/vconsole.conf #############
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${PN}.localdomain ${PN} \n" >> /etc/hosts ; echo "${PN}" >> /etc/hostname ###
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Color Templates || #5D5644 #92875A #423B26 #090503 #351403 #353533 #4E524F #040402 #C4C2B2 #F4F9FA #B2CED2 #A89E81 #B5AB8A         #
