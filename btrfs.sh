@@ -14,5 +14,5 @@ mkfs.vfat "${PB}" ; mkfs.btrfs -fq "${PR}" ; mount "${PR}" /mnt ; cd /mnt ; btrf
 btrfs subvolume create @home ; cd  ; umount /mnt ; mount -o noatime,compress=zstd,discard=async,subvol=@ "${PR}" /mnt           
 mkdir /mnt/{boot,home} ; mount -o noatime,compress=zstd,discard=async,subvol=@home "${PR}" /mnt/home ; mount "${PB}" /mnt/boot 
 curl -sL https://git.io/Jsde3 -o install.sh ; curl -sL https://git.io/JsyGF -o installMo.sh ; chmod +x installMo.sh 
-chmod +x install.sh ; ./install.sh
+chmod +x install.sh ; cp installMo.sh /mnt/installMo.sh ; ./install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
