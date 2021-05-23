@@ -13,5 +13,5 @@ $ARC echo -e LANG="en_US.UTF-8" >> /etc/locale.conf ; $ARC echo "KEYMAP=us" >> /
 $ARC echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${PN}.localdomain ${PN} \n" >> /etc/hosts ; echo "$PN" >> /etc/hostname
 echo "Enter Root Password: " ; $ARC passwd ; read -r -p "Enter User Name: " USN ; $ARC useradd -m -G wheel $USN ; $ARC passwd $USN 
 echo "$USN ALL=(ALL) ALL " >> /etc/sudoers.d/${USN} ; $ARC grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-$ARC grub-mkconfig -o /boot/grub/grub.cfg ; UCH="arch-chroot /mnt/home/${USN}" ; $UCH /bin/bash ; $UCH su $USN #./installMo.sh # ;  arch-chroot -u $USR chroot-dir /home/${USR} 
+$ARC grub-mkconfig -o /boot/grub/grub.cfg ; chroot -u $USR /mnt /bin/bash #UCH="arch-chroot /mnt/home/${USN}" ; $UCH /bin/bash ; $UCH su $USN #./installMo.sh # ;  arch-chroot -u $USR chroot-dir /home/${USR} 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
