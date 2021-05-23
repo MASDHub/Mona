@@ -3,20 +3,11 @@ set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Color Templates || #B4AFB6 #716966 #677254 #170D1D #75422C #643D33 #4C312D #DCBC62 #7D5016 #5B3424                      ʕ•̼͛͡•ʕ-̺͛͡•ʔ•̮͛͡•ʔ #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#ln -sfv /usr/share/zoneinfo/$(curl -s https://ipapi.co/timezone) /etc/localtime ; hwclock --systohc ; locale-gen --purge en_US.UTF-8 #  
-#echo -n "PC Name? " ; read PN  ; echo -e LANG="en_US.UTF-8" >> /etc/locale.conf ; echo "KEYMAP=us" >> /etc/vconsole.conf #############
-#echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${PN}.localdomain ${PN} \n" >> /etc/hosts ; echo "${PN}" >> /etc/hostname ###
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-# Color Templates || #5D5644 #92875A #423B26 #090503 #351403 #353533 #4E524F #040402 #C4C2B2 #F4F9FA #B2CED2 #A89E81 #B5AB8A         #
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#echo "Enter Root Password: " ; passwd ; echo -n "Enter User Name: " ; read USN ; useradd -m -G wheel ${USN} ; echo -n "User Password: " #
-#passwd ${USN} ; echo "${USN} ALL=(ALL) ALL " >> /etc/sudoers.d/${USN} ; su ${USN} 
-#$ARC echo "Enter Root Password: " ; $ARC passwd 
-#$ARC echo -n "Enter User Name: " ; $ARC read USN ; useradd -m -G wheel $USN ; $ARC echo "User Password: " ; passwd $USN 
-# ; cd ; git clone https://aur.archlinux.org/pikaur.git              #
+#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Color Templates || ʕु-̫͡-ʔु”♬ ʕ•̭͡•ʕ•̯ͦ͡•ʕ•̻̀•́ʔʕ•̫͡•ʔ❣ʕ-̼͡-ʔ◟ʕ´∀`ʔ◞ʕ*̫͡*ʕ•͡•ʔ-̫͡-ʕ•̼͡•٩(̾●̮̮̃̾•̃̾)۶ʕ-̺͡•ʔ•̮͡•ʔʕ•͡ω•ʔʕ•͡-•ʔ=͟͟͞͞ʕ•̫͡•ʔ✧ƪ(•̃͡•̃͡ ƪʕ•͕͡•ʔʕ•̫͡•ʔ♡*       (҂⌣̀_⌣́)(❛ัॢᵕ❛ั ॢ)✩*  #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
+cd ; git clone https://aur.archlinux.org/pikaur.git
 # xorg openbox xterm >/dev/null
 #pacman -S alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack gst-plugin-pipewire libpulse vlc htop gufw
 #${PCM} xdg-user-dirs xdg-utils   || ${PCM} xf86-video-${PCC} || ${PCM} xf86-video-${PCC}gpu 2>&1>/dev/null
@@ -29,4 +20,3 @@ set -euo pipefail
 #systemctl enable sddm ; wpga-install.sh ; echo "openbox-session" >> $HOME/.xinitrc ; printf "\e[1;31mDone!\e[0m"                     #
 #echo -n "reboot? (y/n) " ; read ANS ; if [ "$ANS" != "${ANS#[Yy]}" ] ; then exit ; umount -a ; reboot ; fi                            #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#cp installMo.bash /mnt/installMo.bash ; genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt ./installMo.bash
