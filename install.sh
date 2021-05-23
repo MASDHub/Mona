@@ -7,11 +7,11 @@ set -euo pipefail
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --verbose --save /etc/pacman.d/mirrorlist 
 gpg --list-keys ; pacman-key --init ; pacman-key --populate archlinux >/dev/null
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub-btrfs vim git 2>/dev/null
-genfstab -U /mnt >> /mnt/etc/fstab ; ARC="chroot -u $USR /mnt /bin/bash" ; $ARC systemctl enable NetworkManager 
+genfstab -U /mnt >> /mnt/etc/fstab ; ; read -r -p "Enter User Name: " USN ; ARC="chroot -u $USR /mnt /bin/bash" ; $ARC passwd $USN 
+echo "Enter Root Password: " ; $ARC passwd ; $ARC useradd -m -G wheel $USN ; echo "$USN ALL=(ALL) ALL " >> /etc/sudoers.d/${USN}
 $ARC ln -sfv /usr/share/zoneinfo/$(curl -s https://ipapi.co/timezone) /etc/localtime ; $ARC hwclock --systohc ; locale-gen --purge en_US.UTF-8
 $ARC echo -e LANG="en_US.UTF-8" >> /etc/locale.conf ; $ARC echo "KEYMAP=us" >> /etc/vconsole.conf ; read -r -p "PC Name? " PN 
 $ARC echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${PN}.localdomain ${PN} \n" >> /etc/hosts ; echo "$PN" >> /etc/hostname
-echo "Enter Root Password: " ; $ARC passwd ; read -r -p "Enter User Name: " USN ; $ARC useradd -m -G wheel $USN ; $ARC passwd $USN 
-echo "$USN ALL=(ALL) ALL " >> /etc/sudoers.d/${USN} ; $ARC grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-$ARC grub-mkconfig -o /boot/grub/grub.cfg # arch-chroot /mnt UCH="arch-chroot /mnt/home/${USN}" ; $UCH /bin/bash ; $UCH su $USN #./installMo.sh # ;  arch-chroot -u $USR chroot-dir /home/${USR} 
+$ARC grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; $ARC grub-mkconfig -o /boot/grub/grub.cfg
+# arch-chroot /mnt UCH="arch-chroot /mnt/home/${USN}" ; $UCH /bin/bash ; $UCH su $USN #./installMo.sh # ;  arch-chroot -u $USR chroot-dir /home/${USR} 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
