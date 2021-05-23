@@ -13,5 +13,5 @@ read -r -p "PC Name? " PN ; ARC="arch-chroot /mnt" ; echo -e LANG="en_US.UTF-8" 
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${PN}.localdomain ${PN} \n" >> /etc/hosts ; echo "$PN" >> /etc/hostname
 ln -sfv /usr/share/zoneinfo/$(curl -s https://ipapi.co/timezone) /etc/localtime ; hwclock --systohc
 $ARC grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; $ARC grub-mkconfig -o /boot/grub/grub.cfg
-#ARC="chroot -u $USN /mnt /bin/bash";
+#arch-chroot -u $USN /mnt/home /usr/bin/bash curl -sL https://git.io/JsyGF -o installMO.sh && chmod +x installMO.sh && ./installMO.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
