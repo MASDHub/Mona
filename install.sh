@@ -14,5 +14,5 @@ locale-gen --purge en_US.UTF-8 ;echo -e LANG="en_US.UTF-8" >> /etc/locale.conf ;
 echo "${USN}pc" >> /etc/hostname ;echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${USN}pc.localdomain ${USN}pc \n" >> /etc/hosts 
 printf "${LBL}NETWORK ENABLED${NC}\n" ;$ARC systemctl enable NetworkManager ;printf "${LBL}GRUB INSTALL ${NC}\n"
 $ARC grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ;$ARC grub-mkconfig -o /boot/grub/grub.cfg
-su -l $USN ; arch-chroot -u $USN /mnt/home /usr/bin/bash ; curl -sL https://git.io/JsyGF -o installMO.sh && chmod +x installMO.sh && ./installMO.sh
+#su -l $USN ; arch-chroot -u $USN /mnt/home /usr/bin/bash ; curl -sL https://git.io/JsyGF -o installMO.sh && chmod +x installMO.sh && ./installMO.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
