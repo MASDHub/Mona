@@ -7,8 +7,9 @@ set -euo pipefail
 LBL='\033[1;36m' ; NC='\033[0m' ;reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/pacman.d/mirrorlist 
 ARC="arch-chroot /mnt" ;gpg --list-keys ;pacman-key --init ;pacman-key --populate archlinux >/dev/null ;printf "${LBL}Enter to Accpet${NC}\n"
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub-btrfs vim git 2>/dev/null
-genfstab -U /mnt >> /mnt/etc/fstab ;printf "${LBL}Enter Root Password: ${NC}\n" ;passwd -R /mnt ;printf "${LBL}Enter User Name: ${NC}" 
-read -r USN ;useradd -m -G wheel -R /mnt $USN ;passwd -R /mnt $USN ;echo "${USN} ALL=(ALL) ALL " >> /mnt/etc/sudoers.d/${USN}
+genfstab -U /mnt >> /mnt/etc/fstab ;printf "${LBL}Enter Root Password: ${NC}\n" ;passwd ;while [[ $? -ne 0 ]]; do ; passwd
+printf "${LBL}Enter User Name: ${NC}" ; read -r USN ;useradd -m -g users -G wheel -s /bin/bash "$(USN)" ;passwd $USN 
+while [[ $? -ne 0 ]]; do ;passwd $USN ;echo "${USN} ALL=(ALL) ALL " >> /mnt/etc/sudoers.d/${USN}
 ln -sf /usr/share/zoneinfo/$(curl -s https://ipapi.co/timezone) /etc/localtime ;hwclock --systohc 
 locale-gen --purge en_US.UTF-8 ;echo -e LANG="en_US.UTF-8" >> /etc/locale.conf ;echo "KEYMAP=us" >> /etc/vconsole.conf
 echo "${USN}pc" >> /etc/hostname ;echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${USN}pc.localdomain ${USN}pc \n" >> /etc/hosts 
