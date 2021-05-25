@@ -12,7 +12,8 @@ git clone https://aur.archlinux.org/pikaur.git ; cd /pikaur ; makepkg -fsri ;
 #${PCM} xdg-user-dirs xdg-utils   || ${PCM} xf86-video-${PCC} || ${PCM} xf86-video-${PCC}gpu 2>&1>/dev/null
 #cd /pikaur ; makepkg --fsri ; PKR="pikaur -S --noconfirm"                                                                             #
 #${PKR} nm-tray-git all-repository-fonts volumeicon-git tint2-git picom-git wpgtk-git profanity-python2-git obkey-git                 #
-#${PKR} thunar-git thunar-volman-devel thunar-archive-plugin-git thunar-custom-actions gvfs-git geany-git geany-plugins-git           #
+#${PKR} nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-components nemo-seahorse nemo-share
+#thunar-git thunar-volman-devel thunar-archive-plugin-git thunar-custom-actions gvfs-git geany-git geany-plugins-git           #
 #${PKR} firefox-developer-edition obmenu-generator  alacrity-git vim-youcompleteme-git sddm-stellar-theme                              #
 #exit ; grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg               #
 #systemctl enable NetworkManager ; systemctl enable avahi-daemon ; systemctl enable libvirtd ; systemctl enable sshd                  #
