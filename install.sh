@@ -6,9 +6,9 @@ set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 LRD='\033[1;31m' ; NC='\033[0m' ; reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/pacman.d/mirrorlist 
 ARC="arch-chroot /mnt" ;gpg --list-keys ; pacman-key --init ; pacman-key --populate archlinux >/dev/null ; printf "${LRD}Enter to Accpet${NC}\n"
-PMC='sed -i 's/#Color/Color/'' ; $PMC /etc/pacman.conf 
+PMC='sed -i 's/#Color/Color/'' ; PML='echo -e  \n[multilib]\nInclude = /etc/pacman.d/mirrorlist\n\n' ; $PML >> /etc/pacman.conf ; $PMC /etc/pacman.conf 
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub-btrfs vim xorg sddm git openbox  2>/dev/null
-genfstab -U /mnt >> /mnt/etc/fstab ; $PMC /mnt/etc/pacman.conf ; printf "${LRD}Enter Root Password: ${NC}\n" ; $ARC passwd ; printf "${LRD}Enter User Name: ${NC}"
+genfstab -U /mnt >> /mnt/etc/fstab ; $PML >> /mnt/etc/pacman.conf $PMC /mnt/etc/pacman.conf ; printf "${LRD}Enter Root Password: ${NC}\n" ; $ARC passwd ; printf "${LRD}Enter User Name: ${NC}"
 read -r USN ; $ARC useradd -m -g users -G wheel -s /bin/bash $(USN) ; $ARC passwd ${USN} ; echo "${USN} ALL=(ALL) ALL " >> /mnt/etc/sudoers.d/${USN}
 $ARC ln -sf /usr/share/zoneinfo/$(curl -s https://ipapi.co/timezone) /etc/localtime ; $ARC hwclock --systohc 
 $ARC locale-gen --purge en_US.UTF-8 ; $ARC echo -e LANG="en_US.UTF-8" >> /etc/locale.conf ; $ARC echo "KEYMAP=us" >> /etc/vconsole.conf
