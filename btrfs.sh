@@ -12,7 +12,7 @@ PR="$(ls /dev/* | grep -E "^${BT}p?2$")" ; mkfs.vfat "${PB}" ; mkfs.btrfs -fq "$
 BC="btrfs subvolume create @" ; ${BC} ; ${BC}home ; cd ; curl -sL https://git.io/Jsde3 -o install.sh
 umount /mnt ; mount -o noatime,compress=zstd,discard=async,subvol=@ "${PR}" /mnt ; mkdir /mnt/{boot,home}
 mount -o noatime,compress=zstd,discard=async,subvol=@home "${PR}" /mnt/home ; mount "${PB}" /mnt/boot
-lsblk -o name,size,type,mountpoint -e 7,11 ; sed -ni 's/#Color/Color/' /etc/pacman.conf  
+lsblk -o name,size,type,mountpoint -e 7,11 ; sed -i 's/#Color/Color/' /etc/pacman.conf  
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/pacman.d/mirrorlist
 gpg --list-keys ; pacman-key --init ; pacman-key --populate archlinux >/dev/null ; printf "${RD}Enter to Accpet${NC}\n"
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub-btrfs vim xorg sddm git openbox 2>/dev/null
