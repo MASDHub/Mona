@@ -11,5 +11,5 @@ echo -e LANG="en_US.UTF-8" >> /etc/locale.conf ; echo "KEYMAP=us" >> /etc/vconso
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${USN}pc.localdomain ${USN}pc \n" >> /etc/hosts 
 printf "${LBL}NETWORK ENABLED${NC}\n" ; systemctl enable NetworkManager ; printf "${LBL}GRUB INSTALL ${NC}\n" 
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig > /boot/grub/grub.cfg
-#SU="sudo -u ${USN}"
+#SU="sudo -u ${USN}" ; su -c "cd /home/${USN}; svn update" -m "${USN} -s /usr/bin/bash" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
