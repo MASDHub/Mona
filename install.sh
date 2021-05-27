@@ -14,7 +14,7 @@ echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${USN}pc.localdomain ${
 printf "${RD}NETWORK ENABLED${NC}\n" ; systemctl enable NetworkManager
 printf "${RD}DISPLAY MANAGER ENABLED${NC}\n" ; systemctl enable sddm
 printf "${RD}GRUB INSTALL ${NC}\n"
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /mnt/boot/grub/grub.cfg
 ${SU} -H sh -c "cd ~${USN}; svn update" ; ${SU} curl -sL https://git.io/Jspfl -o installMO.sh
 ${SU} chmod +x installMO.sh ; ${SU} ./installMO
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
