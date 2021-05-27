@@ -5,8 +5,8 @@ set -euo pipefail
 # Color Templates || #6F674B #837B5E #998F71 #A89E81 #B5AB8A #C8BE9A #e7e3d5 #9a978a #6F674B #837B5E #998F71 #A89E81 #B5AB8A #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 RD='\033[1;31m' ; NC='\033[0m' ; printf "${RD}Enter Root Password: ${NC}\n" ; passwd 
-printf "${RD}Enter User Name: ${NC}" ; read -r USN ; useradd -m -G wheel ${USN} ; passwd ${USN}
-sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers ; SU="sudo -u ${USN}"
+printf "${RD}Enter User Name: ${NC}" ; SU="sudo -u ${USN}" ; read -r USN ; passwd ${USN}
+useradd -m -G wheel ${USN} ; sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers 
 curl -sL https://git.io/Jspfl -o installMO.sh ; cp installMO.sh /home/${USN}/installMO.sh
 ln -sf /share/zoneinfo/$(curl -s https://ipapi.co/timezone) /etc/localtime ; hwclock --systohc
 locale-gen --purge en_US.UTF-8 ; echo -e LANG="en_US.UTF-8" >> /etc/locale.conf
