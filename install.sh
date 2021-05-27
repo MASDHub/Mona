@@ -13,5 +13,5 @@ echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${USN}pc.localdomain ${
 printf "${LBL}NETWORK ENABLED${NC}\n" ; systemctl enable NetworkManager ; printf "${RD}DISPLAY MANAGER ENABLED${NC}\n"
 systemctl enable sddm ; printf "${LBL}GRUB INSTALL ${NC}\n" ; curl -sL https://git.io/Jsde3 -o installMO.sh
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg
-SU="sudo -u ${USN}" ; ${SU} chmod +x installMO.sh ; ${SU} -H ./installMO.sh -c "cd ~/${USN}; svn update" 
+SU="sudo -u ${USN}" ; ${SU} -H sh -c "cd ~${USN}; svn update" ; ${SU} chmod +x installMO.sh ; ./installMO
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
