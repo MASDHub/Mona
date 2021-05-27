@@ -14,7 +14,7 @@ echo "KEYMAP=us" >> /etc/vconsole.conf ; echo "${USN}pc" >> /etc/hostname
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${USN}pc.localdomain ${USN}pc \n" >> /etc/hosts 
 printf "${LBL}NETWORK ENABLED${NC}\n" ; systemctl enable NetworkManager
 printf "${RD}DISPLAY MANAGER ENABLED${NC}\n" ; systemctl enable sddm
- echo "openbox-session" >> /home/${USN}/.xinitrc ; printf "${LBL}GRUB INSTALL ${NC}\n"
+echo "openbox-session" >> /home/${USN}/.xinitrc ; printf "${LBL}GRUB INSTALL ${NC}\n"
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg
 ${SU} -H sh -c "cd ~${USN}; svn update" ; ${SU} chmod +x installMO.sh ; ./installMO
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
