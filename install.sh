@@ -6,7 +6,8 @@ set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 RD='\033[1;31m' ; NC='\033[0m' ; sed -i 's/#Color/Color/' /etc/pacman.conf ; printf "${RD}Enter Root Password: ${NC}\n" 
 passwd ; printf "${LBL}Enter User Name: ${NC}" ; read -r USN ; useradd -m -G wheel ${USN} ; passwd ${USN} 
-sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers ; cp installMO.sh /home/${USN}installMO.sh 
+sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers ;  curl -sL https://git.io/Jsde3 -o install.sh
+cp installMO.sh /home/${USN}installMO.sh 
 locale-gen --purge en_US.UTF-8 ; ln -sf /share/zoneinfo/$(curl -s https://ipapi.co/timezone) /etc/localtime ; hwclock --systohc 
 echo -e LANG="en_US.UTF-8" >> /etc/locale.conf ; echo "KEYMAP=us" >> /etc/vconsole.conf ; echo "${USN}pc" >> /etc/hostname  
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${USN}pc.localdomain ${USN}pc \n" >> /etc/hosts 
