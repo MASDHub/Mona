@@ -7,7 +7,7 @@ set -euo pipefail
 RD='\033[1;31m' ; NC='\033[0m' ; printf "${RD}Enter Root Password: ${NC}\n" ; passwd 
 printf "${LBL}Enter User Name: ${NC}" ; read -r USN ; useradd -m -G wheel ${USN} ; passwd ${USN}
 sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers ; SU="sudo -u ${USN}"
-curl -sL https://git.io/Jsde3 -o installMO.sh ; cp installMO.sh /home/${USN}/installMO.sh
+curl -sL https://git.io/Jspfl -o installMO.sh ; cp installMO.sh /home/${USN}/installMO.sh
 ln -sf /share/zoneinfo/$(curl -s https://ipapi.co/timezone) /etc/localtime ; hwclock --systohc
 locale-gen --purge en_US.UTF-8 ; echo -e LANG="en_US.UTF-8" >> /etc/locale.conf
 echo "KEYMAP=us" >> /etc/vconsole.conf ; echo "${USN}pc" >> /etc/hostname
