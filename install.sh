@@ -11,10 +11,9 @@ ln -sf /share/zoneinfo/$(curl -s https://ipapi.co/timezone) /etc/localtime ; hwc
 locale-gen --purge en_US.UTF-8 ; echo -e LANG="en_US.UTF-8" >> /etc/locale.conf
 echo "KEYMAP=us" >> /etc/vconsole.conf ; echo "${USN}pc" >> /etc/hostname
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${USN}pc.localdomain ${USN}pc \n" >> /etc/hosts 
-printf "${RD}NETWORK ENABLED${NC}\n" ; systemctl enable NetworkManager
-printf "${RD}DISPLAY MANAGER ENABLED${NC}\n" ; systemctl enable sddm
-printf "${RD}GRUB INSTALL ${NC}\n"
+printf "${RD}NETWORK ENABLED${NC}\n" ; systemctl enable NetworkManager ; printf "${RD}GRUB INSTALL ${NC}\n"
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg
+#printf "${RD}DISPLAY MANAGER ENABLED${NC}\n" ; systemctl enable sddm
 #SU="sudo -u ${USN}" #${SU} -H sh -c "cd ~${USN}; svn update" ; ${SU} curl -sL https://git.io/Jspfl -o installMO.sh
 #${SU} chmod +x installMO.sh ; ${SU} ./installMO
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
