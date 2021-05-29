@@ -18,7 +18,6 @@ head -n 17 install.sh
 # Color Templates || #6F674B #837B5E #998F71 #A89E81 #B5AB8A #C8BE9A #e7e3d5 #9a978a #6F674B #837B5E    #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 sed -i 's/#Color/Color/' /etc/pacman.conf ; sed -i 's/#TotalDownload/TotalDownload/' /etc/pacman.conf
-echo -e "\n[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" >> /etc/pacman.conf
 RED='\033[1;31m' ; NOC='\033[0m' ; printf "${RED}Enter Root Password: ${NOC}\n" ; passwd 
 printf "${RED}Enter User Name: ${NOC}" ; read -r USN ; useradd -m -G wheel ${USN} ; passwd ${USN} 
 sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers
@@ -29,7 +28,7 @@ echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${USN}pc.localdomain ${
 MOD='MODULES=' ; MKC='/etc/mkinitcpio.conf' ; if [[ "$(lscpu | grep -Eo "Intel" | sort -u)" == Intel ]]
 then VGA="intel-ucode xf86-video-intel" && sed -i 's/'${MOD}'()/'${MOD}'(i915 btrfs)/' ${MKC} ; else
 VGA="amd-ucode xf86-video-amdgpu" && sed -i 's/'${MOD}'()/'${MOD}'(amdgpu btrfs)/' ${MKC} ; fi 
-printf "${RED}GRAPHIC DRIVERS${NOC}\n" ; pacman -Syu ${VGA} ; mkinitcpio -P
+printf "${RED}GRAPHIC DRIVERS${NOC}\n" ; pacman -Sy ${VGA} ; mkinitcpio -P
 printf "${RED}NETWORK ENABLED${NOC}\n" ; systemctl enable NetworkManager
 umount /.snapshots/ ; rm -rf /.snapshots/ ; snapper --no-dbus -v list-configs ; snapper --no-dbus -v create-config / 
 btrfs subvolume delete /.snapshots ; mkdir /.snapshots ; mount -a ; chmod 750 /.snapshots 
