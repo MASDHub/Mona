@@ -14,5 +14,4 @@ git clone https://aur.archlinux.org/pikaur.git ; cd /pikaur ; makepkg -fsri ; PK
 #${PKR} firefox-developer-edition alacrity-git vim-youcompleteme-git sddm-stellar-theme sddm-config-editor-git 
 #exit ;wpga-install.sh ; echo "openbox-session" >> $HOME/.xinitrc ; printf "\e[1;31mDone!\e[0m"                     
 #echo -n "reboot? (y/n) " ; read ANS ; if [ "$ANS" != "${ANS#[Yy]}" ] ; then exit ; umount -a ; reboot ; fi    
-HERE
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
