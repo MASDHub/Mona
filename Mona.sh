@@ -14,7 +14,6 @@ mount "${PR}" /mnt ; cd /mnt ; ${BC} ; ${BC}home ; ${BC}snapshots ; cd ; umount 
 mkdir /mnt/{boot,home,.snapshots} ; ${MU}home "${PR}" /mnt/home ; ${MU}home "${PR}" /mnt/.snapshots 
 mount "${PB}" /mnt/boot ; lsblk -o name,size,type,mountpoint -e 7,11 ; sleep 5
 curl -sL https://git.io/Jsde3 > install.sh ; cp install.sh /mnt/install.sh ; chmod +x /mnt/install.sh 
-curl -sL https://git.io/Jspfl > installMO.sh ; cp installMO.sh /mnt/installMO.sh 
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/pacman.d/mirrorlist
 sed -i 's/#Color/Color/' /etc/pacman.conf ; sed -i 's/#TotalDownload/TotalDownload/' /etc/pacman.conf
 gpg -k ; pacman-key --init ; pacman-key --populate archlinux >/dev/null
