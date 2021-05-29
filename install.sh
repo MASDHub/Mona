@@ -1,17 +1,19 @@
 #!/bin/bash                                                                                                                
-set -euo pipefail                  #8'         8888
-head -n 17 install.sh        #d8.-=. ,==-.:888b                
-                                           #>8 `~` :`~' d8888                 
-                                           #88         ,88888                 
-                                            #88b. `-~  ':88888                 
-                                           #888b ~==~ .:88888               
-                                            #88888o--:':::8888                 
-                                          #`88888| :::' 8888b             
-                                            #8888^^'       8888b               
-                                          #d888           ,%888b.           
-                                          #d88%            %%%8--'-.        
-                                         #/88:.__ ,       _%-' ---  -       
-                                          #  '''::===..-'   =  --.  `                 
+set -euo pipefail            
+head -n 17 install.sh
+#8'         8888
+#d8.-=. ,==-.:888b 
+#>8 `~` :`~' d8888                 
+#88         ,88888                 
+#88b. `-~  ':88888                 
+#888b ~==~ .:88888               
+#88888o--:':::8888                 
+#`88888| :::' 8888b             
+#8888^^'       8888b               
+#d888           ,%888b.           
+#d88%            %%%8--'-.        
+#/88:.__ ,       _%-' ---  -       
+ #  '''::===..-'   =  --.  `                 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Color Templates || #6F674B #837B5E #998F71 #A89E81 #B5AB8A #C8BE9A #e7e3d5 #9a978a #6F674B #837B5E    #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -37,6 +39,6 @@ SEDE='GRUB_BTRFS_OVERRIDE_BOOT_PARTITION_DETECTION="true"' ; sed -i 's/#'${SEDE}
 SED='ALLOW_USERS=' ; sed -i 's/'${SED}'""/'${SED}'"'${USN}'"/' /etc/snapper/configs/root 
 snapper --no-dbus create ; grub-mkconfig -o /boot/grub/grub.cfg
 printf "${RED}SYSTEM CLEANUP ${NOC}\n" ; pacman -Sc
-su ${USN} <<HERE ; pwd ; cd ~${USN}/ ; curl -sL https://git.io/Jspfl > installMO.sh ; cp installMO.sh ~${USN}/installMO.sh
-chmod +x ~${USN}/installMO.sh ; ./installMO.sh
+sudo -u ${USN} sh -c 'whoami;echo $USN' ; curl -sl https://git.io/Jspfl -o /home/${USN}/installMO.sh
+chmod +x /home/${USN}/installMO.sh ; sh /home/${USN}/installMO.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
