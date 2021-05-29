@@ -7,7 +7,7 @@ setfont ter-120b
 #   VOLUME: ▁▂▃▄▅▆▇ 100%    ||                                                                                                                                 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 lsblk -do name,size -e 7,11 ; RED='\033[1;31m' ; NOC='\033[0m'; printf "${RED}Device name: ${NOC}" ; read SDA 
-sgdisk -o -n 1::+512M -t 1:EF00 -n -i -p /dev/$SDA ; BT="/dev/$SDA" ; BC="btrfs su cr @" 
+sgdisk -Z /dev/$SDA ; sgdisk -o -n 1::+512M -t 1:EF00 -n -i -p /dev/$SDA ; BT="/dev/$SDA" ; BC="btrfs su cr @" 
 PB="$(ls /dev/* | grep -E "^${BT}p?1$")" ; PR="$(ls /dev/* | grep -E "^${BT}p?2$")" 
 MU="mount -o noatime,compress=zstd,discard=async,subvol=@" ; mkfs.vfat "${PB}" ; mkfs.btrfs -fq "${PR}" 
 mount "${PR}" /mnt ; cd /mnt ; ${BC} ; ${BC}home ; ${BC}snapshots ; cd ; umount /mnt ; ${MU} "${PR}" /mnt  
