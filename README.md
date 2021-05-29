@@ -1,18 +1,5 @@
 
 
-<div>
-<p>&nbsp;</p>
-<p><a href="http://www.onickz.com" target="_top"><br>
-  </a></p>
-<p><a href="http://www.onickz.com" target="_top"><img src="http://www.onickz.com/tpl/images/onickz artworks logo.jpg" alt="onickz artworks cinema and production title" width="778" height="90" border="0"></a><br>
-</p>
-<div id="container">
-  <div id="mainContent"><!-- InstanceBeginEditable name="EditRegion1" -->
-<!-- ImageReady Slices (TPL02_01.psd) -->
-<table id="Table_01" width="1000" height="90%
-" cellspacing="0" cellpadding="0" border="0" align="center">
- 
-
   <tbody><tr>
     <td colspan="6"><div align="center">
 
