@@ -28,7 +28,7 @@ echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${USN}pc.localdomain ${
 MOD='MODULES=' ; MKC='/etc/mkinitcpio.conf' ; if [[ "$(lscpu | grep -Eo "Intel" | sort -u)" == Intel ]]
 then VGA="intel-ucode xf86-video-intel" && sed -i 's/'${MOD}'()/'${MOD}'(i915 btrfs)/' ${MKC} ; else
 VGA="amd-ucode xf86-video-amdgpu" && sed -i 's/'${MOD}'()/'${MOD}'(amdgpu btrfs)/' ${MKC} ; fi 
-printf "${RED}GRAPHIC DRIVERS${NOC}\n" ; pacman -Sy ${VGA} ; mkinitcpio -P
+printf "${RED}GRAPHIC DRIVERS${NOC}\n" ; pacman -S ${VGA} ; mkinitcpio -P
 printf "${RED}NETWORK ENABLED${NOC}\n" ; systemctl enable NetworkManager
 umount /.snapshots/ ; rm -rf /.snapshots/ ; snapper --no-dbus -v list-configs ; snapper --no-dbus -v create-config / 
 btrfs subvolume delete /.snapshots ; mkdir /.snapshots ; mount -a ; chmod 750 /.snapshots 
