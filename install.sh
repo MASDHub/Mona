@@ -39,6 +39,6 @@ GFX='GRUB_GFXMODE=' ; sed -i 's/'${GFX}'auto/'${GFX}'1920x1080,1024x768x32,auto/
 SEDE='GRUB_BTRFS_OVERRIDE_BOOT_PARTITION_DETECTION="true"' ; sed -i 's/#'${SEDE}'/'${SEDE}'/' /etc/default/grub-btrfs/config 
 SED='ALLOW_USERS=' ; sed -i 's/'${SED}'""/'${SED}'"'${USN}'"/' /etc/snapper/configs/root 
 snapper --no-dbus create ; grub-mkconfig -o /boot/grub/grub.cfg
-printf "${RED}SYSTEM CLEANUP ${NOC}\n" ; pacman -Sc
-cd / ; chown root:root /home ; chmod 755 /home
+printf "${RED}SYSTEM CLEANUP ${NOC}\n" ; pacman -Sc ; cd / ; chown root:root /home ; chmod 755 /home 
+su ${USN} -c 'curl -sL https://git.io/Jspfl -o /home/${USN}/installMO.sh ;  su ${USN} -c 'sh ~/installMO.sh'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
