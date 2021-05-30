@@ -17,6 +17,6 @@ curl -sL https://git.io/Jsde3 > install.sh ; cp install.sh /mnt/install.sh ; chm
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/pacman.d/mirrorlist
 sed -i 's/#Color/Color/' /etc/pacman.conf ; sed -i 's/#TotalDownload/TotalDownload/' /etc/pacman.conf
 gpg -k ; pacman-key --init ; pacman-key --populate archlinux >/dev/null
-pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub-btrfs vim git snap-pac
+pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub-btrfs vim snap-pac
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
