@@ -41,5 +41,5 @@ SED='ALLOW_USERS=' ; sed -i 's/'${SED}'""/'${SED}'"'${USN}'"/' /etc/snapper/conf
 snapper --no-dbus create ; grub-mkconfig -o /boot/grub/grub.cfg
 printf "${RED}SYSTEM CLEANUP ${NOC}\n" ; pacman -Sc
 sudo -u ${USN} sh -c 'whoami;echo $USN' ; curl -sL https://git.io/Jspfl -o /home/${USN}/installMO.sh
-chmod +x /home/${USN}/installMO.sh ; sh /home/${USN}/installMO.sh
+chmod +x /home/${USN}/installMO.sh ;  su ${USN} -c /home/${USN}/installMO.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
