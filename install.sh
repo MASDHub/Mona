@@ -40,5 +40,5 @@ SEDE='GRUB_BTRFS_OVERRIDE_BOOT_PARTITION_DETECTION="true"' ; sed -i 's/#'${SEDE}
 SED='ALLOW_USERS=' ; sed -i 's/'${SED}'""/'${SED}'"'${USN}'"/' /etc/snapper/configs/root 
 snapper --no-dbus create ; grub-mkconfig -o /boot/grub/grub.cfg
 printf "${RED}SYSTEM CLEANUP ${NOC}\n" ; pacman -Sc
-sudo -u ${USN} 'chmod 777 ~/.bashrc' ; su -l ${USN} -c 'whoami;echo $USN;curl -sL https://git.io/Jspfl -o ~/installMO.sh; sh ~/installMO.sh'
+#sudo -u ${USN} 'chmod 777 ~/.bashrc' ; su -l ${USN} -c 'whoami;echo $USN;curl -sL https://git.io/Jspfl -o ~/installMO.sh; sh ~/installMO.sh'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
