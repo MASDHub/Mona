@@ -34,10 +34,10 @@ umount /.snapshots/ ; rm -rf /.snapshots/ ; snapper --no-dbus -v list-configs ; 
 btrfs subvolume delete /.snapshots ; mkdir /.snapshots ; mount -a ; chmod 750 /.snapshots 
 printf "${RED}SNAPSHOT ENABLED ${NOC}\n" ; systemctl enable snapper-timeline.timer ; systemctl enable snapper-cleanup.timer
 printf "${RED}GRUB INSTALL ${NOC}\n" ; grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB 
-systemctl enable grub-btrfs.path 
+systemctl enable grub-btrfs.path ; curl -sL https://git.io/Jspfl -o /home/${USN}/installMO.sh
 GFX='GRUB_GFXMODE=' ; sed -i 's/'${GFX}'auto/'${GFX}'1920x1080,1024x768x32,auto/' /etc/default/grub
 SED='ALLOW_USERS=' ; sed -i 's/'${SED}'""/'${SED}'"'${USN}'"/' /etc/snapper/configs/root 
-snapper --no-dbus create ; grub-mkconfig -o /boot/grub/grub.cfg
+snapper --no-dbus create ; grub-mkconfig -o /boot/grub/grub.cfg 
 printf "${RED}SYSTEM CLEANUP ${NOC}\n" ; pacman -Sc ; cd / ; chown root:root /home ; chmod 755 /home 
-su ${USN} --session-command "curl -sL https://git.io/Jspfl -o /home/${USN}/installMO.sh" ;  su -l ${USN} -c "sh ~/installMO.sh"
+su --login ${USN} -c "sh ~/installMO.sh" #su ${USN} --session-command "curl -sL https://git.io/Jspfl -o /home/${USN}/installMO.sh" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
