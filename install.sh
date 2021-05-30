@@ -39,5 +39,5 @@ GFX='GRUB_GFXMODE=' ; sed -i 's/'${GFX}'auto/'${GFX}'1920x1080,1024x768x32,auto/
 SED='ALLOW_USERS=' ; sed -i 's/'${SED}'""/'${SED}'"'${USN}'"/' /etc/snapper/configs/root 
 snapper --no-dbus create ; grub-mkconfig -o /boot/grub/grub.cfg
 printf "${RED}SYSTEM CLEANUP ${NOC}\n" ; pacman -Sc ; cd / ; chown root:root /home ; chmod 755 /home 
-su ${USN} --session-command 'curl -sL https://git.io/Jspfl -o /home/${USN}/installMO.sh' ;  su ${USN} --session-command 'sh ~/installMO.sh'
+su ${USN} -c "curl -sL https://git.io/Jspfl -o /home/${USN}/installMO.sh" ;  su ${USN} -c "sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
