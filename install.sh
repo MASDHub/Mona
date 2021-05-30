@@ -36,7 +36,6 @@ printf "${RED}SNAPSHOT ENABLED ${NOC}\n" ; systemctl enable snapper-timeline.tim
 printf "${RED}GRUB INSTALL ${NOC}\n" ; grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB 
 systemctl enable grub-btrfs.path 
 GFX='GRUB_GFXMODE=' ; sed -i 's/'${GFX}'auto/'${GFX}'1920x1080,1024x768x32,auto/' /etc/default/grub
-#SEDE='GRUB_BTRFS_OVERRIDE_BOOT_PARTITION_DETECTION="true"' ; sed -i 's/#'${SEDE}'/'${SEDE}'/' /etc/default/grub-btrfs/config 
 SED='ALLOW_USERS=' ; sed -i 's/'${SED}'""/'${SED}'"'${USN}'"/' /etc/snapper/configs/root 
 snapper --no-dbus create ; grub-mkconfig -o /boot/grub/grub.cfg
 printf "${RED}SYSTEM CLEANUP ${NOC}\n" ; pacman -Sc ; cd / ; chown root:root /home ; chmod 755 /home 
