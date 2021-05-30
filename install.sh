@@ -25,10 +25,6 @@ ln -sf /share/zoneinfo/$(curl -s https://ipapi.co/timezone) /etc/localtime ; hwc
 echo "LC_ALL=en_US.UTF-8" >> /etc/environment ; echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf ; locale-gen en_US.UTF-8 ; echo "${USN}pc" >> /etc/hostname
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${USN}pc.localdomain ${USN}pc \n" >> /etc/hosts 
-MOD='MODULES=' ; MKC='/etc/mkinitcpio.conf' ; if [[ "$(lscpu | grep -Eo "Intel" | sort -u)" == Intel ]]
-then VGA="intel-ucode xf86-video-intel" && sed -i 's/'${MOD}'()/'${MOD}'(i915 btrfs)/' ${MKC} ; else
-VGA="amd-ucode xf86-video-amdgpu" && sed -i 's/'${MOD}'()/'${MOD}'(amdgpu btrfs)/' ${MKC} ; fi 
-printf "${RED}GRAPHIC DRIVERS${NOC}\n" ; pacman -S ${VGA} ; mkinitcpio -P
 printf "${RED}NETWORK ENABLED${NOC}\n" ; systemctl enable NetworkManager
 umount /.snapshots/ ; rm -rf /.snapshots/ ; snapper --no-dbus -v list-configs ; snapper --no-dbus -v create-config / 
 btrfs subvolume delete /.snapshots ; mkdir /.snapshots ; mount -a ; chmod 750 /.snapshots 
