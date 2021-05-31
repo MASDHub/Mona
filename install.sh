@@ -19,8 +19,12 @@ head -n 17 install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 sed -i 's/#Color/Color/' /etc/pacman.conf ; sed -i 's/#TotalDownload/TotalDownload/' /etc/pacman.conf
 RED='\033[1;31m' ; NOC='\033[0m' ; printf "${RED}Enter Root Password: ${NOC}\n" ; passwd 
-printf "${RED}Enter User Name: ${NOC}" ; read -r USN ; useradd -m -G wheel ${USN} ; passwd ${USN} 
+while [[ $? -ne 0 ]]; do passwd "${USN}" ; done ; printf "${RED}Enter User Name: ${NOC}" 
+read -r USN ; useradd -m -G wheel ${USN} ; passwd "${USN}" ; while [[ $? -ne 0 ]]; do passwd "${USN}" ; done 
 sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers
+DS='DESKTOP' ; Dk='Desktop"' ; DW='DOWNLOAD' ; Dn='Downloads"' ; MU='MUSIC' ; Me='Media"' ; DIR='_DIR="$HOME/' 
+echo -e "XDG_${DS}${DIR}${Dk}\nXDG_${DW}${DIR}${Dn}\nXDG_${MU}${DIR}${Me}" > /home/${USN}/.config/user-dirs.dirs
+echo "openbox-session" >> /home/${USN}/.xinitrc 
 ln -sf /share/zoneinfo/$(curl -s https://ipapi.co/timezone) /etc/localtime ; hwclock --systohc
 echo "LC_ALL=en_US.UTF-8" >> /etc/environment ; echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf ; locale-gen en_US.UTF-8 ; echo "${USN}pc" >> /etc/hostname
