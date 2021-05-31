@@ -7,8 +7,8 @@ setfont ter-124b
 #   VOLUME: ▁▂▃▄▅▆▇ 100%    ||                                                                                                                                   #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 R='\e[1;31m' ; N='\e[0m' ; DV="name,size -e 7,11" ; lsblk -do "${DV}" ; printf "${R}Device name: ${N}"
-read -e 'D' ; B="/dev/${D}" ; D1="$(ls /dev/* | grep -E "^${B}p?1$")" ; D2="$(ls /dev/* | grep -E "^${B}p?2$")"
-sgdisk -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p "/dev/${D}" ; mkfs.vfat "${D1}" ; mkfs.btrfs -fq "${D2}"
+read -e D ; B="/dev/${D}" ; D1="$(ls /dev/* | grep -E "^${B}p?1$")" ; D2="$(ls /dev/* | grep -E "^${B}p?2$")"
+sgdisk "/dev/${D}" -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p ; mkfs.vfat "${D1}" ; mkfs.btrfs -fq "${D2}"
 MU='mount -o noatime,compress=zstd,discard=async,subvol=@' ; BC='btrfs su cr @'
 mount "${D2}" /mnt ; cd /mnt ${BC} ; ${BC}home ; cd ; umount /mnt ; ${MU} "${D2}" /mnt
 mkdir /mnt/{boot,home} ; ${MU}home "${D2}" /mnt/home ; mount "${D1}" /mnt/boot ; lsblk -o ${DV}
