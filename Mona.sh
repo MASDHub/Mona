@@ -15,10 +15,11 @@ mkdir /mnt/{boot,home} ; ${MU}home ${D2} /mnt/home ; mount ${D1} /mnt/boot ; lsb
 P='pacman' ; T='TotalDownload' ; gpg -k ; ${P}-key --init ; ${P}-key --populate archlinux >/dev/null
 sed -i 's/#Color/Color/' /etc/${P}.conf ; sed -i 's/#{T}/{T}/' /etc/${P}.conf
 MO='MODULES=' ; MK='/etc/mkinitcpio.conf' ; XV='xf86-video-' ; L="lscpu | grep -Eo" ; S="| sort -u"
-if [[ "$(${L} "Intel" ${S})" == Intel ]] ; then VGA="intel-ucode ${XV}intel" && sed -i "s/${MO}()/${MO}(i915 btrfs)/" ${MK}
-elif [[ "$(${L} "AMD" ${S})" == "AMD" ]] ; then VGA="amd-ucode ${XV}amdgpu" && sed -i "s/${MO}()/${MO}(amdgpu btrfs)/" ${MK} ; fi
+if [[ "$(${L} "Intel" ${S})" == "Intel" ]] ; then V="intel-ucode ${XV}intel" ; elif [[ "$(${L} "AMD" ${S})" == "AMD" ]] 
+then V="amd-ucode ${XV}amdgpu" ; elif [[ "${V}" == "intel-ucode ${XV}intel" ]] ; then sed -i "s/${MO}()/${MO}(i915 btrfs)/" ${MK}
+elif [[ "${V}" == "amd-ucode ${XV}amdgpu" ]] ; then sed -i "s/${MO}()/${MO}(amdgpu btrfs)/" ${MK} ; fi
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/${P}.d/mirrorlist
 curl -sL https://git.io/Jsde3 > install.sh ; cp install.sh /mnt/install.sh ; chmod +x /mnt/install.sh
-pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub-btrfs vim git ${VGA}
+pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub-btrfs vim git ${V}
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
