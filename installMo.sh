@@ -12,11 +12,11 @@ echo -e "XDG_${DS}${DIR}${Dk}\nXDG_${DW}${DIR}${Dn}\nXDG_${MU}${DIR}${Me}" > /ho
 # Color Templates || ʕु-̫͡-ʔु”♬ ʕ•̭͡•ʕ•̯ͦ͡•ʕ•̻̀•́ʔ🤘❣ʕ-̼͡-ʔ◟ʕ´∀`ʔ◞ʕ*̫͡*ʕ•͡•ʔ-̫͡-ʕ•̼͡•٩(̾●̮̮̃̾•̃̾)۶ʕ-̺͡•ʔ•̮͡•ʔʕ•͡ω•ʔʕ•͡-•ʔ=͟͟͞͞ʕ•̫͡•ʔ✧ƪ(•̃͡•̃͡ ƪʕ•͕͡•ʔʕ•̫͡•ʔ♡*🔆🔅 (҂⌣̀_⌣́)(❛ัॢᵕ❛ั ॢ)✨  
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 P="pikaur -S" ; X='xfce4' ; W='pipewire' ; F='firefox-developer-edition-i18n-' ; O='otf-fira-' 
-${P} xorg rsync xfce-polkit openbox ${X}-settings archlinux-xdg-menu xfconf network-manager-applet nm-connection-editor gufw xterm
-&& alsa-utils ${W} ${W}-alsa ${W}-pulse ${W}-jack gst-plugin-${W} libpulse vlc picom xorg-xprop gvfs xcursor-breeze
-&& nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-components obkey ristretto menulibre timeshift 
-&& ${F}en-us ${F}en-gb ${F}en-ca  ${F}fr ${F}de ${F}it ${F}ja ${F}zh-cn ${F}zh-tw ${F}$ru {F}he ${F}pt-br ${O}sans ${O}mono ttf-ms-fonts
-&& ${X}-whiskermenu-plugin ${X}-taskmanager ${X}-screenshooter ${X}-notes-plugin ${X}-appfinder ${X}-datetime-plugin ${X}-mpc-plugin
+${P} xorg rsync xfce-polkit openbox ${X}-settings archlinux-xdg-menu xfconf network-manager-applet nm-connection-editor gufw xterm \
+&& alsa-utils ${W} ${W}-alsa ${W}-pulse ${W}-jack gst-plugin-${W} libpulse vlc picom xorg-xprop gvfs xcursor-breeze \
+&& nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-components obkey ristretto menulibre timeshift \
+&& ${F}en-us ${F}en-gb ${F}en-ca  ${F}fr ${F}de ${F}it ${F}ja ${F}zh-cn ${F}zh-tw ${F}$ru {F}he ${F}pt-br ${O}sans ${O}mono ttf-ms-fonts \
+&& ${X}-whiskermenu-plugin ${X}-taskmanager ${X}-screenshooter ${X}-notes-plugin ${X}-appfinder ${X}-datetime-plugin ${X}-mpc-plugin 
 if [[ -n "$(grep -E '8|9|10|11|12|13|14' /sys/class/dmi/id/chassis_type)" ]]; then ${P} ${X}-power-manager ${X}-battery-plugin ; fi
 A='alacritty' ; U='/usr/local/' ; C='completion' ; git clone https://github.com/${A}/${A}.git ; cd ${A} 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh ; rustup override set stable ; rustup update stable
