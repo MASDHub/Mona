@@ -6,10 +6,10 @@ setfont ter-122b
 #  0:35 ━❍──────── -5:32                                                                                                                                           #
 #   VOLUME: ▁▂▃▄▅▆▇ 100%    ||                                                                                                                                 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-lsblk -do name,size -e 7,11 | grep '[a-Z]' ; printf "Device name: " | grep [a-Z:] ; read SDA 
-sgdisk -Z /dev/$SDA ; sgdisk -o -n 1::+512M -t 1:EF00 -n -i -p /dev/$SDA ; BT="/dev/$SDA" ; BC="btrfs su cr @" 
-PB="$(ls /dev/* | grep -E "^${BT}p?1$")" ; PR="$(ls /dev/* | grep -E "^${BT}p?2$")" 
-MU="mount -o noatime,compress=zstd,discard=async,subvol=@" ; mkfs.vfat "${PB}" ; mkfs.btrfs -fq "${PR}" 
+R='\e[1;31m' ; N='\e[0m'  ; lsblk -do name,size -e 7,11 ; printf "${R}Device name: ${N}" ; read SDA 
+BT="/dev/$SDA" ; PB="$(ls /dev/* | grep -E "^${BT}p?1$")" ; PR="$(ls /dev/* | grep -E "^${BT}p?2$")" 
+sgdisk -Z  -o -n 1::+512M -t 1:EF00 -n -i -v -p /dev/$SDA  ; mkfs.vfat "${PB}" ; mkfs.btrfs -fq "${PR}" 
+BC="btrfs su cr @" ; MU="mount -o noatime,compress=zstd,discard=async,subvol=@"
 mount "${PR}" /mnt ; cd /mnt ; ${BC} ; ${BC}home ; cd ; umount /mnt ; ${MU} "${PR}" /mnt  
 mkdir /mnt/{boot,home} ; ${MU}home "${PR}" /mnt/home ; mount "${PB}" /mnt/boot 
 lsblk -o name,size,type,mountpoint -e 7,11 ; sleep 5
