@@ -6,7 +6,7 @@ setfont ter-122b
 #  0:35 ━❍──────── -5:32                                                                                                                                           #
 #   VOLUME: ▁▂▃▄▅▆▇ 100%    ||                                                                                                                                 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-lsblk -do name,size -e 7,11 | grep '[a-Z] ; printf "Device name: " | grep [a-Z:] ; read SDA 
+lsblk -do name,size -e 7,11 | grep '[a-Z]' ; printf "Device name: " | grep [a-Z:] ; read SDA 
 sgdisk -Z /dev/$SDA ; sgdisk -o -n 1::+512M -t 1:EF00 -n -i -p /dev/$SDA ; BT="/dev/$SDA" ; BC="btrfs su cr @" 
 PB="$(ls /dev/* | grep -E "^${BT}p?1$")" ; PR="$(ls /dev/* | grep -E "^${BT}p?2$")" 
 MU="mount -o noatime,compress=zstd,discard=async,subvol=@" ; mkfs.vfat "${PB}" ; mkfs.btrfs -fq "${PR}" 
