@@ -8,7 +8,7 @@ setfont ter-122b
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 R='\e[1;31m' ; N='\e[0m'  ; DV='name,size -e 7,11' ; lsblk -do ${DV} ; printf "${R}Device name: ${N}" ; read SDA 
 BT="/dev/$SDA" ; PB="$(ls /dev/* | grep -E "^${BT}p?1$")" ; PR="$(ls /dev/* | grep -E "^${BT}p?2$")" 
-sgdisk -Z  -o -n 1::+512M -t 1:EF00 -n -i -v -p /dev/$SDA  ; mkfs.vfat "${PB}" ; mkfs.btrfs -fq "${PR}" 
+sgdisk -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p /dev/$SDA  ; mkfs.vfat "${PB}" ; mkfs.btrfs -fq "${PR}" 
 BC="btrfs su cr @" ; MU="mount -o noatime,compress=zstd,discard=async,subvol=@"
 mount "${PR}" /mnt ; cd /mnt ; ${BC} ; ${BC}home ; cd ; umount /mnt ; ${MU} "${PR}" /mnt  
 mkdir /mnt/{boot,home} ; ${MU}home "${PR}" /mnt/home ; mount "${PB}" /mnt/boot 
