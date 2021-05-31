@@ -21,7 +21,7 @@ sed -i 's/#Color/Color/' /etc/pacman.conf ; sed -i 's/#TotalDownload/TotalDownlo
 RED='\033[1;31m' ; NOC='\033[0m' ; printf "${RED}Enter Root Password: ${NOC}\n" ; passwd 
 while [[ $? -ne 0 ]]; do passwd "${USN}" ; done ; printf "${RED}Enter User Name: ${NOC}" 
 read -r USN ; useradd -m -G wheel ${USN} ; passwd "${USN}" ; while [[ $? -ne 0 ]]; do passwd "${USN}" ; done 
-sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers
+sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers ; mkdir /home/${USN}/.config/
 DS='DESKTOP' ; Dk='Desktop"' ; DW='DOWNLOAD' ; Dn='Downloads"' ; MU='MUSIC' ; Me='Media"' ; DIR='_DIR="$HOME/' 
 echo -e "XDG_${DS}${DIR}${Dk}\nXDG_${DW}${DIR}${Dn}\nXDG_${MU}${DIR}${Me}" > /home/${USN}/.config/user-dirs.dirs
 echo "openbox-session" >> /home/${USN}/.xinitrc 
