@@ -19,8 +19,9 @@ head -n 17 install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 sed -i 's/#Color/Color/' /etc/pacman.conf ; sed -i 's/#TotalDownload/TotalDownload/' /etc/pacman.conf
 RED='\033[1;31m' ; NOC='\033[0m' ; printf "${RED}Enter Root Password: ${NOC}\n" 
-passwd ; while [[ $? -ne 0 ]] ; do passwd ; done ; printf "${RED}Enter User Name: ${NOC}" ; read -r USN ; useradd -m -G wheel ${USN}
-passwd "${USN}" ; while [[ $? -ne 0 ]] ; do passwd "${USN}" ; done ; mkdir /home/${USN}/.config/
+WRP="if [[ $? -ne 0 ]] ; then passwd"
+passwd ; ${WRP} ; fi ; printf "${RED}Enter User Name: ${NOC}" ; read -r USN ; useradd -m -G wheel ${USN}
+passwd "${USN}" ; ${WRP} ${USN} ; fi ; mkdir /home/${USN}/.config/
 sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers 
 DS='DESKTOP' ; Dk='Desktop"' ; DW='DOWNLOAD' ; Dn='Downloads"' ; MU='MUSIC' ; Me='Media"' ; DIR='_DIR="$HOME/' 
 echo -e "XDG_${DS}${DIR}${Dk}\nXDG_${DW}${DIR}${Dn}\nXDG_${MU}${DIR}${Me}" > /home/${USN}/.config/user-dirs.dirs
