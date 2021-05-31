@@ -6,7 +6,7 @@ setfont ter-124b
 #  0:35 ━❍──────── -5:32                                                                                                                                           #
 #   VOLUME: ▁▂▃▄▅▆▇ 100%    ||                                                                                                                                   #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-R='\e[1;31m' ; N='\e[0m' ; DV="name,size -e 7,11" ; lsblk -do "${DV}" ; printf "${R}Device name: ${N}"
+R='\e[1;31m' ; N='\e[0m' ; DV="name,size -e 7,11" ; lsblk -do ${DV} ; printf "${R}Device name: ${N}"
 read -e D ; B="/dev/${D}" ; D1="$(ls /dev/* | grep -E "^${B}p?1$")" ; D2="$(ls /dev/* | grep -E "^${B}p?2$")"
 sgdisk "/dev/${D}" -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p ; mkfs.vfat "${D1}" ; mkfs.btrfs -fq "${D2}"
 MU='mount -o noatime,compress=zstd,discard=async,subvol=@' ; BC='btrfs su cr @'
