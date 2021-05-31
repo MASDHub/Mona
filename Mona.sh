@@ -8,10 +8,10 @@ setfont ter-124b
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 R='\e[1;31m' ; N='\e[0m' ; DV="name,size -e 7,11" ; lsblk -do ${DV} ; printf "${R}Device name: ${N}"
 read -e D ; B="/dev/${D}" ; D1="$(ls /dev/* | grep -E "^${B}p?1$")" ; D2="$(ls /dev/* | grep -E "^${B}p?2$")"
-sgdisk "/dev/${D}" -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p ; mkfs.vfat "${D1}" ; mkfs.btrfs -fq "${D2}"
-MU='mount -o noatime,compress=zstd,discard=async,subvol=@' ; BC='btrfs su cr @'
-mount "${D2}" /mnt ; cd /mnt ${BC} ; ${BC}home ; cd ; umount /mnt ; ${MU} "${D2}" /mnt
-mkdir /mnt/{boot,home} ; ${MU}home "${D2}" /mnt/home ; mount "${D1}" /mnt/boot ; lsblk -o ${DV}
+sgdisk /dev/${D} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p ; mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
+MU='mount -o noatime,compress=zstd,discard=async,subvol=@' ; BC="btrfs su cr @"
+mount ${D2} /mnt ; cd /mnt ; ${BC} ; ${BC}home ; cd ; umount /mnt ; ${MU} ${D2} /mnt
+mkdir /mnt/{boot,home} ; ${MU}home ${D2} /mnt/home ; mount ${D1} /mnt/boot ; lsblk -o ${DV}
 P='pacman' ; T='TotalDownload' ; gpg -k ; ${P}-key --init ; ${P}-key --populate archlinux >/dev/null
 sed -i 's/#Color/Color/' /etc/${P}.conf ; sed -i 's/#{T}/{T}/' /etc/${P}.conf
 MO='MODULES=' ; MK='/etc/mkinitcpio.conf' ; XV='xf86-video-' ; L="lscpu | grep -Eo" ; S="| sort -u"
