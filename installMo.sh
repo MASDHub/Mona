@@ -17,7 +17,7 @@ ${P} xorg rsync xfce-polkit openbox ${X}-settings archlinux-xdg-menu xfconf netw
 && nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-components obkey ristretto menulibre timeshift \
 && ${F}en-us ${F}en-gb ${F}en-ca  ${F}fr ${F}de ${F}it ${F}ja ${F}zh-cn ${F}zh-tw ${F}$ru {F}he ${F}pt-br ${O}sans ${O}mono ttf-ms-fonts \
 && ${X}-whiskermenu-plugin ${X}-taskmanager ${X}-screenshooter ${X}-notes-plugin ${X}-appfinder ${X}-datetime-plugin ${X}-mpc-plugin 
-if [[ -n "$(grep -E '8|9|10|11|12|13|14' /sys/class/dmi/id/chassis_type)" ]]; then ${P} ${X}-power-manager ${X}-battery-plugin ; fi
+if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]]; then ${P} ${X}-power-manager ${X}-battery-plugin ; fi
 A='alacritty' ; U='/usr/local/' ; C='completion' ; git clone https://github.com/${A}/${A}.git ; cd ${A} 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh ; rustup override set stable ; rustup update stable
 pacman -S --needed cmake freetype2 fontconfig pkg-config make libxcb ; cargo build --release
