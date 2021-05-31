@@ -26,6 +26,8 @@ desktop-file-install extra/linux/Alacritty.desktop ; update-desktop-database ; m
 gzip -c extra/${A}.man | tee ${U}share/man/man1/${A}.1.gz ; mkdir -p ~/.bash_${C}
 cp extra/${C}s/${A}.bash ~/.bash_${C}/${A} ; echo "source ~/.bash_${C}/${A}" >> ~/.bashrc
 ${P} sddm-stellar-theme ; printf "${R}DISPLAY MANAGER ENABLED${B}" ; systemctl enable sddm
-echo "openbox-session" >> /home/${USN}/.xinitrc ; printf "\e[1;31mDone!\e[0m" ; EXIT         
+echo "openbox-session" >> /home/${USN}/.xinitrc ;  #sed -i "s/#openbox/openbox/" /etc/update-menus.conf ; update-menus ; 
+#echo "<menu id="xdg-menu" label="XDG Menu" execute="cat /var/cache/xdg-menu/openbox/menu.xml"/>" >> /home/${USN}/.config/openbox/menu.xml  
+printf "\e[1;31mDone!\e[0m" ; EXIT         
 #echo -n "reboot? (y/n) " ; read ANS ; if [ "$ANS" != "${ANS#[Yy]}" ] ; then exit ; umount -a ; reboot ; fi    #set -m
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
