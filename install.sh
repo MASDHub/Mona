@@ -27,6 +27,7 @@ echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${USN}pc.localdomain ${
 printf "${R}NETWORK ENABLED${NC}\n" ; systemctl enable NetworkManager ; printf "${R}GRUB INSTALL ${NC}\n"
 GFX='GRUB_GFXMODE=' ; sed -i 's/'${GFX}'auto/'${GFX}'1920x1080,1024x768x32,auto/' /etc/default/grub
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg 
+sed -i 's/#Color/Color/' /etc/pacman.conf ; sed -i 's/#TotalDownload/TotalDownload/' /etc/pacman.conf
 curl -sL https://git.io/Jspfl -o /home/${USN}/installMO.sh ; cd / ; chown root:root /home ; chmod 755 /home 
 runuser --login ${USN} --session-command 'sh ~/installMO.sh' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
