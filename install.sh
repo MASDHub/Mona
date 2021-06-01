@@ -1,5 +1,5 @@
 #!/bin/bash   
-head 15 install.sh
+head -n 15 install.sh
  #8'         8888
 #d8.-=. ,==-.:888b 
 #>8 `~` :`~' d8888                 
