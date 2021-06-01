@@ -14,7 +14,7 @@ E1="$(ls /dev/* | grep -E "^${E}p?1$")" ; E2="$(ls /dev/* | grep -E "^${E}p?2$")
 F='btrfs su cr @' ; G='mount -o noatime,compress=zstd,discard=async,subvol=@'
 mount ${E2} /mnt ; cd /mnt ; ${F} ; ${F}home ; cd ; umount /mnt ; ${G} ${E2} /mnt ; mkdir /mnt/{boot,home}
 ${G}home ${E2} /mnt/home ; mount ${E1} /mnt/boot ; lsblk -o ${C} ; curl -sL https://git.io/Jsde3 > /mnt/install.sh
-H='pacman' ; I='TotalDownload' ; gpg -k ; ${H}-key --init ; ${H}-key --populate archlinux >/dev/null
+H='pacman' ; I='TotalDownload' ; ${H}-key --list-keys ; ${H}-key --init ; ${H}-key --populate archlinux >/dev/null
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/${H}.d/mirrorlist
 sed -i 's/#Color/Color/' /etc/${H}.conf && sed -i "s/#${I}/${I}/" /etc/${H}.conf 
 J='MODULES=' ; K='/etc/mkinitcpio.conf' ; L='xf86-video-' ; M="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"
