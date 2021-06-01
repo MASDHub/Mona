@@ -6,7 +6,7 @@ set -euo pipefail
 #pacman -S --needed git cmake freetype2 fontconfig pkg-config make libxcb 
 A='alacritty' ; B='\e[1;31m' ;  C='\e[0m' ; D='/usr/local/' ; C='completion' 
 cd ~ ;  git clone https://github.com/${A}/${A}.git ; cd ${A} ; curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 
-rustup override set stable ; source $HOME/.cargo/env ; cargo build --release 
+source $HOME/.cargo/env ; rustup override set stable ; cargo build --release 
 cp target/release/${A} ${D}bin ; cp extra/logo/${A}-term.svg /usr/share/pixmaps/${A}.svg
 desktop-file-install extra/linux/Alacritty.desktop ; update-desktop-database ; mkdir -p ${D}share/man/man1
 gzip -c extra/${A}.man | tee ${D}share/man/man1/${A}.1.gz ; mkdir -p ~/.bash_${C}
