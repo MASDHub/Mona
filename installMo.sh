@@ -3,6 +3,7 @@ set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Color Templates || #B4AFB6 #716966 #677254 #170D1D #75422C #643D33 #4C312D #DCBC62 #7D5016 #5B3424                                                ʕ•̼͛͡•ʕ-̺͛͡•ʔ•̮͛͡•ʔ #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+sed -i 's/#Color/Color/' /etc/pacman.conf ; sed -i 's/#TotalDownload/TotalDownload/' /etc/pacman.conf
 pacman -S --needed git cmake freetype2 fontconfig pkg-config make libxcb 
 A='alacritty' ; U='/usr/local/' ; C='completion' ; git clone https://github.com/${A}/${A}.git ; cd ${A} 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh ; rustup override set stable ; rustup update stable
