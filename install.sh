@@ -15,7 +15,7 @@ head -n 15 install.sh | tail -n 13
  #  '''::===..-'   =  --.  `                 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='\e[1;31m' ; B='\e[0m' ; C='printf' ; D='en_US.UTF-8' ; E='GRUB_GFXMODE=' ; F='/etc/pacman.conf' 
-G='TotalDownload' ; H='/etc/locale.' ; I='/etc/host' ; J="echo "Try again"" ; W='%wheel ALL=(ALL) ALL' ; P='passwd' 
+G='TotalDownload' ; H='/etc/locale.' ; I='/etc/host' ; J='echo "Try again"' ; W='%wheel ALL=(ALL) ALL' ; P='passwd' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#           
 sed -i 's/#Color/Color/' ${F} ; sed -i "s/#${G}/${G}/" ${F} ; pacman -S --needed git cmake freetype2 fontconfig pkg-config  
 ${C} "${A}Enter Root Password: ${B}\n" ; until ${P}  ; do ${J} ; done ; ${C} "${A}Enter User Name: ${B}" ;  read -r U 
