@@ -15,8 +15,8 @@ mkdir /mnt/{boot,home} ; ${F}home ${E2} /mnt/home ; mount ${E1} /mnt/boot ; lsbl
 H='pacman' ; I='TotalDownload' ; gpg -k ; ${H}-key --init ; ${H}-key --populate archlinux >/dev/null
 sed -i 's/#Color/Color/' /etc/${H}.conf && sed -i 's/#{I}/{I}/' /etc/${H}.conf
 J='MODULES=' ; K='/etc/mkinitcpio.conf' ; L='xf86-video-' 
-if [[ "$(lspu | grep 'Intel' | sort -u)" == "Intel" ]] ; then N="intel-ucode ${L}intel" \
-&& sed -i "s/${J}()/${J}(i915 btrfs)/" ${K} ; elif [[ "$(lspu | grep 'AMD' | sort -u)" == "AMD" ]] 
+if [[ "$(lscpu | grep 'Intel' | sort -u)" == "Intel" ]] ; then N="intel-ucode ${L}intel" \
+&& sed -i "s/${J}()/${J}(i915 btrfs)/" ${K} ; elif [[ "$(lscpu | grep 'AMD' | sort -u)" == "AMD" ]] 
 then N="amd-ucode ${L}amdgpu" && sed -i "s/${J}()/${J}(amdgpu btrfs)/" ${K} ; fi
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/${H}.d/mirrorlist
 curl -sL https://git.io/Jsde3 > install.sh ; cp install.sh /mnt/install.sh ; chmod +x /mnt/install.sh
