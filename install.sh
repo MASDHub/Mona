@@ -19,7 +19,7 @@ head -n 17 install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 sed -i 's/#Color/Color/' /etc/pacman.conf ; sed -i 's/#TotalDownload/TotalDownload/' /etc/pacman.conf
 R='\e[1;31m' ; NC='\e[0m' ; printf "${R}Enter Root Password: ${NC}\n" ; passwd #; if [[ $? -ne 0 ]] ; then passwd ; fi 
-printf "${R}Enter User Name: ${NC}" ; read -r USN ; useradd -m -G wheel ${USN}
+printf "${R}Enter User Name: ${NC}" ; read -r ${USN} ; useradd -m -G wheel ${USN}
 sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers ; passwd "${USN}" #; if [[ $? -ne 0 ]] ; then passwd ${USN} ; 
 ln -sf /share/zoneinfo/$(curl -s https://ipapi.co/timezone) /etc/localtime ; hwclock --systohc
 echo "LC_ALL=en_US.UTF-8" >> /etc/environment ; echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
