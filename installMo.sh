@@ -19,7 +19,7 @@ ${P} ${R}en-us ${R}en-gb ${R}en-ca ${R}fr ${R}de ${R}it ${R}ja ${R}zh-cn ${R}zh-
 ${P} ${X}-whiskermenu-plugin ${X}-taskmanager ${X}-screenshooter ${X}-notes-plugin ${X}-appfinder ${X}-datetime-plugin ${X}-mpc-plugin 
 if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then ${P} ${X}-power-manager ${X}-battery-plugin ; fi
 echo "openbox-session" >> ~/.xinitrc 
-G='xfconf-query -c xfce4-session -p /sessions/Failsafe/Client0_Command -t' ; sudo ${G}string -sa xfsettingsd && ${G}string -sa openbox-session
+G='xfconf-query -c xfce4-session -p /sessions/Failsafe/Client0_Command -t string -sa' ; sudo ${G} xfsettingsd && ${G} openbox-session
 sudo sed -i 's/#openbox/openbox/' /etc/update-menus.conf && update-menus
 sudo echo "<menu id="xdg-menu" label="XDG Menu" execute="cat /var/cache/xdg-menu/openbox/menu.xml"/>" >> ~/.config/openbox/menu.xml  
 sudo cp target/release/alacritty /usr/local/bin && cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
