@@ -14,7 +14,7 @@ G="btrfs su cr @" ; mount ${E2} /mnt ; cd /mnt ; ${G} ; ${G}home ; cd ; umount /
 mkdir /mnt/{boot,home} ; ${F}home ${E2} /mnt/home ; mount ${E1} /mnt/boot ; lsblk -o ${C}
 H='pacman' ; I='TotalDownload' ; gpg -k ; ${H}-key --init ; ${H}-key --populate archlinux >/dev/null
 sed -i 's/#Color/Color/' /etc/${H}.conf && sed -i "s/#${I}/${I}/" /etc/${H}.conf
-J='MODULES=' ; K='/etc/mkinitcpio.conf' ; L='xf86-video-' ; M="lscpu | grep -Eo 'AMD|Intel' | sort -u"
+J='MODULES=' ; K='/etc/mkinitcpio.conf' ; L='xf86-video-' ; M="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"
 if [[ "${M}" == "Intel" ]] ; then O="intel-ucode ${L}intel" && sed -i "s/${J}()/${J}(i915 btrfs)/" ${K} 
 elif [[ "${M}" == "AMD" ]] ; then O="amd-ucode ${L}amdgpu" && sed -i "s/${J}()/${J}(amdgpu btrfs)/" ${K} ; fi
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/${H}.d/mirrorlist
