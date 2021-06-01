@@ -3,7 +3,6 @@ set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Color Templates || A='alacritty' | B='\e[1;31m' | D='/usr/local/' | E="~/.config/pikaur.conf"                                           ʕ•̼͛͡•ʕ-̺͛͡•ʔ•̮͛͡•ʔ #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#pacman -S --needed git cmake freetype2 fontconfig pkg-config make libxcb 
 A='alacritty' ; B='\e[1;31m' ;  C='\e[0m' ; D='/usr/local/' ; C='completion' 
 cd ~ ;  git clone https://github.com/${A}/${A}.git ; cd ${A} ; curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 
 source $HOME/.cargo/env ; rustup override set stable ; cargo build --release 
