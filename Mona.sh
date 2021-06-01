@@ -21,6 +21,6 @@ sed -i 's/#Color/Color/' /etc/${H}.conf && sed -i "s/#${I}/${I}/" /etc/${H}.conf
 curl -sL https://git.io/Jsde3 > install.sh ; cp install.sh /mnt/install.sh ; chmod +x /mnt/install.sh
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/${H}.d/mirrorlist
 gpg -k ; ${H}-key --init ; ${H}-key --populate archlinux >/dev/null
-pacstrap -i /mnt base linux linux-headers linux-firmware networkmanager efibootmgr grub vim ${N}
+pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim ${N}
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
