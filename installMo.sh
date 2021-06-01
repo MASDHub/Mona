@@ -17,7 +17,8 @@ ${P} nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-
 ${P} ${R}en-us ${R}en-gb ${R}en-ca ${R}fr ${R}de ${R}it ${R}ja ${R}zh-cn ${R}zh-tw ${R}ru ${R}he ${R}pt-br ${O}sans ${O}mono ttf-ms-fonts 
 ${P} ${X}-whiskermenu-plugin ${X}-taskmanager ${X}-screenshooter ${X}-notes-plugin ${X}-appfinder ${X}-datetime-plugin ${X}-mpc-plugin 
 if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then ${P} ${X}-power-manager ${X}-battery-plugin ; fi
-echo "exec openbox-session" >> ~/.xinitrc ; echo -e "\nXDG_DOWNLOAD_DIR="$HOME/Downloads"\n" > ~/.config/user-dirs.dirs
+sudo echo "exec openbox-session" >> ~/.xinitrc ; sudo echo -e "\nXDG_DOWNLOAD_DIR="$HOME/Downloads"\n" > ~/.config/user-dirs.dirs
+sudo mkdir ~/.config/openbox ; sudo echo "xfce4-panel &" >> ~/.config/openbox/autostart
 G='xfconf-query -c xfce4-session -p /sessions/Failsafe/Client0_Command -t string -sa' ; sudo ${G} xfsettingsd && sudo ${G} openbox-session
 printf "${B}DISPLAY MANAGER ENABLED${C}" ; ${P} sddm-stellar-theme ; sudo systemctl enable sddm
 printf "${B}NETWORK ENABLED${C}\n" ; sudo systemctl enable NetworkManager 
