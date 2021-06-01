@@ -1,6 +1,6 @@
 #!/bin/bash   
 set -euo pipefail 
-head 15 install.sh | tail -14
+head 15 install.sh | tail -8
  #8'         8888
 #d8.-=. ,==-.:888b 
 #>8 `~` :`~' d8888                 
