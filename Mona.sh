@@ -7,13 +7,13 @@ setfont ter-124b
 #   VOLUME: ▁▂▃▄▅▆▇ 100%    ||                                                                                                                                   #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='\e[1;31m' ; B='\e[0m' ; C="name,size -e 7,11" ; lsblk -do ${C} ; printf "${A}Device name: ${B}"
-read -r D ; E="/dev/${D}" ; sgdisk "${E}" -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
+read -r D ; E="/dev/${D}" ; sgdisk ${E} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
 E1="$(ls /dev/* | grep -E "^${E}p?1$")" ; E2="$(ls /dev/* | grep -E "^${E}p?2$")"
 mkfs.vfat ${E1} ; mkfs.btrfs -fq ${E2} ; F='mount -o noatime,compress=zstd,discard=async,subvol=@' 
 G="btrfs su cr @" ; mount ${E2} /mnt ; cd /mnt ; ${G} ; ${G}home ; cd ; umount /mnt ; ${F} ${E2} /mnt
 mkdir /mnt/{boot,home} ; ${F}home ${E2} /mnt/home ; mount ${E1} /mnt/boot ; lsblk -o ${C}
 H='pacman' ; I='TotalDownload' ; gpg -k ; ${H}-key --init ; ${H}-key --populate archlinux >/dev/null
-sed -i 's/#Color/Color/' /etc/${H}.conf && sed -i 's/#{I}/{I}/' /etc/${H}.conf
+sed -i 's/#Color/Color/' /etc/${H}.conf && sed -i "s/#${I}/${I}/" /etc/${H}.conf
 J='MODULES=' ; K='/etc/mkinitcpio.conf' ; L='xf86-video-' 
 if [[ "$(lscpu | grep 'Intel' | sort -u)" == "Intel" ]] ; then N="intel-ucode ${L}intel" \
 && sed -i "s/${J}()/${J}(i915 btrfs)/" ${K} ; elif [[ "$(lscpu | grep 'AMD' | sort -u)" == "AMD" ]] 
