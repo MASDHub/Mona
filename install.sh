@@ -26,6 +26,7 @@ echo "LANG=${D}" >> /etc/locale.conf ; locale-gen ${D} ; echo "${U}pc" >> /etc/h
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${U}pc.localdomain ${U}pc \n" >> /etc/hosts 
 ${C} "${A}NETWORK ENABLED${B}\n" ; systemctl enable NetworkManager ; ${C} "${A}GRUB INSTALL ${B}\n"
 sed -i 's/#Color/Color/' ${F} ; sed -i "s/#${G}/${G}/" ${F} ; sed -i 's/'${E}'auto/'${E}'1920x1080,auto/' /etc/default/grub
+pacman -S --needed git cmake freetype2 fontconfig pkg-config make libxcb
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg 
 curl -sL https://git.io/Jspfl > /home/${U}/installMO.sh ; cd / ; chown root:root /home ; chmod 755 /home 
 runuser --login ${U} --session-command 'sh ~/installMO.sh' 
