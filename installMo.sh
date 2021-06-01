@@ -34,6 +34,6 @@ echo "openbox-session" >> /home/${USN}/.xinitrc
 #rm ~/.cache/sessions/* && chmod 500 ~/.cache/sessions
 #gconftool-2 --type boolean --set /desktop/gnome/interface/buttons_have_icons true
 #gconftool-2 --type boolean --set /desktop/gnome/interface/menus_have_icons true
-printf "\e[1;31mDone!\e[0m" ; #rm -rf ~/.cache/session ; reboot    
+printf "${R}SYSTEM CLEANUP ${NC}\n" ; pacman -Sc ; printf "\e[1;31mDone!\e[0m" ; #rm -rf ~/.cache/session ; reboot    
 #echo -n "reboot? (y/n) " ; read ANS ; if [ "$ANS" != "${ANS#[Yy]}" ] ; then exit ; umount -a ; reboot ; fi    #set -m
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
