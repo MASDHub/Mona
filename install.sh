@@ -1,5 +1,5 @@
 #!/bin/bash   
-head -n 15 install.sh
+head -n 15 install.sh | tail 14
  #8'         8888
 #d8.-=. ,==-.:888b 
 #>8 `~` :`~' d8888                 
@@ -14,7 +14,7 @@ head -n 15 install.sh
 #/88:.__ ,       _%-' ---  -       
  #  '''::===..-'   =  --.  `                 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-set -euo pipefail ; A='\e[1;31m' ; B='\e[0m' ; C='printf' ; D='en_US.UTF-8' ; E='GRUB_GFXMODE=' ; F='/etc/pacman.conf' 
+A='\e[1;31m' ; B='\e[0m' ; C='printf' ; D='en_US.UTF-8' ; E='GRUB_GFXMODE=' ; F='/etc/pacman.conf' 
 G='TotalDownload' ; H='/etc/locale.' ; I='/etc/host' ; W='%wheel ALL=(ALL) ALL'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#           
 sed -i 's/#Color/Color/' ${F} ; sed -i "s/#${G}/${G}/" ${F} ; pacman -S --needed git cmake freetype2 fontconfig pkg-config  
