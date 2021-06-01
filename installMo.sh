@@ -16,7 +16,7 @@ ${P} alsa-utils ${W} ${W}-alsa ${W}-pulse ${W}-jack gst-plugin-${W} libpulse vlc
 ${P} nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-components obkey ristretto menulibre timeshift 
 ${P} ${R}en-us ${R}en-gb ${R}en-ca ${R}fr ${R}de ${R}it ${R}ja ${R}zh-cn ${R}zh-tw ${R}ru ${R}he ${R}pt-br ${O}sans ${O}mono ttf-ms-fonts 
 ${P} ${X}-whiskermenu-plugin ${X}-taskmanager ${X}-screenshooter ${X}-notes-plugin ${X}-appfinder ${X}-datetime-plugin ${X}-mpc-plugin 
-if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]]; then ${P} ${X}-power-manager ${X}-battery-plugin ; fi
+if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then ${P} ${X}-power-manager ${X}-battery-plugin ; fi
 echo "openbox-session" >> ~/.xinitrc ; #sudo su
 #sudo cp target/release/alacritty /usr/local/bin && cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
 #sudo desktop-file-install extra/linux/Alacritty.desktop && sudo update-desktop-database
