@@ -17,7 +17,7 @@ mount ${E2} /mnt ; cd /mnt ; ${F} ; ${F}home ; cd ; umount /mnt ; ${G} ${E2} /mn
 ${G}home ${E2} /mnt/home ; mount ${E1} /mnt/boot ; lsblk -o ${C} ; curl -sL https://git.io/Jsde3 > /mnt/install.sh
 H='pacman' ; I='TotalDownload' ; sed -i 's/#Color/Color/' /etc/${H}.conf && sed -i "s/#${I}/${I}/" /etc/${H}.conf 
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/${H}.d/mirrorlist
-${H}-key --list-keys ${O} ; ${H}-key --init ${O} ; ${H}-key --populate archlinux ${O}
+${H}-key --import ; ${H}-key --init ; ${H}-key --populate archlinux ${O}
 J='MODULES=' ; K='/etc/mkinitcpio.conf' ; L='xf86-video-' ; M="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"
 if [[ "${M}" == "Intel" ]] ; then N="intel-ucode ${L}intel" && sed -i "s/${J}()/${J}(i915 btrfs)/" ${K} 
 elif [[ "${M}" == "AMD" ]] ; then N="amd-ucode ${L}amdgpu" && sed -i "s/${J}()/${J}(amdgpu btrfs)/" ${K} ; fi
