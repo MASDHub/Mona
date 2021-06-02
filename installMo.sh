@@ -1,15 +1,12 @@
 #!/usr/bin/bash
 set -euo pipefail 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='alacritty' ; B='\e[1;31m' ;  C='\e[0m' ; D='.bash' ; E='completion' F='https://' G='git clone' ; H='pikaur'
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-cd ~ ;  ${G} ${F}github.com/${A}/${A}.git ; cd ${A} ; curl --proto '=https' --tlsv1.2 -sSf ${F}sh.rustup.rs | sh 
-source "$HOME"/.cargo/env ; rustup override set stable ; cargo build --release ; mkdir -p ~/${D}_${E} 
-cp extra/${E}s/${A}${D} ~/${D}_${E}/${A} ; echo "source ~/${D}_${E}/${A}" >> ~/${D}rc
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+A='alacritty' ; B='\e[1;31m' ;  C='\e[0m' ; D='.bash' ; E='completion' F='https://' G='git clone' ; H='pikaur' ; I="pikaur -S --needed"
+; J='xfce4' ; K='pipewire' ; L='firefox-developer-edition-i18n-' ; M='otf-fira-' ; N='manager' ; O='plugin' 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+cd ~ ;  ${G} ${F}github.com/${A}/${A}.git ; cd ${A} ; curl --proto '=https' --tlsv1.2 -sSf ${F}sh.rustup.rs | sh ; source "$HOME"/.cargo/env ; 
+cargo build --release ; mkdir -p ~/${D}_${E} ; cp extra/${E}s/${A}${D} ~/${D}_${E}/${A} ; echo "source ~/${D}_${E}/${A}" >> ~/${D}rc
 cd ~ ; ${G} ${F}aur.archlinux.org/${H}.git ; cd ${H} ; makepkg -fsri
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-I="pikaur -S --needed" ; J='xfce4' ; K='pipewire' ; L='firefox-developer-edition-i18n-' ; M='otf-fira-' ; N='manager' ; O='plugin' # ʕु-̫͡-ʔु
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 ${I} xorg rsync xfce-polkit openbox ${J}-settings archlinux-xdg-menu xfconf nm-connection-editor gufw xterm 
 ${I} alsa-utils ${K} ${K}-alsa ${K}-pulse ${K}-jack gst-${O}-${K} libpulse vlc picom xorg-xprop gvfs xcursor-breeze geany geany-${O}s
 ${I} nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-components obkey ristretto menulibre timeshift 
