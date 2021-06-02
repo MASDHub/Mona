@@ -21,5 +21,5 @@ sudo cp ~/${A}/target/release/${A} /usr/local/bin ; sudo mkdir -p ~/${I}/${H} ; 
 echo -e "xfce-mcs-manager &\n\nxfce4-panel &\n" | sudo tee ~/${I}/${H}/autostart ; echo "exec ${H}-session" | sudo tee ~/.xinitrc 
 printf "${B}DISPLAY MANAGER ENABLED${C}" ; ${P} sddm-stellar-theme ; sudo systemctl enable sddm
 printf "${B}NETWORK ENABLED${C}\n" ; sudo systemctl enable NetworkManager 
-printf "${B}SYSTEM CLEANUP ${C}\n" ; sudo pacman -Sc ; printf "\e[1;31mDone!\e[0m"  
+printf "${B}SYSTEM CLEANUP${C}\n" ; sudo pacman -Sc ; printf "${B}Done!${C}\n"  
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
