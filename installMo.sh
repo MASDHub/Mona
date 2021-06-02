@@ -20,7 +20,7 @@ ${P} galculator
 if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then ${P} ${X}-power-manager ${X}-battery-plugin ; fi
 P1='reversesearchsorting =' P2='noedit =' ; P3="~/${I}/pikaur.conf" ; sudo -i "s/${P1} no/${P1} yes/" ${P3} ; sudo -i "s/${P2} no/${P2} yes/" ${P3}
 sudo cp ~/${A}/target/release/${A} /usr/local/bin ; sudo mkdir -p ~/${I}/${H} ; sudo cp -a /etc/xdg/${H}/ ~/${I}/
-sudo sed -i '5,$d' ~/${I}/${H}/menu.xml ; echo "<menu id="root-menu" label="Openbox 3">" | sudo tee -a ${M} 
+sudo sed -i '5,$d' ~/${I}/${H}/menu.xml ; echo -e '<menu id="root-menu" label="Openbox 3">' | sudo tee -a ${M} 
 echo -e "${J}Internet${K}firefox-developer-edition${L}\n${J}File Manager${K}nemo${L}\n${J}Terminal${K}${A}${L}\n" | sudo tee -a ${M} 
 echo -e "${J}Text Editor${K}geany${L}\n${J}Settings${K}xfce4-settings-manager${L}\n${J}Turn Off${K}sudo shutdown${L}\n" | sudo tee -a ${M} 
 echo -e "${J}Calculator${K}galculator${L}\n</menu>\n</openbox_menu>\n" | sudo tee -a ${M} 
