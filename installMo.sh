@@ -7,7 +7,7 @@ A='alacritty' ; B='\e[1;31m' ;  C='\e[0m' ; D='.bash' ; E='completion' F='https:
 cd ~ ;  ${G} ${F}github.com/${A}/${A}.git ; cd ${A} ; curl --proto '=https' --tlsv1.2 -sSf ${F}sh.rustup.rs | sh ; source "$HOME"/.cargo/env ; 
 cargo build --release ; mkdir -p ~/${D}_${E} ; cp extra/${E}s/${A}${D} ~/${D}_${E}/${A} ; echo "source ~/${D}_${E}/${A}" >> ~/${D}rc
 cd ~ ; ${G} ${F}aur.archlinux.org/${H}.git ; cd ${H} ; makepkg -fsri
-${I} xorg rsync xfce-polkit openbox ${J}-settings archlinux-xdg-menu xfconf nm-connection-editor gufw xterm 
+${I} xorg rsync xfce-polkit openbox ${J}-settings archlinux-xdg-menu xfconf nm-connection-editor gufw xterm sddm-stellar-theme
 ${I} alsa-utils ${K} ${K}-alsa ${K}-pulse ${K}-jack gst-${O}-${K} libpulse vlc picom xorg-xprop gvfs xcursor-breeze geany geany-${O}s
 ${I} nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-components obkey ristretto menulibre timeshift 
 ${I} ${L}en-us ${L}en-gb ${L}en-ca ${L}fr ${L}de ${L}it ${L}ja ${L}zh-cn ${L}zh-tw ${L}ru ${L}he ${L}pt-br ${M}sans ${M}mono ttf-ms-fonts 
