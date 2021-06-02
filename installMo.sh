@@ -18,7 +18,7 @@ ${I} ${J}-whiskermenu-${O} ${J}-task${N} ${J}-screenshooter ${J}-notes-${O} ${J}
 ${I} galculator ; if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then ${H} ${J}-power-${N} ${J}-battery-${H} ; fi
 I2='reversesearchsorting =' I3='noedit =' ; sudo -i "s/${I2} no/${I2} yes/" ~/${I}/${H}.conf ; sudo -i "s/${I3} no/${I3} yes/" ~/${I}/${H}.conf
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
- Q='openbox' R='.config' ; S='<item label="' ; T='"><action name="Execute"><command>' U='</command></action></item>' ; V='menu.xml' ;
+ Q='openbox' R='.config' ; S='<item label="' ; T='"><action name="Execute"><command>' U='</command></action></item>' ; V='menu.xml' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 sudo cp ~/${A}/target/release/${A} /usr/local/bin ; sudo mkdir -p ~/${R}/${Q} ; sudo cp -a /etc/xdg/${Q}/ ~/${R}/
 sudo sed -i '5,$d' ~/${R}/${Q}/menu.xml ; echo -e '<menu id="root-menu" label="Openbox 3">' | sudo tee -a ~/${R}/${Q}/${V}
