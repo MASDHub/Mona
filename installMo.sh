@@ -2,7 +2,7 @@
 set -euo pipefail 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='alacritty' ; B='\e[1;31m' ;  C='\e[0m' ; D='.bash' ; E='completion' ; F='https://' ; G='git clone' ; H='pikaur' ; I="pikaur -S --needed"
-; J='xfce4' ; K='pipewire' ; L='firefox-developer-edition-i18n-' ; M='otf-fira-' ; N='manager' ; O='plugin' 
+J='xfce4' ; K='pipewire' ; L='firefox-developer-edition-i18n-' ; M='otf-fira-' ; N='manager' ; O='plugin' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 cd ~ ;  ${G} ${F}github.com/${A}/${A}.git ; cd ${A} ; curl --proto '=https' --tlsv1.2 -sSf ${F}sh.rustup.rs | sh ; source "$HOME"/.cargo/env ; 
 cargo build --release ; mkdir -p ~/${D}_${E} ; cp extra/${E}s/${A}${D} ~/${D}_${E}/${A} ; echo "source ~/${D}_${E}/${A}" >> ~/${D}rc
