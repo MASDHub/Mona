@@ -9,6 +9,7 @@ cp extra/${E}s/${A}${D} ~/${D}_${E}/${A} ; echo "source ~/${D}_${E}/${A}" >> ~/$
 cd ~ ; ${G} ${F}aur.archlinux.org/pikaur.git ; cd pikaur ; makepkg -fsri
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 P="pikaur -S --needed" ; X='xfce4' ; W='pipewire' ; R='firefox-developer-edition-i18n-' ; O='otf-fira-' H='openbox' I='.config' # ʕु-̫͡-ʔु”♬ ʕ•̭͡•ʕ•̯ͦ͡•ʕ•̻̀•́ʔ❣ 
+J='<item label="' ; K='"><action name="Execute"><command>' L='</command></action></item>'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 ${P} xorg rsync xfce-polkit openbox ${X}-settings archlinux-xdg-menu xfconf network-manager-applet nm-connection-editor gufw xterm 
 ${P} alsa-utils ${W} ${W}-alsa ${W}-pulse ${W}-jack gst-plugin-${W} libpulse vlc picom xorg-xprop gvfs xcursor-breeze lxmenu-data
@@ -18,7 +19,6 @@ ${P} ${X}-whiskermenu-plugin ${X}-taskmanager ${X}-screenshooter ${X}-notes-plug
 if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then ${P} ${X}-power-manager ${X}-battery-plugin ; fi
 sudo cp ~/${A}/target/release/${A} /usr/local/bin ; sudo mkdir -p ~/${I}/${H} ; sudo cp -a /etc/xdg/${H}/ ~/${I}/
 echo -e "xfce-mcs-manager &\n\nxfce4-panel &\n" | sudo tee ~/${I}/${H}/autostart ; echo "exec ${H}-session" | sudo tee ~/.xinitrc 
-sudo sed -i '385 a\<menu execute="openbox-menu lxde-applications.menu" id="apps" label="Applications"/>' ~/${I}/${H}/menu.xml
 printf "${B}DISPLAY MANAGER ENABLED${C}" ; ${P} sddm-stellar-theme ; sudo systemctl enable sddm
 printf "${B}NETWORK ENABLED${C}\n" ; sudo systemctl enable NetworkManager 
 printf "${B}SYSTEM CLEANUP ${C}\n" ; sudo pacman -Sc ; printf "\e[1;31mDone!\e[0m"  
