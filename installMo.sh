@@ -22,7 +22,7 @@ P1='reversesearchsorting =' P2='noedit =' ; P3="~/${I}/pikaur.conf" ; sudo -i "s
 sudo cp ~/${A}/target/release/${A} /usr/local/bin ; sudo mkdir -p ~/${I}/${H} ; sudo cp -a /etc/xdg/${H}/ ~/${I}/
 sudo sed -i '5,$d' ~/${I}/${H}/menu.xml ; echo -e '<menu id="root-menu" label="Openbox 3">' | sudo tee -a ${M} 
 echo -e "${J}Internet${K}firefox-developer-edition${L}\n${J}File Manager${K}nemo${L}\n${J}Terminal${K}${A}${L}\n" | sudo tee -a ${M} 
-echo -e "${J}Text Editor${K}geany${L}\n${J}Settings${K}xfce4-settings-manager${L}\n${J}Turn Off${K}sudo shutdown${L}\n" | sudo tee -a ${M} 
+echo -e "${J}Text Editor${K}geany${L}\n${J}Settings${K}xfce4-settings-manager${L}\n${J}Turn Off${K}sudo shutdown now${L}\n" | sudo tee -a ${M} 
 echo -e "${J}Calculator${K}galculator${L}\n</menu>\n</openbox_menu>\n" | sudo tee -a ${M} 
 echo -e "xfce-mcs-manager &\n\nxfce4-panel &\n" | sudo tee ~/${I}/${H}/autostart ; echo "exec ${H}-session" | sudo tee ~/.xinitrc 
 printf "${B}DISPLAY MANAGER ENABLED${C}" ; ${P} sddm-stellar-theme ; sudo systemctl enable sddm
