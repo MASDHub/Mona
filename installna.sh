@@ -1,4 +1,5 @@
-
+#!/usr/bin/bash
+set -euo pipefail 
 A='pikaur' = B='\e[1;31m' ; C='\e[0m' ;  D='.config' ; E='openbox' ; F='reversesearchsorting =' ; G='noedit =' ; H='alacritty' ; I='menu.xml' 
 J='<item label="' ; K='"><action name="Execute"><command>' L='</command></action></item>' ; M='manager'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
