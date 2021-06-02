@@ -13,4 +13,4 @@ ${I} nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-
 ${I} ${L}en-us ${L}en-gb ${L}en-ca ${L}fr ${L}de ${L}it ${L}ja ${L}zh-cn ${L}zh-tw ${L}ru ${L}he ${L}pt-br ${M}sans ${M}mono ttf-ms-fonts 
 ${I} ${J}-whiskermenu-${O} ${J}-task${N} ${J}-screenshooter ${J}-notes-${O} ${J}-appfinder ${J}-datetime-${O} ${J}-mpc-${O} 
 ${I} galculator ; if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then ${H} ${J}-power-${N} ${J}-battery-${H} ; fi
-curl -sL hhttps://git.io/JGVg5 > ~/installna.sh ; su --login root --session-command 'sh ~/installMO.sh'
+curl -sL hhttps://git.io/JGVg5 > ~/installna.sh ; sudo -i root -c 'sh ~/installna.sh'
