@@ -18,7 +18,7 @@ ${P} ${X}-whiskermenu-plugin ${X}-taskmanager ${X}-screenshooter ${X}-notes-plug
 if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then ${P} ${X}-power-manager ${X}-battery-plugin ; fi
 sudo cp ~/${A}/target/release/${A} /usr/local/bin ; sudo mkdir -p ~/${I}/${H} ; sudo cp -a /etc/xdg/${H}/ ~/${I}/
 echo "xfce-mcs-manager &\n\nxfce4-panel &\m" | sudo tee ~/${I}/${H}/autostart ; echo "exec ${H}-session" | sudo tee ~/.xinitrc 
-G='xfconf-query -c xfce4-session -p /sessions/Failsafe/Client0_Command -t string -sa' ; sudo ${G} xfsettingsd && sudo ${G} ${H}-session
+G='xfconf-query -c xfce4-session -p /sessions/Failsafe/Client0_Command -t string -sa' ; sudo ${G} xfsettingsd ; sudo ${G} ${H}-session
 printf "${B}DISPLAY MANAGER ENABLED${C}" ; ${P} sddm-stellar-theme ; sudo systemctl enable sddm
 printf "${B}NETWORK ENABLED${C}\n" ; sudo systemctl enable NetworkManager 
 printf "${B}SYSTEM CLEANUP ${C}\n" ; sudo pacman -Sc ; printf "\e[1;31mDone!\e[0m"  
