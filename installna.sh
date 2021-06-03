@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail 
-A='pikaur' = B='\e[1;31m' ; C='\e[0m' ;  D='.config' ; E='openbox' ; F='reversesearchsorting =' ; G='noedit =' ; H='alacritty' ; I='.config/openbox/menu.xml' 
+A='pikaur' ; B='\e[1;31m' ; C='\e[0m' ;  D='.config' ; E='openbox' ; F='reversesearchsorting =' ; G='noedit =' ; H='alacritty' ; I='.config/openbox/menu.xml' 
 J='<item label="' ; K='"><action name="Execute"><command>' L='</command></action></item>' ; M='manager'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 sed -i "s/${F} no/${F} yes/" ~/${E}/${A}.conf ; sed -i "s/${G} no/${G} yes/" ~/${E}/${A}.conf
