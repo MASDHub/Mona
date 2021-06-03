@@ -20,7 +20,7 @@ G='TotalDownload' ; H='/etc/locale.' ; I='/etc/host' ; J='echo "Try again"' ; W=
 sed -i 's/#Color/Color/' ${F} ; sed -i "s/#${G}/${G}/" ${F} ; pacman -S --needed git cmake freetype2 fontconfig pkg-config  
 ${C} "${A}Enter Root Password: ${B}\n" ; until ${P}  ; do ${J} ; done ; ${C} "${A}Enter User Name: ${B}" ;  read -r U 
 useradd -m -G wheel ${U} ; until ${P} ${U} ; do ${J} ; done ; sed -i "s/# ${W}/ ${W}/" /etc/sudoers 
-curl -sL https://git.io/Jspfl > /home/${U}/installMO.sh 
+echo "{U}" >> "/home/${U}/u.txt" ; chmod +x "/home/${U}/u.txt" ; curl -sL https://git.io/Jspfl > /home/${U}/installMO.sh 
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime ; hwclock --systohc
 echo "LC_ALL=${D}" >> /etc/environment ; echo "${D} UTF-8" >> ${H}gen ; echo "LANG=${D}" >> ${H}conf ; locale-gen ${D} 
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${U}pc.localdomain ${U}pc \n" >> ${I}s ; echo "${U}pc" >> ${I}name
