@@ -12,5 +12,5 @@ echo -e "${J}Calculator${K}galculator${L}\n</menu>\n</openbox_menu>\n" >>~/${I}
 echo -e "xfce-mcs-${M} &\n\nxfce4-panel &\npikaur -Syu &\n" >> ~/${D}/${E}/autostart ; echo "exec ${E}-session" >> ~/.xinitrc 
 printf "${B}DISPLAY MANAGER ENABLED${C}" ; systemctl enable sddm
 printf "${B}NETWORK ENABLED${C}\n" ; systemctl enable NetworkManager ; printf "${B}SYSTEM CLEANUP${C}\n" ; pacman -Sc
-printf "${B}Done!${C}\n" ; read -r "reboot? (y/n) "-p W ; if [ "$W" != "${W#[Yy]}" ] ; then exit ; umount -a ; reboot ; fi    
+printf "${B}Done!${C}\n" ; read -r -p "reboot? (y/n) " W ; if [ "$W" != "${W#[Yy]}" ] ; then exit ; umount -a ; reboot ; fi    
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
