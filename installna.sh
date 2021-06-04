@@ -5,6 +5,7 @@ J='<item label="' ; K='"><action name="Execute"><command>' ; L='</command></acti
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 sed -i "s/${F} no/${F} yes/" /home/${U}/${D}/${A}.conf ; sed -i "s/${G} no/${G} yes/" /home/${U}/${D}/${A}.conf 
 cp /home/${U}/${H}/target/release/${H} /usr/local/bin ; cp /etc/xdg/${E}/environment /home/${U}/${D}/environment
+cp /etc/xdg/${E}/menu.xml /home/${U}/${I}
 sed -i 's/#font:/font:/' /home/${U}/${D}/${A}/${A}.yml ; sed -i 's/#size: 11:0/font:size: 5:0/' /home/${U}/${D}/${A}/${A}.yml
 sed -i '5,$d' /home/${U}/${D}/${E}/menu.xml ; echo -e '<menu id="root-menu" label="Openbox 3">' >> /home/${U}/${I}
 echo -e "${J}File Manager${K}nemo${L}\n${J}Internet${K}firefox-developer-edition${L}\n${J}Terminal${K}${H}${L}" >> /home/${U}/${I}
