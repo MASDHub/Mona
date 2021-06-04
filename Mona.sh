@@ -2,7 +2,7 @@
 set -euo pipefail 
 setfont ter-124b 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='\e[1;31m' ; B='\e[0m' ; C="name,size -e 7,11" E1='ls /dev/* ; grep -E'     # Mozart - Moonlight Sonata 
+A='\e[1;31m' ; B='\e[0m' ; C="name,size -e 7,11" ; E1='ls /dev/* | grep -E'   # Mozart - Moonlight Sonata 
 F='btrfs su cr @' ; G='mount -o noatime,compress=zstd,discard=async,subvol=@' #  0:35 ━❍──────── -5:32    
 H='pacman' ; I='TotalDownload' ; J='MODULES=' ; K='/etc/mkinitcpio.conf'      #    ↻     ⊲  Ⅱ  ⊳     ↺     
 L='xf86-video-' ; M="$(lscpu ; grep -Eo 'AMD|Intel' ; sort -u)"               #    VOLUME: ▁▂▃▄▅▆▇ 100%   
