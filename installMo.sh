@@ -14,4 +14,4 @@ nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-compo
 ${J}en-us ${J}en-gb ${J}en-ca ${J}fr ${J}de ${J}it ${J}ja ${J}zh-cn ${J}zh-tw ${J}ru ${J}he ${J}pt-br ${K}sans ${K}mono ttf-ms-fonts \
 ${H}-whiskermenu-${M} ${H}-task${L} ${H}-screenshooter ${H}-notes-${M} ${H}-appfinder ${H}-datetime-${M} ${H}-mpc-${M} galculator
 if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then ${F} ${H}-power-${L} ${H}-battery-${F} ; fi
-su --login root -c "sh ~/installna.sh"
+su --login root -c "sh /home/${N}/installna.sh"
