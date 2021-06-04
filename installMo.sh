@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 set -euo pipefail 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='alacritty' ; B='.bash' ; C='completion' ; D='https://' ; E='git clone' ; F='pikaur' ; G="pikaur -Syy" 
+A='alacritty' ; B='.bash' ; C='completion' ; D='https://' ; E='git clone' ; F='pikaur' ; G="pikaur -Sqyy" 
 H='xfce4' ; I='pipewire' ; J='firefox-developer-edition-i18n-' ; K='otf-fira-' ; L='manager' ; M='plugin' ; N=$USER
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 cd ~ ;  ${E} ${D}github.com/${A}/${A}.git ; cd ${A} ; curl --proto '=https' --tlsv1.2 -sSf ${D}sh.rustup.rs | sh 
