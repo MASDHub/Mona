@@ -6,7 +6,7 @@ J='<item label="' ; K='"><action name="Execute"><command>' ; L='</command></acti
 sed -i "s/${F} no/${F} yes/" /home/${U}/${D}/${A}.conf ; sed -i "s/${G} no/${G} yes/" /home/${U}/${D}/${A}.conf
 cp /home/${U}/${H}/target/release/${H} /usr/local/bin ; mkdir -p /home/${U}/${D}/${E} ; cp -a /etc/xdg/${E}/ /home/${U}/${D}/
 sed -i '5,$d' /home/${U}/${D}/${E}/menu.xml ; echo -e '<menu id="root-menu" label="Openbox 3">' >> /home/${U}/${I}
-echo -e "${J}File Manager${K}nemo${L}\n${J}Internet${K}firefox-developer-edition${L}\n${J}Terminal${K}${A}${L}" >> /home/${U}/${I}
+echo -e "${J}File Manager${K}nemo${L}\n${J}Internet${K}firefox-developer-edition${L}\n${J}Terminal${K}${H}${L}" >> /home/${U}/${I}
 echo -e "${J}Text Editor${K}geany${L}\n${J}Settings${K}xfce4-settings-${M}${L}\n${J}Calculator${K}galculator${L}" >> /home/${U}/${I}
 echo -e "${J}Turn Off${K}sudo shutdown now${L}\n</menu>\n</openbox_menu>\n" >> /home/${U}/${I} ; mkinitcpio -p linux
 echo -e "xfce-mcs-${M} &\n\nxfce4-panel &\npikaur -Syu &\n" >> /home/${U}/${D}/${E}/autostart ; echo "exec ${E}-session" >> /home/${U}/.xinitrc 
