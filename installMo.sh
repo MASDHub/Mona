@@ -5,8 +5,8 @@ A='alacritty' ; B='.bash' ; C='completion' ; D='https://' ; E='git clone' ; F='p
 I='pipewire' ; J='firefox-developer-edition-i18n-' ; K='otf-fira-' ; L='manager' ; M='plugin' ; N=$USER
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 cd ~ ;  ${E} ${D}github.com/${A}/${A}.git ; cd ${A} ; curl --proto '=https' --tlsv1.2 -sSf ${D}sh.rustup.rs | sh 
-source /home/${N}/.cargo/env ; cargo build --release ; mkdir -p ~/${B}_${C} ; mkdir -p ~/.config/${A}
-cp extra/${C}s/${A}${B} ~/${B}_${C}/${A} ; cp ${A}.yml /.config/${A}.yml ; echo "source ~/${B}_${C}/${A}" >> ~/${B}rc
+source /home/${N}/.cargo/env ; cargo build --release ; mkdir -p ~/${B}_${C} ; mkdir -p ~/.config/${A} ; mkdir ~/.config/openbox
+cp extra/${C}s/${A}${B} ~/${B}_${C}/${A} ; cp ${A}.yml ~/.config/${A}/${A}.yml ; echo "source ~/${B}_${C}/${A}" >> ~/${B}rc
 cd ~ ; ${E} ${D}aur.archlinux.org/${F}.git ; cd ${F} ; makepkg -fsri ; curl -sL https://git.io/JGVg5 > ~/installna.sh 
 ${G} xorg rsync xfce-polkit openbox ${H}-settings obconf nm-connection-editor gufw xterm sddm-stellar-theme \
 alsa-utils ${I} ${I}-alsa ${I}-pulse ${I}-jack gst-${M}-${I} libpulse vlc picom xorg-xprop gvfs capitaine-cursors geany geany-${M}s \
