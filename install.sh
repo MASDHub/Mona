@@ -24,7 +24,7 @@ chmod +x /etc/u.txt  ; curl -sL https://git.io/Jspfl > /home/${U}/installMO.sh
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime ; hwclock --systohc
 echo "LC_ALL=${D}" >> /etc/environment ; echo "${D} UTF-8" >> ${G}gen ; echo "LANG=${D}" >> ${G}conf ; locale-gen ${D} 
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${U}pc.localdomain ${U}pc \n" >> ${H}s ; echo "${U}pc" >> ${H}name
-printf "${B}GRUB INSTALL ${C}\n" ; sed -i 's/'${N}'auto/'${N}'1920x1080,auto/' /etc/default/grub 
+printf "${A}GRUB INSTALL ${B}\n" ; sed -i 's/'${N}'auto/'${N}'1920x1080,auto/' /etc/default/grub 
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg
 cd / ; chown root:root /home ; chmod 755 /home ; runuser --login ${U} --session-command 'sh ~/installMO.sh' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
