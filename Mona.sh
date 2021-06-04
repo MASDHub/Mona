@@ -8,7 +8,7 @@ H='pacman' ; I='TotalDownload' ; J='MODULES=' ; K='/etc/mkinitcpio.conf'      # 
 L='xf86-video-' ; M="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"               #    VOLUME: ▁▂▃▄▅▆▇ 100%   
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 lsblk -do ${C} ; printf "${A}Choose Device name: ${B}" ; read -r D ; D1="/dev/${D}" 
-sgdisk ${D1} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p  
+sgdisk ${D1} -Z -o -n 1::+512M -t 1:EF00 -c 1:BOOT -n -c 1:ROOT -i -v -p  
 E1="$(ls /dev/* | grep -E "^${D1}p?1$")" ; E2="$(ls /dev/* | grep -E "^${D1}p?2$")" 
 mkfs.vfat ${E1} ; mkfs.btrfs -fq ${E2} ; mount ${E2} /mnt ; cd /mnt ; ${F} ; ${F}home 
 cd ; umount /mnt ; ${G} ${E2} /mnt ; mkdir /mnt/{boot,home} ; ${G}home ${E2} /mnt/home 
