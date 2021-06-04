@@ -14,5 +14,6 @@ printf "${B}DISPLAY MANAGER ENABLED${C}" ; systemctl enable sddm ; printf "${B}N
 ${C} "${A}GRUB INSTALL ${B}\n" ; sed -i 's/'${E}'auto/'${E}'1920x1080,auto/' /etc/default/grub 
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg 
 printf "${B}Done!${C}\n" ; rm u.txt 
-# read -r -p "reboot? (y/n) " W ; if [ "$W" != "${W#[Yy]}" ] ; then exit ; umount -a ; reboot ; fi 
+# read -r -p "reboot? (y/n) " W ; if [ "$W" != "${W#[Yy]}" ] ; then exit && umount -a && reboot ; fi 
+# read -e -p "Reboot? [Y/n] " Y ; if [[ $Y == "y" || $Y == "Y" || $Y == "" ]] ; then exit && umount -a && reboot ; fi
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
