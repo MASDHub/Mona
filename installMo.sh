@@ -8,7 +8,7 @@ cd ~ ;  ${E} ${D}github.com/${A}/${A}.git ; cd ${A} ; curl --proto '=https' --tl
 cargo build --release ; mkdir -p ~/${B}_${C} ; cp extra/${C}s/${A}${B} ~/${B}_${C}/${A} ; echo "source ~/${B}_${C}/${A}" >> ~/${B}rc
 cd ~ ; ${E} ${D}aur.archlinux.org/${F}.git ; cd ${F} ; makepkg -fsri
 ${G} xorg rsync xfce-polkit openbox ${H}-settings archlinux-xdg-menu xfconf nm-connection-editor gufw xterm sddm-stellar-theme \
-alsa-utils ${I} ${I}-alsa ${I}-pulse ${I}-jack gst-${M}-${I} libpulse vlc picom xorg-xprop gvfs xcursor-breeze geany geany-${M}s \
+alsa-utils ${I} ${I}-alsa ${I}-pulse ${I}-jack gst-${M}-${I} libpulse vlc picom xorg-xprop gvfs capitaine-cursors geany geany-${M}s \
 nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-components obkey ristretto menulibre timeshift \
 ${J}en-us ${J}en-gb ${J}en-ca ${J}fr ${J}de ${J}it ${J}ja ${J}zh-cn ${J}zh-tw ${J}ru ${J}he ${J}pt-br ${K}sans ${K}mono ttf-ms-fonts \
 ${H}-whiskermenu-${M} ${H}-task${L} ${H}-screenshooter ${H}-notes-${M} ${H}-appfinder ${H}-datetime-${M} ${H}-mpc-${M} galculator
