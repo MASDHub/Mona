@@ -6,7 +6,7 @@ C="name,size -e 7,11" ; lsblk -do ${C}
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Mozart - Moonlight Sonata ||  A='\e[1;31m' | B='\e[0m' | C="name,size -e 7,11" | read -r D | E="/dev/${D}"
 #  0:35 ━❍──────── -5:32    ||  F='btrfs su cr @' | G='mount -o noatime,compress=zstd,discard=async,subvol=@'
-#      ↻     ⊲  Ⅱ  ⊳     ↺  ||  H='pacman' | I='TotalDownload' | J='MODULES=' | K='/etc/mkinitcpio.conf'
+#    ↻     ⊲  Ⅱ  ⊳     ↺    ||  H='pacman' | I='TotalDownload' | J='MODULES=' | K='/etc/mkinitcpio.conf'
 #    VOLUME: ▁▂▃▄▅▆▇ 100%   ||  L='xf86-video-' | M="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 printf "${A}Device name: ${B}" ; read -r D ; E="/dev/${D}" ; sgdisk ${E} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p 
