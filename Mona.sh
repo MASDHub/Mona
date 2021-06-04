@@ -21,6 +21,6 @@ J='MODULES=' ; K='/etc/mkinitcpio.conf' ; L='xf86-video-' ; M="$(lscpu | grep -E
 if [[ "${M}" == "AMD" || "Intel" ]] ; then M1="${M}"; fi ; if [[ "${M1}" == "AMD" ]] 
 then M2="amd-ucode ${L}amdgpu" && sed -i "s/${J}()/${J}(amdgpu btrfs)/" ${K}
 else M2="intel-ucode ${L}intel" && sed -i "s/${J}()/${J}(i915 btrfs)/" ${K} ; fi
-pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim ${M1}
+pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim ${M2}
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
