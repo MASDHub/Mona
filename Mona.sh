@@ -7,7 +7,7 @@ F='btrfs su cr @' ; G='mount -o noatime,compress=zstd,discard=async,subvol=@' # 
 H='pacman' ; I='TotalDownload' ; J='MODULES=' ; K='/etc/mkinitcpio.conf'      #    ↻     ⊲  Ⅱ  ⊳     ↺     
 L='xf86-video-' ; M="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"               #    VOLUME: ▁▂▃▄▅▆▇ 100%   
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-printf "${A}Device name: ${B}" ; read -r D ; E="/dev/${D}" 
+lsblk -do ${C} ; printf "${A}Device name: ${B}" ; read -r D ; E="/dev/${D}" 
 sgdisk ${E} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p ; E1="$(${A2} "^${E}p?1$")" ; E2="$(${A2} "^${E}p?2$")" 
 mkfs.vfat ${E1} ; mkfs.btrfs -fq ${E2} ; mount ${E2} /mnt ; cd /mnt ; ${F} ; ${F}home ; cd ; umount /mnt 
 ${G} ${E2} /mnt ; mkdir /mnt/{boot,home} ; ${G}home ${E2} /mnt/home ; mount ${E1} /mnt/boot ; lsblk -o ${C} 
