@@ -3,7 +3,7 @@ set -euo pipefail
 A='pikaur' ; B='\e[1;31m' ; C='\e[0m' ;  D='.config' ; E='openbox' ; F='reversesearchsorting =' ; G='noedit =' ; H='alacritty' ; I='.config/openbox/menu.xml' 
 J='<item label="' ; K='"><action name="Execute"><command>' ; L='</command></action></item>' ; M='manager' ; U=$(cat u.txt)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
-sed -i "s/${F} no/${F} yes/" /home/${U}/${E}/${A}.conf ; sed -i "s/${G} no/${G} yes/" /home/${U}/${E}/${A}.conf
+sed -i "s/${F} no/${F} yes/" /home/${U}/${D}/${A}.conf ; sed -i "s/${G} no/${G} yes/" /home/${U}/${D}/${A}.conf
 cp /home/${U}/${H}/target/release/${H} /usr/local/bin ; mkdir -p /home/${U}/${D}/${E} ; cp -a /etc/xdg/${E}/ /home/${U}/${D}/
 sed -i '5,$d' /home/${U}/${D}/${E}/menu.xml ; echo -e '<menu id="root-menu" label="Openbox 3">' >> /home/${U}/${I}
 echo -e "${J}Internet${K}firefox-developer-edition${L}\n${J}File Manager${K}nemo${L}\n${J}Terminal${K}${A}${L}\n" >> /home/${U}/${I}
