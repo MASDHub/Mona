@@ -8,7 +8,7 @@ H='pacman' ; I='TotalDownload' ; J='MODULES=' ; K='/etc/mkinitcpio.conf'      # 
 L='xf86-video-' ; M="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"               #    VOLUME: ▁▂▃▄▅▆▇ 100%   
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 lsblk -do ${C} ; printf "${A}Choose Device name: ${B}" ; read -r D 
-until [[ "${D}" == +(nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0) ]] ; do printf "Try Again\n" && read -r D  ; done 
+until [[ "${D}" == +(nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0) ]] ; do printf "Try Again\n" && read -r D ; done 
 D1="/dev/${D}" ; sgdisk ${D1} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
 E1="$(ls /dev/* | grep -E "^${D1}p?1$")" ; E2="$(ls /dev/* | grep -E "^${D1}p?2$")" 
 mkfs.vfat ${E1} ; mkfs.btrfs -fq ${E2} ; mount ${E2} /mnt ; cd /mnt ; ${F} ; ${F}home 
