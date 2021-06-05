@@ -12,7 +12,10 @@ echo -e "${J}File Manager${K}nemo${L}\n${J}Internet${K}firefox-developer-edition
 echo -e "${J}Text Editor${K}geany${L}\n${J}Settings${K}xfce4-settings-${M}${L}\n${J}Calculator${K}galculator${L}" >> /home/${U}/${I}
 echo -e "${J}Refresh${K}openbox --reconfigure${L}\n${J}Reboot${K}reboot${L}\n${J}Power Off${K}poweroff${L}\n</menu>\n</openbox_menu>\n" >> /home/${U}/${I} 
 echo -e "picom &\nxfce-mcs-${M} &\n\nxfce4-panel &\n" >> /home/${U}/${D}/${E}/autostart ; echo "exec ${E}-session" >> /home/${U}/.xinitrc 
-printf "${B}DISPLAY MANAGER ENABLED${C}" ; systemctl enable sddm ; printf "${B}NETWORK ENABLED${C}\n" ; systemctl enable NetworkManager 
+printf "${B}DISPLAY MANAGER ENABLED${C}" ; systemctl enable sddm ; echo -e 'M="$(xrandr | grep -Ec 'HDMI-1|HDMI1|eDP1|eDP-1|VG A1|VGA-1')"; \ 
+M1="$(xrandr | grep -Eo 'eDP1|eDP-1|VGA1|VGA-1')" ; M2="$(xrandr | grep -Eo 'HDMI-1|HDMI1')" ; if [[ "${M}" == "2" ]]; then xrandr --output ${M1} \
+--mode 1920x1080 --pos 0x0 --rotate normal --output ${M2} --primary --auto --pos 1920x0 --rotate normal ; fi' >> /usr/share/sddm/scripts/Xsetup
+printf "${B}NETWORK ENABLED${C}\n" ; systemctl enable NetworkManager 
 printf "${B}Done! ( Type: 'exit' and then 'reboot' )${C}\n" ; rm /etc/u.txt ; rm /home/${U}/installMO.sh
 #exit ; umount -a # read -e -p "Reboot? [Y/n] " Y ; if [[ $Y == "y" || $Y == "Y" || $Y == "" ]] ; then reboot ; fi
 # read -r -p "reboot? (y/n) " W ; if [ "$W" != "${W#[Yy]}" ] ; then exit && exit && exit && umount -a && reboot ; fi 
