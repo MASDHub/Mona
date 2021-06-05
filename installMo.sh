@@ -4,7 +4,7 @@ set -euo pipefail
 A='alacritty' ; B='.bash' ; C='completion' ; D='https://' ; E='git clone' ; F='pikaur' ; G="pikaur -Syyu" 
 H='xfce4' ; I='pipewire' ; J='firefox-developer-edition-i18n-' ; K='otf-fira-' ; L='manager' ; M='plugin' ; N=$USER
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-cd ~ ;  ${E} ${D}github.com/${A}/${A}.git ; cd ${A} ; curl --proto '=https' --tlsv1.2 -sSf ${D}sh.rustup.rs | sh 
+cd ~ ; ${E} ${D}github.com/${A}/${A}.git ; cd ${A} ; curl --proto '=https' --tlsv1.2 -sSf ${D}sh.rustup.rs | sh 
 source /home/${N}/.cargo/env ; cargo build --release ; mkdir -p ~/${B}_${C} ; mkdir -p ~/.config/${A} ; mkdir ~/.config/openbox
 cp extra/${C}s/${A}${B} ~/${B}_${C}/${A} ; cp ${A}.yml ~/.config/${A}/${A}.yml ; echo "source ~/${B}_${C}/${A}" >> ~/${B}rc
 cd ~ ; ${E} ${D}aur.archlinux.org/${F}.git ; cd ${F} ; makepkg -fsri ; curl -sL https://git.io/JGVg5 > ~/installna.sh 
