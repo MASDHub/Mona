@@ -15,7 +15,7 @@ echo -e "${J}Refresh${K}openbox --reconfigure${L}\n${J}Reboot${K}reboot${L}\n${J
 echo -e "picom &\nxfce-mcs-${M} &\n\nxfce4-panel &\n" >> /home/${U}/${D}/${E}/autostart ; echo "exec ${E}-session" >> /home/${U}/.xinitrc 
 printf "${B}DISPLAY MANAGER ENABLED${C}" ; systemctl enable sddm ; { echo 'M="$(xrandr | grep -Ec ''HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1'')"'
 echo 'M1="$(xrandr|grep -Eo ''eDP1|eDP-1|VGA1|VGA-1'')"' ; echo 'M2="$(xrandr | grep -Eo ''HDMI-1|HDMI1'')"' ; echo 'if [[ "${M}" == "2" ]]' 
-echo 'then xrandar --output ${M1} --mode 1920x1080 --pos 0x0 --rotate normal --ouput {$M2} --primary --auto --pos 1920x0 --rotate normal ; fi' ; } >> ${X}
+echo 'then xrandr --output ${M1} --mode 1920x1080 --pos 0x0 --rotate normal --ouput {$M2} --primary --auto --pos 1920x0 --rotate normal ; fi' ; } >> ${X}
 printf "${B}NETWORK ENABLED${C}\n" ; systemctl enable NetworkManager ; printf "${B}Done! ( Type: 'exit' and then 'reboot' )${C}\n" 
 rm /etc/u.txt ; rm /home/${U}/installMO.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
