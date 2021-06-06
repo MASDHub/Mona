@@ -5,12 +5,11 @@ I='.config/openbox/menu.xml' ; J='<item label="' ; K='"><action name="Execute"><
 M='manager' ; N='GRUB_GFXMODE=' ; U=$(cat /etc/u.txt) ; X='/usr/share/sddm/scripts/Xsetup' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 sed -i "s/${F} no/${F} yes/" /home/${U}/${D}/${A}.conf ; sed -i "s/${G} no/${G} yes/" /home/${U}/${D}/${A}.conf
-cp /home/${U}/${H}/target/release/${H} /usr/local/bin ; cp /home/${U}/${H}/extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-desktop-file-install /home/${U}/${H}/extra/linux/Alacritty.desktop # if [[ -f /usr/local/bin/alacritty ]]; then ; alacritty /etc/rofi/1080p/applets/android/apps.sh
-cp /etc/xdg/${E}/ /home/${U}/${D}/${E}/ ; rm -rf /home/${U}/${D}/${E}/autostart
+#cp /home/${U}/${H}/target/release/${H} /usr/local/bin ; cp /home/${U}/${H}/extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg desktop-file-install /home/${U}/${H}/extra/linux/Alacritty.desktop 
+#if [[ -f /usr/local/bin/alacritty ]]; then ; alacritty /etc/rofi/1080p/applets/android/apps.sh
 #sed -i '0,10d' ; echo -e 'gtk-theme-name="Oranchelo"\gtk-icon-theme-name="Oranchelo-Light"\ngtk-font-name="Fira Sans Compressed Book 12"' >> .gtkrc-2.0
-#echo -e 'gtk-cursor-theme-name="capitaine-cursors"\ngtk-cursor-theme-size=36" >> .gtkrc-2.0 ; 
-O="/home/${U}/${D}/${E}/rc.xml" ; cp /etc/xdg/${E}/rc.xml ${O} # sed -i '250,260d' ${O}  
+#echo -e 'gtk-cursor-theme-name="capitaine-cursors"\ngtk-cursor-theme-size=36" >> .gtkrc-2.0 ; ls
+#O="/home/${U}/${D}/${E}/rc.xml" ; cp /etc/xdg/${E}/rc.xml ${O} # sed -i '250,260d' ${O}  
 #sed -e '248s/$/<keybind key="A-Tab"><action name="Execute"><command>rofi -dpi 96 -show window</command></action></keybind>/' ${O}
 #sed -i '250,260d' ; sed -e '248s/$/<keybind key="A-Tab"><action name="Execute"><command>rofi -dpi 96 -show window</command></action></keybind>/' /home/${U}/${D}/${E}/rc.xml
 sed -i '5,$d' /home/${U}/${D}/${E}/menu.xml ; { echo -e '<menu id="root-menu" label="Openbox 3">'
