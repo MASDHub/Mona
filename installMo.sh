@@ -16,5 +16,5 @@ sed -i '250,260d' ~/.config/openbox/rc.xml ; sed -e '248s/$/<keybind key="A-Tab"
 <command>rofi -dpi 96 -show window</command></action></keybind>/' ~/.config/openbox/rc.xml
 { echo -e "picom &\nlxqt-policykit &\n(sleep 2s && trayer --monitor primary --height 40 --align right --iconspacing 10 --transparent true --tint 0x716966) &\n"
 echo -e "\n (sleep 2s && nm-applet) &\n (sleep 3s && volumeicon) &\n (sleep 6s && plank) &" >> ~/.config/openbox/autostart 
-echo -e"exec ${E}-session" >> ~/.xinitrc ;  rofi -upgrade-config ; su --login root -c "sh /home/$USER/installna.sh"
+echo -e "exec ${E}-session" >> ~/.xinitrc ;  rofi -upgrade-config ; su --login root -c "sh /home/$USER/installna.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
