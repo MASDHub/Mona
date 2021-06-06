@@ -17,7 +17,7 @@ mount ${E1} /mnt/boot ; lsblk -o ${C} ; curl -sL https://git.io/Jsde3 > /mnt/ins
 sed -i 's/#Color/Color/' /etc/${H}.conf ; sed -i s"/#${I}/${I}/" /etc/${H}.conf 
 gpg -k ; ${H}-key --init ; ${H}-key --populate archlinux >/dev/null
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/${H}.d/mirrorlist
-if [[ "${M}" == "AMD" || "Intel" ]] ; then M1="${M}"; fi ; if [[ "${M1}" == "AMD" ]] 
+if [[ "${M}" == "AMD" ]] || [[ "${M}" == "Intel" ]] ; then M1="${M}"; fi ; if [[ "${M1}" == "AMD" ]] 
 then M2="amd-ucode ${L}amdgpu" && sed -i "s/${J}()/${J}(amdgpu btrfs)/" ${K}
 else M2="intel-ucode ${L}intel" && sed -i "s/${J}()/${J}(i915 btrfs)/" ${K} ; fi
 if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then Z="tlp acpi cbatticon" ; fi
