@@ -10,7 +10,7 @@ cp extra/${C}s/${A}${B} ~/${B}_${C}/${A} ; cp ${A}.yml ~/.config/${A}/${A}.yml ;
 cd ~ ; ${E} ${D}aur.archlinux.org/${F}.git ; cd ${F} ; makepkg -fsri ; curl -sL https://git.io/JGVg5 > ~/installna.sh 
 ${G} xorg rsync lxqt-policykit openbox obconf openbox-themes nm-connection-editor network-manager-applet gufw xterm sddm-stellar-theme timeshift \
 alsa-utils ${I} ${I}-alsa ${I}-pulse ${I}-jack gst-${M}-${I} libpulse vlc volumeicon picom xorg-xprop capitaine-cursors geany geany-${M}s \
-nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-components obkey ristretto arandr gvfs gvfs-mtp gvfs-afc \
+nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-components obkey arandr gvfs gvfs-mtp gvfs-afc \
 ${J}en-us ${J}en-gb ${J}en-ca ${J}fr ${J}de ${J}it ${J}ja ${J}zh-cn ${J}zh-tw ${J}ru ${J}he ${J}pt-br ${K}sans ${K}mono ttf-ms-fonts \
 trayer ${H}-menu-1080p ${H}-android-1080p  ${H}-applet-1080p ${H}-launcher-1080p ${H}-powermenu-1080 galculator
 if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then ${F} tlp acpi cbatticon ; fi
