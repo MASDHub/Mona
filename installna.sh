@@ -12,8 +12,10 @@ sed -i '5,$d' /home/${U}/${D}/${E}/menu.xml ; echo -e '<menu id="root-menu" labe
 echo -e "${J}File Manager${K}nemo${L}\n${J}Internet${K}firefox-developer-edition${L}\n${J}Terminal${K}${H}${L}" >> /home/${U}/${I}
 echo -e "${J}Text Editor${K}geany${L}\n${J}Settings${K}xfce4-settings-${M}${L}\n${J}Calculator${K}galculator${L}" >> /home/${U}/${I}
 echo -e "${J}Refresh${K}openbox --reconfigure${L}\n${J}Reboot${K}reboot${L}\n${J}Power Off${K}poweroff${L}\n</menu>\n</openbox_menu>\n" >> /home/${U}/${I} 
-echo -e "picom &\nxfce-mcs-${M} &\n\nxfce4-panel &\n" >> /home/${U}/${D}/${E}/autostart ; echo "exec ${E}-session" >> /home/${U}/.xinitrc 
-printf "${B}DISPLAY MANAGER ENABLED${C}" ; systemctl enable sddm ; if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; then systemctl enable tlp ; fi
+echo -e "picom &\nlxqt-policykit &\ntrayer --monitor primary --height 40 --align right --iconspacing 10 --transparent true  --tint 0x716966 &\n nm-applet\n volumeicon" >> /home/${U}/${D}/${E}/autostart 
+echo "exec ${E}-session" >> /home/${U}/.xinitrc 
+printf "${B}DISPLAY MANAGER ENABLED${C}" ; systemctl enable sddm ; if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] 
+then systemctl enable tlp && systemctl enable acpi ; fi # && echo "\ncbatticon -x powermenu_1080p &\n" >> home/${U}/${D}/${E}/autostart
 { echo 'M="$( xrandr | grep -Ec ''HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1'' )"' ; echo 'M1="$( xrandr| grep -Eo ''eDP1|eDP-1|VGA1|VGA-1'' )"' 
 echo 'M2="$( xrandr | grep -Eo ''HDMI-1|HDMI1'' )"' ; echo 'if [[ "${M}" == "2" ]] || [[ "${M}" == "3" ]]'
 echo 'then xrandr --output "${M1}" --mode 1920x1080 --pos 0x0 --rotate normal --ouput "${M2}" --primary --auto --pos 1920x0 --rotate normal ; fi' ; } >> ${X}
