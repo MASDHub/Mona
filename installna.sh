@@ -7,6 +7,7 @@ M='manager' ; N='GRUB_GFXMODE=' ; U=$(cat /etc/u.txt) ; X='/usr/share/sddm/scrip
 sed -i "s/${F} no/${F} yes/" /home/${U}/${D}/${A}.conf ; sed -i "s/${G} no/${G} yes/" /home/${U}/${D}/${A}.conf
 cp /home/${U}/${H}/target/release/${H} /usr/local/bin ; cp /home/${U}/${H}/extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
 desktop-file-install /home/${U}/${H}/extra/linux/Alacritty.desktop ; update-desktop-database 
+#sed -i '250,260d' ; sed -e '30s/$/if [[ -f /usr/local/bin/alacritty ]]; then ; alacritty /etc/rofi/1080p/applets/android/apps.sh
 cp /etc/xdg/${E}/environment /home/${U}/${D}/${E}/environment ; cp /etc/xdg/${E}/menu.xml /home/${U}/${I} # cp /etc/xdg/${E}/rc.xml /home/${U}/${D}/${E}/rc.xml
 #sed -i '250,260d' ; sed -e '248s/$/<keybind key="A-Tab"><action name="Execute"><command>rofi -dpi 96 -show window</command></action></keybind>/' /home/${U}/${D}/${E}/rc.xml
 sed -i '5,$d' /home/${U}/${D}/${E}/menu.xml ; echo -e '<menu id="root-menu" label="Openbox 3">' >> /home/${U}/${I}
