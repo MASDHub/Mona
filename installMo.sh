@@ -8,7 +8,7 @@ pikaur -S --needed oranchelo-icon-theme obkey ttf-ms-fonts rofi-theme-menu-1080p
 mkdir -p ~/.config/openbox ; cp -a /etc/xdg/openbox/ ~/.config/ ; sed -i '5,$d' ~/.config/openbox/menu.xml
 { echo '<menu id="root-menu" label="Openbox 3">' ; echo "${J}File Manager${K}nemo${L}" ; echo "${J}Search${K}rofi -show drun${L}" 
 echo "${J}Internet${K}firefox-developer-edition${L}" ; echo "${J}Terminal${K}alacritty${L}" ; echo "${J}Text Editor${K}geany${L}" 
-echo "${J}Settings${K}nemo${L}" ; echo "${J}Calculator${K}galculator${L}" ; echo "${J}Refresh${K}openbox --reconfigure${L}" 
+echo "${J}Settings${K}obconf${L}" ; echo "${J}Calculator${K}galculator${L}" ; echo "${J}Refresh${K}openbox --reconfigure${L}" 
 echo "${J}Reboot${K}reboot${L}" ; echo "${J}Lock Screen${K}${L}" ; echo "${J}Power Off${K}poweroff now${L}" ; } >> ~/.config/openbox/menu.xml
 #sed -i '250,260d' ~/.config/openbox/rc.xml ; sed -e '248s/$/<keybind key="A-Tab"><action name="Execute">\
 #<command>rofi -dpi 96 -show window</command></action></keybind>/' ~/.config/openbox/rc.xml
