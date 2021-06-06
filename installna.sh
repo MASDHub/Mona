@@ -16,8 +16,8 @@ sed -i '5,$d' /home/${U}/${D}/${E}/menu.xml ; { echo -e '<menu id="root-menu" la
 echo -e "${J}File Manager${K}nemo${L}\n${J}Search${K}rofi -show drun${L}\n${J}Internet${K}firefox-developer-edition${L}\n${J}Terminal${K}${H}${L}"
 echo -e "${J}Text Editor${K}geany${L}\n${J}Calculator${K}galculator${L}"
 echo -e "${J}Refresh${K}openbox --reconfigure${L}\n${J}Reboot${K}reboot${L}\n${J}Power Off${K}poweroff${L}\n</menu>\n</openbox_menu>\n" ; } >> /home/${U}/${I} 
-{ echo -e "picom &\nlxqt-policykit &\n(sleep 3s && trayer --monitor primary --height 40 --align right --iconspacing 10 --transparent true --tint 0x716966) &\n"
-echo -e "\n (sleep 4s && nm-applet) &\n (sleep 5s && volumeicon) &\n (sleep 6s && plank) &" >> /home/${U}/${D}/${E}/autostart 
+{ echo -e "picom &\nlxqt-policykit &\n(sleep 2s && trayer --monitor primary --height 40 --align right --iconspacing 10 --transparent true --tint 0x716966) &\n"
+echo -e "\n (sleep 2s && nm-applet) &\n (sleep 3s && volumeicon) &\n (sleep 6s && plank) &" >> /home/${U}/${D}/${E}/autostart 
 echo -e"exec ${E}-session" >> /home/${U}/.xinitrc ; update-desktop-database ; rofi -upgrade-config
 printf "${B}DISPLAY MANAGER ENABLED${C}" ; systemctl enable sddm ; if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] 
 then systemctl enable tlp && systemctl enable acpi ; fi # && echo "\ncbatticon -x powermenu_1080p &\n" >> home/${U}/${D}/${E}/autostart
