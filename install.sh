@@ -19,8 +19,8 @@ H='/etc/host' ; W='%wheel ALL=(ALL) ALL'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#           
 printf "${A}Enter Root Password: ${B}\n" ; until passwd ; do printf "\n" ; done 
 printf "${A}Enter User Name: ${B}" ; read -r U1 ; U="${U1,,}" ; until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ [a-z] ]]
-do printf "Try Again\n" && read -r U1 && U="${U1,,}" ; done 
-useradd -m -G wheel ${U} ; sed -i "s/# ${W}/ ${W}/" /etc/sudoers ; until passwd ${U} ; do printf "\n" ; done 
+do printf "Try Again\n" && read -r U1 && U="${U1,,}" ; done ; useradd -m -G wheel ${U} 
+sed -i "s/# ${W}/ ${W}/" /etc/sudoers ; until passwd ${U} ; do printf "\n" ; done 
 echo "${U}" >> /etc/u.txt ; chmod +x /etc/u.txt ; curl -sL https://git.io/Jspfl > /home/${U}/installMO.sh 
 sed -i 's/#Color/Color/' ${E} ; sed -i "s/#${F}/${F}/" ${E} ; pacman -S --needed git cmake freetype2 fontconfig pkg-config  
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime ; hwclock --systohc
