@@ -1,9 +1,9 @@
 #!/bin/bash
-set -euo pipefail 
-A='pikaur' ; B='\e[1;31m' ; C='\e[0m' ;  D='.config' ; E='openbox' ; F='reversesearchsorting =' 
-G='noedit =' ; X='/usr/share/sddm/scripts/Xsetup' ; U=$(cat /etc/u.txt) 
+set -euo pipefail ; U=$(cat /etc/u.txt)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
-sed -i "s/${F} no/${F} yes/" /home/${U}/${D}/${A}.conf ; sed -i "s/${G} no/${G} yes/" /home/${U}/${D}/${A}.conf ; update-desktop-database 
+A="/home/${U}/.config/pikaur.conf" ; B='\e[1;31m' ; C='\e[0m' ; F='noedit =' ; G='reversesearchsorting =' ; X='/usr/share/sddm/scripts/Xsetup' 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
+sed -i "s/${G} no/${G} yes/" ${A} ; sed -i "s/${F} no/${F} yes/" ${A} ; update-desktop-database 
 printf "${B}DISPLAY MANAGER ENABLED${C}" ; systemctl enable sddm ; printf "${B}NETWORK ENABLED${C}\n" ; systemctl enable NetworkManager ;
 if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; then systemctl enable tlp && systemctl enable acpi ; fi
 { echo 'M="$( xrandr | grep -Ec ''HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1'' )"' ; echo 'M1="$( xrandr| grep -Eo ''eDP1|eDP-1|VGA1|VGA-1'' )"' 
