@@ -4,9 +4,7 @@ set -euo pipefail
 A='alacritty' ; B='completion' ; C='git clone' ; D="pikaur -Syyu" ; E='pipewire' ; F='firefox-developer-edition-i18n-' ; G='otf-fira-' 
 U=$USER
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#cd ~ ; ${C} https://github.com/${A}/${A}.git ; cd ${A} ; curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 
-#source /home/${U}/.cargo/env ; cargo build --release ; mkdir -p ~/.bash_${B} ; mkdir -p ~/.config/${A} ;
-#cp extra/${B}s/${A}.bash ~/.bash_${B}/${A} ; cp ${A}.yml ~/.config/${A}/${A}.yml ; echo "source ~/.bash_${B}/${A}" >> ~/.bashrc
+mkdir -p ~/.config/openbox ; cp -a /etc/xdg/openbox/ ~/.config/
 cd ~ ; ${C} https://aur.archlinux.org/pikaur.git ; cd pikaur ; makepkg -fsri ; curl -sL https://git.io/JGVg5 > ~/installna.sh 
 ${D} xorg rsync lxqt-policykit openbox obconf openbox-themes oranchelo-icon-theme nm-connection-editor network-manager-applet gufw \
 alsa-utils ${E} ${E}-alsa ${E}-pulse ${E}-jack gst-plugin-${E} libpulse vlc volumeicon picom xorg-xprop capitaine-cursors geany geany-plugins \
