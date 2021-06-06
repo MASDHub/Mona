@@ -1,11 +1,11 @@
 #!/bin/bash  
-set -euo pipefail 
-setfont ter-124b 
+set -euo pipefail ; setfont ter-124b 
+A='\e[1;31m' ; B='\e[0m' ; C="name,size -e 7,11"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='\e[1;31m' ; B='\e[0m' ; C="name,size -e 7,11"                              # Mozart - Moonlight Sonata 
-F='btrfs su cr @' ; G='mount -o noatime,compress=zstd,discard=async,subvol=@' #  0:35 ━❍──────── -5:32    
-H='pacman' ; I='TotalDownload' ; J='MODULES=' ; K='/etc/mkinitcpio.conf'      #    ↻     ⊲  Ⅱ  ⊳     ↺     
-L='xf86-video-' ; M="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"               #    VOLUME: ▁▂▃▄▅▆▇ 100%   
+F='btrfs su cr @' ; G='mount -o noatime,compress=zstd,discard=async,subvol=@' # Mozart - Moonlight Sonata 
+H='pacman' ; I='TotalDownload' ; J='MODULES=' ; K='/etc/mkinitcpio.conf'      #  0:35 ━❍──────── -5:32    
+L='xf86-video-' ; M="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"               #    ↻     ⊲  Ⅱ  ⊳     ↺     
+N='pipewire' ; O='otf-fira-' ; P='firefox-developer-edition-i18n-'            #    VOLUME: ▁▂▃▄▅▆▇ 100%   
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 lsblk -do ${C} ; printf "${A}Choose Device name: ${B}" ; read -r D 
 until [[ "${D}" == +(nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0) ]] ; do printf "Try Again\n" && read -r D ; done 
@@ -20,6 +20,11 @@ reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /et
 if [[ "${M}" == "AMD" || "Intel" ]] ; then M1="${M}"; fi ; if [[ "${M1}" == "AMD" ]] 
 then M2="amd-ucode ${L}amdgpu" && sed -i "s/${J}()/${J}(amdgpu btrfs)/" ${K}
 else M2="intel-ucode ${L}intel" && sed -i "s/${J}()/${J}(i915 btrfs)/" ${K} ; fi
-pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim ${M2}
+if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then Z="tlp acpi cbatticon" ; fi
+pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim ${M2} \
+xorg lxqt-policykit obconf nm-connection-editor network-manager-applet gufw picom xorg-xprop sddm xterm \
+alsa-utils ${N} ${N}-alsa ${N}-jack gst-plugin-${N} libpulse vlc volumeicon geany geany-plugins capitaine-cursors \
+nemo nemo-fileroller nemo-image-converter nemo-preview arandr gvfs gvfs-mtp gvfs-afc trayer plank plank galculator alacritty
+${P}en-us ${P}en-gb ${P}en-ca ${P}fr ${P}de ${P}it ${P}ja ${P}zh-cn ${P}zh-tw ${P}ru ${P}he ${P}pt-br ${O}sans ${O}mono \
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
