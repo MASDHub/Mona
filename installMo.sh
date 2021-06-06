@@ -12,6 +12,6 @@ ${G} xorg rsync xfce-polkit openbox obconf openbox-themes nm-connection-editor n
 alsa-utils ${I} ${I}-alsa ${I}-pulse ${I}-jack gst-${M}-${I} libpulse vlc volumeicon picom xorg-xprop capitaine-cursors geany geany-${M}s \
 nemo nemo-fileroller nemo-image-converter nemo-preview nemo-python nemo-qt-components obkey ristretto lxrandr gvfs gvfs-mtp gvfs-afc \
 ${J}en-us ${J}en-gb ${J}en-ca ${J}fr ${J}de ${J}it ${J}ja ${J}zh-cn ${J}zh-tw ${J}ru ${J}he ${J}pt-br ${K}sans ${K}mono ttf-ms-fonts \
-${H}-whiskermenu-${M} ${H}-task${L} ${H}-screenshooter ${H}-notes-${M} ${H}-appfinder ${H}-datetime-${M} ${H}-mpc-${M} galculator
+rofi ${H}-task${L} ${H}-screenshooter ${H}-notes-${M} ${H}-appfinder ${H}-datetime-${M} ${H}-mpc-${M} galculator
 if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then ${F} tlp ; fi
 su --login root -c "sh /home/${N}/installna.sh"
