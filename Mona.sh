@@ -20,7 +20,7 @@ reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /et
 if [[ "${M}" == "AMD" ]] || [[ "${M}" == "Intel" ]] ; then M1="${M}"; fi ; if [[ "${M1}" == "AMD" ]] 
 then M2="amd-ucode ${L}amdgpu" && sed -i "s/${J}()/${J}(amdgpu btrfs)/" ${K}
 else M2="intel-ucode ${L}intel" && sed -i "s/${J}()/${J}(i915 btrfs)/" ${K} ; fi
-if [[ -n "$(grep -E '8|9|10|11|12|13|14' /sys/class/dmi/id/chassis_type)" ]] ; then Q="tlp acpi cbatticon" ; fi
+if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then Q="tlp acpi cbatticon" ; fi
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim ${M2} \
 xorg lxqt-policykit obconf nm-connection-editor network-manager-applet gufw picom xorg-xprop sddm xterm alacritty \
 alsa-utils ${N} ${N}-alsa ${N}-jack gst-plugin-${N} libpulse vlc volumeicon geany geany-plugins capitaine-cursors \
