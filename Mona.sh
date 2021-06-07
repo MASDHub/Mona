@@ -25,6 +25,6 @@ pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanag
 xorg lxqt-policykit obconf nm-connection-editor network-manager-applet gufw picom xorg-xprop sddm xterm alacritty \
 alsa-utils ${N} ${N}-alsa ${N}-jack gst-plugin-${N} libpulse vlc volumeicon geany geany-plugins capitaine-cursors \
 nemo nemo-fileroller nemo-image-converter nemo-preview arandr gvfs gvfs-mtp gvfs-afc trayer plank plank galculator  \
-${P}en-us ${P}en-gb ${P}en-ca ${P}fr ${P}de ${P}it ${P}ja ${P}zh-cn ${P}zh-tw ${P}ru ${P}he ${P}pt-br ${O}sans ${O}mono ${Q} \
+${P}en-us ${P}en-gb ${P}en-ca ${P}fr ${P}de ${P}it ${P}ja ${P}zh-cn ${P}zh-tw ${P}ru ${P}he ${P}pt-br ${O}sans ${O}mono ${Q}
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
