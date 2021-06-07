@@ -15,7 +15,7 @@ echo -e "${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}" ; } >> ~/${A}/
 #<command>rofi -dpi 96 -show window</command></action></keybind>/' ~/.config/openbox/rc.xml
 echo -e "exec openbox-session" >> ~/.xinitrc ; { echo -e "lxqt-policykit &\n\npicom &"
 echo '(sleep 2s && trayer --monitor primary --height 40 --align right --iconspacing 10 --transparent true --tint 0x716966) &'
-echo -e '(sleep 2s && nm-applet) &\n\n(sleep 3s && volumeicon) &\n\n(sleep 6s && plank) &' ; } > ~/${A}/autostart 
+echo -e '\n(sleep 2s && nm-applet) &\n\n(sleep 3s && volumeicon) &\n\n(sleep 6s && plank) &' ; } > ~/${A}/autostart 
 mkdir ${E} ; dconf dump /net/launchpad/plank/docks/ > ${E}/docks.ini ; sed -i "s/position='bottom'/position='right'/" ${E}/docks.ini
 su --login root -c "sh /home/$USER/installna.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
