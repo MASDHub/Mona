@@ -15,5 +15,5 @@ echo "${B}Reboot${C}reboot${D}" ; echo "${B}Lock Screen${C}${D}" ; echo "${B}Pow
 { echo -e "picom &\nlxqt-policykit &\n(sleep 2s && trayer --monitor primary --height 40 --align right --iconspacing 10 --transparent true --tint 0x716966) &\n"
 echo -e "\n (sleep 2s && nm-applet) &\n (sleep 3s && volumeicon) &\n (sleep 6s && plank) &" ; } >> ~/${A}/autostart 
 #if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; then echo "\ncbatticon -x powermenu_1080p &\n" >> ~/.config/openbox/autostart ; fi
-echo -e "exec ${E}-session" >> ~/.xinitrc ;  rofi -upgrade-config ; su --login root -c "sh /home/$USER/installna.sh"
+echo -e "exec openbox-session" >> ~/.xinitrc ;  rofi -upgrade-config ; su --login root -c "sh /home/$USER/installna.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
