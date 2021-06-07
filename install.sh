@@ -22,7 +22,7 @@ printf "${A}Enter User Name: ${B}" ; read -r U1 ; U="${U1,,}" ; until [[ ${#U} -
 do printf "Try Again\n" && read -r U1 && U="${U1,,}" ; done ; useradd -m -G wheel ${U} 
 sed -i "s/# ${W}/ ${W}/" /etc/sudoers ; until passwd ${U} ; do printf "\n" ; done 
 echo "${U}" >> /etc/u.txt ; chmod +x /etc/u.txt ; curl -sL https://git.io/Jspfl > /home/${U}/installMO.sh 
-sed -i 's/#Color/Color/' ${E} ; sed -i "s/#${F}/${F}/" ${E} ; pacman -S --needed git cmake freetype2 fontconfig pkg-config  
+sed -i 's/#Color/Color/' ${E} ; sed -i "s/#${F}/${F}/" ${E} ; pacman -Syyyu --needed git cmake freetype2 fontconfig pkg-config  
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime ; hwclock --systohc
 echo "LC_ALL=${D}" >> /etc/environment ; echo "${D} UTF-8" >> ${G}gen ; echo "LANG=${D}" >> ${G}conf ; locale-gen ${D} 
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${U}pc.localdomain ${U}pc \n" >> ${H}s ; echo "${U}pc" >> ${H}name
