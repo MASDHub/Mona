@@ -24,7 +24,7 @@ if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ;
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim ${M2} \
 xorg lxqt-policykit obconf nm-connection-editor network-manager-applet gufw picom xorg-xprop sddm xterm alacritty \
 alsa-utils ${N} ${N}-alsa ${N}-jack gst-plugin-${N} libpulse vlc volumeicon geany geany-plugins capitaine-cursors \
-nemo-fileroller nemo-image-converter nemo-preview arandr gvfs gvfs-mtp gvfs-afc trayer plank plank galculator  \
+nemo-fileroller nemo-image-converter nemo-preview arandr gvfs-mtp gvfs-afc trayer plank plank galculator  \
 ${P}en-us ${P}en-gb ${P}en-ca ${P}fr ${P}de ${P}it ${P}ja ${P}zh-cn ${P}zh-tw ${P}ru ${P}he ${P}pt-br ${O}sans ${O}mono ${Q}
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
