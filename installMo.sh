@@ -9,7 +9,7 @@ mkdir -p ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/ ; sed -i '5,$d' ~/${A}/menu
 { echo '<menu id="root-menu" label="Openbox 3">' ; echo -e "${B}File Manager${C}nemo${D}\n${B}Search${C}rofi -show drun${D}" 
 echo -e "${B}Internet${C}firefox-developer-edition${D}\n${B}Terminal${C}alacritty${D}'n${B}Text Editor${C}geany${D}" 
 echo "${B}Settings${C}obconf${D}\n${B}Calculator${C}galculator${D}\n${B}Refresh${C}openbox --reconfigure${D}"
-echo '<separator></separator>' ; echo -e "${B}Lock Screen${C}'xlock -mode atlantis +description -echokeys -echokey "'*'" -info "'"Enter password to unlock"'"${D}"
+echo '<separator></separator>' ; echo -e "${B}Lock Screen${C}xlock -mode atlantis +description -echokeys -echokey "'*'" -info "'"Enter password to unlock"'"${D}"
 echo -e "${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}" ; } >> ~/${A}/menu.xml
 #sed -i '250,260d' ~/.config/openbox/rc.xml ; sed -e '248s/$/<keybind key="A-Tab"><action name="Execute">\
 #<command>rofi -dpi 96 -show window</command></action></keybind>/' ~/.config/openbox/rc.xml
