@@ -6,11 +6,11 @@ A='.config/openbox' ; B='<item label="' ; C='"><action name="Execute"><command>'
 cd ~ ; git clone https://aur.archlinux.org/pikaur.git ; cd pikaur ; makepkg -fsri ; curl -sL https://git.io/JGVg5 > ~/installna.sh
 pikaur -S --needed picom-git rofi-dmenu oranchelo-icon-theme obkey ttf-ms-fonts timeshift 
 mkdir -p ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/ ; sed -i '5,$d' ~/${A}/menu.xml 
-{ echo '<menu id="root-menu" label="Openbox 3">' ; echo -e "${B}File Manager${C}nemo${D}\n${B}Search${C}rofi -show drun${D}" 
-echo -e "${B}Internet${C}firefox-developer-edition${D}\n${B}Terminal${C}alacritty${D}\n${B}Text Editor${C}geany${D}" 
-echo -e "${B}Calculator${C}galculator${D}\n${B}Refresh${C}openbox --reconfigure${D}" ; echo '<separator></separator>' 
-echo -e "${B}Lock Screen${C}xlock -mode atlantis +description -echokeys -echokey "'*'" -info "'"Enter password to unlock"'"${D}"
-echo -e "${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}</menu></openbox_menu>" ; } >> ~/${A}/menu.xml
+{ echo '<menu id="root-menu" label="Openbox 3">' ; echo -e "${B}File Manager${C}nemo${D}\n${B}Search${C}rofi -show drun${D}\n\ 
+"${B}Internet${C}firefox-developer-edition${D}\n${B}Terminal${C}alacritty${D}\n${B}Text Editor${C}geany${D}"\n\ 
+${B}Calculator${C}galculator${D}\n${B}Refresh${C}openbox --reconfigure${D}\n<separator></separator> ${B}Lock Screen${C}\
+xlock -mode atlantis +description -echokeys -echokey '"'*'"' -info "'"Enter password to unlock"'"${D}"\n\
+"${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}</menu></openbox_menu>" ; } >> ~/${A}/menu.xml
 #sed -i '250,260d' ~/.config/openbox/rc.xml ; sed -e '248s/$/<keybind key="A-Tab"><action name="Execute">\
 #<command>rofi -dpi 96 -show window</command></action></keybind>/' ~/.config/openbox/rc.xml
 echo -e "exec openbox-session" >> ~/.xinitrc ; { echo -e "lxqt-policykit &\n\npicom &\n"
