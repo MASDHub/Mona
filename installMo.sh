@@ -5,7 +5,7 @@ A='.config/openbox' ; B='<item label="' ; C='"><action name="Execute"><command>'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 cd ~ ; git clone https://aur.archlinux.org/pikaur.git ; cd pikaur ; makepkg -fsri ; curl -sL https://git.io/JGVg5 > ~/installna.sh
 pikaur -S --needed picom-git rofi-dmenu oranchelo-icon-theme obkey ttf-ms-fonts timeshift 
-mkdir -p ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/ ; sed -i '5,$d' ~/${A}/menu.xml ; sed -i '5,$d' ~/${A}/autostart
+mkdir -p ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/ ; sed -i '5,$d' ~/${A}/menu.xml 
 { echo '<menu id="root-menu" label="Openbox 3">' ; echo "${B}File Manager${C}nemo${D}" ; echo "${B}Search${C}rofi -show drun${D}" 
 echo "${B}Internet${C}firefox-developer-edition${D}" ; echo "${B}Terminal${C}alacritty${D}" ; echo "${B}Text Editor${C}geany${D}" 
 echo "${B}Settings${C}obconf${D}" ; echo "${B}Calculator${C}galculator${D}" ; echo "${B}Refresh${C}openbox --reconfigure${D}" 
