@@ -22,7 +22,7 @@ then M2="amd-ucode ${L}amdgpu" && sed -i "s/${J}()/${J}(amdgpu btrfs)/" ${K}
 else M2="intel-ucode ${L}intel" && sed -i "s/${J}()/${J}(i915 btrfs)/" ${K} ; fi
 if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then Q="tlp acpid cbatticon" ; fi
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim ${M2} \
-xorg lxqt-policykit obconf nm-connection-editor network-manager-applet gufw picom xorg-xprop sddm xterm alacritty \
+xorg lxqt-policykit obconf nm-connection-editor network-manager-applet gufw xorg-xprop sddm xterm alacritty \
 alsa-utils ${N} ${N}-alsa ${N}-jack gst-plugin-${N} libpulse vlc volumeicon geany-plugins capitaine-cursors \
 nemo-fileroller nemo-image-converter nemo-preview arandr gvfs-mtp gvfs-afc trayer plank galculator \
 ${P}en-us ${P}fr ${P}de ${P}it ${P}ja ${P}zh-cn ${P}ru ${P}he ${P}pt-br ${O}sans ${O}mono firefox-ublock-origin ${Q}
