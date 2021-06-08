@@ -14,9 +14,10 @@ sgdisk ${D1} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
 E1="$(ls /dev/* | grep -E "^${D1}p?1$")" ; mkfs.vfat ${E1}
 E2="$(ls /dev/* | grep -E "^${D1}p?2$")" ; mkfs.btrfs -fq ${E2} 
 mount ${E2} /mnt ; cd /mnt ; ${F} ; ${F}home ; cd ; umount /mnt 
-${G} ${E2} /mnt  ;mkdir /mnt/{boot,home}; mount ${E1} /mnt/boot ; ${G}home ${E2} /mnt/home 
-${H}-key --populate archlinux>/dev/null ; gpg -k ; ${H}-key --init 
-sed -i 's/#Color/Color/' /etc/${H}.conf ; sed -i "s/#${I}/${I}/" /etc/${H}.conf ; lsblk -o ${C} 
+${G}  ${E2} /mnt ; mkdir /mnt/{boot,home} ; ${G}home ${E2} /mnt/home
+mount ${E1} /mnt/boot ; lsblk -o ${C} ; gpg -k 
+${H}-key --init ; ${H}-key --populate archlinux >/dev/null
+sed -i -e 's/#Color/Color/' -e "s/#${I}/${I}/" /etc/${H}.conf
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/${H}.d/mirrorlist
 if [[ "${M}" == 'AMD' ]] || [[ "${M}" == 'Intel' ]] ; then M1="${M}"; fi ; if [[ "${M1}" == 'AMD' ]] 
 then M2="amd-ucode ${L}amdgpu" && M3='amdgpu btrfs' ; else M2="intel-ucode ${L}intel" && M3='i915 btrfs' ; fi
