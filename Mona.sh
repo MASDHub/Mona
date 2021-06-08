@@ -20,7 +20,7 @@ sed -i 's/#Color/Color/' /etc/${H}.conf ; sed -i "s/#${I}/${I}/" /etc/${H}.conf 
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/${H}.d/mirrorlist
 if [[ "${M}" == "AMD" ]] || [[ "${M}" == "Intel" ]] ; then M1="${M}"; fi ; if [[ "${M1}" == "AMD" ]] 
 then M2="amd-ucode ${L}amdgpu" && M3='amdgpu btrfs' ; else M2="intel-ucode ${L}intel" && M3='i915 btrfs' ; fi
-if [[ -n "${M1}" ]]; then sed -i "s/${J}/${J}(${M3})/" ${K} ; fi
+if [[ -n "${M1}" ]]; then sed -i "s/${J}()/${J}(${M3})/" ${K} ; fi
 if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then R="tlp acpid cbatticon"
 fi ; curl -sL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim ${M2} \
