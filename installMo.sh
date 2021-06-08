@@ -14,7 +14,7 @@ ${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}</menu></openbox_menu>" ;
 sed -i -e '50,120 s/8/12/' -e '50,120 s/9/13/' -e 's/sans/Fira Sans Condensed Book/g' -e 's/A-space/0x85/' \
 -e 's/W-e/0x85/' -e 's/Konqueror/Dmenu/' -e 's/kfmclient openProfile filemanagement/rofi -show drun/' ~/.config/openbox/rc.xml
 #sed -e '248s/$/<keybind key="A-Tab"><action name="Execute">\
-echo -e "exec openbox-session" >> ~/.xinitrc ; { echo -e 'lxqt-policykit &\n\npicom &\n 
+echo "exec openbox-session" >> ~/.xinitrc ; echo "Xcursor.size: 36" >> ~/.Xresources ; { echo -e 'lxqt-policykit &\n\npicom &\n 
 (sleep 2s && trayer --monitor primary --height 40 --align right --iconspacing 10 --transparent true --tint 0x716966) & 
 \n(sleep 2s && plank) &\n\n(sleep 2s && nm-applet) &\n\n(sleep 2s && volumeicon) &' ; } > ~/${A}/autostart 
 su --login root -c "sh /home/$USER/installna.sh"
