@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail ; U=$(cat /etc/u.txt)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
-A="/home/${U}/.config/pikaur.conf" ; B='\e[1;31m' ; C='\e[0m' ; D='reversesearchsorting =' ; E=Adwita/Oranchelo-Beka 
-F=Adwita/Oranchelo ; X='/usr/share/sddm/scripts/Xsetup' 
+A="/home/${U}/.config/pikaur.conf" ; B='\e[1;31m' ; C='\e[0m' ; D='reversesearchsorting =' ; E=Adwita/Oranchelo-Beka  
+F=Adwita/Oranchelo ; G="/usr/share/gtk-2.0/gtkrc" H="/usr/share/gtk-3.0/settings.ini" ; X='/usr/share/sddm/scripts/Xsetup' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 sed -i "s/${D} no/${D} yes/" ${A} ; update-desktop-database 
 printf "${B}DISPLAY MANAGER ENABLED${C}\n" ; systemctl enable sddm ; printf "${B}NETWORK ENABLED${C}\n" ; systemctl enable NetworkManager
@@ -10,7 +10,8 @@ if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; then printf "${B}NETWORK EN
 { echo 'M="$( xrandr | grep -Ec '"'HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1|DVI1|DVI-1'"' )"' ; echo 'M1="$( xrandr | grep -Eo '"'eDP1|eDP-1'"' )"' 
 echo 'M2="$( xrandr | grep -Eo '"'HDMI-1|HDMI1|DVI-1|DVI1|VGA1|VGA-1'"' )"' ; echo 'if [[ "${M}" == "2" ]]'
 echo 'then xrandr --output "${M1}" --mode 1920x1080 --pos 0x0 --rotate normal --output "${M2}" --primary --auto --pos 1920x0 --rotate normal'
-echo 'fi' ; } >> ${X} ; sed -i -e "2 s/${E}/" -e "3 s/${F}/" /usr/share/gtk-3.0/settings.ini ; sed -i -e "1 s/${E}/" -e "2 s/${F}/" /usr/share/gtk-2.0/gtkrc
+echo 'fi' ; } >> ${X} ; sed -i -e "1 s/${E}/" -e "2 s/${F}/" /usr/share/gtk-2.0/gtkrc ; sed -i -e "2 s/${E}/" -e "3 s/${F}/" ${H} 
+echo "gtk-cursor-theme-name= capitaine-cursors-light" | tee -a ${G} ${H} 
 printf "${B}Done! ( Type: 'exit' and then 'reboot' )${C}\n" ; rm /etc/u.txt ; rm /home/${U}/installMO.sh ; rm -- "$0"
 #echo -e 'gtk-cursor-theme-name="capitaine-cursors"\ngtk-cursor-theme-size=36" >> .gtkrc-2.0 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
