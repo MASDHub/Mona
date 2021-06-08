@@ -11,6 +11,7 @@ ${B}Web${C}firefox-developer-edition${D}\n${B}Terminal${C}alacritty${D}\n${B}Tex
 ${B}Calculator${C}galculator${D}\n${B}Refresh${C}openbox --reconfigure${D}\n<separator></separator> 
 ${B}Lock Screen${C}xlock -mode atlantis +description -echokeys -echokey '*' -info "'"Enter password to unlock"'"${D}
 ${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}</menu></openbox_menu>" ; } >> ~/${A}/menu.xml
+sed -i '50,120 s/8/12/' ~/${A}/rc.xml ; sed -i '50,120 s/9/13/' ~/${A}/rc.xml ; sed -i '50,120 s/sans/Fira Sans Condensed Book/' ~/${A}/rc.xml
 #sed -i '250,260d' ~/.config/openbox/rc.xml ; sed -e '248s/$/<keybind key="A-Tab"><action name="Execute">\
 #<command>rofi -dpi 96 -show window</command></action></keybind>/' ~/.config/openbox/rc.xml
 echo -e "exec openbox-session" >> ~/.xinitrc ; { echo -e 'lxqt-policykit &\n\npicom &\n 
