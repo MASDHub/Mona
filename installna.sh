@@ -2,7 +2,7 @@
 set -euo pipefail ; U=$(cat /etc/u.txt)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 A="/home/${U}/.config/pikaur.conf" ; B='\e[1;31m' ; C='\e[0m' ; D='reversesearchsorting =' ; E=Adwita/Oranchelo-Beka  
-F=Adwita/Oranchelo ; G="/usr/share/gtk-2.0/gtkrc" H="/usr/share/gtk-3.0/settings.ini" ; X='/usr/share/sddm/scripts/Xsetup' 
+F=Adwita/Oranchelo ; G="/usr/share/gtk-2.0/gtkrc" ; H="/usr/share/gtk-3.0/settings.ini" ; X='/usr/share/sddm/scripts/Xsetup' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 sed -i "s/${D} no/${D} yes/" ${A} ; update-desktop-database 
 printf "${B}DISPLAY MANAGER ENABLED${C}\n" ; systemctl enable sddm ; printf "${B}NETWORK ENABLED${C}\n" ; systemctl enable NetworkManager
