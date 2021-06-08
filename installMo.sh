@@ -11,9 +11,8 @@ ${B}Web${C}firefox-developer-edition${D}\n${B}Terminal${C}alacritty${D}\n${B}Tex
 ${B}Calculator${C}galculator${D}\n${B}Refresh${C}openbox --reconfigure${D}\n<separator></separator> 
 ${B}Lock Screen${C}xlock -mode atlantis +description -echokeys -echokey '*' -info "'"Enter password to unlock"'"${D}
 ${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}</menu></openbox_menu>" ; } >> ~/${A}/menu.xml
-sed -i '50,120 s/8/12/' ~/${A}/rc.xml ; sed -i '50,120 s/9/13/' ~/${A}/rc.xml ; sed -i 's/sans/Fira Sans Condensed Book/g' ~/${A}/rc.xml
-sed -i 's/A-space/0x85/' ~/${A}/rc.xml ; sed -i 's/W-e/0x85/' ~/${A}/rc.xml ; sed -i 's/Konqueror/Dmenu/' ~/${A}/rc.xml
-sed -i 's/kfmclient openProfile filemanagement/rofi -show run/' ~/.config/openbox/rc.xml
+sed -i -e '50,120 s/8/12/' -e '50,120 s/9/13/' -e 's/sans/Fira Sans Condensed Book/g' -e 's/A-space/0x85/' \
+-e 's/W-e/0x85/' -e 's/Konqueror/Dmenu/' -e 's/kfmclient openProfile filemanagement/rofi -show run/' ~/.config/openbox/rc.xml
 #sed -e '248s/$/<keybind key="A-Tab"><action name="Execute">\
 echo -e "exec openbox-session" >> ~/.xinitrc ; { echo -e 'lxqt-policykit &\n\npicom &\n 
 (sleep 2s && trayer --monitor primary --height 40 --align right --iconspacing 10 --transparent true --tint 0x716966) & 
