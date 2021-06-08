@@ -21,7 +21,7 @@ sed -i -e 's/#Color/Color/' -e "s/#${I}/${I}/" /etc/${H}.conf
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/${H}.d/mirrorlist
 if [[ "${M}" == 'AMD' ]] || [[ "${M}" == 'Intel' ]] ; then M1="${M}"; fi ; if [[ "${M1}" == 'AMD' ]] 
 then M2="amd-ucode ${L}amdgpu" && M3='amdgpu btrfs' ; else M2="intel-ucode ${L}intel" && M3='i915 btrfs' ; fi
-if [[ -n "${M1}" ]] ; then sed -i "s/${J}()/${J}(${M3})/" ${K} ; else printf "${A}No GPU Detected${B}\n" ; fi
+sed -i "s/${J}()/${J}(${M3})/" ${K} || printf "${A}No GPU Detected${B}\n" 
 curl -L https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim ${M2} \
 xorg lxqt-policykit obconf nm-connection-editor network-manager-applet gufw xorg-xprop sddm xterm alacritty \
