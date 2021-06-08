@@ -22,7 +22,7 @@ if [[ "${M}" == 'AMD' ]] || [[ "${M}" == 'Intel' ]] ; then M1="${M}"; fi ; if [[
 then M2="amd-ucode ${L}amdgpu" && M3='amdgpu btrfs' ; else M2="intel-ucode ${L}intel" && M3='i915 btrfs' ; fi
 if [[ -n '${M1}' ]] ; then sed -i "s/${J}()/${J}(${M3})/" ${K} ; else printf "${A}No GPU Detected${B}\n" ; fi
 if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then R='tlp acpid cbatticon'
-fi ; curl -sL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
+fi ; curl -L https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim ${M2} \
 xorg lxqt-policykit obconf nm-connection-editor network-manager-applet gufw xorg-xprop sddm xterm alacritty \
 alsa-utils ${N} ${N}-alsa ${N}-jack gst-plugin-${N} libpulse vlc volumeicon geany-plugins capitaine-cursors \
