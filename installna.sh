@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail ; U=$(cat /etc/u.txt)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
-A="/home/${U}/.config/pikaur.conf" ; B='\e[1;31m' ; C='\e[0m' ; D='noedit =' ; E='reversesearchsorting =' ; X='/usr/share/sddm/scripts/Xsetup'
-F=Adwita/Oranchelo-Beka ; F1=Adwita/Oranchelo 
+A="/home/${U}/.config/pikaur.conf" ; B='\e[1;31m' ; C='\e[0m' ; D='noedit =' ; E='reversesearchsorting =' ; F=Adwita/Oranchelo-Beka 
+F1=Adwita/Oranchelo ; X='/usr/share/sddm/scripts/Xsetup' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 sed -i "s/${E} no/${E} yes/" ${A} ; sed -i "s/${D} no/${D} yes/" ${A} ; update-desktop-database 
 printf "${B}DISPLAY MANAGER ENABLED${C}\n" ; systemctl enable sddm ; printf "${B}NETWORK ENABLED${C}\n" ; systemctl enable NetworkManager
