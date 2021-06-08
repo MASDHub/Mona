@@ -17,12 +17,10 @@ head -n 15 install.sh | tail -n 13
 A='\e[1;31m' ; B='\e[0m' ; C='en_US.UTF-8' ; D='/etc/pacman.conf' ; E='TotalDownload' ; F='/etc/locale'
 G='/etc/host' ; W='%wheel ALL=(ALL) ALL'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#           
-printf "${A}Enter Root Password: ${B}\n" ; until passwd ; do printf "\n"
-done ; printf "${A}Enter User Name: ${B}" ; read -r U1 ; U="${U1,,}" 
-until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ [a-z] ]]
-do printf "Try Again\n" && read -r U1 && U="${U1,,}" 
-done ; useradd -m -G wheel ${U} ; sed -i "s/# ${W}/ ${W}/" /etc/sudoers 
-until passwd ${U} ; do printf "\n" ; done ; echo "${U}" >> /etc/u.txt ; chmod +x /etc/u.txt 
+printf "${A}Enter Root Password: ${B}\n" ; until passwd ; do printf "\n" ; done 
+printf "${A}Enter User Name: ${B}" ; read -r U1 ; U="${U1,,}" ; until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ [a-z] ]] 
+do printf "Try Again\n" && read -r U1 && U="${U1,,}" ; done ; useradd -m -G wheel ${U} ; until passwd ${U} 
+do printf "\n" ; done ; sed -i "s/# ${W}/ ${W}/" /etc/sudoers ; echo "${U}" >> /etc/u.txt ; chmod +x /etc/u.txt 
 curl -sL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh 
 sed -i 's/#Color/Color/' ${D} ; sed -i "s/#${E}/${E}/" ${D} ; pacman -Syyyu --needed git cmake pkg-config  
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime ; hwclock --systohc
