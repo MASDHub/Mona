@@ -6,10 +6,11 @@ F='Adwaita/Oranchelo' ; G='/usr/share/gtk-2.0/gtkrc' ; H='/usr/share/gtk-3.0/set
 J='gtk-cursor-theme-name=' ; K='capitaine-cursors-light' ; X='/usr/share/sddm/scripts/Xsetup' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 #if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; then printf "${B}NETWORK ENABLED${C}\n" && systemctl enable tlp && systemctl enable acpid ; fi
-printf "${B}DISPLAY MANAGER ENABLED${C}\n" ; systemctl enable sddm ; printf "${B}NETWORK ENABLED${C}\n" ; systemctl enable NetworkManager
-{ echo 'M="$( xrandr | grep -Ec '"'HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1|DVI1|DVI-1'"' )"' ; echo 'M1="$( xrandr | grep -Eo '"'eDP1|eDP-1'"' )"' 
-echo 'M2="$( xrandr | grep -Eo '"'HDMI-1|HDMI1|DVI-1|DVI1|VGA1|VGA-1'"' )"' ; echo 'if [[ "${M}" == "2" ]]' 
-echo 'then xrandr --output "${M1}" --mode 1920x1080 --output "${M2}" --primary --auto'; echo 'fi' ; } >> ${X} 
+printf "${B}DISPLAY MANAGER ENABLED${C}\n" ; systemctl enable sddm 
+printf "${B}NETWORK ENABLED${C}\n" ; systemctl enable NetworkManager
+{ echo -e 'M="$( xrandr | grep -Ec '"'HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1|DVI1|DVI-1'"' )"'
+'M1="$( xrandr | grep -Eo '"'eDP1|eDP-1'"' )"'\n'M2="$( xrandr | grep -Eo '"'HDMI-1|HDMI1|DVI-1|DVI1|VGA1|VGA-1'"' )"' 
+'if [[ "${M}" -ge "2" ]] ; then xrandr --output "${M1}" --mode 1920x1080 --output "${M2}" --primary --auto'; echo 'fi' ; } >> ${X} 
 sed -i -e "1 s/${E}/" -e "2 s/${F}/" ${G} ; sed -i -e "2 s/${E}/" -e "3 s/${F}/" ${H} ; sed -i "s/${D} no/${D} yes/" ${A}
 echo ''"${G}"' "'"${K}"'"' >> ${G} ; echo "${G} ${K}" >> ${H} ; sed -i "s/${I}/" ${H} ; sed -i "s/${I}/" ${G}
 update-desktop-database ; printf "${B}Done! ( Type: 'exit' and then 'reboot' )${C}\n" ; rm /etc/u.txt ; rm /home/${U}/installMO.sh 
