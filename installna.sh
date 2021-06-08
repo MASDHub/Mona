@@ -13,7 +13,7 @@ echo 'M1="$( xrandr | grep -Eo '"'eDP1|eDP-1'"' )"'
 echo 'M2="$( xrandr | grep -Eo '"'HDMI-1|HDMI1|DVI-1|DVI1|VGA1|VGA-1'"' )"' ; echo 'if [[ "${M}" -ge "2" ]]' 
 echo 'then xrandr --output "${M1}" --mode 1920x1080 --output "${M2}" --primary --auto'; echo 'fi' ; } >> ${X} 
 sed -i -e "1 s/${E}/" -e "2 s/${F}/" ${G} ; sed -i -e "2 s/${E}/" -e "3 s/${F}/" ${H} ; sed -i "s/${D} no/${D} yes/" ${A}
-echo ''"${G}"' "'"${K}"'"' >> ${G} ; echo "${G} ${K}" >> ${H} ; sed -i "s/${I}/" ${H} ; sed -i "s/${I}/" ${G}
+echo ''"${J}"' "'"${K}"'"' >> ${G} ; echo "${J} ${K}" >> ${H} ; sed -i "s/${I}/" ${H} ; sed -i "s/${I}/" ${G}
 update-desktop-database ; printf "${B}Done! ( Type: 'exit' and then 'reboot' )${C}\n" ; rm /etc/u.txt ; rm /home/${U}/installMO.sh 
 rm -- "$0"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
