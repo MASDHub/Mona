@@ -21,7 +21,7 @@ printf "${A}Enter Root Password: ${B}\n" ; until passwd ; do printf "\n" ; done
 printf "${A}Enter User Name: ${B}" ; read -r U1 ; U="${U1,,}" ; until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ [a-z] ]] 
 do printf "Try Again\n" && read -r U1 && U="${U1,,}" ; done ; useradd -m -G wheel ${U} ; until passwd ${U} 
 do printf "\n" ; done ; sed -i "s/# ${W}/ ${W}/" /etc/sudoers ; echo "${U}" >> /etc/u.txt ; chmod +x /etc/u.txt 
-curl -sL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh 
+curl -ssL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh 
 sed -i 's/#Color/Color/' ${D} ; sed -i "s/#${E}/${E}/" ${D} ; pacman -Syyyu --needed git cmake pkg-config  
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime ; hwclock --systohc
 echo "LC_ALL=${C}" >> /etc/environment ; echo "${C} UTF-8" >> ${F}.gen ; echo "LANG=${C}" >> ${F}.conf ; locale-gen ${C} 
