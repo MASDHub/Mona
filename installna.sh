@@ -12,7 +12,7 @@ printf "${B}NETWORK ENABLED${C}\n" ; systemctl enable NetworkManager
  echo 'M1="$( xrandr | grep -Ec '"'HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1|DVI1|DVI-1'"' )"'
  echo 'M2="$( xrandr | grep -Eo '"'HDMI-1|HDMI1|DVI-1|DVI1|VGA1|VGA-1'"' )"'
  echo 'M3="$( xrandr | grep -Eo '"'eDP1|eDP-1'"' )"' 
- echo 'if [[ -r "${M}" ]]; then ${M} ; else if [[ "${M1}" -ge "2" ]]' 
+ echo 'if [ -r "${M}" ] && $(grep -q xrandr ${M}) ; then ${M} ; else if [[ "${M1}" -ge "2" ]]' 
  echo 'then xrandr --output "${M3}" --mode 1920x1080 --output "${M2}" --primary --auto' ; echo -e 'fi\nfi' ; } >> ${X} 
 sed -i -e "1 s/${E}/" -e "2 s/${F}/" "${G}" ; sed -i -e "2 s/${E}/" -e "3 s/${F}/" ${H} ; sed -i "s/${D}no/${D}yes/" ${A}
 echo ''"${J}"' "'"${K}"'"' >> "${G}" ; echo "${J} ${K}" >> ${H} ; sed -i "s/${I}/" ${H} ; sed -i "s/${I}/" ${G}
