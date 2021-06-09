@@ -26,7 +26,7 @@ curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /m
 pacstrap -i /mnt  base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim $M2 \
 xorg lxqt-policykit obconf nm-connection-editor network-manager-applet gufw xorg-xprop sddm xterm alacritty \
 alsa-utils ${N} ${N}-alsa ${N}-jack gst-plugin-${N} libpulse vlc volumeicon geany-plugins capitaine-cursors \
-nemo-fileroller nemo-preview arandr gvfs-mtp gvfs-afc trayer plank galculator xlockmore htop \
+nemo-fileroller nemo-preview arandr gvfs-mtp gvfs-afc trayer plank galculator xlockmore htop geeqie \
 ${P}en-us ${P}fr ${P}de ${P}it ${P}ja ${P}zh-cn ${P}ru ${P}he ${P}pt-br ${O}sans ${O}mono \
 ${Q}en-gb ${Q}fr ${Q}de ${Q}it ${Q}ja ${Q}zh-cn ${Q}ru ${Q}he ${Q}es ${Q}hi ${Q}ar ${Q}ko 
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
