@@ -1,11 +1,11 @@
 #!/bin/bash  
 set -euo pipefail ; setfont ter-124b 
 A='\e[1;31m' ; B='\e[0m' ; C="name,size -e 7,11"; 
-sed -i -e 's/#Color/Color/' -e "s/#${I}/${I}/" /etc/pacman.conf 
+sed -i -e 's/#Color/Color/' -e 's/#TotalDownload/TotalDownload/' /etc/pacman.conf 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 F='btrfs su cr @' ; G='mount -o noatime,compress=zstd,discard=async,subvol=@'  # Mozart - Moonlight Sonata 
-H='pacman' ; I='TotalDownload' ; J='MODULES=' ; K='curl -s https://ipapi.co/'  #  0:35 ━❍──────── -5:32    
-L='xf86-video-' ; M="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" ; N='pipewire' #    ↻     ⊲  Ⅱ  ⊳     ↺     
+J='MODULES=' ; K='curl -s https://ipapi.co/'                                   #  0:35 ━❍──────── -5:32    
+L='xf86-video-' ; M="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" ; N='' #    ↻     ⊲  Ⅱ  ⊳     ↺     
 O='otf-fira-' ; P='firefox-developer-edition-i18n-' ; Q='libreoffice-still-'   #    VOLUME: ▁▂▃▄▅▆▇ 100%   
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --init | pacman-key --populate archlinux
@@ -25,7 +25,7 @@ if [ -n "${M}" ] ; then sed -i "s/${J}()/${J}(${M2} btrfs)/" /etc/mkinitcpio.con
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh ; lsblk -o ${C}
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim \
 xorg lxqt-policykit obconf-qt nm-connection-editor network-manager-applet gufw xorg-xprop sddm xterm alacritty \
-alsa-utils ${N} ${N}-alsa ${N}-jack gst-plugin-${N} libpulse vlc volumeicon geany-plugins capitaine-cursors \
+alsa-utils pipewire pipewire-alsa pipewire-jack gst-plugin-pipewire libpulse vlc volumeicon geany-plugins \
 nemo-fileroller nemo-preview arandr gvfs-mtp gvfs-afc trayer plank galculator xlockmore htop geeqie \
 ${P}en-us ${P}de ${P}ja ${P}zh-cn ${P}ru ${P}ar ${P}pt-br ${O}sans ${O}mono \
 ${Q}en-gb ${Q}hi ${Q}ko ${Q}zh-tw ${Q}uk ${Q}he ${Q}es ${M1}
