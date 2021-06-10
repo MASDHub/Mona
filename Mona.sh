@@ -16,9 +16,9 @@ E2="$(ls /dev/* | grep -E "^${D1}p?2$")" ; mkfs.btrfs -fq ${E2}
 mount ${E2} /mnt ; cd /mnt ; ${F} ; ${F}home 
 cd ; umount /mnt ; ${G} ${E2} /mnt; mkdir /mnt/{boot,home}
 mount ${E1} /mnt/boot ; ${G}home ${E2} /mnt/home ; lsblk -o ${C}
-${H}-key --init ; ${H}-key --populate archlinux>/dev/null
+gpg -k ; ${H}-key --init ; ${H}-key --populate archlinux>/dev/null
 sed -i -e 's/#Color/Color/' -e "s/#${I}/${I}/" /etc/${H}.conf
-timedatectl set-timezone "$(${T}timezone)" ; timedatectl set-timezone
+timedatectl set-timezone "$(${T}timezone)" ; timedatectl set-ntp true
 reflector -p https -c "$(${T}country_name)" -f 2 --save /etc/${H}.d/mirrorlist
 if [ "${M}" == 'Intel' ] ; then M1="intel-ucode ${L}intel" && sed -i "s/${J}()/${J}(i915 btrfs)/" ${K} ; fi
 if [ "${M}" == 'AMD' ] ; then M1="amd-ucode ${L}amdgpu" && sed -i "s/${J}()/${J}(amdgpu btrfs)/"  ${K} ; fi 
