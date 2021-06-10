@@ -9,7 +9,7 @@ pikaur -S --needed picom-git rofi-dmenu obkey ttf-ms-fonts timeshift ; mkdir ~/$
 wget -q -O - "https://github.com/OrancheloTeam/oranchelo-icon-theme/archive/refs/tags/v0.8.0.1.tar.gz" | tar -xzf - -C ~/.icons
 wget -q -O - "https://github.com/keeferrourke/capitaine-cursors/archive/refs/tags/r4.tar.gz" | tar -xzf - -C ~/.icons #echo "Xcursor.size: 36" >> ~/.Xresources
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installna.sh > ~/installna.sh
- cp -a /etc/xdg/openbox/ ~/.config/ ; sed -i '5,$d' ~/${A}/menu.xml 
+cp -a /etc/xdg/openbox/ ~/.config/ ; sed -i '5,$d' ~/${A}/menu.xml 
 { echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">\n${B}Files${C}nemo${D}
 ${B}Web${C}firefox-developer-edition${D}\n${B}Terminal${C}alacritty${D}\n${B}Text${C}geany${D}
 ${B}Calculator${C}galculator${D}\n${E}\n${B}Search${C}rofi -show drun${D}\n${B}Refresh${C}openbox --reconfigure${D}${E}
