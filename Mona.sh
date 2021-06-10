@@ -21,7 +21,7 @@ ${G} ${E2} /mnt ; mkdir /mnt/{boot,home} ; ${G}home ${E2} /mnt/home ; mount ${E1
 if [ "${H}" == 'Intel' ] ; then H1='intel-ucode xf86-video-intel vulkan-intel' && H2='i915'
 elif [ "${H}" == 'AMD' ] ; then H1='amd-ucode xf86-video-amdgpu vulkan-radeon' && H2='amdgpu' 
 fi ; if [[ -n "${H}" ]]  ; then sed -i -e '/#/d' -e "s/MODULES=()/MODULES=(${H2} btrfs)/" /${J} /mnt/${J}
-fi ; curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/etc/install.sh
+fi ; curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
 lsblk -o ${E} ; reflector -p https -c "$(${I}country_name)" -f 2 --save /etc/pacman.d/mirrorlist 
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub sddm \
 xorg lxqt-policykit xlockmore nm-connection-editor network-manager-applet arandr alacritty htop gufw vim \
@@ -29,5 +29,5 @@ alsa-utils pipewire pipewire-alsa pipewire-jack gst-plugin-pipewire libpulse vol
 nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc trayer plank galculator obconf-qt geeqie \
 ${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br otf-fira-sans otf-fira-mono 
 ${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es ${H1}
-genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh /mnt/etc/install.sh 
+genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
