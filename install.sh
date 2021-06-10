@@ -27,9 +27,9 @@ sed -i -e 's/#Color/Color/' ${D} -e "s/#${E}/${E}/" ${D} ; pacman -Syyyu --neede
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime ; hwclock --systohc
 echo "LC_ALL=${C}" >> /etc/environment ; echo "${C} UTF-8" >> ${F}.gen ; echo "LANG=${C}" >> ${F}.conf ; locale-gen ${C} 
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${U}pc.localdomain ${U}pc \n" >> ${G}s ; echo "${U}pc" >> ${G}name
-printf "${A}GRUB INSTALL ${B}\n" ; sed -i 's/'${N}'auto/'${N}'1920x1080,auto/' /etc/default/grub 
+printf "${A}GRUB INSTALLED ${B}\n" ; sed -i 's/'${N}'auto/'${N}'1920x1080,auto/' /etc/default/grub 
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg
-printf "${A}CONNECTION SERVICES ENABLED${B}\n" ; ${H} NetworkManager ; ${H} avahi-daemon ; ${H} bluetooth
-printf "${A}DISPLAY MANAGER ENABLED${B}\n" ; ${H} sddm 
+printf "${A}NETWORK ENABLED${B}\n" ; ${H} NetworkManager ; ${H} avahi-daemon ; printf "${A}BLUETHOOTH ENABLED${B}\n"
+${H} bluetooth ; printf "${A}DISPLAY MANAGER ENABLED${B}\n" ; ${H} sddm ; wait 5
 cd / ; chown root:root /home ; chmod 755 /home ; runuser --login ${U} --session-command "sh ~/installMO.sh" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
