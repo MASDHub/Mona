@@ -24,7 +24,7 @@ if [ "${M}" == 'Intel' ] ; then M1="intel-ucode ${L}intel" && sed -i "s/${J}()/$
 if [ "${M}" == 'AMD' ] ; then M1="amd-ucode ${L}amdgpu" && sed -i "s/${J}()/${J}(amdgpu btrfs)/"  ${K} ; fi 
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
 pacstrap -i /mnt  base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim \
-xorg lxqt-policykit obconf nm-connection-editor network-manager-applet gufw xorg-xprop sddm xterm alacritty \
+xorg lxqt-policykit obconf-qt nm-connection-editor network-manager-applet gufw xorg-xprop sddm xterm alacritty \
 alsa-utils ${N} ${N}-alsa ${N}-jack gst-plugin-${N} libpulse vlc volumeicon geany-plugins capitaine-cursors \
 nemo-fileroller nemo-preview arandr gvfs-mtp gvfs-afc trayer plank galculator xlockmore htop geeqie \
 ${P}en-us ${P}de ${P}ja ${P}zh-cn ${P}ru ${P}ar ${P}pt-br ${O}sans ${O}mono \
