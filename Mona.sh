@@ -4,7 +4,7 @@ A='\e[1;31m' ; B='\e[0m' ; C='..........' E="name,size -e 7,11"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 sed -i -e 's/#Color/Color/' -e 's/#TotalDownload/TotalDownload/' /etc/pacman.conf # Mozart - Moonlight Sonata 
 F='btrfs su cr @' ; G='mount -o noatime,compress=zstd,discard=async,subvol=@'     #  0:35 ━❍──────── -5:32    
-H="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"; I='curl -s https://ipapi.co/'      #   ↻     ⊲  Ⅱ  ⊳     ↺     
+H="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" ; I='curl -s https://ipapi.co/'     #   ↻     ⊲  Ⅱ  ⊳     ↺     
 J='otf-fira-' ; K='firefox-developer-edition-i18n-' ; L='libreoffice-still-'      #  VOLUME: ▁▂▃▄▅▆▇ 100%   
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --init | pacman-key --populate archlinux
