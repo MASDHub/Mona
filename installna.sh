@@ -14,6 +14,8 @@ J='gtk-cursor-theme-name=' ; K='capitaine-cursors-light' ; X='/usr/share/sddm/sc
  echo 'then xrandr --output "${M3}" --mode 1920x1080 --output "${M2}" --primary --auto' ; echo -e 'fi\nfi' ; } >> ${X} 
 sed -i -e "1 s/${E}/" -e "2 s/${F}/" "${G}" ; sed -i -e "2 s/${E}/" -e "3 s/${F}/" ${H} ; sed -i "s/${D}no/${D}yes/" ${A}
 echo ''"${J}"' "'"${K}"'"' >> "${G}" ; echo "${J} ${K}" >> ${H} ; sed -i "s/${I}/" ${H} ; sed -i "s/${I}/" ${G}
-update-desktop-database ; printf "${B}Done! to Finish Type: 'exit' then 'reboot'${C}\n"
-rm /etc/u.txt install.sh home/${U}/installMO.sh ; umount -a 2>&1>/dev/null ; rm -- "$0"
+sed -i 's/Adwaita/Oranchelo-Beka/' /usr/share/icons/default/index.theme 
+pikaur -Scc --noconfirm ; gtk-update-icon-cache -f -t ~/.icons/Oranchelo-Beka/ ; update-desktop-database 
+printf "${B}Done! to Finish Type: 'exit' then 'reboot'${C}\n"
+rm /etc/u.txt ./install.sh /home/${U}/installMO.sh ; umount -a 2>&1>/dev/null ; rm -- "$0"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
