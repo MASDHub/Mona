@@ -6,8 +6,8 @@ A='.config/openbox' ; B='<item label="' ; C='"><action name="Execute"><command>'
 #if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then R='uacpid cbatticon'
 cd ~ ; git clone https://aur.archlinux.org/pikaur.git ; cd pikaur ; makepkg -fsri
 pikaur -S --needed picom-git rofi-dmenu obkey ttf-ms-fonts timeshift ; mkdir ~/${A} ~/.themes ~/.icons
-curl -sSL https://github.com/OrancheloTeam/oranchelo-icon-theme/archive/refs/tags/v0.8.0.1.tar.gz > ~/.icons/OrancheloTheme.tar.gz
-curl -sSL https://github.com/keeferrourke/capitaine-cursors/archive/refs/tags/r4.tar.gz > ~/.icons/Capitaine-Cursors.tar.gz
+curl -sSL https://github.com/OrancheloTeam/oranchelo-icon-theme/archive/refs/tags/v0.8.0.1.tar.gz -o ~/.icons/OrancheloTheme.tar.gz
+curl -sSL https://github.com/keeferrourke/capitaine-cursors/archive/refs/tags/r4.tar.gz -o ~/.icons/Capitaine-Cursors.tar.gz
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installna.sh > ~/installna.sh
 tar -xzf ~/.icons/OrancheloTheme.tar.gz ; tar -xzf ~/.icons/Capitaine-Cursors.tar.gz # echo "Xcursor.size: 36" >> ~/.Xresources 
 cp -a /etc/xdg/openbox/ ~/.config/ ; sed -i '5,$d' ~/${A}/menu.xml 
