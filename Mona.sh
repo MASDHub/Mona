@@ -20,9 +20,10 @@ mount ${E1} /mnt/boot ; ${G}home ${E2} /mnt/home ; lsblk -o ${C}
 sed -i -e 's/#Color/Color/' -e "s/#${I}/${I}/" /etc/${H}.conf
 gpg -k | ${H}-key --init | ${H}-key --populate archlinux
 reflector -p https -c "$(${T}country_name)" -f 2 --save /etc/${H}.d/mirrorlist
-if [ "${M}" == 'Intel' ] ; then M1="intel-ucode ${L}intel" && sed -i "s/${J}()/${J}(i915 btrfs)/" ${K} 
-else if [ "${M}" == 'AMD' ] ; then M1="amd-ucode ${L}amdgpu" && sed -i "s/${J}()/${J}(amdgpu btrfs)/" ${K} 
-fi ; fi ; curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
+if [ "${M}" == 'Intel' ] ; then M1="intel-ucode ${L}intel" && M2='i915'
+else if [ "${M}" == 'AMD' ] ; then M1="amd-ucode ${L}amdgpu" && M2='amdgpu' 
+elif [ -n "${M}" ]; then sed -i "s/${J}()/${J}(${M2} btrfs)/" ${K} ; fi ; fi
+curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim \
 xorg lxqt-policykit obconf-qt nm-connection-editor network-manager-applet gufw xorg-xprop sddm xterm alacritty \
 alsa-utils ${N} ${N}-alsa ${N}-jack gst-plugin-${N} libpulse vlc volumeicon geany-plugins capitaine-cursors \
