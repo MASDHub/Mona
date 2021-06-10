@@ -17,5 +17,5 @@ printf "${B}NETWORK ENABLED${C}\n" ; systemctl enable NetworkManager
 sed -i -e "1 s/${E}/" -e "2 s/${F}/" "${G}" ; sed -i -e "2 s/${E}/" -e "3 s/${F}/" ${H} ; sed -i "s/${D}no/${D}yes/" ${A}
 echo ''"${J}"' "'"${K}"'"' >> "${G}" ; echo "${J} ${K}" >> ${H} ; sed -i "s/${I}/" ${H} ; sed -i "s/${I}/" ${G}
 update-desktop-database ; printf "${B}Done! to Finish Type: 'exit' then 'reboot'${C}\n"
-rm /etc/u.txt ; rm install.sh ; rm /home/${U}/installMO.sh ; umount -a 2>&1>/dev/null ; rm -- "$0"
+rm /etc/u.txt install.sh home/${U}/installMO.sh ; umount -a 2>&1>/dev/null ; rm -- "$0"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
