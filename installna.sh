@@ -6,16 +6,15 @@ F='Adwaita/Oranchelo' ; G='/usr/share/gtk-2.0/gtkrc' ; H='/usr/share/gtk-3.0/set
 J='gtk-cursor-theme-name=' ; K='capitaine-cursors-light' ; X='/usr/share/sddm/scripts/Xsetup' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 #if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; then printf "${B}NETWORK ENABLED${C}\n" && systemctl enable tlp && systemctl enable acpid ; fi
-{ echo 'M="$(find /home/*/.screenlayout/*.sh)"' 
- echo 'M1="$( xrandr | grep -Ec '"'HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1|DVI1|DVI-1'"' )"'
- echo 'M2="$( xrandr | grep -Eo '"'HDMI-1|HDMI1|DVI-1|DVI1|VGA1|VGA-1'"' )"'
- echo 'M3="$( xrandr | grep -Eo '"'eDP1|eDP-1'"' )"' 
- echo 'if [ -r "${M}" ] && $(grep -q xrandr ${M}) ; then ${M} ; else if [[ "${M1}" -ge "2" ]]' 
- echo 'then xrandr --output "${M3}" --mode 1920x1080 --output "${M2}" --primary --auto' ; echo -e 'fi\nfi' ; } >> ${X} 
+{ echo 'M="$(find /home/*/.screenlayout/*.sh)"' ; echo 'M1="$( xrandr | grep -Eo '"'eDP1|eDP-1'"' )"' 
+ echo 'M2="$( xrandr | grep -Ec '"'HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1|DVI1|DVI-1'"' )"'
+ echo 'M3="$( xrandr | grep -Eo '"'HDMI-1|HDMI1|DVI-1|DVI1|VGA1|VGA-1'"' )"'
+ echo 'if [ -r "${M}" ] && $(grep -q xrandr ${M}) ; then ${M} ; else if [[ "${M2}" -ge "2" ]]' 
+ echo 'then xrandr --output "${M1}" --mode 1920x1080 --output "${M3}" --primary --auto' ; echo -e 'fi\nfi' ; } >> ${X} 
 sed -i -e "1 s/${E}/" -e "2 s/${F}/" "${G}" ; sed -i -e "2 s/${E}/" -e "3 s/${F}/" ${H} ; sed -i "s/${D}no/${D}yes/" ${A}
 echo ''"${J}"' "'"${K}"'"' >> "${G}" ; echo "${J} ${K}" >> ${H} ; sed -i "s/${I}/" ${H} ; sed -i "s/${I}/" ${G}
-sed -i 's/Adwaita/Oranchelo-Beka/' /usr/share/icons/default/index.theme 
 pikaur -Scc --noconfirm ; gtk-update-icon-cache -f -t ~/.icons/Oranchelo-Beka/ ; update-desktop-database 
+sed -i 's/Adwaita/Oranchelo-Beka/' /usr/share/icons/default/index.theme 
 printf "${B}Done! to Finish Type: 'exit' then 'reboot'${C}\n"
 rm /etc/u.txt ./install.sh /home/${U}/installMO.sh ; umount -a > /dev/null 2>&1 ; rm -- "$0"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
