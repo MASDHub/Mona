@@ -17,5 +17,5 @@ echo ''"${J}"' "'"${K}"'"' >> "${G}" ; echo "${J} ${K}" >> ${H} ; sed -i "s/${I}
 sed -i 's/Adwaita/Oranchelo-Beka/' /usr/share/icons/default/index.theme 
 pikaur -Scc --noconfirm ; gtk-update-icon-cache -f -t ~/.icons/Oranchelo-Beka/ ; update-desktop-database 
 printf "${B}Done! to Finish Type: 'exit' then 'reboot'${C}\n"
-rm /etc/u.txt ./install.sh /home/${U}/installMO.sh ; umount -a 2>&1 >/dev/null ; rm -- "$0"
+rm /etc/u.txt ./install.sh /home/${U}/installMO.sh ; umount -a > /dev/null 2>&1 ; rm -- "$0"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
