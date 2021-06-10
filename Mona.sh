@@ -23,11 +23,11 @@ if [ "${H}" == 'Intel' ] ; then H1='intel-ucode xf86-video-intel vulkan-intel' &
 elif [ "${H}" == 'AMD' ] ; then H1='amd-ucode xf86-video-amdgpu vulkan-radeon' && H2='amdgpu' ; fi
 if [[ -n "${H}" ]] ; then sed -i -e '/#/d' -e "s/MODULES=()/MODULES=(${H2} btrfs)/" /${J} /mnt/${J} ; fi 
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh ; lsblk -o ${E}
-pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim \
-xorg lxqt-policykit obconf-qt nm-connection-editor network-manager-applet gufw xorg-xprop sddm xterm alacritty \
-alsa-utils pipewire pipewire-alsa pipewire-jack gst-plugin-pipewire libpulse vlc volumeicon geany-plugins \
-nemo-fileroller nemo-preview arandr gvfs-mtp gvfs-afc trayer plank galculator xlockmore htop geeqie \
-${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br otf-fira-sans otf-fira-mono \
+pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub sddm \
+xorg lxqt-policykit xlockmore nm-connection-editor network-manager-applet arandr alacritty htop gufw vim \
+alsa-utils pipewire pipewire-alsa pipewire-jack gst-plugin-pipewire libpulse volumeicon blueman xterm vlc \
+nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc trayer plank galculator obconf-qt geeqie \
+${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br otf-fira-sans otf-fira-mono 
 ${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es ${H1}
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
