@@ -9,7 +9,7 @@ J='etc/mkinitcpio.conf' ; K='firefox-developer-edition-i18n-' ; L='libreoffice-s
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --init | pacman-key --populate archlinux
 timedatectl set-timezone "$(${I}timezone)" ; timedatectl set-ntp true
-for i in {1..20} ; do echo -ne "${A}\r${C:0:$i}${B}" && sleep 1.8 
+for i in {1..20} ; do echo -ne "${A}\r${C:0:$i}${B}" && sleep 2 
 done ; echo "" ; lsblk -do ${E} ; printf "${A}Choose Device name: ${B}"
 read -r D ; until [[ "${D}" == +(nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0) ]] 
 do printf "${A}Try Again${B}\n" && read -r D ; done ; D1="/dev/${D}" 
