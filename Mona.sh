@@ -9,6 +9,7 @@ O='otf-fira-' ; P='firefox-developer-edition-i18n-' ; Q='libreoffice-still-'    
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --init | pacman-key --populate archlinux
 timedatectl set-timezone "$(${K}timezone)" ; timedatectl set-ntp true
+BAR='..........' ; for i in {1..20}; do echo -ne "\r${BAR:0:$i}" && sleep 1 ; done
 lsblk -do ${C} ; printf "${A}Choose Device name: ${B}" ; read -r D 
 until [[ "${D}" == +(nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0) ]] 
 do printf "Try Again\n" && read -r D ; done ; D1="/dev/${D}" 
