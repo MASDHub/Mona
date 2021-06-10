@@ -21,7 +21,7 @@ sed -i -e 's/#Color/Color/' -e "s/#${I}/${I}/" /etc/${H}.conf
 timedatectl set-timezone "$(${T}timezone)" ; timedatectl set-timezone
 reflector -p https -c "$(${T}country_name)" -f 2 --save /etc/${H}.d/mirrorlist
 if [ "${M}" == 'Intel' ] ; then M1="intel-ucode ${L}intel" && sed "s/${J}()/${J}(i915 btrfs)/" ; fi
-if [ "${M}" == 'AMD' ] ; then M1="amd-ucode ${L}amdgpu" && sed "s/${J}()/${J}(amdgpu btrfs)/" ; fi 
+if [ "${M}" == 'AMD' ] ; then M1="amd-ucode ${L}amdgpu" && sed "s/${J}()/${J}(amdgpu btrfs)/"  ; fi 
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
 pacstrap -i /mnt  base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim \
 xorg lxqt-policykit obconf nm-connection-editor network-manager-applet gufw xorg-xprop sddm xterm alacritty \
