@@ -6,8 +6,6 @@ F='Adwaita/Oranchelo' ; G='/usr/share/gtk-2.0/gtkrc' ; H='/usr/share/gtk-3.0/set
 J='gtk-cursor-theme-name=' ; K='capitaine-cursors-light' ; X='/usr/share/sddm/scripts/Xsetup' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 #if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; then printf "${B}NETWORK ENABLED${C}\n" && systemctl enable tlp && systemctl enable acpid ; fi
-printf "${B}DISPLAY MANAGER ENABLED${C}\n" ; systemctl enable sddm 
-printf "${B}NETWORK ENABLED${C}\n" ; systemctl enable NetworkManager
 { echo 'M="$(find /home/*/.screenlayout/*.sh)"' 
  echo 'M1="$( xrandr | grep -Ec '"'HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1|DVI1|DVI-1'"' )"'
  echo 'M2="$( xrandr | grep -Eo '"'HDMI-1|HDMI1|DVI-1|DVI1|VGA1|VGA-1'"' )"'
