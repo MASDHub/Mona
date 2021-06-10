@@ -21,7 +21,7 @@ gpg -k | ${H}-key --init | ${H}-key --populate archlinux
 reflector -p https -c "$(${K}country_name)" -f 2 --save /etc/${H}.d/mirrorlist
 if [ "${M}" == 'Intel' ] ; then M1="intel-ucode ${L}intel" && M2='i915'
 else if [ "${M}" == 'AMD' ] ; then M1="amd-ucode ${L}amdgpu" && M2='amdgpu' 
-elif [ -n "${M}" ]; then sed -i "s/${J}()/${J}(${M2} btrfs)/" /etc/mkinitcpio.conf ; fi ; fi
+elif [ -n "${M}" ] ; then sed -i "s/${J}()/${J}(${M2} btrfs)/" /etc/mkinitcpio.conf ; fi ; fi
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim \
 xorg lxqt-policykit obconf-qt nm-connection-editor network-manager-applet gufw xorg-xprop sddm xterm alacritty \
