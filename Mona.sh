@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail ; setfont ter-124b
-A='\e[1;31m' ; B='\e[0m' ; C="-o name,size,mountpoint -e 7,11"
+A='\e[1;31m' ; B='\e[0m' ; C='[nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0]'
 D='..............................' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 sed -i -e 's/#Co/Co/' /etc/pacman.conf ; F='etc/mkinitcpio.conf'              #  Mozart - Moonlight Sonata
 G='btrfs su cr @' ; H='mount -o noatime,compress=zstd,discard=async,subvol=@' #    0:35 ━❍──────── -5:32
@@ -9,11 +9,11 @@ K='firefox-developer-edition-i18n-' ; L='libreoffice-still-'                  # 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --init | pacman-key --populate archlinux
 timedatectl set-timezone "$(curl -s ${J}timezone)" ; timedatectl set-ntp true
-for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8
-done ; lsblk -d ${C} | grep --color '[nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0]'
-echo "" ; echo -n "${A}Choose Device name: ${B}" ; read -r E 
+for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8 ; done 
+lsblk -do name,size | grep --color '[a-Z]|NAME]'
+echo -e "" -en "${A}Choose Device name: ${B}" ; read -r E 
 until [[ "${E}" == +(nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0) ]]
-do printf "${A}Sorry, try again.${B}\n" && read -r E ; done ; ED="/dev/${E}"
+do echo -e "${A}Sorry, try again.${B}" && read -r E ; done ; ED="/dev/${E}"
 sgdisk ${ED} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
 E1="$(ls /dev/* | grep -E "^${ED}p?1$")" ; mkfs.vfat ${E1}
 E2="$(ls /dev/* | grep -E "^${ED}p?2$")" ; mkfs.btrfs -fq ${E2}
