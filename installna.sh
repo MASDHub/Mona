@@ -13,6 +13,6 @@ J='gtk-cursor-theme-name=' ; K='Captain Frank' ; X='/usr/share/sddm/scripts/Xset
  echo 'then xrandr --output "${M1}" --mode 1920x1080 --output "${M3}" --primary --auto' ; echo -e 'fi\nfi' ; } >> ${X} 
 sed -i -e "1 s/${E}/" -e "2 s/${F}/" "${G}" ; sed -i -e "2 s/${E}/" -e "3 s/${F}/" ${H} ; sed -i "s/${D}no/${D}yes/" ${A}
 echo ''"${J}"' "'"${K}"'"' >> "${G}" ; echo "${J} ${K}" >> ${H} ; sed -i "s/${I}/" ${H} ; sed -i "s/${I}/" ${G}
-printf "${B}Done! to Finish Type: 'exit' then 'reboot'${C}\n" ; rm /etc/u.txt /home/${U}/installMO.sh ; umount -a > /dev/null 2>&1 && rm -- "$0" 
-#rm ~/install.sh 
+gtk4-update-icon-cache -f -t /usr/share/icons/Oranchelo-Beka/ ; printf "${B}Done! to Finish Type: 'exit' then 'reboot'${C}\n" 
+rm /etc/u.txt /home/${U}/installMO.sh ~/install.sh ; umount -a > /dev/null 2>&1 && rm -- "$0"  
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
