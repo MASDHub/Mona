@@ -4,11 +4,11 @@ A='\e[1;31m' ; B='\e[0m' ; C="-o name,size,mountpoint -e 7,11"
 D='..............................' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 sed -i -e 's/#Co/Co/' /etc/pacman.conf ; F='etc/mkinitcpio.conf'              #  Mozart - Moonlight Sonata
 G='btrfs su cr @' ; H='mount -o noatime,compress=zstd,discard=async,subvol=@' #    0:35 ━❍──────── -5:32
-I="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" ; J='curl -s https://ipapi.co/' #     ↻     ⊲  Ⅱ  ⊳     ↺
+I="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" ; J='https://ipapi.co/'         #     ↻     ⊲  Ⅱ  ⊳     ↺
 K='firefox-developer-edition-i18n-' ; L='libreoffice-still-'                  #     VOLUME: ▁▂▃▄▅▆▇ 100%
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --init | pacman-key --populate archlinux
-timedatectl set-timezone "$(${J}timezone)" ; timedatectl set-ntp true
+timedatectl set-timezone "$(curl -s ${J}timezone)" ; timedatectl set-ntp true
 for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8
 done ; echo "" ; printf "${A}Choose Device name: ${B}"
 lsblk -d ${C} | grep --color '[nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0]'
@@ -23,7 +23,7 @@ if [ "${I}" == 'Intel' ] ; then H1='intel-ucode xf86-video-intel vulkan-intel' &
 elif [ "${I}" == 'AMD' ] ; then H1='amd-ucode xf86-video-amdgpu vulkan-radeon' && H2='amdgpu'
 fi ; if [[ -n "${I}" ]]  ; then sed -i -e '/#/d' -e "s/LES=()/LES=(${H2} btrfs)/" /${F} ; fi
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
-reflector -p https -c "$(${J}country_name)" -f 2 --save /etc/pacman.d/mirrorlist || pacman -Syy
+reflector -p https -c "$(curl -s ${J}country_name)" -f 2 --save /etc/pacman.d/mirrorlist || pacman -Syy
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub git vim \
 lxqt-policykit xlockmore python-pyxdg lxappearance-obconf-gtk3 nm-connection-editor network-manager-applet \
 alsa-utils pipewire pipewire-alsa pipewire-jack libpulse volumeicon blueman vlc gst-plugin-pipewire geeqie \
