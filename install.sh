@@ -23,7 +23,7 @@ do printf "${A}Sorry, try again.\n${B}" && read -r U1 && U="${U1,,}" ; done
 useradd -m -G wheel ${U} ; until passwd ${U} ; do echo "" ; done 
 sed -i "s/# ${W}/ ${W}/" /etc/sudoers ; echo "${U}" >> /etc/u.txt
 curl -ssL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh 
-sed -i -e 's/#Color/Color/' ${D} -e "s/#${E}/${E}/" ${D} ; pacman -Syyyu --needed git cmake pkg-config  
+sed -i -e 's/#Color/Color/' ${D} -e "s/#${E}/${E}/" ${D} ; pacman -Syyu --needed wget git cmake pkg-config  
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime ; hwclock --systohc
 echo "LC_ALL=${C}" >> /etc/environment ; echo "${C} UTF-8" >> ${F}.gen ; echo "LANG=${C}" >> ${F}.conf ; locale-gen ${C} 
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${U}pc.localdomain ${U}pc \n" >> ${G}s ; echo "${U}pc" >> ${G}name
