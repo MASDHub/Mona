@@ -28,7 +28,7 @@ ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime  ; 
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh 
 echo -e "LC_ALL=${C}" >> /etc/environment ; echo -e "${C} UTF-8" >> /${D}.gen ; echo -e "LANG=${C}" >> /${D}.conf ; locale-gen ${C} 
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${U}pc.localdomain ${U}pc \n" >> /${E}s ; echo -e "${U}pc" >> /${E}name
-echo -e "${A}NETWORK ENABLED${B}" ; ${F} NetworkManager ; echo -e "${A}GRUB INSTALLED ${B}" 
+echo -e "${A}NETWORK ENABLED${B}" ; ${F} NetworkManager ; echo -e "${A}INSTALLING GRUB ${B}" 
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg
 echo -e "${A}BLUETHOOTH ENABLED${B}" ; ${F} bluetooth ; echo -e "${A}DISPLAY MANAGER ENABLED${B}" ; ${F} sddm
 cd / ; chown root:root /home ; chmod 755 /home ; runuser --login ${U} --session-command "sh ~/installMO.sh" 
