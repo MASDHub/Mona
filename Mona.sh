@@ -10,7 +10,7 @@ K='firefox-developer-edition-i18n-' ; L='libreoffice-still-'                  # 
 gpg -k | pacman-key --init | pacman-key --populate archlinux
 timedatectl set-timezone "$(curl -s ${J}timezone)" ; timedatectl set-ntp true
 for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8 ; done 
-lsblk -do name,size | grep --color '[a-Z]|NAME]'
+lsblk -do name,size | grep --color '[a-z]|[0-9]|NAME]'
 echo -e "" -en "${A}Choose Device name: ${B}" ; read -r E 
 until [[ "${E}" == +(nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0) ]]
 do echo -e "${A}Sorry, try again.${B}" && read -r E ; done ; ED="/dev/${E}"
