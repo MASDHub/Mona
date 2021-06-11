@@ -1,6 +1,6 @@
 #!/bin/bash  
 set -euo pipefail ; setfont ter-124b 
-A='\e[1;31m' ; B='\e[0m' ; C="name,size -e 7,11"
+A='\e[1;31m' ; B='\e[0m' ; C="name,size,mountpoint -e 7,11"
 D='..............................' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 sed -i -e 's/#Co/Co/' /etc/pacman.conf ; F='etc/mkinitcpio.conf'              # Mozart - Moonlight Sonata 
 G='btrfs su cr @' ; H='mount -o noatime,compress=zstd,discard=async,subvol=@' #  0:35 ━❍──────── -5:32    
