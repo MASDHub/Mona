@@ -15,14 +15,13 @@ head -n 15 /etc/install.sh | tail -n 13
  #  '''::===..-'   =  --.  `                 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='\e[1;31m' ; B='\e[0m' ; C='en_US.UTF-8' ; D='etc/locale' ; E='etc/host' ; F='systemctl enable' 
-W='%wheel ALL=(ALL) ALL'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#           
 printf "${A}Enter Root Password: ${B}\n" ; until passwd ; do echo "" 
 done ; printf "${A}Enter User Name: ${B}" ; read -r U1 ; U="${U1,,}"  
 until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ [a-z] ]] 
 do printf "${A}Sorry, try again.\n${B}" && read -r U1 && U="${U1,,}" 
 done ; useradd -m -G wheel ${U} ; until passwd ${U} ; do echo "" 
-done ; sed -i "s/# ${W}/ ${W}/" /etc/sudoers ; echo "${U}" >> /etc/u
+done ; sed -i '0,/# %/ s/# %/ %/' /etc/sudoers ; echo "${U}" >> /etc/u
 sed -i -e 's/#Co/Co/' /etc/pacman.conf ; sed -i 's/auto/1920x1080,auto/' /etc/default/grub 
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime  ; hwclock --systohc
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh 
