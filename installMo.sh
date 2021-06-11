@@ -5,10 +5,11 @@ A='.config/openbox' ; B='<item label="' ; C='"><action name="Execute"><command>'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then R='uacpid cbatticon'
 cd ~ ; git clone https://aur.archlinux.org/pikaur.git ; cd pikaur ; makepkg -fsri
-pikaur -Syyu --needed picom-git oranchelo-icon-theme-git captain-frank-cursors-git obkey-git rofi-dmenu ttf-ms-fonts timeshift 
+pikaur -Syyu --needed picom-git oranchelo-icon-theme-git obkey rofi-dmenu ttf-ms-fonts timeshift 
 mkdir ~/${A} ~/.themes ~/.icons #echo "Xcursor.size: 36" >> ~/.Xresources
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installna.sh > ~/installna.sh
-cp -a /etc/xdg/openbox/ ~/.config/ ;  ~./icons ; cp -r /usr/share/icons/{Oranchelo,Oranchelo-Beka,folder3} sed -i '5,$d' ~/${A}/menu.xml 
+cp -a /etc/xdg/openbox/ ~/.config/ ; cp -a /usr/share/icons/{Oranchelo,Oranchelo-Beka} ~/.icons 
+sed -i '5,$d' ~/${A}/menu.xml
 { echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">\n${B}Files${C}nemo${D}
 ${B}Web${C}firefox-developer-edition${D}\n${B}Terminal${C}alacritty${D}\n${B}Text${C}geany${D}
 ${B}Calculator${C}galculator${D}\n${E}\n${B}Search${C}rofi -show drun${D}\n${B}Refresh${C}openbox --reconfigure${D}${E}
