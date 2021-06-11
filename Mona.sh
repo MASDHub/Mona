@@ -11,7 +11,7 @@ gpg -k | pacman-key --init | pacman-key --populate archlinux
 timedatectl set-timezone "$(curl -s ${J}timezone)" ; timedatectl set-ntp true
 for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8
 done ; lsblk -d ${C} | grep --color '[nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0]'
-echo "" ; echo -n "${A}Choose Device name: ${B}" ; read -r E ; 
+echo "" ; echo -n "${A}Choose Device name: ${B}" ; read -r E 
 until [[ "${E}" == +(nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0) ]]
 do printf "${A}Sorry, try again.${B}\n" && read -r E ; done ; ED="/dev/${E}"
 sgdisk ${ED} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
