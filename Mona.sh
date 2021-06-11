@@ -21,13 +21,14 @@ mount ${E2} /mnt ; cd /mnt ; ${G} ; ${G}home ; cd ; umount /mnt
 if [ "${I}" == 'Intel' ] ; then H1='intel-ucode xf86-video-intel vulkan-intel' && H2='i915'
 elif [ "${I}" == 'AMD' ] ; then H1='amd-ucode xf86-video-amdgpu vulkan-radeon' && H2='amdgpu' 
 fi ; if [[ -n "${I}" ]]  ; then sed -i -e '/#/d' -e "s/LES=()/LES=(${H2} btrfs)/" /${F}
-fi ; curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
+curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh ; fi
 lsblk -o ${C} ; reflector -p https -c "$(${J}country_name)" -f 2 --save /etc/pacman.d/mirrorlist 
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub git vim \
 lxqt-policykit xlockmore python-pyxdg lxappearance-obconf-gtk3 nm-connection-editor network-manager-applet \
 alsa-utils pipewire pipewire-alsa pipewire-jack libpulse volumeicon blueman vlc gst-plugin-pipewire geeqie \
 nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc obconf-qt pkg-config otf-fira-sans plank rofi \
 ${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br arandr otf-fira-mono galculator alacritty trayer \
-${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es gufw cmake xterm htop sddm xorg ${H1} ; cp /${F} /mnt/${F}
-genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
+${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es gufw cmake xterm htop sddm xorg ${H1} 
+sed -i "s/LES=()/LES=(${H2} btrfs)/" /mnt/${F} ; mv /mnt/install.sh /mnt/etc/install.sh
+genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh /etc/install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
