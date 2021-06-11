@@ -12,7 +12,7 @@ timedatectl set-timezone "$(${I}timezone)" ; timedatectl set-ntp true
 for i in {1..20} ; do echo -ne "${A}\r${C:0:$i}${B}" && sleep 2 
 done ; echo "" ; lsblk -do ${E} ; printf "${A}Choose Device name: ${B}"
 read -r D ; until [[ "${D}" == +(nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0) ]] 
-do printf "${A}Try Again${B}\n" && read -r D ; done ; D1="/dev/${D}" 
+do printf "${A}Sorry, try again.${B}\n" && read -r D ; done ; D1="/dev/${D}" 
 sgdisk ${D1} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
 E1="$(ls /dev/* | grep -E "^${D1}p?1$")" ; mkfs.vfat ${E1}
 E2="$(ls /dev/* | grep -E "^${D1}p?2$")" ; mkfs.btrfs -fq ${E2} 
