@@ -10,9 +10,9 @@ mkdir ~/${A} ~/.themes ~/.icons #echo "Xcursor.size: 36" >> ~/.Xresources
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installna.sh > ~/installna.sh
 cp -a /etc/xdg/openbox/ ~/.config/ ; cp -a /usr/share/icons/{Oranchelo,Oranchelo-Beka} ~/.icons 
 sed -i '5,$d' ~/${A}/menu.xml
-{ echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">\n${B}Files${C}nemo${D}
+{ echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">\n${B}Files${C}nemo${D}\n${B}Search${C}rofi -show drun${D}
 ${B}Web${C}firefox-developer-edition${D}\n${B}Terminal${C}alacritty${D}\n${B}Text${C}geany${D}
-${B}Calculator${C}galculator${D}\n${E}\n${B}Search${C}rofi -show drun${D}\n${B}Refresh${C}openbox --reconfigure${D}${E}
+${B}Calculator${C}galculator${D}\n${E}\n${B}Refresh${C}openbox --reconfigure${D}${E}
 ${B}Lock Screen${C}xlock -mode atlantis +description -echokeys -echokey '*' -info "'"Enter password to unlock"'"${D}
 ${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}</menu></openbox_menu>" ; } >> ~/${A}/menu.xml
 sed -i -e '50,120 s/8/12/' -e '50,120 s/9/13/' -e 's/sans/Fira Sans Condensed Book/g' -e 's/A-space/0x85/' \
