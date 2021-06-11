@@ -19,7 +19,7 @@ G='/etc/host' ; H='systemctl enable' ; W='%wheel ALL=(ALL) ALL'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#           
 printf "${A}Enter Root Password: ${B}\n" ; until passwd ; do echo "" ; done ; printf "${A}Enter User Name: ${B}" 
 read -r U1 ; U="${U1,,}" ; until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ [a-z] ]] 
-do printf "${A}Try Again\n${B}" && read -r U1 && U="${U1,,}" ; done 
+do printf "${A}Sorry, try Again\n${B}" && read -r U1 && U="${U1,,}" ; done 
 useradd -m -G wheel ${U} ; until passwd ${U} ; do echo "" ; done 
 sed -i "s/# ${W}/ ${W}/" /etc/sudoers ; echo "${U}" >> /etc/u.txt
 curl -ssL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh 
