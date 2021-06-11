@@ -1,5 +1,5 @@
 #!/bin/bash   
-head -n 15 install.sh | tail -n 13
+head -n 15 /etc/install.sh | tail -n 13
  #8'         8888
 #d8.-=. ,==-.:888b 
 #>8 `~` :`~' d8888                 
@@ -24,7 +24,7 @@ do printf "${A}Sorry, try again.\n${B}" && read -r U1 && U="${U1,,}"
 done ; useradd -m -G wheel ${U} ; until passwd ${U} ; do echo "" 
 done ; sed -i "s/# ${W}/ ${W}/" /etc/sudoers ; echo "${U}" >> /etc/u
 sed -i -e 's/#Co/Co/' /etc/pacman.conf ; sed -i 's/auto/1920x1080,auto/' /etc/default/grub 
-ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime ; hwclock --systohc
+ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime  ; hwclock --systohc
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh 
 echo -e "LC_ALL=${C}" >> /etc/environment ; echo -e "${C} UTF-8" >> /${D}.gen ; echo -e "LANG=${C}" >> /${D}.conf ; locale-gen ${C} 
 echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${U}pc.localdomain ${U}pc \n" >> /${E}s ; echo -e "${U}pc" >> /${E}name
