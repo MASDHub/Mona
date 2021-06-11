@@ -28,7 +28,7 @@ ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime  ; 
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh 
 echo -e "127.0.0.1       localhost\n::1             localhost \n127.0.1.1       ${U}pc.localdomain ${U}pc" >> /${E}s 
 echo -e "${U}pc" >> /${E}name ; if [[ -n "$(cat /etc/locale.gen | grep -o en_${G})" ]]
-then sed -i "s/#${G}/${G}/" /${D}.gen && echo "LANG="$(cat /etc/locale.gen | grep en_${G})"" >> /${D}.conf 
+then sed -i "s/#${G}/${G}/" /${D}.gen && echo "LANG=$(cat /etc/locale.gen | grep en_${G})" >> /${D}.conf 
 else sed -i "s/#${C}/${C}/" /${D}.gen && echo 'LANG=en_US.UTF-8' >> /${D}.conf ; fi ; locale-gen 
 echo -e "${A}NETWORK ENABLED${B}" ; ${F} NetworkManager ; echo -e "${A}INSTALLING GRUB ${B}" 
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg
