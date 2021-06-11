@@ -26,8 +26,8 @@ lsblk -o ${E} ; reflector -p https -c "$(${I}country_name)" -f 2 --save /etc/pac
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub sddm \
 xorg lxqt-policykit xlockmore nm-connection-editor network-manager-applet arandr alacritty htop gufw vim \
 alsa-utils pipewire pipewire-alsa pipewire-jack gst-plugin-pipewire libpulse volumeicon blueman xterm vlc \
-nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc trayer plank galculator obconf-qt geeqie \
-${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br otf-fira-sans otf-fira-mono \
+nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc trayer plank galculator obconf-qt geeqie wget \
+${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br otf-fira-sans otf-fira-mono git cmake pkg-config \
 ${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es ${H1} ; cp /${J} /mnt/${J}
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
