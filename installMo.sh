@@ -19,6 +19,6 @@ sed -i -e '50,120 s/8/12/' -e '50,120 s/9/13/' -e 's/sans/Fira Sans Condensed Bo
 -e 's/W-e/0x85/' -e 's/Konqueror/Dmenu/' -e 's/kfmclient openProfile filemanagement/rofi -show drun/' ~/${A}/rc.xml 
 { echo -e "lxqt-policykit &\n\npicom &\n\n(sleep 2 && trayer --monitor primary --height 40 --align right \
 --iconspacing 10 --transparent true --tint 0x716966) &\n\n(sleep 2 && plank) &\n\n(sleep 2 && nm-applet) &
-\n\n(sleep 2 && volumeicon) &" ; } > ~/${A}/autostart ; pikaur -Scc --noconfirm ; gtk-update-icon-cache -f -t /home/${U}/.icons/Oranchelo-Beka/
+\n\n(sleep 2 && volumeicon) &" ; } > ~/${A}/autostart ; pikaur -Scc --noconfirm ; gtk-update-icon-cache -f -t ~/.icons/Oranchelo-Beka/
 echo "exec openbox-session" >> ~/.xinitrc ; su --login root -c "sh /home/$USER/installna.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
