@@ -1,12 +1,12 @@
 #!/bin/bash  
 set -euo pipefail ; setfont ter-124b 
 A='\e[1;31m' ; B='\e[0m' ; C="name,size,mountpoint -e 7,11"
-D='..............................' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+D='..............................' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 sed -i -e 's/#Co/Co/' /etc/pacman.conf ; F='etc/mkinitcpio.conf'              # Mozart - Moonlight Sonata 
 G='btrfs su cr @' ; H='mount -o noatime,compress=zstd,discard=async,subvol=@' #  0:35 ━❍──────── -5:32    
 I="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" ; J='curl -s https://ipapi.co/' #   ↻     ⊲  Ⅱ  ⊳     ↺     
 K='firefox-developer-edition-i18n-' ; L='libreoffice-still-'                  #  VOLUME: ▁▂▃▄▅▆▇ 100%   
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --init | pacman-key --populate archlinux
 timedatectl set-timezone "$(${J}timezone)" ; timedatectl set-ntp true
 for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8 
@@ -31,4 +31,4 @@ ${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br arandr otf-fira-mono g
 ${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es gufw cmake xterm htop sddm xorg ${H1} 
 sed -i "s/LES=()/LES=(${H2} btrfs)/" /mnt/${F} ; mv /mnt/install.sh /mnt/etc/install.sh
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh /etc/install.sh
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
