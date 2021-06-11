@@ -26,8 +26,8 @@ done ; sed -i "s/# ${W}/ ${W}/" /etc/sudoers ; echo "${U}" >> /etc/u
 sed -i -e 's/#Co/Co/' /etc/pacman.conf ; sed -i 's/auto/1920x1080,auto/' /etc/default/grub 
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime ; hwclock --systohc
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh 
-echo -e "LC_ALL=${C}" >> /etc/environment -e "${C} UTF-8" >> /${D}.gen -e "LANG=${C}" >> /${D}.conf ; locale-gen ${C} 
-echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${U}pc.localdomain ${U}pc \n" >> /${E}s -e "${U}pc" >> /${E}name
+echo -e "LC_ALL=${C}" >> /etc/environment ; echo -e "${C} UTF-8" >> /${D}.gen ; echo -e "LANG=${C}" >> /${D}.conf ; locale-gen ${C} 
+echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${U}pc.localdomain ${U}pc \n" >> /${E}s ; echo -e "${U}pc" >> /${E}name
 echo -e "${A}NETWORK ENABLED${B}" ; ${F} NetworkManager ; echo -e "${A}GRUB INSTALLED ${B}" 
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg
 echo -e "${A}BLUETHOOTH ENABLED${B}" ; ${F} bluetooth ; echo -e "${A}DISPLAY MANAGER ENABLED${B}" ; ${F} sddm
