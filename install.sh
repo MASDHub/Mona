@@ -23,7 +23,7 @@ until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ [a-z] ]]
 do printf "${A}Sorry, try again.\n${B}" && read -r U1 && U="${U1,,}" 
 done ; useradd -m -G wheel ${U} ; until passwd ${U} ; do echo "" 
 done ; sed -i "s/# ${W}/ ${W}/" /etc/sudoers ; echo "${U}" >> /etc/u
-sed -i -e 's/#Co/Co/' ${D} /etc/pacman.conf ; sed -i 's/auto/1920x1080,auto/' /etc/default/grub 
+sed -i -e 's/#Co/Co/' /etc/pacman.conf ; sed -i 's/auto/1920x1080,auto/' /etc/default/grub 
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime ; hwclock --systohc
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh 
 echo -e "LC_ALL=${C}" >> /etc/environment -e "${C} UTF-8" >> ${F}.gen -e "LANG=${C}" >> ${F}.conf ; locale-gen ${C} 
