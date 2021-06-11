@@ -13,7 +13,7 @@ for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8 ; done
 lsblk -do name,size | egrep --color '[a-z]|[0-9]|NAME]'
 echo -en "\n${A}Choose Device name: ${B}" ; read -r E 
 until [[ "${E}" == +(nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0) ]]
-do echo -e "${A}Sorry, try again.${B}" && read -r E ; done ; ED="/dev/${E}"
+do echo -en "${A}Sorry, try again:${B}" && read -r E ; done ; ED="/dev/${E}"
 sgdisk ${ED} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
 E1="$(ls /dev/* | grep -E "^${ED}p?1$")" ; mkfs.vfat ${E1}
 E2="$(ls /dev/* | grep -E "^${ED}p?2$")" ; mkfs.btrfs -fq ${E2}
