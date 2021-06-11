@@ -20,7 +20,7 @@ mount ${E2} /mnt ; cd /mnt ; ${F} ; ${F}home ; cd ; umount /mnt
  ${G} ${E2} /mnt ; mkdir /mnt/{boot,home} ; ${G}home ${E2} /mnt/home ; mount ${E1} /mnt/boot 
 if [ "${H}" == 'Intel' ] ; then H1='intel-ucode xf86-video-intel vulkan-intel' && H2='i915'
 elif [ "${H}" == 'AMD' ] ; then H1='amd-ucode xf86-video-amdgpu vulkan-radeon' && H2='amdgpu' 
-fi ; if [[ -n "${H}" ]]  ; then sed -i -e '/#/d' -e "s/MODULES=()/MODULES=(${H2} btrfs)/" /${J}
+fi ; if [[ -n "${H}" ]]  ; then sed -i -e '/#/d' -e "s/LES=()/LES=(${H2} btrfs)/" /${J}
 fi ; curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
 lsblk -o ${E} ; reflector -p https -c "$(${I}country_name)" -f 2 --save /etc/pacman.d/mirrorlist 
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim \
@@ -28,6 +28,6 @@ lxqt-policykit xlockmore python-pyxdg nm-connection-editor network-manager-apple
 alsa-utils pipewire pipewire-alsa pipewire-jack libpulse volumeicon blueman geeqie gst-plugin-pipewire \
 nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc trayer otf-fira-sans plank obconf-qt sddm \
 ${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br xterm git otf-fira-mono galculator alacritty \
-${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es pkg-config gufw cmake ${H1} ; cp /${J} /mnt/${J}
-genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
+${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es lxappearance-obconf-gtk3 pkg-config gufw cmake  \
+${H1} ; cp /${J} /mnt/${J} ; genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
