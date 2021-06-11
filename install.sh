@@ -30,6 +30,6 @@ echo -e "127.0.0.1 localhost \n::1 localhost \n127.0.1.1 ${U}pc.localdomain ${U}
 printf "${A}GRUB INSTALLED ${B}\n" ; sed -i 's/'${N}'auto/'${N}'1920x1080,auto/' /etc/default/grub 
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB ; grub-mkconfig -o /boot/grub/grub.cfg
 printf "${A}NETWORK ENABLED${B}\n" ; ${H} NetworkManager ; ${H} avahi-daemon ; printf "${A}BLUETHOOTH ENABLED${B}\n"
-${H} bluetooth ; printf "${A}DISPLAY MANAGER ENABLED${B}\n" ; ${H} sddm ; wait 5
+${H} bluetooth ; printf "${A}DISPLAY MANAGER ENABLED${B}\n" ; ${H} sddm
 cd / ; chown root:root /home ; chmod 755 /home ; runuser --login ${U} --session-command "sh ~/installMO.sh" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
