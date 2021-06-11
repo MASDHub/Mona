@@ -16,10 +16,10 @@ head -n 15 /etc/install.sh | tail -n 13
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='\e[1;31m' ; B='\e[0m' ; C='en_US.UTF-8' ; D='etc/locale' ; E='etc/host' ; F='systemctl enable' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#           
-printf "${A}Enter Root Password: ${B}\n" ; until passwd ; do echo "" 
-done ; printf "${A}Enter User Name: ${B}" ; read -r U1 ; U="${U1,,}"  
+echo -e "${A}Enter Root Password: ${B}" ; until passwd ; do echo "" 
+done ; echo -ne "${A}Enter User Name: ${B}" ; read -r U1 ; U="${U1,,}" 
 until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ [a-z] ]] 
-do printf "${A}Sorry, try again.\n${B}" && read -r U1 && U="${U1,,}" 
+do echo -e "${A}Sorry, try again.${B}" && read -r U1 && U="${U1,,}" 
 done ; useradd -m -G wheel ${U} ; until passwd ${U} ; do echo "" 
 done ; sed -i '0,/# %/ s/# %/ %/' /etc/sudoers ; echo "${U}" >> /etc/u
 sed -i -e 's/#Co/Co/' /etc/pacman.conf ; sed -i 's/auto/1920x1080,auto/' /etc/default/grub 
