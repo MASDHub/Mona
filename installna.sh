@@ -15,6 +15,6 @@ sed -i -e "1 s/${E}/" -e "2 s/${F}/" "${G}" ; sed -i -e "2 s/${E}/" -e "3 s/${F}
 echo ''"${J}"' "'"${K}"'"' >> "${G}" ; echo "${J} ${K}" >> ${H} ; sed -i "s/${I}/" ${H} ; sed -i "s/${I}/" ${G}
 gtk-update-icon-cache -f -t /home/${U}/.icons/Oranchelo-Beka/ ; update-desktop-database 
 sed -i 's/Adwaita/Oranchelo-Beka/' /usr/share/icons/default/index.theme 
-printf "${B}Done! to Finish Type: 'exit' then 'reboot'${C}\n"
-rm /etc/u.txt ./install.sh /home/${U}/installMO.sh ; umount -a > /dev/null 2>&1 ; rm -- "$0"
+printf "${B}Done! to Finish Type: 'exit' then 'reboot'${C}\n" ; rm /etc/u.txt /home/${U}/installMO.sh ; umount -a > /dev/null 2>&1 && rm -- "$0" 
+#rm ./install.sh 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
