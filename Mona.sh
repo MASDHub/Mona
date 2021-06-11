@@ -23,11 +23,11 @@ elif [ "${H}" == 'AMD' ] ; then H1='amd-ucode xf86-video-amdgpu vulkan-radeon' &
 fi ; if [[ -n "${H}" ]]  ; then sed -i -e '/#/d' -e "s/MODULES=()/MODULES=(${H2} btrfs)/" /${J}
 fi ; curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
 lsblk -o ${E} ; reflector -p https -c "$(${I}country_name)" -f 2 --save /etc/pacman.d/mirrorlist 
-pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub sddm \
-xorg lxqt-policykit xlockmore nm-connection-editor network-manager-applet arandr alacritty htop gufw vim \
-alsa-utils pipewire pipewire-alsa pipewire-jack gst-plugin-pipewire libpulse volumeicon blueman xterm vlc \
-nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc trayer plank galculator obconf-qt pkg-config  \
-${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br otf-fira-sans otf-fira-mono cmake geeqie git wget \
-${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es ${H1} ; cp /${J} /mnt/${J}
+pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim \
+lxqt-policykit xlockmore python-pyxdg nm-connection-editor network-manager-applet arandr htop vlc xorg \
+alsa-utils pipewire pipewire-alsa pipewire-jack libpulse volumeicon blueman geeqie gst-plugin-pipewire \
+nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc trayer otf-fira-sans plank obconf-qt sddm \
+${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br xterm git otf-fira-mono galculator alacritty \
+${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es pkg-config gufw cmake ${H1} ; cp /${J} /mnt/${J}
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh ./install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
