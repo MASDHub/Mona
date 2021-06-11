@@ -16,7 +16,8 @@ ${B}Calculator${C}galculator${D}\n${E}\n${B}Refresh${C}openbox --reconfigure${D}
 ${B}Lock Screen${C}xlock -mode atlantis +description -echokeys -echokey '*' -info "'"Enter password to unlock"'"${D}
 ${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}</menu></openbox_menu>" ; } >> ~/${A}/menu.xml
 sed -i -e '50,120 s/8/12/' -e '50,120 s/9/13/' -e 's/sans/Fira Sans Condensed Book/g' -e 's/A-space/0x85/' \
--e 's/W-e/0x85/' -e 's/Konqueror/Dmenu/' -e 's/kfmclient openProfile filemanagement/rofi -show drun/' ~/${A}/rc.xml 
+-e 's/W-e/0x85/' -e 's/Konqueror/Dmenu/' -e 's/kfmclient openProfile filemanagement/rofi -show drun/' \ 
+-e '131 s/4/2/' ~/${A}/rc.xml 
 { echo -e "lxqt-policykit &\n\npicom &\n\n( sleep 2 && trayer --monitor primary --height 40 --align right \
 --iconspacing 10 --transparent true --tint 0x716966 ) &\n\n( sleep 2 && plank ) &\n\n( sleep 2 && nm-applet ) &
 \n( sleep 2 && volumeicon ) &" ; } > ~/${A}/autostart ; pikaur -Scc --noconfirm
