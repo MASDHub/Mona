@@ -9,8 +9,8 @@ K='firefox-developer-edition-i18n-' ; L='libreoffice-still-'                  # 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --init | pacman-key --populate archlinux
 timedatectl set-timezone "$(curl -s ${J}timezone)" ; timedatectl set-ntp true
-for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8 ; done 
-echo "" ; lsblk -do name,size | egrep --color "[${C}]|NAME"
+for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8 ; done
+echo "" ; lsblk -do name,size -e 7,11 | egrep --color "${C}|NAME"
 echo -en "\n${A}Choose Device name: ${B}" ; read -r E 
 until [[ "${E}" == +(${C}) ]]
 do echo -en "${A}Sorry, try again:${B}" && read -r E ; done ; ED="/dev/${E}"
