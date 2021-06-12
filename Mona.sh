@@ -5,7 +5,7 @@ A='\e[1;31m' ; B='\e[0m' ; C='nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0'
 sed -i -e 's/#Co/Co/' /etc/pacman.conf ; F='etc/mkinitcpio.conf'              #  Mozart - Moonlight Sonata
 G='btrfs su cr @' ; H='mount -o noatime,compress=zstd,discard=async,subvol=@' #    0:35 ━❍──────── -5:32
 I="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"                                 #     ↻     ⊲  Ⅱ  ⊳     ↺
-K='firefox-developer-edition-i18n-' ; L='libreoffice-still-'                  #     VOLUME: ▁▂▃▄▅▆▇ 100%
+J='firefox-developer-edition-i18n-' ; K='libreoffice-still-'                  #     VOLUME: ▁▂▃▄▅▆▇ 100%
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate ; timedatectl set-ntp true
 lsblk -do NAME,SIZE | egrep --color "${C}|NAME"
@@ -28,8 +28,8 @@ pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanag
 lxqt-policykit xlockmore python-pyxdg lxappearance-obconf-gtk3 nm-connection-editor network-manager-applet \
 alsa-utils pipewire pipewire-alsa pipewire-jack libpulse volumeicon blueman vlc gst-plugin-pipewire geeqie \
 nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc capitaine-cursors alacritty xterm trayer rofi \
-${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br otf-fira-sans otf-fira-mono pkg-config sddm gufw \
-${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es cmake htop arandr galculator plank ${I3}
+${J}en-us ${J}de ${J}ja ${J}zh-cn ${J}ru ${J}ar ${J}pt-br otf-fira-sans otf-fira-mono pkg-config sddm gufw \
+${K}en-gb ${K}hi ${K}ko ${K}zh-tw ${K}uk ${K}he ${K}es cmake htop arandr galculator plank ${I3}
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/etc/install.sh
 cp /${F} /mnt/${F} ; genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
