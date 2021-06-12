@@ -8,8 +8,8 @@ I="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" ; J='https://ipapi.co/'         # 
 K='firefox-developer-edition-i18n-' ; L='libreoffice-still-'                  #     VOLUME: ▁▂▃▄▅▆▇ 100%
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --init | pacman-key --populate
-timedatectl set-timezone "$(curl -s ${J}timezone)"#; timedatectl set-ntp true
-lsblk -do NAME,SIZE -e 7,11 | egrep --color "${C}|NAME"#echo "" ;  for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8 ; done
+timedatectl set-timezone "$(curl -s ${J}timezone)" #; timedatectl set-ntp true
+lsblk -do NAME,SIZE -e 7,11 | egrep --color "${C}|NAME" #echo "" ;  for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8 ; done
 echo -en "\n${A}Choose Device name: ${B}"
 read E ; until [[ "${E}" == +(${C}) ]]
 do printf "${A}Try again: ${B}" && read E; done
