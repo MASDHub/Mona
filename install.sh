@@ -17,7 +17,7 @@ head -n 15 /etc/install.sh | tail -n 13
 A='\e[1;31m' ; B='\e[0m' ; C='en_US.UTF-8' ; D='etc/locale' ; E='etc/host' ; F='systemctl enable' 
 F1="$(curl -s https://ipapi.co/country_code)" ; F2="$(cat /${D}.gen | grep en_${F1} | cut 2-20)"
 G1='       ' ; G2='             ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#           
-echo -e "${A}Enter Root Password: ${B}" ; until passwd ; do echo "" 
+echo -e "${A}Enter Root Password: ${B}" ; until passwd ; do echo ''
 done ; echo -ne "\n${A}Enter User Name: ${B}" ; read U1 ; U="${U1,,}"
 until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ [a-z] ]] 
 do printf "\n${A}Sorry, try again: ${B}" && read U1 && U="${U1,,}" 
