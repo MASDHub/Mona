@@ -27,7 +27,7 @@ sed -i -e 's/#Co/Co/' /etc/pacman.conf ; sed -i 's/auto/1920x1080,auto/' /etc/de
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime  ; hwclock --systohc
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh 
 echo -e "127.0.0.1       localhost\n::1             localhost \n127.0.1.1       ${U}pc.localdomain ${U}pc" >> /${E}s 
-echo -e "${U}pc" >> /${E}name ; if [[ -n "$(cat /etc/locale.gen | grep en_${G})" ]]
+echo -e "${U}pc" >> /${E}name ; if [[ "$(cat /etc/locale.gen | grep -c en_${G})" == 1 ]]
 then sed -i "s/#${G1}/${G1}/" /${D}.gen && echo "LANG=${G1}" >> /${D}.conf 
 else sed -i "s/#${C}/${C}/" /${D}.gen && echo "LANG=${C}" >> /${D}.conf ; fi ; locale-gen 
 echo -e "${A}NETWORK ENABLED${B}" ; ${F} NetworkManager ; echo -e "${A}INSTALLING GRUB ${B}" 
