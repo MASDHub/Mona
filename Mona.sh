@@ -9,14 +9,14 @@ K='firefox-developer-edition-i18n-' ; L='libreoffice-still-'                  # 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --init | pacman-key --populate archlinux
 timedatectl set-timezone "$(curl -s ${J}timezone)" ; timedatectl set-ntp true
-for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8 ; done 
+for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8 ; done
 echo "" ; lsblk -do NAME,SIZE -e 7,11 | egrep --color "${C}|NAME"
-echo -en "\n${A}Choose Device name: ${B}"; read -r E 
-until [[ "${E}" == +(${C}) ]] ; do echo -en "${A}Sorry, try again: ${B}" && read -r E 
+echo -en "\n${A}Choose Device name: ${B}"; read -r E
+until [[ "${E}" == +(${C}) ]] ; do echo -en "${A}Sorry, try again: ${B}" && read -r E
 done ; ED="/dev/${E}" ; sgdisk ${ED} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
 E1="$(ls /dev/* | grep -E "^${ED}p?1$")" ; mkfs.vfat ${E1}
 E2="$(ls /dev/* | grep -E "^${ED}p?2$")" ; mkfs.btrfs -fq ${E2}
-mount ${E2} /mnt; cd /mnt ; ${G} ; ${G}home ; cd ; umount  /mnt 
+mount ${E2} /mnt; cd /mnt ; ${G} ; ${G}home ; cd ; umount  /mnt
 ${H} ${E2} /mnt ; mkdir /mnt/{boot,home} ; ${H}home ${E2} /mnt/home ; mount ${E1} /mnt/boot
 lsblk -o NAME,SIZE,MOUNTPOINT -e 7,11 | egrep  --color '|/mnt/|home|boot|MOUNTPOINT'
 if [ "${I}" == 'Intel' ] ; then H1='intel-ucode xf86-video-intel vulkan-intel' && H2='i915'
@@ -29,7 +29,7 @@ lxqt-policykit xlockmore python-pyxdg lxappearance-obconf-gtk3 nm-connection-edi
 alsa-utils pipewire pipewire-alsa pipewire-jack libpulse volumeicon blueman vlc gst-plugin-pipewire geeqie \
 nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc obconf-qt pkg-config otf-fira-sans plank rofi \
 ${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br arandr otf-fira-mono galculator alacritty trayer \
-${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es gufw cmake xterm htop sddm xorg ${H1} 
+${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es gufw cmake xterm htop sddm xorg ${H1}
 sed -i "s/LES=()/LES=(${H2} btrfs)/" /mnt/${F} ; mv /mnt/install.sh /mnt/etc/install.sh
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh /etc/install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
