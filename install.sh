@@ -25,11 +25,10 @@ do printf "\n${A}Try again : ${B}" && read U1 ; done
 useradd -m -G wheel "${U}" ; until passwd ${U}; do echo "" ; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers ; echo "${U}" >> /etc/u
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime  ; hwclock --systohc
-echo -e "127.0.0.1${I}localhost\n::1${J}localhost\n127.0.1.1${I}${U}pc.localdomain ${U}pc" >> /${E}s
-sed -i "s/#${C}/${C}/" /${D}.gen && echo -e "LANG=${C}" >> /${D}.conf ; echo -e "${U}pc" >> /${E}name 
-if [[ "$(cat /etc/locale.gen | grep -c en_${G})" == 1 ]]
-then sed -i "s/#${H}/${H}/" /${D}.gen && echo -e "LANG=${H}" >> /${D}.conf ; fi ; locale-gen
-echo -e "${A}DISPLAY MANAGER ENABLED${B}" ; ${F} sddm
+sed -i "s/#${C}/${C}/" /${D}.gen && echo -e "LANG=${C}" >> /${D}.conf ; if [[ "$(cat /${D}.gen | grep -c en_${G})" == 1 ]] 
+then sed -i "s/#${H}/${H}/" /${D}.gen && echo -e "LANG=${H}" >> /${D}.conf ; fi ; locale-gen 
+echo -e "127.0.0.1${I}localhost\n::1${J}localhost\n127.0.1.1${I}${U}pc.localdomain ${U}pc" >> /${E}s 
+echo -e "${U}pc" >> /${E}name ; echo -e "${A}DISPLAY MANAGER ENABLED${B}" ; ${F} sddm
 echo -e "${A}NETWORK ENABLED${B}" ; ${F} NetworkManager ; echo -e "${A}BLUETHOOTH ENABLED${B}" ; ${F} bluetooth
 echo -e "${A}INSTALLING GRUB ${B}"; grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 sed -i 's/auto/1920x1080,auto/' /etc/default/grub ; grub-mkconfig -o /boot/grub/grub.cfg
