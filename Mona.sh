@@ -16,9 +16,9 @@ until [[ "${E}" == +(${C}) ]] ; do echo -en "${A}Sorry, try again:${B}" && read 
 done ; ED="/dev/${E}" ; sgdisk ${ED} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
 E1="$(ls /dev/* | grep -E "^${ED}p?1$")" ; mkfs.vfat ${E1}
 E2="$(ls /dev/* | grep -E "^${ED}p?2$")" ; mkfs.btrfs -fq ${E2}
-mount ${E2} /mnt ; cd /mnt ; ${G} ; ${G}home ; cd ; umount  /mnt 
-${H} ${E2} /mnt  ; mkdir /mnt/{boot,home} ; ${H}home ${E2} /mnt/home ; mount ${E1} /mnt/boot
-lsblk -o NAME,SIZE,MOUNTPOINT -e 7,11 | egrep --color '''|/mnt/|boot|home|MOUNTPOINT'
+mount ${E2} /mnt ; cd /mnt ; ${G} ; ${G}home ; cd ; umount /mnt 
+${H} ${E2} /mnt ; mkdir /mnt/{boot,home} ; ${H}home ${E2} /mnt/home ; mount ${E1} /mnt/boot
+lsblk -o NAME,SIZE,MOUNTPOINT -e 7,11 | egrep --color  '|/mnt/|boot|home|MOUNTPOINT'
 if [ "${I}" == 'Intel' ] ; then H1='intel-ucode xf86-video-intel vulkan-intel' && H2='i915'
 elif [ "${I}" == 'AMD' ] ; then H1='amd-ucode xf86-video-amdgpu vulkan-radeon' && H2='amdgpu'
 fi ; if [[ -n "${I}" ]]  ; then sed -i -e '/#/d' -e "s/LES=()/LES=(${H2} btrfs)/" /${F} ; fi
