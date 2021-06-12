@@ -16,11 +16,11 @@ sed -i -e '50,120 s/8/12/' -e '50,120 s/9/13/' -e 's/sans/Fira Sans Condensed Bo
 -e 's/W-e/0x85/' -e 's/Konqueror/Dmenu/' -e 's/kfmclient openProfile filemanagement/rofi -show drun/' \
 -e '131 s/4/2/' ~/${A}/rc.xml ; { echo -e 'lxqt-policykit &\n\npicom --experimental-backends &\n\nplank &\n
 trayer --monitor primary --height 40 --align right --iconspacing 10 --transparent true --tint 0x716966 &\n
-(nm-applet) &\n\n(volumeicon) &\n~/mona.sh & ; } > ~/${A}/autostart ; { echo 'conf dump /net/launchpad/plank/docks/ > ~/docks.ini' 
-echo 'sed -i 's/bottom/right/' ~/docks.ini' ; echo 'cat ~/docks.ini | dconf load /net/launchpad/plank/docks/' 
-echo 'rm ~/.config/plank/dock1/launchers/{geeqie.dockitem,vlc-1.dockitem}' ; echo 'sed -i '13,$d' ~/.config/openbox/autostart' 
-echo -e 'echo '[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/nemo.desktop' >> ~/.config/plank/dock1/launchers/nemo.dockitem
-echo 'rm -- "$0"' ; } >> ~/mona.sh ; pikaur -Scc
+(nm-applet) &\n\n(volumeicon) &\n~/mona.sh & ; } > ~/${A}/autostart ; { echo 'dconf dump /net/launchpad/plank/docks/ > ~/docks.ini' 
+echo 'sed -i '"'s/bottom/right/'"' ~/docks.ini' ; echo 'cat ~/docks.ini | dconf load /net/launchpad/plank/docks/' 
+echo 'rm ~/.config/plank/dock1/launchers/{geeqie.dockitem,vlc-1.dockitem}' ; echo 'sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart' 
+echo 'echo -e "'"[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/nemo.desktop"'" >> ~/.config/plank/dock1/launchers/nemo.dockitem'
+echo 'rm -- "$0"' ; } > ~/mona.sh ; pikaur -Scc
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installna.sh > ~/installna.sh
 echo "exec openbox-session" >> ~/.xinitrc ; su --login root -c "sh /home/$USER/installna.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
