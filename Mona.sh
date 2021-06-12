@@ -9,12 +9,12 @@ J='firefox-developer-edition-i18n-' ; K='libreoffice-still-'                  # 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate ; timedatectl set-ntp true
 lsblk -do NAME,SIZE | egrep --color "${C}|NAME"
-printf "${A}Choose Device name: ${B}" 
+printf "${A}Choose Device name: ${B}"
 read E ; until [[ "${E}" == +(${C}) ]]
 do printf "${A}Try again: ${B}" && read E ; done
 sgdisk /dev/${E} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
-E1="$(ls /dev/* | grep -E "^/dev/${E}p?1$")" 
-E2="$(ls /dev/* | grep -E "^/dev/${E}p?2$")" 
+E1="$(ls /dev/* | grep -E "^/dev/${E}p?1$")"
+E2="$(ls /dev/* | grep -E "^/dev/${E}p?2$")"
 mkfs.vfat ${E1} ; mkfs.btrfs -fq ${E2}
 mount ${E2} /mnt; cd /mnt ; ${G}home ; ${G} ; cd ; umount  /mnt
  ${H} ${E2} /mnt; mkdir /mnt/{boot,home} ; ${H}home ${E2} /mnt/home
