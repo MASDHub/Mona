@@ -20,7 +20,7 @@ G1='       ' ; G2='             ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo -e "${A}Enter Root Password: ${B}" ; until passwd ; do echo "" 
 done ; echo -ne "\n${A}Enter User Name: ${B}" ; read -r U1 ; U="${U1,,}"
 until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ [a-z] ]] 
-do echo -en "\n${A}Sorry, try again: ${B}" && read -r U1 && U="${U1,,}" 
+do printf "\n${A}Sorry, try again: ${B}" && read -r U1 && U="${U1,,}" 
 done ; useradd -m -G wheel ${U} ; until passwd ${U} ; do echo "" 
 done ; sed -i '0,/# %/ s/# %/ %/' /etc/sudoers ; echo "${U}" >> /etc/u
 sed -i -e 's/#Co/Co/' /etc/pacman.conf ; sed -i 's/auto/1920x1080,auto/' /etc/default/grub 
