@@ -10,9 +10,9 @@ K='firefox-developer-edition-i18n-' ; L='libreoffice-still-'                  # 
 gpg -k | pacman-key --init | pacman-key --populate
 timedatectl set-timezone "$(curl -s ${J}timezone)" #; timedatectl set-ntp true
 lsblk -do NAME,SIZE -e 7,11 | egrep --color "${C}|NAME" #echo "" ;  for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8 ; done
-printf "${A}Choose Device name: ${B}" ; read E 
-until [[ "${E}" == (nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0) ]]
-do printf "${A}Try again: ${B}" && read E; done ; ED="/dev/${E}" 
+printf "${A}Choose Device name: ${B}" ; read E ; ED="/dev/${E}" 
+until [[ "${E}" == +(nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0) ]]
+do printf "${A}Try again: ${B}" && read E; done 
 sgdisk ${ED} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
 E1="$(ls /dev/* | grep -E "^${ED}p?1$")" ; mkfs.vfat ${E1}
 E2="$(ls /dev/* | grep -E "^${ED}p?2$")" ; mkfs.btrfs -fq ${E2}
@@ -23,7 +23,7 @@ if [ "${I}" == Intel ]; then H1='intel' && H2='i915 '
 elif [ "${I}" == AMD ]; then H1='amd' && H2='amdgpu '
 elif [[ ${#I} -gt 1 ]]; then H2="${H1}-ucode xf86-video-${H1}"
 fi ; sed -i "s/LES=()/LES=(${H2}btrfs)/" /${F}
-reflector -p https -c "$(curl -s ${J}country_name)" -f 2 --save /pacman.d/mirrorlist
+reflector -p https -c "$(curl -s ${J}country_name)" -f 2 --save /etc/pacman.d/mirrorlist
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim git \
 lxqt-policykit xlockmore python-pyxdg lxappearance-obconf-gtk3 nm-connection-editor network-manager-applet \
 alsa-utils pipewire pipewire-alsa pipewire-jack libpulse volumeicon blueman vlc gst-plugin-pipewire geeqie \
