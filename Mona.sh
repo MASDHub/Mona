@@ -23,7 +23,7 @@ if [ "${I}" == 'Intel' ] ; then H1='intel' && H2='i915 '
 elif [ "${I}" == 'AMD' ] ; then H1='amd' && H2='amdgpu ' 
 elif [[ ${#I} -gt 1 ]] ; then H2="${H1}-ucode xf86-video-${H1}" 
 fi ; sed -i "s/LES=()/LES=(${H2}btrfs)/" 
-reflector -p https -c "$(curl -s ${J}country_name)" -f 2 --save /etc/pacman.d/mirrorlist || pacman -Syy
+reflector -p https -c "$(curl -s ${J}country_name)" -f 2 --save /etc/pacman.d/mirrorlist
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub git vim \
 lxqt-policykit xlockmore python-pyxdg lxappearance-obconf-gtk3 nm-connection-editor network-manager-applet \
 alsa-utils pipewire pipewire-alsa pipewire-jack libpulse volumeicon blueman vlc gst-plugin-pipewire geeqie \
