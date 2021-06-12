@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail ; setfont ter-124b
 A='\e[1;31m' ; B='\e[0m' ; C='nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0'
-#D='..............................' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 sed -i -e 's/#Co/Co/' /etc/pacman.conf ; F='etc/mkinitcpio.conf'              #  Mozart - Moonlight Sonata
 G='btrfs su cr @' ; H='mount -o noatime,compress=zstd,discard=async,subvol=@' #    0:35 ━❍──────── -5:32
 I="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" ; J='https://ipapi.co/'         #     ↻     ⊲  Ⅱ  ⊳     ↺
@@ -10,7 +10,7 @@ K='firefox-developer-edition-i18n-' ; L='libreoffice-still-'                  # 
 gpg -k | pacman-key --init | pacman-key --populate
 timedatectl set-timezone "$(curl -s ${J}timezone)" #; timedatectl set-ntp true
 lsblk -do NAME,SIZE -e 7,11 | egrep --color "${C}|NAME" #echo "" ;  for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8 ; done
-echo n "${A}Choose Device name: ${B}" 
+printf "${A}Choose Device name: ${B}" 
 read E ; until [[ "${E}" == "@(${C})" ]]
 do printf "${A}Try again: ${B}" && read E; done
 ED="/dev/${E}" ; sgdisk ${ED} -Z -o -n 1::+512M -t 1:EF00 -n #-i -v -p
