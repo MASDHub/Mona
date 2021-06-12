@@ -14,7 +14,7 @@ J='gtk-cursor-theme-name=' ; K='Captain Frank' ; X='/usr/share/sddm/scripts/Xset
 sed -i -e 's/#Co/Co/' /etc/pacman.conf ; sed -i "s/${D}no/${D}yes/" ${A}
 sed -i -e "1 s/${E}/" -e "2 s/${F}/" -e "s/${I}/" ${G} ; echo ''"${J}"' "'"${K}"'"' >> "${G}"
 sed -i -e "2 s/${E}/" -e "3 s/${F}/" -e "s/${I}/" ${H} ; echo "${J} ${K}" >> ${H} 
-rm /etc/u.txt /home/${U}/installMO.sh /etc/install.sh
+rm /etc/u /home/${U}/installMO.sh /etc/install.sh
 echo -e "${B}Done!\nType: 'exit' then 'reboot'${C}" 
 rm -- "$0"  
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
