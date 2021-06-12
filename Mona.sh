@@ -29,7 +29,7 @@ lxqt-policykit xlockmore python-pyxdg lxappearance-obconf-gtk3 nm-connection-edi
 alsa-utils pipewire pipewire-alsa pipewire-jack libpulse volumeicon blueman vlc gst-plugin-pipewire geeqie \
 nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc capitaine-cursors alacritty xterm trayer rofi \
 ${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br otf-fira-sans otf-fira-mono pkg-config sddm gufw \
-${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es cmake htop arandr galculator plank ${H2} \
+${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es cmake htop arandr galculator plank ${H2}
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/etc/install.sh
 sed -i "s/LES=()/LES=(${H2} btrfs)/" /mnt/${F} ; genfstab -U /mnt >> /mnt/etc/fstab 
 arch-chroot /mnt sh /etc/install.sh
