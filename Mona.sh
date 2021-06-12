@@ -24,12 +24,12 @@ elif [ "${I}" == 'AMD' ] ; then H1='amd' && H2='amdgpu '
 elif [[ ${#I} -gt 1 ]] ; then H2="${H1}-ucode xf86-video-${H1}" 
 fi ; sed -i "s/LES=()/LES=(${H2}btrfs)/" 
 reflector -p https -c "$(curl -s ${J}country_name)" -f 2 --save /etc/pacman.d/mirrorlist
-pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub git vim \
+pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim git \
 lxqt-policykit xlockmore python-pyxdg lxappearance-obconf-gtk3 nm-connection-editor network-manager-applet \
 alsa-utils pipewire pipewire-alsa pipewire-jack libpulse volumeicon blueman vlc gst-plugin-pipewire geeqie \
-nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc obconf-qt pkg-config otf-fira-sans plank rofi \
-${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br arandr otf-fira-mono galculator alacritty trayer \
-${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es gufw cmake xterm htop sddm xorg ${H1}
+nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc capitaine-cursors alacritty xterm trayer rofi \
+${K}en-us ${K}de ${K}ja ${K}zh-cn ${K}ru ${K}ar ${K}pt-br otf-fira-sans otf-fira-mono pkg-config sddm gufw \
+${L}en-gb ${L}hi ${L}ko ${L}zh-tw ${L}uk ${L}he ${L}es cmake htop arandr galculator plank ${H2} \
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/etc/install.sh
 sed -i "s/LES=()/LES=(${H2} btrfs)/" /mnt/${F} ; genfstab -U /mnt >> /mnt/etc/fstab 
 arch-chroot /mnt sh /etc/install.sh
