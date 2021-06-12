@@ -7,7 +7,7 @@ G='btrfs su cr @' ; H='mount -o noatime,compress=zstd,discard=async,subvol=@' # 
 I="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" ; J='https://ipapi.co/'         #     ↻     ⊲  Ⅱ  ⊳     ↺
 K='firefox-developer-edition-i18n-' ; L='libreoffice-still-'                  #     VOLUME: ▁▂▃▄▅▆▇ 100%
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k | pacman-key --init | pacman-key --populate archlinux
+gpg -k | pacman-key --init | pacman-key --populate 
 timedatectl set-timezone "$(curl -s ${J}timezone)" ; timedatectl set-ntp true
 for i in {1..30} ; do echo -ne "${A}\r${D:0:$i}${B}" && sleep 1.8 ; done
 echo "" ; lsblk -do NAME,SIZE -e 7,11 | egrep --color "${C}|NAME"
