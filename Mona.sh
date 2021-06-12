@@ -18,10 +18,10 @@ E1="$(ls /dev/* | grep -E "^${ED}p?1$")" ; mkfs.vfat ${E1}
 E2="$(ls /dev/* | grep -E "^${ED}p?2$")" ; mkfs.btrfs -fq ${E2}
 mount ${E2} /mnt; cd /mnt ; ${G} ; ${G}home ; cd ; umount  /mnt 
 ${H} ${E2} /mnt ; mkdir /mnt/{boot,home} ; ${H}home ${E2} /mnt/home ; mount ${E1} /mnt/boot
-lsblk -o NAME,SIZE,MOUNTPOINT -e 7,11 | egrep --color  '|/mnt/|home|boot|MOUNTPOINT'
 if [ "${I}" == 'Intel' ] ; then H1='intel-ucode xf86-video-intel vulkan-intel' && H2='i915'
 elif [ "${I}" == 'AMD' ] ; then H1='amd-ucode xf86-video-amdgpu vulkan-radeon' && H2='amdgpu'
-fi ; if [[ -n "${I}" ]]  ; then sed -i -e '/#/d' -e "s/LES=()/LES=(${H2} btrfs)/" /${F} ; fi
+fi ; if [[ -n "${I}" ]]  ; then sed -i -e '/#/d' -e "s/LES=()/LES=(${H2} btrfs)/" /${F} 
+fi ; lsblk -o NAME,SIZE,MOUNTPOINT -e 7,11 | egrep --color  '|/mnt/|home|boot|MOUNTPOINT'
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/install.sh
 reflector -p https -c "$(curl -s ${J}country_name)" -f 2 --save /etc/pacman.d/mirrorlist || pacman -Syy
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub git vim \
