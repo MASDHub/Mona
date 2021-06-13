@@ -11,7 +11,7 @@ mkdir ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/
 sed -i '5,$d' ~/${A}/menu.xml
 { echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">
 ${B}Files${C}nemo${D}\n${B}Search${C}rofi -show drun${D}
-${B}Web${C}firefox-developer-edition${D}\n
+${B}Web${C}firefox-developer-edition${D}
 ${B}Terminal${C}alacritty${D}\n${B}Text${C}geany${D}
 ${B}Calculator${C}galculator${D}\n${E}
 ${B}Refresh${C}openbox --reconfigure${D}\n${E}
