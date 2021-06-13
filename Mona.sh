@@ -3,7 +3,7 @@ set -euo pipefail
 setfont ter-124b ; timedatectl set-ntp true
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='\e[1;31m' ; B='\e[0m' ; sed -i -e 's/#Co/Co/' /etc/pacman.conf # Mozart - Moonlight Sonata
-C='nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0' ; E='btrfs su cr'     #  0:35 ━❍──────── -5:32
+C='nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0' ; E='btrfs su cr @'   #  0:35 ━❍──────── -5:32
 F='mount -o noatime,compress=zstd,discard=async,subvol=@'         #   ↻     ⊲  Ⅱ  ⊳     ↺
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"                     #  VOLUME: ▁▂▃▄▅▆▇ 100%
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -12,7 +12,7 @@ lsblk  | egrep --color "${C}|NAME"
 printf "\n${A}Enter Device name: ${B}"
 read D ; until [[ "${D}" == +(${C}) ]]
 do printf "${A}Try again: ${B}" && read D ; done
-sgdisk /dev/${D} -Z -o -n 1::+512M -t 1:EF00 -n
+sgdisk /dev/${D} -Z -o -n 1::+512M -t 1:EF00 -n -p
 D1="$(ls /dev/* | grep -E "^/dev/${D}p?1$")"
 D2="$(ls /dev/* | grep -E "^/dev/${D}p?2$")"
 mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
