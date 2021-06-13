@@ -8,7 +8,7 @@ I="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"                                 # 
 J='firefox-developer-edition-i18n-' ; K='libreoffice-still-'                  #     VOLUME: ▁▂▃▄▅▆▇ 100%
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate ; timedatectl set-ntp true
-lsblk -do NAME,SIZE | egrep --color "${C}|NAME"
+lsblk  | egrep --color "${C}|NAME"
 printf "\n${A}Choose Device name: ${B}"
 read E ; until [[ "${E}" == +(${C}) ]]
 do printf "${A}Try again: ${B}" && read E ; done
