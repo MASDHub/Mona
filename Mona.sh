@@ -9,7 +9,7 @@ J='firefox-developer-edition-i18n-' ; K='libreoffice-still-'                  # 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color "${C}|NAME"
-printf "\n\n${A}Choose Device name: ${B}"
+printf "\n${A}Choose Device name: ${B}"
 read E ; until [[ "${E}" == +(${C}) ]]
 do printf "${A}Try again: ${B}" && read E ; done
 sgdisk /dev/${E} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
