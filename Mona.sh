@@ -1,19 +1,20 @@
 #!/bin/bash
 set -euo pipefail 
 setfont ter-124b ; timedatectl set-ntp true
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='\e[1;31m' ; B='\e[0m' ; sed -i 's/#Co/Co/' /etc/pacman.conf    # Mozart - Moonlight Sonata
-C='nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0' ; E='btrfs su cr @'   #  0:35 ━❍──────── -5:32
-F='mount -o noatime,compress=zstd,discard=async,subvol=@'         #   ↻     ⊲  Ⅱ  ⊳     ↺
-G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"                     #  VOLUME: ▁▂▃▄▅▆▇ 100%
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'              # Mozart - Moonlight Sonata
+F='mount -o noatime,compress=zstd,discard=async,subvol=@' #  0:35 ━❍──────── -5:32
+G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"             #   ↻     ⊲  Ⅱ  ⊳     ↺
+sed -i 's/#Co/Co/' /etc/pacman.conf                       #  VOLUME: ▁▂▃▄▅▆▇ 100%
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
-lsblk  | egrep --color ${C}
-printf "\n${A}Enter Device name: ${B}" ; read D 
-until sgdisk /dev/${D} -Z -o -n 1::+512M -t 1:EF00 -n -p
-do printf "${A}Try again: ${B}" && read D ; done
-D1="$(ls /dev/* | grep -E "^/dev/${D}p?1$")"
-D2="$(ls /dev/* | grep -E "^/dev/${D}p?2$")"
+lsblk  | grep --color disk
+echo -n "${A}Enter Device name: ${B}" 
+read C ; D="/dev/${C}"
+until sgdisk ${D} -Z -o -n 1::+512M -t 1:EF00 -n -p
+do printf "${A}Try again: ${B}" && read C ; done
+D1="$(ls /dev/* | grep -E "^${D}p?1$")"
+D2="$(ls /dev/* | grep -E "^${D}p?2$")"
 mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
 mount ${D2} /mnt; cd /mnt ; ${E}home
 ${E} ; cd ; umount /mnt ; ${F} ${D2} /mnt
