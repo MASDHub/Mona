@@ -11,10 +11,9 @@ mkdir ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/
 sed -i '5,$d' ~/${A}/menu.xml
 { echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">
 ${B}Files${C}nemo${D}\n${B}Search${C}rofi -show drun${D}
-${B}Web${C}firefox-developer-edition${D}
-${B}Terminal${C}alacritty${D}\n${B}Text${C}geany${D}
-${B}Calculator${C}galculator${D}\n${E}
-${B}Refresh${C}openbox --reconfigure${D}\n${E}
+${B}Web${C}firefox${D}\n${B}Terminal${C}alacritty${D}
+${B}Text${C}geany${D}\n${B}Calculator${C}galculator${D}
+${E}\n${B}Refresh${C}openbox --reconfigure${D}\n${E}
 ${B}Lock Screen${C}xlock -mode atlantis +description -echokeys -echokey '*' -info "'"Enter password to unlock"'"${D}
 ${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}
 </menu></openbox_menu>" ; } >> ~/${A}/menu.xml
@@ -23,7 +22,7 @@ sed -i -e '50,120 s/8/12/' -e '50,120 s/9/13/' -e 's/A-space/0x85/' \
 -e 's/kfmclient openProfile filemanagement/rofi -show drun/' \
 -e 's/W-e/0x85/' -e 's/Konqueror/Dmenu/' ~/${A}/rc.xml
 { echo -e 'lxqt-policykit &\n\npicom --experimental-backends &\n\nplank &\n
-trayer --monitor primary --height 40 --align right --iconspacing 10 --transparent true --tint 0x716966 &\n
+trayer --monitor primary --height 40 --align right --transparent true --tint 0x716966 &\n
 (nm-applet) &\n\n(volumeicon) &\n\nwait 10 &\n\n./mona.sh &' ; } > ~/${A}/autostart
 { echo 'dconf dump /net/launchpad/plank/docks/ > ~/docks.ini'
 echo 'sed -i '"'s/bottom/right/'"' ~/docks.ini'
