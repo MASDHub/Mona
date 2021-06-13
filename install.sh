@@ -24,8 +24,8 @@ until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ ^[a-z]*$ ]]
 do echo -en "\n${A}Try again : ${B}" && read U1 && U="${U1,,}" ; done  
 useradd -m -G wheel "${U}" ; until passwd ${U} ; do echo "" ; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers 
-sed -i "s/#en_US.U/en_US.U/" /etc/locale.gen 
-sed -i -e '1 s/"'${C}-Beka'"/' -e '2 s/"'${C}'"/' -e 's/"'${D}'"/' ${E}/gtk-2.0/gtkrc   
+sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen 
+sed -i -e '1 s/"'${C}'-Beka"/' -e '2 s/"'${C}'"/' -e 's/"'${D}'"/' ${E}/gtk-2.0/gtkrc   
 sed -i -e "2 s/${C}-Beka/" -e "3 s/${C}/" -e "s/${D}/" ${E}/gtk-3.0/settings.ini 
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime  
 { echo -e "127.0.0.1       localhost
