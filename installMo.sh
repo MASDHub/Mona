@@ -4,7 +4,8 @@ set -euo pipefail
 A='.config/openbox' ; B='<item label="' ; C='"><action name="Execute"><command>' ; D='</command></action></item>' E='<separator></separator>'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then R='uacpid cbatticon'
-cd ~ ; git clone https://aur.archlinux.org/pikaur.git ; cd pikaur ; makepkg -fsri #A="/home/${U}/.config/pikaur.conf" ; D='reversesearchsorting = ';  ; sed -i "s/${D}no/${D}yes/" ${A} 
+cd ~ ; git clone https://aur.archlinux.org/pikaur.git ; cd pikaur ; makepkg -fsri 
+sed -i 's/g = no/g = yes/' ~/.config/pikaur.conf
 pikaur -Syyu picom-git oranchelo-icon-theme-git obkey ttf-ms-fonts timeshift
 mkdir ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/ ; sed -i '5,$d' ~/${A}/menu.xml #echo "Xcursor.size: 36" >> ~/.Xresources
 { echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">\n${B}Files${C}nemo${D}
@@ -16,13 +17,13 @@ sed -i -e '50,120 s/8/12/' -e '50,120 s/9/13/' -e 's/sans/Fira Sans Condensed Bo
 -e 's/W-e/0x85/' -e 's/Konqueror/Dmenu/' -e 's/kfmclient openProfile filemanagement/rofi -show drun/' \
 -e '131 s/4/2/' ~/${A}/rc.xml ; { echo -e 'lxqt-policykit &\n\npicom --experimental-backends &\n\nplank &\n
 trayer --monitor primary --height 40 --align right --iconspacing 10 --transparent true --tint 0x716966 &\n
-(nm-applet) &\n\n(volumeicon) &\n\n~/mona.sh &' ; } > ~/${A}/autostart
+(nm-applet) &\n\n(volumeicon) &\n\n(wait 5s ~/mona.sh) &' ; } > ~/${A}/autostart
 { echo 'dconf dump /net/launchpad/plank/docks/ > ~/docks.ini' ; echo 'sed -i '"'s/bottom/right/'"' ~/docks.ini'
 echo 'cat ~/docks.ini | dconf load /net/launchpad/plank/docks/' ; echo 'sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart'
 echo 'rm ~/.config/plank/dock1/launchers/{geeqie.dockitem,vlc-1.dockitem,vlc.dockitem}'
 echo 'echo -e "'"[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/nemo.desktop"'" >> ~/.config/plank/dock1/launchers/nemo.dockitem'
-echo 'rm -- "$0"' ; } > ~/mona.sh ; pikaur -Scc
-curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installna.sh > ~/installna.sh
-echo "exec openbox-session" >> ~/.xinitrc ; su --login root -c "sh /home/$USER/installna.sh"
+echo 'rm -- "$0"' ; } > ~/mona.sh ; pikaur -Scc ; echo -e "Done!\nType: 'exit' then 'reboot'" 
+echo "exec openbox-session" >> ~/.xinitrc ; su --login root -c "chmod 755 /home/${U}/mona.sh" 
+rm -- "$0" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#echo -e "${B}Done!\nType: 'exit' then 'reboot'${C}" #rm -- "$0" chmod 755 /home/${U}/mona.sh 
+#
