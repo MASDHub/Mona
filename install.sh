@@ -20,7 +20,7 @@ D='Cantarell 11/Fira Sans Condensed Book' ; E='/usr/share/' ; F='systemctl enabl
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#           
 echo -en "${A}Enter Root Password: ${B}" ; until passwd ; do echo '' ; done  
 echo -en "\n${A}Enter User Name: ${B}" ; read U1 ; U="${U1,,}"  
-until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ '^[a-z]x$' ]]
+until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ '^[a-z]*$' ]]
 do echo -en "\n${A}Try again : ${B}" && read U1 && U="${U1,,}" ; done  
 useradd -m -G wheel "${U}" ; until passwd ${U} ; do echo "" ; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers 
