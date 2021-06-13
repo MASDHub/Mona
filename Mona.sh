@@ -24,7 +24,7 @@ if [ "${G}" == Intel ] ; then H='intel' && I='i915 '
 fi ; if [ "${G}" == AMD ]; then H='amd' && I='amdgpu '
 fi ; if [[ ${#G} -gt 1 ]] ; then J=''${H}'-ucode xf86-video-'${H}''
 fi ; sed -i "s/ULES=()/ULES=(${I}btrfs)/" /etc/mkinitcpio.conf
-reflector -p https -f 2 --score 10 --save /etc/pacman.d/mirrorlist
+reflector -p https --score 10 -f 2 --save /etc/pacman.d/mirrorlist
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware \
 networkmanager network-manager-applet nm-connection-editor vim gufw \
 lxqt-policykit xorg grub efibootmgr xlockmore xterm alacritty plank \
