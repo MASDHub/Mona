@@ -7,7 +7,7 @@ A='.config/openbox' ; B='<item label="' ; C='"><action name="Execute"><command>'
 cd ~ ; git clone https://aur.archlinux.org/pikaur.git ; cd pikaur ; makepkg -fsri 
 sed -i 's/g = no/g = yes/' ~/.config/pikaur.conf
 pikaur -Syyu picom-git oranchelo-icon-theme-git obkey ttf-ms-fonts timeshift
-mkdir ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/ ; sed -i '5,$d' ~/${A}/menu.xml #echo "Xcursor.size: 36" >> ~/.Xresources
+mkdir ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/ ; sed -i '5,$d' ~/${A}/menu.xml
 { echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">\n${B}Files${C}nemo${D}
 ${B}Search${C}rofi -show drun${D}\n${B}Web${C}firefox-developer-edition${D}\n${B}Terminal${C}alacritty${D}
 ${B}Text${C}geany${D}\n${B}Calculator${C}galculator${D}\n${E}\n${B}Refresh${C}openbox --reconfigure${D}${E}
