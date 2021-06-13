@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail ; U=$(cat /etc/u.txt)
+set -euo pipefail ; U=$(cat /etc/u)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
 A="/home/${U}/.config/pikaur.conf" ; B='\e[1;31m' ; C='\e[0m' ; D='reversesearchsorting = '; E='Adwaita/Oranchelo-Beka'
 F='Adwaita/Oranchelo' ; G='/usr/share/gtk-2.0/gtkrc' ; H='/usr/share/gtk-3.0/settings.ini' ; I='Cantarell 11/Fira Sans Condensed Book'
