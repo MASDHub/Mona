@@ -11,7 +11,7 @@ gpg -k | pacman-key --populate
 lsblk  | grep --color disk
 echo -n "${A}Enter Device name: ${B}" 
 read C ; D="/dev/${C}"
-until sgdisk ${D} -Z -o -n 1::+512M -t 1:EF00 -n -p
+until sgdisk ${D} -Z -n 1::+512M -t 1:EF00 -n -p
 do printf "${A}Try again: ${B}" && read C ; done
 D1="$(ls /dev/* | grep -E "^${D}p?1$")"
 D2="$(ls /dev/* | grep -E "^${D}p?2$")"
