@@ -2,12 +2,12 @@
 set -euo pipefail ; setfont ter-124b
 A='\e[1;31m' ; B='\e[0m' ; C='nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-sed -i -e 's/#Co/Co/' /etc/pacman.conf ; F='etc/mkinitcpio.conf'              #  Mozart - Moonlight Sonata
+sed -i -e 's/#Co/Co/' /etc/pacman.conf ; timedatectl set-ntp true             #  Mozart - Moonlight Sonata         
 G='btrfs su cr @' ; H='mount -o noatime,compress=zstd,discard=async,subvol=@' #    0:35 ━❍──────── -5:32
-I="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"                                 #     ↻     ⊲  Ⅱ  ⊳     ↺
+I="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" ; F='etc/mkinitcpio.conf'       #     ↻     ⊲  Ⅱ  ⊳     ↺
 J='firefox-developer-edition-i18n-' ; K='libreoffice-still-'                  #     VOLUME: ▁▂▃▄▅▆▇ 100%
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k | pacman-key --populate ; timedatectl set-ntp true
+gpg -k | pacman-key --populate
 lsblk  | egrep --color "${C}|NAME"
 printf "\n\n${A}Choose Device name: ${B}"
 read E ; until [[ "${E}" == +(${C}) ]]
