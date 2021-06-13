@@ -23,7 +23,7 @@ mount ${D1} /mnt/boot ; lsblk -fs -e 7,11
 if [ "${G}" == Intel ] ; then H='intel' && I='i915 '
 fi ; if [ "${G}" == AMD ]; then H='amd' && I='amdgpu '
 fi ; if [[ ${#G} -gt 1 ]] ; then J=''${H}'-ucode xf86-video-'${H}''
-fi ; sed -i "s/ULES=()/ULES=(${I}btrfs)/" /etc/mkinitcpio.conf
+fi ; sed -i "s/ULES=()/ULES=(${I}btrfs)/"  /etc/mkinitcpio.conf
 reflector -p https --score 10 -f 2 --save /etc/pacman.d/mirrorlist
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware \
 networkmanager network-manager-applet nm-connection-editor vim gufw \
