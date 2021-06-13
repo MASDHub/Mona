@@ -40,7 +40,7 @@ echo 'M3="$( xrandr | grep -Eo '"'HDMI-1|HDMI1|DVI-1|DVI1|VGA1|VGA-1'"' )"'
 echo 'if [ -r "${M}" ] && $(grep -q xrandr ${M}) ; then ${M} ; else if [[ "${M2}" -ge "2" ]]'
 echo 'then xrandr --output "${M1}" --mode 1920x1080 --output "${M3}" --primary --auto'
 echo -e 'fi\nfi' ; } >> ${E}/sddm/scripts/Xsetup
-sed -i -e "1 s/${C}-Beka/" -e "2 s/${C}/" -e "s/${D}/" ${E}/gtk-2.0/gtkrc   
+sed -i -e '1 s/"'${C}-Beka'"/' -e '2 s/"'${C}'"/' -e 's/"'${D}'"/' ${E}/gtk-2.0/gtkrc   
 sed -i -e "2 s/${C}-Beka/" -e "3 s/${C}/" -e "s/${D}/" ${E}/gtk-3.0/settings.ini 
 echo -e "${A}NETWORK ENABLED${B}" ; ${F} NetworkManager ; echo -e "${A}DISPLAY MANAGER ENABLED${B}" ; ${F} sddm 
 echo -e "${A}INSTALLING GRUB ${B}"; grub-install --target=x 86_64-efi --efi-directory=/boot --bootloader-id=GRUB
