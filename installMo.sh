@@ -5,8 +5,8 @@ A='.config/openbox' ; B='<item label="' ; C='"><action name="Execute"><command>'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then R='uacpid cbatticon'
 cd ~ ; git clone https://aur.archlinux.org/pikaur.git ; cd pikaur ; makepkg -fsri
-sed -i 's/g = no/g = yes/' ~/.config/pikaur.conf
 pikaur -Syyu picom-git oranchelo-icon-theme-git obkey ttf-ms-fonts timeshift
+sed -i 's/g = no/g = yes/' ~/.config/pikaur.conf
 mkdir ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/
 sed -i '5,$d' ~/${A}/menu.xml
 { echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">
