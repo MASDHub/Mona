@@ -19,7 +19,7 @@ mkfs.vfat ${E1} ; mkfs.btrfs -fq ${E2}
 mount ${E2} /mnt; cd /mnt ; ${G}home 
 ${G} ; cd ; umount  /mnt ; ${H} ${E2} /mnt
 mkdir /mnt/{boot,home} ; ${H}home ${E2} /mnt/home
-mount ${E1} /mnt/boot ; lsblk -e 7,11
+mount ${E1} /mnt/boot ; lsblk -fs -e 7,11
 if [ "${I}" == Intel ] ; then I1='intel' && I2='i915 '
 fi ; if [ "${I}" == AMD ]; then I1='amd' && I2='amdgpu ' 
 fi ; if [[ ${#I} -gt 1 ]] ; then I3=''${I1}'-ucode xf86-video-'${I1}''
