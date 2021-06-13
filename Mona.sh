@@ -2,13 +2,13 @@
 set -euo pipefail 
 setfont ter-124b ; timedatectl set-ntp true
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='\e[1;31m' ; B='\e[0m' ; sed -i -e 's/#Co/Co/' /etc/pacman.conf # Mozart - Moonlight Sonata
+A='\e[1;31m' ; B='\e[0m' ; sed -i 's/#Co/Co/' /etc/pacman.conf    # Mozart - Moonlight Sonata
 C='nvme0n1|sda|sdb|hda|hdb|hdc|hdd|mmcblk0' ; E='btrfs su cr @'   #  0:35 ━❍──────── -5:32
 F='mount -o noatime,compress=zstd,discard=async,subvol=@'         #   ↻     ⊲  Ⅱ  ⊳     ↺
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"                     #  VOLUME: ▁▂▃▄▅▆▇ 100%
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
-lsblk  | egrep --color "${C}|NAME"
+lsblk  | egrep --color ${C}
 printf "\n${A}Enter Device name: ${B}"
 read D ; until [[ "${D}" == +(${C}) ]]
 do printf "${A}Try again: ${B}" && read D ; done
