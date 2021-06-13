@@ -21,14 +21,14 @@ mount ${E2} /mnt; cd /mnt ; ${G}home ; ${G} ; cd ; umount  /mnt
 mount ${E1} /mnt/boot ; lsblk -o NAME,MOUNTPOINT,PARTUUID -e 7,11
 if [ "${I}" == 'AMD' ]; then I1='amd' && I2='amdgpu ' ; fi
 if [ "${I}" == Intel ]; then I1='intel' && I2='i915 ' ; fi
-if [[ ${#I} -gt '1' ]]; then I3="${I1}-ucode xf86-video-${I1}"
+if [[ ${#I} -gt '1' ]]; then I3=''{I1}'-ucode xf86-video-'${I1}''
 fi ; sed -i "s/LES=()/LES=(${I2}btrfs)/" /${F}
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/pacman.d/mirrorlist
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim git \
 lxqt-policykit xlockmore python-pyxdg lxappearance-obconf-gtk3 nm-connection-editor network-manager-applet \
 alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack libpulse volumeicon vlc gst-plugin-pipewire \
-nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc alacritty xterm xorg rofi trayer plank arandr \   
-${J}en-us ${J}de ${J}ja ${J}zh-cn ${J}ru ${J}ar ${J}pt-br otf-fira-sans capitaine-cursors geeqie htop gufw \ 
+nemo-fileroller nemo-preview geany-plugins gvfs-mtp gvfs-afc alacritty xterm xorg rofi trayer plank arandr \
+${J}en-us ${J}de ${J}ja ${J}zh-cn ${J}ru ${J}ar ${J}pt-br otf-fira-sans capitaine-cursors geeqie htop gufw \
 ${K}en-gb ${K}hi ${K}ko ${K}zh-tw ${K}uk ${K}he ${K}es otf-fira-mono pkg-config cmake galculator sddm ${I3} 
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/etc/install.sh  
 cp /${F} /mnt/${F} ; genfstab -U /mnt >> /mnt/etc/fstab
