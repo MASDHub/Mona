@@ -9,10 +9,11 @@ sed -i 's/#Co/Co/' /etc/pacman.conf                       #  VOLUME: ▁▂▃�
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | grep --color disk
-echo -n "${A}Enter Device name: ${B}" 
-read C ; D="/dev/${C}"
-until sgdisk ${D} -Z -n 1::+512M -t 1:EF00 -n -p
-do printf "${A}Try again: ${B}" && read C ; done
+echo -en "${A}Enter Device name: ${B}"  
+read C ; D="/dev/${C}" ; until \
+sgdisk ${D} -Z -n 1::+512M -t 1:EF00 -n -p
+do echo -en "${A}Try again: ${B}" \
+&& read C && D="/dev/${C}" ; done
 D1="$(ls /dev/* | grep -E "^${D}p?1$")"
 D2="$(ls /dev/* | grep -E "^${D}p?2$")"
 mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
@@ -20,7 +21,6 @@ mount ${D2} /mnt; cd /mnt ; ${E}home
 ${E} ; cd ; umount /mnt ; ${F} ${D2} /mnt
 mkdir /mnt/{boot,home} ; ${F}home ${D2} /mnt/home
 mount ${D1} /mnt/boot ; lsblk -e 7,11 | egrep --color /
-if [ "${G}" == Intel ] ; then H='intel' && I='i915 '
 fi ; if [ "${G}" == AMD ]; then H='amd' && I='amdgpu '
 fi ; if [[ ${#G} -gt 1 ]] ; then J=''${H}'-ucode xf86-video-'${H}''
 fi ; sed -i "s/ULES=()/ULES=(${I}btrfs)/"  /etc/mkinitcpio.conf
