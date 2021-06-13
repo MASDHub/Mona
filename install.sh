@@ -29,7 +29,7 @@ sed -i "s/#${C}/${C}/" /${D}.gen && echo -e "LANG=${C}" >> /${D}.conf ; if [[ "$
 then sed -i "s/#${H}/${H}/" /${D}.gen && echo -e "LANG=${H}" >> /${D}.conf ; fi ; locale-gen
 echo -e "127.0.0.1${I}localhost\n::1${J}localhost\n127.0.1.1${I}${U}pc.localdomain ${U}pc" >> /${E}s
 echo -e "${U}pc" >> /${E}name ; echo -e "${A}DISPLAY MANAGER ENABLED${B}" ; ${F} sddm
-echo -e "${A}NETWORK ENABLED${B}" ; ${F} NetworkManager ; echo -e "${A}BLUETHOOTH ENABLED${B}" ; ${F} bluetooth
+echo -e "${A}NETWORK ENABLED${B}" ; ${F} NetworkManager # echo -e "${A}BLUETHOOTH ENABLED${B}" ; ${F} bluetooth
 echo -e "${A}INSTALLING GRUB ${B}"; grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 sed -i 's/auto/1920x1080,auto/' /etc/default/grub ; grub-mkconfig -o /boot/grub/grub.cfg
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh
