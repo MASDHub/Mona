@@ -22,7 +22,7 @@ echo -en "${A}Enter Root Password: ${B}" ; until passwd ; do echo '' ; done
 echo -en "\n${A}Enter User Name: ${B}" ; read U1 ; U="${U1,,}"  
 until [ ${#U} -gt 4 ] && [[ "${U}" =~ [a-z] ]]
 do echo -en "\n${A}Try again : ${B}" && read U1 && U="${U1,,}" ; done  
-useradd -m -G wheel "${U}" ; until passwd ${U}; do echo "" ; done
+useradd -m -G wheel "${U}" ; until passwd ${U} ; do echo "" ; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers 
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime  
 sed -i "s/#en_US.U/en_US.U/" /etc/locale.gen && echo -e "LANG=${C}" >> /etc/locale.conf
