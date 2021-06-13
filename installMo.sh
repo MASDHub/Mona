@@ -31,7 +31,7 @@ echo 'sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart'
 echo 'rm ~/.config/plank/dock1/launchers/{geeqie.dockitem,vlc-1.dockitem,vlc.dockitem}'
 echo 'echo -e "'"[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/nemo.desktop"'" >> ~/.config/plank/dock1/launchers/nemo.dockitem'
 echo 'rm -- "$0"' ; } > ~/mona.sh ; pikaur -Scc
-echo -e "Done!\nType: 'exit' then 'reboot'"
-echo "exec openbox-session" >> ~/.xinitrc ; su --login root -c "chmod 755 ~/mona.sh"
+echo -e "Done!\nType: 'exit' then 'reboot'" ; U="$( cat /etc/U )"
+echo "exec openbox-session" >> ~/.xinitrc ; su --login root -c "chmod 755 /home/${U}/mona.sh && rm /etc/U"
 rm -- "$0"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
