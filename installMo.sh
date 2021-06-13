@@ -26,4 +26,3 @@ echo 'rm -- "$0"' ; } > ~/mona.sh ; pikaur -Scc ; echo -e "Done!\nType: 'exit' t
 echo "exec openbox-session" >> ~/.xinitrc ; su --login root -c "chmod 755 /home/${U}/mona.sh" 
 rm -- "$0" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#
