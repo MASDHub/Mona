@@ -9,10 +9,9 @@ G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"                     #  VOLUME: ▁
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color ${C}
-printf "\n${A}Enter Device name: ${B}"
-read D ; until [[ "${D}" == +(${C}) ]]
+printf "\n${A}Enter Device name: ${B}" ; read D 
+until sgdisk /dev/${D} -Z -o -n 1::+512M -t 1:EF00 -n -p
 do printf "${A}Try again: ${B}" && read D ; done
-sgdisk /dev/${D} -Z -o -n 1::+512M -t 1:EF00 -n -p
 D1="$(ls /dev/* | grep -E "^/dev/${D}p?1$")"
 D2="$(ls /dev/* | grep -E "^/dev/${D}p?2$")"
 mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
