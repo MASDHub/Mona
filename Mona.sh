@@ -12,7 +12,7 @@ lsblk  | egrep --color "${C}|NAME"
 printf "\n${A}Choose Device name: ${B}"
 read E ; until [[ "${E}" == +(${C}) ]]
 do printf "${A}Try again: ${B}" && read E ; done
-sgdisk /dev/${E} -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
+sgdisk /dev/${E} -Z -o -n 1::+512M -t 1:EF00 -n 
 E1="$(ls /dev/* | grep -E "^/dev/${E}p?1$")"
 E2="$(ls /dev/* | grep -E "^/dev/${E}p?2$")"
 mkfs.vfat ${E1} ; mkfs.btrfs -fq ${E2}
