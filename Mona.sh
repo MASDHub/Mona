@@ -23,7 +23,7 @@ mount ${E1} /mnt/boot ; lsblk -o NAME,MOUNTPOINT,PARTUUID -e 7,11
 if [ "${I}" == Intel ] ; then I1='intel' && I2='i915 '
 fi ; if [ "${I}" == AMD ]; then I1='amd' && I2='amdgpu ' 
 fi ; if [[ ${#I} -gt 1 ]] ; then I3=''${I1}'-ucode xf86-video-'${I1}''
-fi ; sed -i "s/LES=()/LES=(${I2}btrfs)/" /${F}
+fi ; sed -i "s/ULES=()/ULES=(${I2}btrfs)/" /${F}
 reflector -p https -c "$(curl -s https://ipapi.co/country_name)" -f 2 --save /etc/pacman.d/mirrorlist
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware networkmanager efibootmgr grub vim git \
 lxqt-policykit xlockmore python-pyxdg lxappearance-obconf-gtk3 nm-connection-editor network-manager-applet \
