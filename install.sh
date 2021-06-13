@@ -18,15 +18,11 @@ head -n 16 /etc/install.sh | tail -n 13
 A='\e[1;31m' ; B='\e[0m' ; sed -i -e 's/#Co/Co/' /etc/pacman.conf ; C='Adwaita/Oranchelo' 
 D='Cantarell 11/Fira Sans Condensed Book' ; E='/usr/share/' ; F='systemctl enable'  
 I='       ' ; J='             ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#           
-echo -en "${A}Enter Root Password: ${B}" 
-until passwd ; do echo '' ; done  
-echo -en "\n${A}Enter User Name: ${B}" 
-read U1 ; U="${U1,,}" ; until \
-[ ${#U} -gt 4 ] && [[ "${U}" =~ [a-z] ]]
-do echo -en "\n${A}Try again : ${B}" \
-&& read U1 && U="${U1,,}" ; done  
-useradd -m -G wheel "${U}" 
-until passwd ${U}; do echo "" ; done
+echo -en "${A}Enter Root Password: ${B}" ; until passwd ; do echo '' ; done  
+echo -en "\n${A}Enter User Name: ${B}" ; read U1 ; U="${U1,,}"  
+until [ ${#U} -gt 4 ] && [[ "${U}" =~ [a-z] ]]
+do echo -en "\n${A}Try again : ${B}" && read U1 && U="${U1,,}" ; done  
+useradd -m -G wheel "${U}" ; until passwd ${U}; do echo "" ; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers 
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime  
 sed -i "s/#en_US.U/en_US.U/" /etc/locale.gen && echo -e "LANG=${C}" >> /etc/locale.conf
