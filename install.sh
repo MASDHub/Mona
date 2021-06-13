@@ -18,11 +18,14 @@ head -n 16 /etc/install.sh | tail -n 13
 A='\e[1;31m' ; B='\e[0m' ; C='en_US.UTF-8' ; D='etc/locale' ; E='etc/host' ; F='systemctl enable' 
 G="$(curl -s https://ipapi.co/country_code)" ; H="$(cat /${D}.gen | grep en_${G} | cut -c 2-20)"
 I='       ' ; J='             ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#           
-printf "${A}Enter Root Password: ${B}\n" ; until passwd ; do echo ''
-done ; printf "\n${A}Enter User Name: ${B}" ; read U1 ; U="${U1,,}"
-until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ [a-z] ]]
-do printf "\n${A}Try again : ${B}" && read U1 && U="${U1,,}" ; done
-useradd -m -G wheel "${U}" ; until passwd ${U}; do echo "" ; done
+echo -n "${A}Enter Root Password: ${B}" 
+until passwd ; do echo '' ; done  
+echo -en "\n${A}Enter User Name: ${B}" 
+read U1 ; U="${U1,,}"
+until [ ${#U} -gt 4 ] && [[ "${U}" =~ [a-z] ]]
+do echo -en "\n${A}Try again : ${B}" && read U1 && U="${U1,,}" 
+done ; useradd -m -G wheel "${U}" 
+until passwd ${U}; do echo "" ; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers ; echo "${U}" >> /etc/u
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime  ; hwclock --systohc
 sed -i "s/#${C}/${C}/" /${D}.gen && echo -e "LANG=${C}" >> /${D}.conf ; if [[ "$(cat /${D}.gen | grep -c en_${G})" == 1 ]]
