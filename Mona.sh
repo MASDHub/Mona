@@ -9,7 +9,7 @@ sed -i 's/#Co/Co/' /etc/pacman.conf                       #  VOLUME: ▁▂▃�
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | grep --color disk
-echo -en "${A}Enter Device name: ${B}"  
+echo -en "${A}Enter Device name: ${B}"
 read C ; D="/dev/${C}" ; until \
 sgdisk ${D} -Z -n 1::+512M -t 1:EF00 -n -p
 do echo -en "${A}Try again: ${B}" \
@@ -24,7 +24,7 @@ mount ${D1} /mnt/boot ; lsblk -e 7,11 | egrep --color /
 if [ "${G}" == Intel ] ; then H='intel' && I='i915 '
 fi ; if [ "${G}" == AMD ]; then H='amd' && I='amdgpu '
 fi ; if [[ ${#G} -gt 1 ]] ; then J=''${H}'-ucode xf86-video-'${H}''
-fi ; sed -i "s/ULES=()/ULES=(${I}btrfs)/"  /etc/mkinitcpio.conf
+fi ; sed -i "s/ULES=()/ULES=(${I}btrfs)/" /etc/mkinitcpio.conf
 reflector -p https -a 12 --score 10 -f 2 --save /etc/pacman.d/mirrorlist
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware \
 networkmanager network-manager-applet nm-connection-editor vim gufw \
