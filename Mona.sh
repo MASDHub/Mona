@@ -20,19 +20,20 @@ mount ${D2} /mnt; cd /mnt ; ${E}home
 ${E} ; cd ; umount /mnt ; ${F} ${D2} /mnt
 mkdir /mnt/{boot,home} ; ${F}home ${D2} /mnt/home
 mount ${D1} /mnt/boot ; lsblk -fs -e 7,11
-if [ "${G}" == Intel ] ; then G1='intel' && G2='i915 '
-fi ; if [ "${G}" == AMD ]; then G1='amd' && G2='amdgpu ' 
-fi ; if [[ ${#G} -gt 1 ]] ; then G3=''${G1}'-ucode xf86-video-'${G1}''
-fi ; sed -i "s/ULES=()/ULES=(${G2}btrfs)/" /etc/mkinitcpio.conf
+if [ "${G}" == Intel ] ; then H='intel' && I='i915 '
+fi ; if [ "${G}" == AMD ]; then H='amd' && I='amdgpu ' 
+fi ; if [[ ${#G} -gt 1 ]] ; then J=''${H}'-ucode xf86-video-'${H}''
+fi ; sed -i "s/ULES=()/ULES=(${I}btrfs)/" /etc/mkinitcpio.conf
 reflector -p https -f 2 --score 10 --save /etc/pacman.d/mirrorlist
-pacstrap -i /mnt base base-devel linux linux-headers linux-firmware grub gufw xorg \
-networkmanager network-manager-applet nm-connection-editor efibootmgr vim git htop \
-lxappearance-obconf-gtk3 lxqt-policykit python-pyxdg xlockmore xorg-xinit sddm vlc \
-alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack gst-plugin-pipewire \
-volumeicon gvfs-mtp gvfs-afc geany-plugins nemo-fileroller nemo-preview galculator \
-firefox-developer-edition libreoffice-still otf-fira-sans otf-fira-mono xterm rofi \
-capitaine-cursors plank geeqie trayer arandr alacritty cmake pkg-config libpulse ${G3} 
+pacstrap -i /mnt base base-devel linux linux-headers linux-firmware \
+networkmanager network-manager-applet nm-connection-editor vim gufw \
+lxqt-policykit xorg grub efibootmgr xlockmore xterm alacritty plank \
+pipewire alsa-utils pipewire-alsa pipewire-jack pipewire-pulse rofi \
+libpulse gst-plugin-pipewire geany-plugins gvfs-mtp gvfs-afc arandr \
+lxappearance-obconf-gtk3 geeqie nemo-fileroller nemo-preview trayer \
+firefox firefox-ublock-origin libreoffice-still galculator htop git \
+capitaine-cursors otf-fira-sans otf-fira-mono python-pyxdg sddm vlc \
+xorg-xinit volumeicon cmake pkg-config ${J} ; cp /etc/mkinitcpio.conf /mnt/etc/mkinitcpio.conf 
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/etc/install.sh
-cp /etc/mkinitcpio.conf /mnt/etc/mkinitcpio.conf ; genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt sh /etc/install.sh 
+genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh /etc/install.sh 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
