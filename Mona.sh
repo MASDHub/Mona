@@ -7,8 +7,8 @@ G='btrfs su cr @' ; H='mount -o noatime,compress=zstd,discard=async,subvol=@' # 
 I="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" ; F='etc/mkinitcpio.conf'       #     ↻     ⊲  Ⅱ  ⊳     ↺
 J='firefox-developer-edition-i18n-' ; K='libreoffice-still-'                  #     VOLUME: ▁▂▃▄▅▆▇ 100%
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k| pacman-key --populate
-lsblk | egrep --color "${C}|NAME"
+gpg -k | pacman-key --populate
+lsblk  | egrep --color "${C}|NAME"
 printf "\n${A}Choose Device name: ${B}"
 read E ; until [[ "${E}" == +(${C}) ]]
 do printf "${A}Try again: ${B}" && read E ; done
