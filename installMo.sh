@@ -24,7 +24,7 @@ sed -i -e '50,120 s/8/12/' -e '50,120 s/9/13/' -e 's/A-space/0x85/' \
 -e 's/W-e/0x85/' -e 's/Konqueror/Dmenu/' ~/${A}/rc.xml
 { echo -e 'lxqt-policykit &\n\npicom --experimental-backends &\n\nplank &\n
 trayer --monitor primary --height 40 --align right --iconspacing 10 --transparent true --tint 0x716966 &\n
-(nm-applet) &\n\n(volumeicon) &\n\n(wait 5s ~/mona.sh) &' ; } > ~/${A}/autostart
+(nm-applet) &\n\n(volumeicon) &\n\nwait 10 &\n\n./mona.sh &' ; } > ~/${A}/autostart
 { echo 'dconf dump /net/launchpad/plank/docks/ > ~/docks.ini'
 echo 'sed -i '"'s/bottom/right/'"' ~/docks.ini'
 echo 'cat ~/docks.ini | dconf load /net/launchpad/plank/docks/'
