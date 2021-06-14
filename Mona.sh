@@ -19,7 +19,7 @@ read -r C ; until sgdisk /dev/${C} \
 do echo -en "${A}Try again: ${B}" && read C ; done
 D1="$( ls /dev/* | grep -E "^/dev/${C}p?1$" )"
 D2="$( ls /dev/* | grep -E "^/dev/${C}p?2$" )"
-mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
+mkfs.vfat ${D1}  ; mkfs.btrfs -fq ${D2}
 mount ${D2} /mnt ; cd /mnt ; ${E}home
 ${E} ; cd ; umount /mnt ; ${F} ${D2} /mnt
 mkdir /mnt/{boot,home} ; ${F}home ${D2} /mnt/home
