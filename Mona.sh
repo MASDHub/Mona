@@ -6,11 +6,11 @@ A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'              # Mozart - Moonlight S
 F='mount -o noatime,compress=zstd,discard=async,subvol=@' #  0:35 ━❍──────── -5:32
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"             #   ↻     ⊲  Ⅱ  ⊳     ↺
 sed -i 's/#Co/Co/' /etc/pacman.conf                       #  VOLUME: ▁▂▃▄▅▆▇ 100%
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | grep --color 'NAME|disk'
 echo -en "${A}Enter Device to Install: ${B}"
-read C ; until sgdisk /dev/${C} -Z \
+read -r C ; until sgdisk /dev/${C} -Z \
 -n 1::+512M -t 1:EF00 -n -i -v -p ; do
 echo -en "${A}Try again: ${B}" && read C ; done
 D1="$(ls /dev/* | grep -E "^$/dev/{C}p?1$")"
