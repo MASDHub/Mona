@@ -24,18 +24,15 @@ sed -i -e '50,120 s/8/12/' -e '50,120 s/9/13/' -e 's/A-space/0x85/' \
 -e 's/W-e/0x85/' -e 's/Konqueror/Dmenu/' ~/${A}/rc.xml
 { echo -e 'lxqt-policykit &\n\npicom --experimental-backends &\n\nplank &\n
 trayer --monitor primary --height 40 --align right --transparent true --tint 0x716966 &\n
-(nm-applet) &\n\n(volumeicon) &\n\nwait 10s &\n\n./mona.sh &' ; } > ~/${A}/autostart
+(nm-applet) &\n\n(volumeicon) &\n\nsleep 10 &\n\n./mona.sh &' ; } > ~/${A}/autostart
 { echo 'dconf dump /net/launchpad/plank/docks/ > ~/docks.ini'
 echo 'sed -i '"'s/bottom/right/'"' ~/docks.ini'
 echo 'cat ~/docks.ini | dconf load /net/launchpad/plank/docks/'
 echo 'sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart'
 echo 'rm ~/.config/plank/dock1/launchers/{geeqie.dockitem,vlc-1.dockitem,vlc.dockitem}'
-echo -e 'echo -e "'"[PlankDockItemPreferences]
-Launcher=file:///usr/share/applications/nemo.desktop"'" >> ~/.config/plank/dock1/launchers/nemo.dockitem'
+echo -e 'echo -e "'"[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/nemo.desktop"'" > ~/.config/plank/dock1/launchers/nemo.dockitem'
 echo 'sed -i "'"s/slider=false/slider=true"'" ~/.config/volumeicon'
 echo 'rm -- "$0"' ; } > ~/mona.sh 
-cp /etc/X11/xinit/xinitrc ~/.xinitrc
-sed -i 's/twm/openbox-session/' ~/.xinitrc
 echo -e "Done!\nType: 'exit' then 'reboot'"
 su --login root -c "chmod 755 /home/${U}/mona.sh && rm /etc/U && rm -- "$0""
  
