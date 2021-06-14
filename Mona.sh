@@ -9,7 +9,6 @@ head -n 8 --"$0" | tail -n 5
 A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'  #
 F='mount -o noatime,compress=zstd,subvol=@'   #
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
-sed -i 's/#Co/Co/' /etc/pacman.conf           #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|disk'
@@ -27,6 +26,7 @@ mount ${D1} /mnt/boot ; lsblk | egrep --color 'disk|part'
 if [[ ${G} == AMD ]] ; then H='amd-ucode' \
 && I='amdgpu ' ; fi ; if [[ ${G} == Intel ]]
 then H='intel-ucode' && I='i915 ' ; fi
+sed -i 's/#Co/Co/' /etc/pacman.conf
 sed -i "s/ULES=()/ULES=(${I}btrfs)/" /etc/mkinitcpio.conf
 timedatectl set-ntp true | reflector -a 12 --score 10 -f 2 \
 --save /etc/pacman.d/mirrorlist ; pacstrap -i /mnt \
