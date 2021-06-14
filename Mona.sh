@@ -14,10 +14,10 @@ J='/etc/mkinitcpio.conf' ; K='/etc/pacman' #
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|disk'
 echo -en "${A}Enter Device to Install: ${B}"
-read -r C ; until sgdisk /dev/${C} -Z -o \
--n 1::+512M -t 1:EF00 -n -i -v -p ; do \
-echo -en "${A}Try again: ${B}" && read -r C
-done ; sed -i 's/#Co/Co/' ${K}.conf
+read -r C ; until sgdisk /dev/${C} -Z \
+-o -n 1::+512M -t 1:EF00 -n -i -v -p 
+do echo -en "${A}Try again:  ${B}" && \
+read -r C ; done; sed -e 's/#Co/Co/' ${K}.conf
 D1="$(ls /dev/* | grep -E "^/dev/${C}p?1$") "
 D2="$(ls /dev/* | grep -E "^/dev/${C}p?2$") "
 mkfs.vfat ${D1} ; mkfs.btrfs -fq${D2}
