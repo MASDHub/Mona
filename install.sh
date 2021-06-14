@@ -33,9 +33,9 @@ locale-gen ; localectl set-locale LANG=en_US.UTF-8
 sed -i -e "1 s/${C}-Beka/" -e "2 s/${C}/" -e "s/${D}/" ${E}/gtk-2.0/gtkrc   
 sed -i -e "2 s/${C}-Beka/" -e "3 s/${C}/" -e "s/${D}/" ${E}/gtk-3.0/settings.ini 
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime  
+hwclock --systohc ; echo -e "${U}pc" >> /etc/hostname  
 { echo -e "127.0.0.1       localhost\n::1             localhost
 127.0.1.1       ${U}pc.localdomain ${U}pc" ; } >> /etc/hosts
-echo -e "${U}pc" >> /etc/hostname ; hwclock --systohc 
 #if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; systemctl enable tlp && systemctl enable acpid ; fi
 { echo 'M="$(find /home/*/.screenlayout/*.sh)"' 
 echo 'M1="$( xrandr | grep -Eo '"'eDP1|eDP-1'"' )"'
