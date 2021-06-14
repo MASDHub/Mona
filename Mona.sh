@@ -1,12 +1,12 @@
 #!/bin/bash
 setfont ter-124b
-head -n 8 --"$0" | tail -n 5
+head -n 8 -- "$0" | tail -n 5
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #        Mozart - Moonlight Sonata            #
 #         0:35 ━❍──────── -5:32               #
 #          ↻     ⊲  Ⅱ  ⊳     ↺                #
 #         VOLUME: ▁▂▃▄▅▆▇ 100%                #
-A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'  #
+A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @ ' #
 F='mount -o noatime,compress=zstd,subvol=@ '  #
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
 J='etc/mkinitcpio.conf' ; K='etc/pacman.conf' #
