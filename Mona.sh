@@ -1,12 +1,16 @@
 #!/bin/bash
 set -euo pipefail 
 setfont ter-124b 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'              # Mozart - Moonlight Sonata
-F='mount -o noatime,compress=zstd,discard=async,subvol=@' #  0:35 ━❍──────── -5:32
-G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"             #   ↻     ⊲  Ⅱ  ⊳     ↺
-sed -i 's/#Co/Co/' /etc/pacman.conf                       #  VOLUME: ▁▂▃▄▅▆▇ 100%
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#        Mozart - Moonlight Sonata            #
+#         0:35 ━❍──────── -5:32               #
+#          ↻     ⊲  Ⅱ  ⊳     ↺                # 
+#         VOLUME: ▁▂▃▄▅▆▇ 100%                #
+A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'  # 
+F='mount -o noatime,compress=zstd,subvol=@'   # 
+G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" # 
+sed -i 's/#Co/Co/' /etc/pacman.conf           # 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|disk'
 echo -en "${A}Enter Device to Install: ${B}"
