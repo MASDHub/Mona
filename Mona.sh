@@ -6,23 +6,23 @@ head -n 8 -- "$0" | tail -n 5
 #         0:35 ━❍──────── -5:32               #
 #          ↻     ⊲  Ⅱ  ⊳     ↺                #
 #         VOLUME: ▁▂▃▄▅▆▇ 100%                #
-A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @ ' #
-F='mount -o noatime,compress=zstd,subvol=@ '  #
+A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'  #
+F='mount -o noatime,compress=zstd,subvol=@'   #
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
 J='etc/mkinitcpio.conf' ; K='etc/pacman.conf' #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|disk'
 echo -en "${A}Enter Device to Install: ${B}"
-read -r C ; until sgdisk /dev/${C} -Z \
--n 1::+512M -t 1:EF00 -n -i -v -p ; do
-echo -en "${A}Try again: ${B}" && read C ; done
-D1="$(ls /dev/* | grep -E "^$/dev/${C}p?1$")"
-D2="$(ls /dev/* | grep -E "^$/dev/${C}p?2$") "
+read -r C ; until sgdisk /dev/${C} \
+-Z -n 1::+512M -t 1:EF00 -n -i -v -p
+do echo -en "${A}Try again: ${B}" && read C ; done
+D1="$( ls /dev/* | grep -E "^$/dev/${C}p?1$" )"
+D2="$( ls /dev/* | grep -E "^$/dev/${C}p?2$" )"
 mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
-mount ${D2}/mnt ; cd /mnt ; ${E}home
-${E} ; cd ; umount /mnt ; ${F}${D2}/mnt
-mkdir /mnt/{boot,home} ; ${F}home${D2}/mnt/home
+mount ${D2} /mnt ; cd /mnt ; ${E}home
+${E} ; cd ; umount /mnt ; ${F} ${D2} /mnt
+mkdir /mnt/{boot,home} ; ${F}home ${D2} /mnt/home
 mount ${D1} /mnt/boot ; lsblk | egrep --color 'disk|part'
 if [[ ${G} == AMD ]] ; then H='amd-ucode' \
 && I='amdgpu ' ; fi ; if [[ ${G} == Intel ]]
