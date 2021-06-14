@@ -19,11 +19,11 @@ read -r C ; until sgdisk /dev/${C} \
 printf "${A}Try again: ${B}" && read -r C ; done
 D1=" $(ls /dev/* | grep -E "^/dev/${C}p?1$") "
 D2=" $(ls /dev/* | grep -E "^/dev/${C}p?2$") "
-mkfs.vfat ${D1}  ; mkfs.btrfs -fq${D2}
-mount ${D2} /mnt ; cd /mnt; ${E}home
+mkfs.vfat${D1} ; mkfs.btrfs -fq${D2}
+mount${D2}/mnt ; cd /mnt ; ${E}home
 ${E} ; cd ; umount /mnt ; ${F}${D2}/mnt
-mkdir /mnt/{boot,home} ; ${F}home${D2}/mnt/home
-mount ${D1} /mnt/boot ; lsblk -e 7,11
+mkdir /mnt/{boot,home} ; mount ${D1}/mnt/boot
+${F}home${D2}/mnt/home; lsblk -e 7,11
 if [[ ${G} == AMD ]] ; then H='amd-ucode' \
 && I='amdgpu ' ; fi ; if [[ ${G} == Intel ]]
 then H='intel-ucode' && I='i915 ' ; fi
