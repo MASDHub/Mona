@@ -18,19 +18,23 @@ head -n 16 /etc/install.sh | tail -n 13
 A='\e[1;31m' ; B='\e[0m' ; sed -i -e 's/#Co/Co/' /etc/pacman.conf ; C='Adwaita/Oranchelo' 
 D='Cantarell 11/Fira Sans Condensed Book' ; E='/usr/share/' ; F='systemctl enable'  
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#           
-echo -en "${A}Enter Root Password: ${B}" ; until passwd ; do echo '' ; done  
-echo -en "\n${A}Enter User Name: ${B}" ; read U1 ; U="${U1,,}"  
-until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ ^[a-z]*$ ]]
-do echo -en "\n${A}Try again : ${B}" && read U1 && U="${U1,,}" ; done  
-useradd -m -G wheel "${U}" ; until passwd ${U} ; do echo "" ; done
-sed -i '0,/# %/ s/# %/ %/' /etc/sudoers ; echo -e "${U}" > /etc/U
-sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen 
+echo -en "\n${A}Enter Root Password: ${B}" 
+until passwd ; do echo '' ; done  
+echo -en "\n${A}Enter User Name: ${B}" 
+read U1 ; U="${U1,,}" ; until \
+[[ ${#U} -gt 4 ]] && [[ "${U}" =~ ^[a-z]*$ ]]
+do echo -en "\n${A}Try again : ${B}" \
+&& read U1 && U="${U1,,}" ; done  
+useradd -m -G wheel "${U}"; echo -e "${U}" > /etc/U
+until passwd ${U} ; do echo "" ; done
+sed -i '0,/# %/ s/# %/ %/' /etc/sudoers 
+sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
+locale-gen ; localectl set-locale LANG=en_US.UTF-8
 sed -i -e "1 s/${C}-Beka/" -e "2 s/${C}/" -e "s/${D}/" ${E}/gtk-2.0/gtkrc   
 sed -i -e "2 s/${C}-Beka/" -e "3 s/${C}/" -e "s/${D}/" ${E}/gtk-3.0/settings.ini 
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime  
 { echo -e "127.0.0.1       localhost\n::1             localhost
 127.0.1.1       ${U}pc.localdomain ${U}pc" ; } >> /etc/hosts
-echo -e "LANG=${C}" >> /etc/locale.conf ; locale-gen
 echo -e "${U}pc" >> /etc/hostname ; hwclock --systohc 
 #if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; systemctl enable tlp && systemctl enable acpid ; fi
 { echo 'M="$(find /home/*/.screenlayout/*.sh)"' 
