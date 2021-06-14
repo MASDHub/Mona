@@ -34,7 +34,8 @@ libpulse gst-plugin-pipewire geany-plugins gvfs-mtp gvfs-afc arandr \
 lxappearance-obconf-gtk3 geeqie nemo-fileroller nemo-preview trayer \
 firefox firefox-ublock-origin libreoffice-still galculator htop git \
 capitaine-cursors otf-fira-sans otf-fira-mono python-pyxdg sddm vlc \
-xorg-xinit volumeicon cmake pkg-config ${J} ; cp /etc/mkinitcpio.conf /mnt/etc/mkinitcpio.conf
+xorg-xinit volumeicon cmake pkg-config screengrab ${J}
+cp /etc/mkinitcpio.conf /mnt/etc/mkinitcpio.conf
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/etc/install.sh
 genfstab -U /mnt >> /mnt/etc/fstab ; arch-chroot /mnt sh /etc/install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
