@@ -8,7 +8,7 @@ G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"             #   ↻     ⊲  Ⅱ  
 sed -i 's/#Co/Co/' /etc/pacman.conf                       #  VOLUME: ▁▂▃▄▅▆▇ 100%
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
-lsblk  | grep --color 'NAME|disk'
+lsblk  | egrep --color 'NAME|disk'
 echo -en "${A}Enter Device to Install: ${B}"
 read -r C ; until sgdisk /dev/${C} -Z \
 -n 1::+512M -t 1:EF00 -n -i -v -p ; do
