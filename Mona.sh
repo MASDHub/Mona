@@ -21,14 +21,14 @@ done ; sed -i 's/#Co/Co/' ${K}.conf
 D1="$(ls /dev/* | grep -E "^/dev/${C}p?1$") "
 D2="$(ls /dev/* | grep -E "^/dev/${C}p?2$") "
 mkfs.vfat ${D1} ; mkfs.btrfs -fq${D2}
-mount ${D2}/mnt ; cd /mnt ; ${E}
-${E}home; cd; umount /mnt; ${F} ${D2}/mnt
-mkdir /mnt/{boot,home}  ; mount ${D1}/mnt/boot
+mount ${D2}/mnt ; cd /mnt ; ${E}home
+${E} ; cd  ; umount /mnt ; ${F} ${D2}/mnt
+mkdir  /mnt/{boot,home} ; mount ${D1}/mnt/boot
 ${F}home ${D2}/mnt/home; lsblk -e 7,11
 if [[ ${G} == Intel ]]; then I='i915 '\
  && H='intel-ucode'  ; fi
 if [[ ${G} == AMD ]]; then I='amdgpu '\
- && H='amd-ucode' ; fi
+ && H='amd-ucode'  ; fi
 sed -i "s/ULES=()/ULES=(${I}btrfs)/" ${J}
 timedatectl set-ntp true | reflector -f 2 \
 -p https --score 10 --save ${K}.d/mirrorlist
