@@ -32,6 +32,7 @@ echo 'sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart'
 echo 'rm ~/.config/plank/dock1/launchers/{geeqie.dockitem,vlc-1.dockitem,vlc.dockitem}'
 echo -e 'echo -e "'"[PlankDockItemPreferences]
 Launcher=file:///usr/share/applications/nemo.desktop"'" >> ~/.config/plank/dock1/launchers/nemo.dockitem'
+echo 'sed -i "'"s/slider=false/slider=true"'" ~/.config/volumeicon'
 echo 'rm -- "$0"' ; } > ~/mona.sh 
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
 sed -i 's/twm/openbox-session/' ~/.xinitrc
