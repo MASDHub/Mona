@@ -28,8 +28,8 @@ if [[ ${G} == AMD ]] ; then H='amd-ucode' \
 && I='amdgpu ' ; fi ; if [[ ${G} == Intel ]]
 then H='intel-ucode' && I='i915 ' ; fi
 sed -i "s/ULES=()/ULES=(${I}btrfs)/" ${J}
-timedatectl set-ntp true | reflector -p \
-https --score 10 -f 2 --save ${K}.d/mirrorlist 
+timedatectl set-ntp true | reflector -f 2 \
+-p https --score 10 --save ${K}.d/mirrorlist
 sed -i 's/#Co/Co/' ${K}.conf; pacstrap -i /mnt \
 base base-devel linux linux-headers linux-firmware \
 networkmanager network-manager-applet vim gufw git \
