@@ -6,7 +6,7 @@ D='</command></action></item>' E='<separator></separator>' ; U="$( cat /etc/U )"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then R='uacpid cbatticon'
 cd ~ ; git clone https://aur.archlinux.org/pikaur.git ; cd pikaur ; makepkg -fsri
-pikaur -Syyu picom-git oranchelo-icon-theme-git ttf-ms-fonts timeshift
+pikaur -S picom-git oranchelo-icon-theme-git ttf-ms-fonts timeshift
 sed -i 's/g = no/g = yes/' ~/.config/pikaur.conf
 mkdir ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/
 sed -i '5,$d' ~/${A}/menu.xml
