@@ -9,6 +9,7 @@ head -n 8 --"$0" | tail -n 5
 A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'  #
 F='mount -o noatime,compress=zstd,subvol=@'   #
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
+J='etc/mkinitcpio.conf' ; K='etc/pacman.conf' #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|disk'
@@ -26,8 +27,8 @@ mount ${D1} /mnt/boot ; lsblk | egrep --color 'disk|part'
 if [[ ${G} == AMD ]] ; then H='amd-ucode' \
 && I='amdgpu ' ; fi ; if [[ ${G} == Intel ]]
 then H='intel-ucode' && I='i915 ' ; fi
-sed -i 's/#Co/Co/' /etc/pacman.conf
-sed -i "s/ULES=()/ULES=(${I}btrfs)/" /etc/mkinitcpio.conf
+sed -i "s/ULES=()/ULES=(${I}btrfs)/" /${J} 
+sed -i 's/#Co/Co/' /etc/pacman.conf /${K}
 timedatectl set-ntp true | reflector -a 12 --score 10 -f 2 \
 --save /etc/pacman.d/mirrorlist ; pacstrap -i /mnt \
 base base-devel linux linux-headers linux-firmware \
@@ -41,7 +42,7 @@ lxappearance-obconf-gtk3 capitaine-cursors firefox \
 firefox-ublock-origin libreoffice-still xterm rofi \
 otf-fira-sans otf-fira-mono geeqie alacritty cmake \
 pkg-config geany-plugins gvfs-mtp gvfs-afc galculator ${H}
-cp /etc/mkinitcpio.conf /mnt/etc/mkinitcpio.conf
+cp -f /${J} /mnt/${J} ; cp -f /${K} /mnt/${K}
 curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/etc/install.sh
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
