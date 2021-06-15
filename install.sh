@@ -18,7 +18,7 @@ head -n 16 /etc/install.sh | tail -n 13
 A='\e[1;31m' ; B='\e[0m' ; sed -i -e 's/#Co/Co/' /etc/pacman.conf ; C='Adwaita/Oranchelo' 
 D='Cantarell 11/Fira Sans Condensed Book' ; E='/usr/share/' ; F='systemctl enable'  
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#           
-echo -en "\n${A}Enter Root Password: ${B}" 
+echo -e "\n${A}Enter Root Password: ${B}" 
 until passwd ; do echo '' ; done  
 echo -en "\n${A}Enter User Name: ${B}" 
 read U1 ; U="${U1,,}" ; until \
