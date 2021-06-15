@@ -9,7 +9,7 @@ head -n 8 -- "$0" | tail -n 5
 A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'  #
 F='mount -o noatime,compress=zstd,subvol=@'   #
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
-J='/etc/mkinitcpio.conf' ; K='/etc/pacman'    # 
+J='etc/mkinitcpio.conf' ; K='/etc/pacman'    # 
 L='timedatectl set-'                          #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
@@ -33,7 +33,7 @@ if [[ ${G} == AMD ]]; then I='amdgpu '\
 "$(curl -s https://ipapi.co/timezone)"
 ${L}ntp true | reflector -p https -f 2 \
 -a 12 --score 5 --save ${K}.d/mirrorlist
-sed -i "s/ULES=()/ULES=(${I}btrfs)/" ${J}
+sed -i "s/ULES=()/ULES=(${I}btrfs)/" /${J}
 pacstrap -i /mnt base base-devel linux xorg \
 linux-headers linux-firmware efibootmgr vim \
 networkmanager rofi gufw htop obconf-qt git \
@@ -46,9 +46,10 @@ firefox firefox-ublock-origin geany-plugins \
 libreoffice-still otf-fira-mono trayer sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
 volumeicon screengrab galculator xorg-xinit \
-arandr ${H}; cp ${J} mnt${J}; cp ${K} mnt${K}
-curl -sSL https://raw.githubusercontent.com/\
-djsharcode/Mona/main/install.sh -o /mnt/etc/\
-install.sh; genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt sh /etc/install.sh
+arandr ${H} ; cp /${J} /mnt${J} ; curl -sSL \
+https://raw.githubusercontent.com/djsharcode\
+/Mona/main/install.sh -o /mnt/etc/install.sh
+cp ${K}.conf /mnt${K}.conf
+genfstab -U  /mnt >> /mnt/etc/fstab
+arch-chroot  /mnt sh /etc/install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
