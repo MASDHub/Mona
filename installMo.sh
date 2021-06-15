@@ -38,7 +38,7 @@ echo 'sleep 2 && rm ~/.config/plank/dock1/launchers/vlc-1.dockitem'
 echo 'sleep 2 && rm ~/.config/plank/dock1/launchers/vlc.dockitem'
 echo 'sleep 2 && sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart'
 echo 'sleep 2 && pkill volumeicon'
-echo 'sleep 2 && sed -i "'"s/b_slider=false/b_slider=true/"'" -e "'"s/l=false/l=true/"'" -e "'"s/5/1/"'" ~/.config/volumeicon/volumeicon'
+echo 'sleep 2 && sed -i -e "'"s/b_slider=false/b_slider=true/"'" -e "'"s/l=false/l=true/"'" -e "'"s/5/1/"'" ~/.config/volumeicon/volumeicon'
 echo 'sleep 2 && volumeicon'
 echo 'sleep 18 && rm ~/docks.ini'; echo 'sleep 20 && rm -- "$0"' ; } > ~/mona.sh 
 echo -e "Done!\nTo Finish Type: 'reboot'" ; U="$( cat /etc/U )"
