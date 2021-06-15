@@ -32,19 +32,19 @@ if [[ ${G} == AMD ]]; then I='amdgpu '\
 sed -i "s/ULES=()/ULES=(${I}btrfs)/" ${J}
 timedatectl set-ntp true | reflector -f 2 \
 -p https --score 10 --save ${K}.d/mirrorlist
-pacstrap -i /mnt \
-base base-devel linux linux-headers linux-firmware \
-networkmanager network-manager-applet vim gufw git \
-nm-connection-editor efibootmgr grub trayer arandr \
-xorg-xinit lxqt-policykit xlockmore xorg sddm htop \
-pipewire pipewire-alsa pipewire-pulse libpulse vlc \
-pipewire-jack alsa-utils gst-plugin-pipewire plank \
-volumeicon nemo-fileroller nemo-preview screengrab \
-lxappearance-obconf-gtk3 capitaine-cursors firefox \
-firefox-ublock-origin libreoffice-still xterm rofi \
-otf-fira-sans otf-fira-mono geeqie alacritty cmake \
-pkg-config geany-plugins gvfs-mtp gvfs-afc \
-galculator ${H}
+pacstrap -i /mnt base base-devel linux plank \
+linux-headers linux-firmware efibootmgr grub \
+networkmanager lxappearance-obconf-gtk3 sddm \
+network-manager-applet nm--connection-editor \
+lxqt-policykit alacritty git nemo-fileroller \
+pipewire-alsa pipewire-pulse libpulse arandr \
+pipewire-jack alsa-utils gst-plugin-pipewire \
+pipewire trayer xorg-xinit vlc xlockmore vim \
+volumeicon nemo-preview screengrab gufw htop \
+firefox firefox-ublock-origin gvfs-mtp xterm \
+otf-fira-sans capitaine-cursors galculator \
+pkg-config gvfs-afc otf-fira-mono rofi xorg \
+geany-plugins libreoffice-still rofi ${H}
 cp ${J} /mnt${J} ; cp ${K} /mnt${K} ; curl -sL \
 https://raw.githubusercontent.com/djsharcode/\
 Mona/main/install.sh > /mnt/etc/install.sh
