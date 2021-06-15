@@ -1,9 +1,11 @@
 #!/usr/bin/bash
 set -euo pipefail 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='.config/openbox' ; B='<item label="' ; C='"><action name="Execute"><command>'
-D='</command></action></item>' E='<separator></separator>' ; U="$( cat /etc/U )"
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+A='.config/openbox' ; B='<item label="' 
+C='"><action name="Execute"><command>'
+D='</command></action></item>' 
+E='<separator></separator>'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then R='uacpid cbatticon'
 git clone https://aur.archlinux.org/pikaur.git ; cd pikaur ; makepkg -fsri
 pikaur -S picom-git oranchelo-icon-theme-git ttf-ms-fonts timeshift
@@ -36,7 +38,7 @@ echo 'sleep 2 && rm ~/.config/plank/dock1/launchers/vlc.dockitem'
 echo 'sleep 2 && sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart'
 echo 'sleep 2 && sed -i "'"s/b_slider=false/b_slider=true/"'" ~/.config/volumeicon/volumeicon'
 echo 'sleep 18 && rm ~/docks.ini'; echo 'sleep 20 && rm -- "$0"' ; } > ~/mona.sh 
-echo -e "Done!\nType: 'exit' then 'reboot'"
+echo -e "Done!\nTo Finish Type: 'reboot'" ; U="$( cat /etc/U )"
 su --login root -c "chmod 755 /home/${U}/mona.sh && rm /etc/U && rm -- "$0""
  
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
