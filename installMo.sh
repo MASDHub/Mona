@@ -19,9 +19,9 @@ ${B}Lock Screen${C}xlock -mode atlantis +description -echokeys -echokey '*' -inf
 ${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}
 </menu></openbox_menu>" ; } >> ~/${A}/menu.xml
 sed -i -e '50,120 s/8/12/' -e '50,120 s/9/13/' -e 's/A-space/0x85/' \
--e '131 s/4/2/' -e 's/sans/Fira Sans Condensed Book/g' \
+-e '131 s/4/2/' -e 's/sans/Fira Sans Condensed Book/g' -e 's/W-e/0x85/' \
 -e 's/kfmclient openProfile filemanagement/rofi -show drun/' \
--e 's/W-e/0x85/' -e 's/Konqueror/Dmenu/' ~/${A}/rc.xml
+-e 's/Konqueror/Dmenu/' -e 's/Clearlooks/Bear2/' ~/${A}/rc.xml
 { echo -e 'lxqt-policykit &\n\npicom --experimental-backends &\n\nplank &\n
 trayer --monitor primary --height 40 --align right --transparent true --tint 0x716966 &\n
 (nm-applet) &\n\n(volumeicon) &\n\n(sleep 5 && sh ~/mona.sh) &' ; } > ~/${A}/autostart
