@@ -3,19 +3,19 @@ setfont ter-124b
 head -n 8 -- "$0" | tail -n 5
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #        Mozart - Moonlight Sonata            #
-#         0:35 ━❍──────── -5:32               #
-#          ↻     ⊲  Ⅱ  ⊳     ↺                #
-#         VOLUME: ▁▂▃▄▅▆▇ 100%                #
+#         0:35 ━❍──────── -5:32            #
+#          ↻     ⊲  Ⅱ  ⊳     ↺               #
+#         VOLUME: ▁▂▃▄▅▆▇ 100%           #
 A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'  #
 F='mount -o noatime,compress=zstd,subvol=@'   #
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
-J='/etc/mkinitcpio.conf' ; K='/etc/pacman' #
+J='/etc/mkinitcpio.conf' ; K='/etc/pacman'    #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|disk'
 echo -en "${A}Enter Device to Install: ${B}"
 read -r C ; until sgdisk /dev/${C} -Z \
--o -n 1::+512M -t 1:EF00 -n -i -v -p 
+-o -n 1::+512M -t 1:EF00 -n -i -v -p
 do echo -en "${A}Try again:  ${B}" && \
 read -r C ; done; sed -e 's/#Co/Co/' ${K}.conf
 D1="$(ls /dev/* | grep -E "^/dev/${C}p?1$") "
