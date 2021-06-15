@@ -34,7 +34,7 @@ timedatectl set-ntp true | reflector -f 2 \
 -p https --score 5 --save ${K}.d/mirrorlist
 pacstrap -i /mnt base base-devel linux xorg \
 linux-headers linux-firmware efibootmgr vim \
-networkmanager lxappearance-obconf-gtk3 git \
+networkmanager rofi gufw htop obconf-qt git \
 network-manager-applet nm-connection-editor \
 pipewire pipewire-alsa pipewire-pulse plank \
 pipewire-jack alsa-utils lxqt-policykit vlc \
@@ -44,10 +44,9 @@ firefox firefox-ublock-origin geany-plugins \
 libreoffice-still otf-fira-mono trayer sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
 volumeicon screengrab galculator xorg-xinit \
-arandr rofi gufw htop capitaine-cursors ${H}
-cp ${J} mnt${J}; cp ${K} mnt${K}; curl -sSL \
-https://raw.githubusercontent.com/djsharcode\
-/Mona/main/install.sh > /mnt/etc/install.sh
-genfstab -U /mnt >> /mnt/etc/fstab
+arandr ${H}; cp ${J} mnt${J}; cp ${K} mnt${K}
+curl -sSL https://raw.githubusercontent.com/\
+djsharcode/Mona/main/install.sh -o /mnt/etc/\
+install.sh; genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
