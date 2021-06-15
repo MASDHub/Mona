@@ -12,7 +12,7 @@ G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
 J='/etc/mkinitcpio.conf' ; K='/etc/pacman'    #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
-lsblk  | egrep --color 'NAME|disk'
+lsblk  | egrep --color 'NAME|SIZE|disk'
 echo -en "${A}Enter Device to Install: ${B}"
 read -r C ; until sgdisk /dev/${C} -Z \
 -o -n 1::+512M -t 1:EF00 -n -i -v -p
