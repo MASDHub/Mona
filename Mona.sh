@@ -1,15 +1,16 @@
 #!/bin/bash
-setfont ter-124b
+setfont ter-124b ; 
 head -n 8 -- "$0" | tail -n 5
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     #     Mozart - Moonlight Sonata           #
  #         0:35 ━❍──────── -5:32           #
    #       ↻     ⊲  Ⅱ  ⊳     ↺               #
-#          VOLUME: ▁▂▃▄▅▆▇ 100%          #
+#          VOLUME: ▁▂▃▄▅▆▇ 100%          # 
 A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'  #
 F='mount -o noatime,compress=zstd,subvol=@'   #
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
-J='/etc/mkinitcpio.conf' ; K='/etc/pacman'    #
+J='/etc/mkinitcpio.conf' ; K='/etc/pacman'    # 
+L='timedatectl set-'                          #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|SIZE|disk'
@@ -24,14 +25,15 @@ mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
 mount ${D2}/mnt ; cd /mnt ; ${E}home
 ${E} ; cd ; umount /mnt  ; ${F} ${D2}/mnt
 mkdir /mnt/{boot,home}  ; mount ${D1}/mnt/boot
-${F}home ${D2}/mnt/home; lsblk -e 7,11
+${F}home ${D2}/mnt/home; ${L}timezone \
+"$(curl -s https://ipapi.co/timezone)"
+${L}ntp true | reflector -p https -f 2 \
+-a 12 --score 5 --save ${K}.d/mirrorlist
 if [[ ${G} == Intel ]]; then I='i915 '\
  && H='intel-ucode'  ; fi
 if [[ ${G} == AMD ]]; then I='amdgpu '\
- && H='amd-ucode'  ; fi
+ && H='amd-ucode'  ; fi ; lsblk -e 7,11
 sed -i "s/ULES=()/ULES=(${I}btrfs)/" ${J}
-timedatectl set-ntp true | reflector -f 2 \
--p https --score 5 --save ${K}.d/mirrorlist
 pacstrap -i /mnt base base-devel linux xorg \
 linux-headers linux-firmware efibootmgr vim \
 networkmanager rofi gufw htop obconf-qt git \
