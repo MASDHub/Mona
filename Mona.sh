@@ -25,14 +25,14 @@ mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
 mount ${D2}/mnt ; cd /mnt ; ${E}home
 ${E} ; cd ; umount /mnt  ; ${F} ${D2}/mnt
 mkdir /mnt/{boot,home}  ; mount ${D1}/mnt/boot
-${F}home ${D2}/mnt/home; ${L}timezone \
+${F}home ${D2}/mnt/home; 
+if [[ ${G} == Intel ]]; then I='i915 '\
+ && H='intel-ucode'  ; fi ; lsblk -e 7,11
+if [[ ${G} == AMD ]]; then I='amdgpu '\
+ && H='amd-ucode'  ; fi ; ${L}timezone \
 "$(curl -s https://ipapi.co/timezone)"
 ${L}ntp true | reflector -p https -f 2 \
 -a 12 --score 5 --save ${K}.d/mirrorlist
-if [[ ${G} == Intel ]]; then I='i915 '\
- && H='intel-ucode'  ; fi
-if [[ ${G} == AMD ]]; then I='amdgpu '\
- && H='amd-ucode'  ; fi ; lsblk -e 7,11
 sed -i "s/ULES=()/ULES=(${I}btrfs)/" ${J}
 pacstrap -i /mnt base base-devel linux xorg \
 linux-headers linux-firmware efibootmgr vim \
