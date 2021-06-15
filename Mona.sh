@@ -44,8 +44,9 @@ lxappearance-obconf-gtk3 capitaine-cursors firefox \
 firefox-ublock-origin libreoffice-still xterm rofi \
 otf-fira-sans otf-fira-mono geeqie alacritty cmake \
 pkg-config geany-plugins gvfs-mtp gvfs-afc galculator ${H}
-cp -f ${J} /mnt${J} ; cp -f ${K} /mnt${K}
-curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/install.sh > /mnt/etc/install.sh
+cp ${J} /mnt${J} ; cp ${K} /mnt${K} ; curl -sL \
+https://raw.githubusercontent.com/djsharcode/\
+Mona/main/install.sh > /mnt/etc/install.sh
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
