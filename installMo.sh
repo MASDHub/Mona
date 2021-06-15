@@ -33,14 +33,14 @@ echo 'sleep 2 && echo -e "'"[PlankDockItemPreferences]\nLauncher=file:///usr/sha
 echo 'sleep 2 && sed -i '"'s/bottom/right/'"' ~/docks.ini'
 echo 'sleep 2 && sed -i '"'s/vlc-1.dockitem/nemo.dockitem/'"' ~/docks.ini'
 echo 'sleep 2 && cat ~/docks.ini | dconf load /net/launchpad/plank/docks/'
-echo 'sleep 2 && rm ~/.config/plank/dock1/launchers/geeqie.dockitem'
-echo 'sleep 2 && rm ~/.config/plank/dock1/launchers/vlc-1.dockitem'
-echo 'sleep 2 && rm ~/.config/plank/dock1/launchers/vlc.dockitem'
-echo 'sleep 2 && sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart'
-echo 'sleep 2 && pkill volumeicon'
-echo 'sleep 2 && sed -i -e "'"s/b_slider=false/b_slider=true/"'" -e "'"s/l=false/l=true/"'" -e "'"s/5/1/"'" ~/.config/volumeicon/volumeicon'
-echo 'sleep 2 && volumeicon'
-echo 'sleep 18 && rm ~/docks.ini'; echo 'sleep 20 && rm -- "$0"' ; } > ~/mona.sh 
+echo 'sleep 1 && rm ~/.config/plank/dock1/launchers/geeqie.dockitem'
+echo 'sleep 1 && rm ~/.config/plank/dock1/launchers/vlc-1.dockitem'
+echo 'sleep 1 && rm ~/.config/plank/dock1/launchers/vlc.dockitem'
+echo 'sleep 1 && sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart'
+echo 'pkill volumeicon'
+echo 'sleep 2 && sed -i -e '"'s/b_slider=false/b_slider=true/'"' -e '"'s/l=false/l=true/'"' -e '"'s/5/1/'"' ~/.config/volumeicon/volumeicon'
+echo 'sleep 1 && volumeicon'
+echo 'sleep 10 && rm ~/docks.ini'; echo 'sleep 20 && rm -- "$0"' ; } > ~/mona.sh 
 echo -e "Done!\nTo Finish Type: 'reboot'" ; U="$( cat /etc/U )"
 su --login root -c "chmod 755 /home/${U}/mona.sh && rm /etc/U && rm -- "$0""
  
