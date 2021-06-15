@@ -44,10 +44,10 @@ volumeicon nemo-preview screengrab gufw htop \
 firefox firefox-ublock-origin gvfs-mtp xterm \
 otf-fira-sans capitaine-cursors galculator \
 pkg-config gvfs-afc otf-fira-mono rofi xorg \
-geany-plugins libreoffice-still rofi ${H}
-cp ${J} /mnt${J} ; cp ${K} /mnt${K} ; curl -sL \
+geany-plugins libreoffice-still ${H}
+cp ${J} /mnt${J}; cp ${K} /mnt${K}; curl -sL \
 https://raw.githubusercontent.com/djsharcode/\
 Mona/main/install.sh > /mnt/etc/install.sh
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
