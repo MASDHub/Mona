@@ -43,7 +43,8 @@ volumeicon nemo-fileroller nemo-preview screengrab \
 lxappearance-obconf-gtk3 capitaine-cursors firefox \
 firefox-ublock-origin libreoffice-still xterm rofi \
 otf-fira-sans otf-fira-mono geeqie alacritty cmake \
-pkg-config geany-plugins gvfs-mtp gvfs-afc galculator ${H}
+pkg-config geany-plugins gvfs-mtp gvfs-afc \
+galculator ${H}
 cp ${J} /mnt${J} ; cp ${K} /mnt${K} ; curl -sL \
 https://raw.githubusercontent.com/djsharcode/\
 Mona/main/install.sh > /mnt/etc/install.sh
