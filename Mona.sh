@@ -31,7 +31,7 @@ if [[ ${G} == AMD ]]; then I='amdgpu '\
  && H='amd-ucode'  ; fi
 sed -i "s/ULES=()/ULES=(${I}btrfs)/" ${J}
 timedatectl set-ntp true | reflector -f 2 \
--p https --score 10 --save ${K}.d/mirrorlist
+-p https --score 5 --save ${K}.d/mirrorlist
 pacstrap -i /mnt base base-devel linux xorg \
 linux-headers linux-firmware efibootmgr vim \
 networkmanager lxappearance-obconf-gtk3 git \
