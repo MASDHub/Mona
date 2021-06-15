@@ -9,11 +9,11 @@ F='.config/plank/dock1/launchers'
 G='net/launchpad/plank/docks'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then R='uacpid cbatticon'
-cp -dR /etc/xdg/openbox/ ~/.config/
 git clone https://aur.archlinux.org/pikaur.git  
 cd pikaur ; makepkg -fsri ;pikaur -S picom-git \
 oranchelo-icon-theme-git ttf-ms-fonts timeshift
 sed -i 's/g = no/g = yes/' ~/.config/pikaur.conf
+mkdir ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/
 sed -i '5,$d' ~/${A}/menu.xml 
 { echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">
 ${B}Files${C}nemo${D}\n${B}Search${C}rofi -show drun${D}
@@ -50,7 +50,7 @@ echo 'pkill volumeicon' ; echo -e 'sleep 2 && \
 sed -i -e '"'s/b_slider=false/b_slider=true/'"' \
 -e '"'s/5/1/'"' -e '"'s/l=false/l=true/'"' \
 ~/.config/volumeicon/volumeicon' ; echo 'sleep 1 && volumeicon'
-echo 'sleep 10 && rm ~/d.ini'; echo 'sleep 20 && rm -- "$0"' ; } > ~/mona.sh 
+echo 'sleep 10 && rm ~/d.ini && rm -- "$0"' ; } > ~/mona.sh 
 
 echo -e "Done!\nTo Finish Type: 'reboot'" ; U="$( cat /etc/U )"
 su --login root -c "chmod 755 /home/${U}/mona.sh && rm /etc/U && rm -- "$0""
