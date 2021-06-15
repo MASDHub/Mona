@@ -27,7 +27,7 @@ sed -i -e '50,120 s/8/12/' -e '50,120 s/9/13/' -e 's/A-space/0x85/' \
 -e 's/Konqueror/Dmenu/' -e 's/Clearlooks/Bear2/' ~/${A}/rc.xml
 { echo -e 'lxqt-policykit &\n\npicom --experimental-backends &\n\nplank &\n
 trayer --monitor primary --height 40 --align right --transparent true --tint 0x716966 &\n
-(nm-applet) &\n\n(volumeicon) &\n\n(sleep 5 && sh ~/mona.sh) &' ; } > ~/${A}/autostart
+(nm-applet) &\n\n(volumeicon) &\n\n(sleep 2 && sh ~/mona.sh) &' ; } > ~/${A}/autostart
 { echo 'dconf dump /net/launchpad/plank/docks/ > ~/docks.ini'
 echo 'sleep 2 && echo -e "'"[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/nemo.desktop"'" > ~/.config/plank/dock1/launchers/nemo.dockitem'
 echo 'sleep 2 && sed -i '"'s/bottom/right/'"' ~/docks.ini'
