@@ -7,17 +7,18 @@ D='</command></action></item>'
 E='<separator></separator>'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then R='uacpid cbatticon'
-git clone https://aur.archlinux.org/pikaur.git ; cd pikaur ; makepkg -fsri
+mkdir ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/
+git clone https://aur.archlinux.org/pikaur.git  
+sed -i '5,$d' ~/${A}/menu.xml ; cd pikaur ; makepkg -fsri
 pikaur -S picom-git oranchelo-icon-theme-git ttf-ms-fonts timeshift
 sed -i 's/g = no/g = yes/' ~/.config/pikaur.conf
-mkdir ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/
-sed -i '5,$d' ~/${A}/menu.xml
 { echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">
 ${B}Files${C}nemo${D}\n${B}Search${C}rofi -show drun${D}
 ${B}Web${C}firefox${D}\n${B}Terminal${C}alacritty${D}
 ${B}Text${C}geany${D}\n${B}Calculator${C}galculator${D}
 ${E}\n${B}Refresh${C}openbox --reconfigure${D}\n${E}
-${B}Lock Screen${C}xlock -mode atlantis +description -echokeys -echokey '*' -info "'"Enter password to unlock"'"${D}
+${B}Lock Screen${C}xlock -mode atlantis +description \
+-echokeys -echokey '*' -info "'"Enter password to unlock"'"${D}
 ${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}
 </menu></openbox_menu>" ; } >> ~/${A}/menu.xml
 sed -i -e '50,120 s/8/12/' -e '50,120 s/9/13/' -e 's/A-space/0x85/' \
