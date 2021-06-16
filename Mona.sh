@@ -27,8 +27,8 @@ ${E}home ; ${E} ; cd ; umount /mnt
 ${F} ${D2}/mnt  ; mkdir /mnt/{boot,home}  
 mount ${D1}/mnt/boot ; ${F}home ${D2}/mnt/home
 if [[ ${G} == AMD ]] ; then I='amdgpu '\
- && H='amd-ucode '   ; elif\
- [[ ${G} == Intel ]] ; then I='i915 '\
+ && H='amd-ucode '   ; elif \
+[[ ${G} == Intel ]]  ; then I='i915 '\
  && H='intel-ucode'  ; fi ; ${L}-timezone 
 "$(curl -s https://ipapi.co/timezone)"
 ${L}-ntp true ; reflector -p https -a 12 \
