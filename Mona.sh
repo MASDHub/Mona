@@ -10,7 +10,7 @@ A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'  #
 F='mount -o noatime,compress=zstd,subvol=@'   #
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
 J='etc/mkinitcpio.conf' ; K='etc/pacman'      # 
-L='timedatectl set'                           #
+L='timedatectl set'                          #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|SIZE|disk'
@@ -25,13 +25,13 @@ mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
 mount ${D2}/mnt ; cd /mnt  
 ${E}home ; ${E} ; cd ; umount /mnt
 ${F} ${D2}/mnt  ; mkdir /mnt/{boot,home}  
-mount ${D1}/mnt/boot ; ${F}home ${D2}/mnt/home
-if [[ ${G} == AMD ]] ; then I='amdgpu '\
- && H='amd-ucode '   ; elif \
-[[ ${G} == Intel ]]  ; then I='i915 '\
- && H='intel-ucode'  ; fi ; ${L}-timezone 
-"$(curl -s https://ipapi.co/timezone)"
-${L}-ntp true ; reflector -p https -a 12 \
+mount ${D1}/mnt/boot; ${F}home ${D2}/mnt/home
+if [[ ${G} == AMD ]]; then I='amdgpu ' \
+&& H='amd-ucode   ' ; elif \
+[[ ${G} == Intel ]] ; then I='i915 ' \
+&& H='intel-ucode ' ; fi ; ${L}-timezone 
+"$(curl -s https://ipapi.co/timezone)" &&\
+ ${L}-ntp true ; reflector -p https -f 2 \
 -c "$(curl -s https://ipapi.co/country)" \
 --sort rate --save /${K}.d/mirrorlist || \
 reflector -p https --score 5 --sort rate \
