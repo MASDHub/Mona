@@ -9,8 +9,8 @@ head -n 8 -- "$0" | tail -n 5
 A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'  #
 F='mount -o noatime,compress=zstd,subvol=@'   #
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
-J='etc/mkinitcpio.conf' ; K='/etc/pacman'    # 
-L='timedatectl set-'                          #
+J='etc/mkinitcpio.conf' ; K='etc/pacman'    # 
+L='timedatectl set'                          #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|SIZE|disk'
@@ -29,10 +29,13 @@ ${F}home ${D2}/mnt/home;
 if [[ ${G} == Intel ]]; then I='i915 '\
  && H='intel-ucode'  ; fi ; lsblk -e 7,11
 if [[ ${G} == AMD ]]; then I='amdgpu '\
- && H='amd-ucode'  ; fi ; ${L}timezone \
+ && H='amd-ucode'  ; fi ; ${L}-timezone \
 "$(curl -s https://ipapi.co/timezone)"
-${L}ntp true | reflector -p https -f 2 \
--a 12 --score 5 --save ${K}.d/mirrorlist
+${L}-ntp true ; reflector -p https -a 12 \
+-c "$(curl -s https://ipapi.co/country)" \ 
+--sort rate --save /${K}.d/mirrorlist || \
+reflector -p https --score 5 -a 12 -f 2 \
+--sort rate --save /${K}.d/mirrorlist
 sed -i "s/ULES=()/ULES=(${I}btrfs)/" /${J}
 pacstrap -i /mnt base base-devel linux xorg \
 linux-headers linux-firmware efibootmgr vim \
@@ -46,10 +49,10 @@ firefox firefox-ublock-origin geany-plugins \
 libreoffice-still otf-fira-mono trayer sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
 volumeicon screengrab galculator xorg-xinit \
-arandr ${H} ; cp /${J} /mnt${J} ; curl -sSL \
+arandr ${H} ; cp /${J} /mnt/${J} ; curl -sL \
 https://raw.githubusercontent.com/djsharcode\
 /Mona/main/install.sh -o /mnt/etc/install.sh
-cp ${K}.conf /mnt${K}.conf
-genfstab -U  /mnt >> /mnt/etc/fstab
-arch-chroot  /mnt sh /etc/install.sh
+cp /${K}.conf /mnt/${K}.conf
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt sh /etc/install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
