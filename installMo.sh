@@ -1,11 +1,11 @@
 #!/usr/bin/bash
 set -euo pipefail 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='.config/openbox' ; B='<item label="' 
+A='.config/openbox' ; B='<item label="'
 C='"><action name="Execute"><command>'
-D='</command></action></item>' 
+D='</command></action></item>'
 E='<separator></separator>'
-F='.config/plank/dock1/launchers' 
+F='.config/plank/dock1/launchers'
 G='net/launchpad/plank/docks'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then R='uacpid cbatticon'
@@ -34,7 +34,7 @@ sed -i -e '50,120 s/9/13/' -e 's/W-e/0x85/' -e '131 s/4/2/' \
 trayer --monitor primary --height 40 \
 --align right --transparent true --tint \
 0x716966 &\n\n(nm-applet) &\n\n(volumeicon) &
-\n(sleep 2 && sh ~/mona.sh) &" ; } > ~/${A}/autostart
+\n(sleep 5 && sh ~/mona.sh) &" ; } > ~/${A}/autostart
 { echo 'dconf dump /'"${G}"'/ > ~/d.ini'
 echo -e 'sleep 2 && echo -e "'"[PlankDockItemPreferences]
 Launcher=file:///usr/share/applications/nemo.desktop"'" \
@@ -46,12 +46,11 @@ echo -e 'sleep 1 && rm ~/'"${F}"'/geeqie.dockitem'
 echo -e 'sleep 1 && rm ~/'"${F}"'/vlc-1.dockitem'
 echo -e 'sleep 1 && rm ~/'"${F}"'/vlc.dockitem'
 echo 'sleep 1 && sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart'
-echo 'pkill volumeicon' ; echo -e 'sleep 2 && \
+echo 'sleep 1 && pkill volumeicon' ; echo -e 'sleep 2 && \
 sed -i -e '"'s/b_slider=false/b_slider=true/'"' \
 -e '"'s/5/1/'"' -e '"'s/l=false/l=true/'"' \
 ~/.config/volumeicon/volumeicon' ; echo 'sleep 1 && volumeicon'
 echo 'sleep 10 && rm ~/d.ini && rm -- "$0"' ; } > ~/mona.sh 
-
 echo -e "Done!\nTo Finish Type: 'reboot'" ; U="$( cat /etc/U )"
 su --login root -c "chmod 755 /home/${U}/mona.sh && rm /etc/U && rm -- "$0""
  
