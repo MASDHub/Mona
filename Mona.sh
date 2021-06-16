@@ -16,9 +16,9 @@ gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|SIZE|disk'
 echo -en "${A}Enter Device to Install: ${B}"
 read -r C ; until sgdisk /dev/${C} \
--Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
-do echo -en "${A}Try again:  ${B}" 
-&& read -r C ; done
+-Z -o -n 1::+512M -t 1:EF00 -n -i -v -p ; do \
+lsblk -do NAME,SIZE -e 7,11; read -r -p \ 
+"Try Again: " C ; done
 D1="$(ls /dev/* | egrep "^/dev/${C}p?1$") "
 D2="$(ls /dev/* | egrep "^/dev/${C}p?2$") "
 mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
