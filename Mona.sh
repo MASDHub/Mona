@@ -14,9 +14,9 @@ L='etc/pacman' ; sed -i 's/#Co/Co/' ${L}.conf #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|SIZE|disk'
-read -r -p "Enter Disk for Install: " C 
+read -r -p "Enter Disk for Install: " C
 until sgdisk /dev/${C} -Z -o -n\
- 1::+512M -t 1:EF00 -n -i -v -p 
+ 1::+512M -t 1:EF00 -n -i -v -p
 do read -r -p "Try Again: " C ; done
 D1="$(ls /dev/* | egrep "^/dev/${C}p?1$") "
 D2="$(ls /dev/* | egrep "^/dev/${C}p?2$") "
