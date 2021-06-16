@@ -36,10 +36,9 @@ trayer --monitor primary --height 40 \
 0x716966 &\n\n(nm-applet) &\n\n(volumeicon) &
 \n(sleep 5 && sh ~/mona.sh) &" ; } > ~/${A}/autostart
 { echo -e 'dconf dump /'"${G}"'/ > ~/docks.ini'
-echo -e 'sleep 2 && echo -e "'"[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/nemo.desktop"'" > ~/'"${F}"'/nemo.dockitem'
 echo -e 'sleep 2 && sed -i '"'s/bottom/right/'"' ~/docks.ini'
-echo -e 'sleep 2 && sed -i '"'s/vlc-1.dockitem/nemo.dockitem/'"' ~/docks.ini'
 echo -e 'sleep 2 && cat ~/docks.ini | dconf load /'"${G}"'/'
+echo 'sleep 2 && echo -e "'"[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/nemo.desktop"'" > ~/'"${F}"'/nemo.dockitem'
 echo -e 'sleep 1 && rm ~/'"${F}"'/geeqie.dockitem'
 echo -e 'sleep 1 && rm ~/'"${F}"'/vlc-1.dockitem'
 echo -e 'sleep 1 && rm ~/'"${F}"'/vlc.dockitem'
