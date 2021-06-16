@@ -9,7 +9,7 @@ head -n 8 -- "$0" | tail -n 5
 A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'  #
 F='mount -o noatime,compress=zstd,subvol=@'   #
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
-J='etc/mkinitcpio.conf' ; K='timedatectl set' # 
+J='etc/mkinitcpio.conf' ; K='timedatectl set' #
 L='etc/pacman' ; sed -i 's/#Co/Co/' ${L}.conf #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
@@ -17,14 +17,14 @@ lsblk  | egrep --color 'NAME|SIZE|disk'
 echo -en "${A}Enter Device to Install: ${B}"
 read -r C ; until sgdisk /dev/${C} \
 -Z -o -n 1::+512M -t 1:EF00 -n -i -v -p ; do \
-lsblk -do NAME,SIZE -e 7,11; read -r -p \ 
+lsblk -do NAME,SIZE -e 7,11; read -r -p \
 "Try Again: " C ; done
 D1="$(ls /dev/* | egrep "^/dev/${C}p?1$") "
 D2="$(ls /dev/* | egrep "^/dev/${C}p?2$") "
 mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
-mount ${D2}/mnt ; cd /mnt  
+mount ${D2}/mnt ; cd /mnt
 ${E}home ; ${E} ; cd ; umount /mnt
-${F} ${D2}/mnt  ; mkdir /mnt/{boot,home}  
+${F} ${D2}/mnt  ; mkdir /mnt/{boot,home}
 mount ${D1}/mnt/boot; ${F}home ${D2}/mnt/home
 if [[ ${G} == AMD ]]; then I='amdgpu ' \
 && H='amd-ucode   ' ; elif \
