@@ -22,14 +22,14 @@ read -r C ; done; sed -i 's/#Co/Co/' ${K}.conf
 D1="$(ls /dev/* | egrep "^/dev/${C}p?1$") "
 D2="$(ls /dev/* | egrep "^/dev/${C}p?2$") "
 mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
-mount ${D2}/mnt ; cd /mnt ; ${E}home
-${E} ; cd ; umount /mnt  ; ${F} ${D2}/mnt
-mkdir /mnt/{boot,home}  ; mount ${D1}/mnt/boot
-${F}home ${D2}/mnt/home; 
-if [[ ${G} == Intel ]]; then I='i915 '\
- && H='intel-ucode'  ; fi ; lsblk -e 7,11
-if [[ ${G} == AMD ]]; then I='amdgpu '\
- && H='amd-ucode'  ; fi ; ${L}-timezone \
+mount ${D2}/mnt ; cd /mnt  
+${E}home ; ${E} ; cd ; umount /mnt
+${F} ${D2}/mnt  ; mkdir /mnt/{boot,home}  
+mount ${D1}/mnt/boot ; ${F}home ${D2}/mnt/home
+if [[ ${G} == AMD ]] ; then I='amdgpu '\
+ && H='amd-ucode '   ; elif [[ ${G} == Intel ]]
+then I='i915 ' && H='intel-ucode' 
+fi ; lsblk -e 7,11 ; ${L}-timezone \
 "$(curl -s https://ipapi.co/timezone)"
 ${L}-ntp true ; reflector -p https -a 12 \
 -c "$(curl -s https://ipapi.co/country)" \
