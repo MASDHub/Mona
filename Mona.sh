@@ -9,16 +9,16 @@ head -n 8 -- "$0" | tail -n 5
 A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'  #
 F='mount -o noatime,compress=zstd,subvol=@'   #
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
-J='etc/mkinitcpio.conf' ; K='etc/pacman'      # 
-L='timedatectl set'                           #
+J='etc/mkinitcpio.conf' ; K='timedatectl set' # 
+L='etc/pacman' ; sed -i 's/#Co/Co/' ${L}.conf #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|SIZE|disk'
 echo -en "${A}Enter Device to Install: ${B}"
-read -r C ; until sgdisk /dev/${C} -Z \
--o -n 1::+512M -t 1:EF00 -n -i -v -p
-do echo -en "${A}Try again:  ${B}" && \
-read -r C ; done; sed -i 's/#Co/Co/' ${K}.conf
+read -r C ; until sgdisk /dev/${C} \
+-Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
+do echo -en "${A}Try again:  ${B}" 
+&& read -r C ; done
 D1="$(ls /dev/* | egrep "^/dev/${C}p?1$") "
 D2="$(ls /dev/* | egrep "^/dev/${C}p?2$") "
 mkfs.vfat ${D1} ; mkfs.btrfs -fq ${D2}
@@ -29,13 +29,13 @@ mount ${D1}/mnt/boot; ${F}home ${D2}/mnt/home
 if [[ ${G} == AMD ]]; then I='amdgpu ' \
 && H='amd-ucode   ' ; elif \
 [[ ${G} == Intel ]] ; then I='i915 ' \
-&& H='intel-ucode ' ; fi ; ${L}-timezone 
+&& H='intel-ucode ' ; fi ; ${K}-timezone 
 "$(curl -s https://ipapi.co/timezone)" &&\
- ${L}-ntp true ; reflector -p https -f 2 \
+ ${K}-ntp true ; reflector -p https -f 2 \
 -c "$(curl -s https://ipapi.co/country)" \
---sort rate --save /${K}.d/mirrorlist || \
+--sort rate --save /${L}.d/mirrorlist || \
 reflector -p https --score 5 --sort rate \
--a 12 -f 2 --save /${K}.d/mirrorlist 
+-a 12 -f 2 --save /${L}.d/mirrorlist 
 lsblk -o NAME,SIZE,MOUNTPOINT -e 7,11 
 sed -i "s/ULES=()/ULES=(${I}btrfs)/" /${J}
 pacstrap -i /mnt base base-devel linux xorg \
@@ -53,7 +53,7 @@ volumeicon screengrab galculator xorg-xinit \
 arandr ${H} ; cp /${J} /mnt/${J} ; curl -sL \
 https://raw.githubusercontent.com/djsharcode\
 /Mona/main/install.sh -o /mnt/etc/install.sh
-cp /${K}.conf /mnt/${K}.conf
+cp /${L}.conf /mnt/${L}.conf
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
