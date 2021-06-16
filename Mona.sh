@@ -9,8 +9,8 @@ head -n 8 -- "$0" | tail -n 5
 A='\e[1;31m' ; B='\e[0m' ; E='btrfs su cr @'  #
 F='mount -o noatime,compress=zstd,subvol=@'   #
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
-J='etc/mkinitcpio.conf' ; K='etc/pacman'    # 
-L='timedatectl set'                          #
+J='etc/mkinitcpio.conf' ; K='etc/pacman'      # 
+L='timedatectl set'                           #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|SIZE|disk'
