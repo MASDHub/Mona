@@ -22,7 +22,7 @@ B="$(ls /dev/* | egrep "^/dev/${A}p?1$") "
 C="$(ls /dev/* | egrep "^/dev/${A}p?2$") "
 mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
 mount ${C}/mnt ; cd /mnt
-${E}home ; ${E}; cd ; umount /mnt
+${E}home; ${E} ; cd ; umount /mnt
 ${F} ${C}/mnt  ; mkdir /mnt/{boot,home}
 mount ${B}/mnt/boot ; ${F}home ${C}/mnt/home
 if [[ ${G} == AMD ]]; then G1='amdgpu ' \
