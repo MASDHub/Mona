@@ -32,10 +32,10 @@ if [[ ${G} == AMD ]]; then I='amdgpu '\
  && H='amd-ucode'  ; fi ; ${L}-timezone \
 "$(curl -s https://ipapi.co/timezone)"
 ${L}-ntp true ; reflector -p https -a 12 \
--c "$(curl -s https://ipapi.co/country)" \ 
+-c "$(curl -s https://ipapi.co/country)" \
 --sort rate --save /${K}.d/mirrorlist || \
-reflector -p https --score 5 -a 12 -f 2 \
---sort rate --save /${K}.d/mirrorlist
+reflector -p https --score 5 --sort rate \
+-a 12 -f 2 --save /${K}.d/mirrorlist 
 sed -i "s/ULES=()/ULES=(${I}btrfs)/" /${J}
 pacstrap -i /mnt base base-devel linux xorg \
 linux-headers linux-firmware efibootmgr vim \
