@@ -47,5 +47,5 @@ echo -e 'sleep 1 && sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart'
 echo -e 'sleep 1 && pkill volumeicon' ; echo -e 'sleep 2 && sed -i -e '"'s/b_slider=false/b_slider=true/'"' -e '"'s/5/1/'"' -e '"'s/l=false/l=true/'"' ~/.config/volumeicon/volumeicon' 
 echo -e 'sleep 1 && volumeicon' ; echo 'sleep 10 && rm ~/docks.ini && rm -- "$0"' ; } > ~/mona.sh 
 echo -e "Done!\nTo Finish Type: 'reboot'" ; U="$(cat /etc/U)"
-su root -c "chmod 755 /home/${U}/mona.sh && rm /etc/U && rm -- "$0""
+su root -c "chmod 755 /home/${U}/mona.sh && rm /etc/U && rm -- $0"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
