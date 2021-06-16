@@ -52,6 +52,5 @@ sed -i -e '"'s/b_slider=false/b_slider=true/'"' \
 ~/.config/volumeicon/volumeicon' ; echo 'sleep 1 && volumeicon'
 echo 'sleep 10 && rm ~/d.ini && rm -- "$0"' ; } > ~/mona.sh 
 echo -e "Done!\nTo Finish Type: 'reboot'" ; U="$( cat /etc/U )"
-su --login root -c "chmod 755 /home/${U}/mona.sh && rm /etc/U && rm -- "$0""
- 
+su root -c "chmod 755 /home/${U}/mona.sh && rm /etc/U && rm -- "$0""
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
