@@ -36,9 +36,7 @@ trayer --monitor primary --height 40 \
 0x716966 &\n\n(nm-applet) &\n\n(volumeicon) &
 \n(sleep 5 && sh ~/mona.sh) &" ; } > ~/${A}/autostart
 { echo 'dconf dump /'"${G}"'/ > ~/d.ini'
-echo -e 'sleep 2 && echo -e "'"[PlankDockItemPreferences]
-Launcher=file:///usr/share/applications/nemo.desktop"'" \
-> ~/'"${F}"'/nemo.dockitem'
+echo -e 'sleep 2 && echo -e "'"[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/nemo.desktop"'" > ~/'"${F}"'/nemo.dockitem'
 echo 'sleep 2 && sed -i '"'s/bottom/right/'"' ~/d.ini'
 echo 'sleep 2 && sed -i '"'s/vlc-1.dockitem/nemo.dockitem/'"' ~/d.ini'
 echo 'sleep 2 && cat ~/d.ini | dconf load /'"${G}"'/'
@@ -46,11 +44,8 @@ echo -e 'sleep 1 && rm ~/'"${F}"'/geeqie.dockitem'
 echo -e 'sleep 1 && rm ~/'"${F}"'/vlc-1.dockitem'
 echo -e 'sleep 1 && rm ~/'"${F}"'/vlc.dockitem'
 echo 'sleep 1 && sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart'
-echo 'sleep 1 && pkill volumeicon' ; echo -e 'sleep 2 && \
-sed -i -e '"'s/b_slider=false/b_slider=true/'"' \
--e '"'s/5/1/'"' -e '"'s/l=false/l=true/'"' \
-~/.config/volumeicon/volumeicon' ; echo 'sleep 1 && volumeicon'
-echo 'sleep 10 && rm ~/d.ini && rm -- "$0"' ; } > ~/mona.sh 
-echo -e "Done!\nTo Finish Type: 'reboot'" ; U="$( cat /etc/U )"
+echo 'sleep 1 && pkill volumeicon' ; echo -e 'sleep 2 && sed -i -e '"'s/b_slider=false/b_slider=true/'"' -e '"'s/5/1/'"' -e '"'s/l=false/l=true/'"' ~/.config/volumeicon/volumeicon' 
+echo 'sleep 1 && volumeicon' ; echo 'sleep 10 && rm ~/d.ini && rm -- "$0"' ; } > ~/mona.sh 
+echo -e "Done!\nTo Finish Type: 'reboot'" ; U="$(cat /etc/U)"
 su root -c "chmod 755 /home/${U}/mona.sh && rm /etc/U && rm -- "$0""
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
