@@ -28,7 +28,7 @@ mount ${B}/mnt/boot ; ${F}home ${C}/mnt/home
 if [[ ${G} == AMD ]]; then G1='amdgpu ' \
 && G2='amd-ucode  ' ; elif \
 [[ ${G} == Intel ]] ; then G1='i915 ' \
-&& G2='intel-ucode' ; fi ; ${I}-timezone 
+&& G2='intel-ucode' ; fi ; ${I}-timezone \
 "$(curl -s https://ipapi.co/timezone)" &&\
  ${I}-ntp true ; reflector -p https -f 2 \
 -c "$(curl -s https://ipapi.co/country)" \
