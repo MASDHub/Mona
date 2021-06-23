@@ -11,7 +11,7 @@ G='net/launchpad/plank/docks'
 #if [[ -n "$(grep -E '[8|9|10|11|12|13|14]' /sys/class/dmi/id/chassis_type)" ]] ; then R='uacpid cbatticon'
 git clone https://aur.archlinux.org/pikaur.git  
 cd pikaur ; makepkg -fsri ;pikaur -S picom-git \
-oranchelo-icon-theme-git ttf-ms-fonts timeshift
+oranchelo-icon-theme-git ttf-ms-fonts timeshift jbxkb
 sed -i 's/g = no/g = yes/' ~/.config/pikaur.conf
 mkdir ~/${A} ; cp -a /etc/xdg/openbox/ ~/.config/
 sed -i '5,$d' ~/${A}/menu.xml 
