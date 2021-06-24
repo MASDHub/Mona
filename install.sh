@@ -23,7 +23,7 @@ C='Adwaita/Oranchelo' ; F='systemctl enable'
 echo -e "\n${A}Enter Root Password: ${B}" 
 until passwd ; do echo '' ; done  
 echo -en "\n${A}Enter User Name: ${B}" 
-read U1 ; U="${U1,,}" ; until \
+read -r U1 ; U="${U1,,}"  ; until \
 [[ ${#U} -gt 4 ]] && [[ "${U}" =~ ^[a-z]*$ ]]
 do echo -en "\n${A}Try again : ${B}" \
 && read U1 && U="${U1,,}" ; done  
