@@ -37,7 +37,7 @@ P="${U}pc" ; echo -e "
 127.0.0.1       localhost
 ::1             localhost
 127.0.1.1       ${P}.localdomain ${P}" \
-> /etc/hosts ; sed -i -e "1 s/${C}-Beka/"
+> /etc/hosts ; sed -i -e "1 s/${C}-Beka/" \
 -e "2 s/${C}/" -e "s/${D}/" ${E}2.0/gtkrc
 sed -i -e "2 s/${C}-Beka/" -e "3 s/${C}/" \
 -e "s/${D}/" ${E}3.0/settings.ini; ln -sf \
