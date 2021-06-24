@@ -51,11 +51,11 @@ if [ -r "${M}" ] && $(grep -q xrandr ${M})
 then ${M} ; else if [[ "${M2}" -ge "2" ]]
 then xrandr --output "${M1}" --mode 1920x1080 --output "${M3}" --primary --auto
 fi\nfi' >> ${E}sddm/scripts/Xsetup
-echo -e "${A}NETWORK ENABLED${B}" ; ${F} NetworkManager
-echo -e "${A}DISPLAY MANAGER ENABLED${B}" ; ${F} sddm
-echo -e "${A}INSTALLING GRUB ${B}"; grub-install \
+echo -e "${A}DISPLAY MANAGER ENABLED${B}" ; ${F} sddm 
+echo -e "${A}NETWORK ENABLED${B}" ; ${F} NetworkManager 
+echo -e "${A}INSTALLING GRUB${B}" ; grub-install \ 
 --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-sed -i 's/auto/1920x1080,auto/' /etc/default/grub
+sed -i 's/auto/1920x1080,1024x768x32,auto/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg 
 cp /etc/X11/xinit/xinitrc /home/${U}/.xinitrc
 sed -i 's/twm/openbox-session/' /home/${U}/.xinitrc
