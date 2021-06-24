@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-head -n 16 /etc/install.sh | tail -n 13
+head -n 16 -- "$0" | tail -n 13
  #8'         8888
 #d8.-=. ,==-.:888b 
 #>8 `~` :`~' d8888                 
@@ -31,13 +31,18 @@ useradd -m -G wheel "${U}"; echo -e "${U}" > /etc/U
 until passwd ${U} ; do echo "" ; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers 
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
+echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 locale-gen ; localectl set-locale LANG=en_US.UTF-8
-sed -i -e "1 s/${C}-Beka/" -e "2 s/${C}/" -e "s/${D}/" ${E}/gtk-2.0/gtkrc   
-sed -i -e "2 s/${C}-Beka/" -e "3 s/${C}/" -e "s/${D}/" ${E}/gtk-3.0/settings.ini 
+sed -i -e "1 s/${C}-Beka/" -e "2 s/${C}/" \
+-e "s/${D}/" ${E}/gtk-2.0/gtkrc   
+sed -i -e "2 s/${C}-Beka/" -e "3 s/${C}/" \
+-e "s/${D}/" ${E}/gtk-3.0/settings.ini 
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime  
-hwclock --systohc ; echo -e "${U}pc" >> /etc/hostname  
-{ echo -e "127.0.0.1       localhost\n::1             localhost
-127.0.1.1       ${U}pc.localdomain ${U}pc" ; } >> /etc/hosts
+hwclock --systohc  
+echo -e "${U}pc" >> /etc/hostname  
+echo -e "127.0.0.1       localhost
+::1             localhost\n127.0.1.1       \
+${U}pc.localdomain ${U}pc" >> /etc/hosts
 #if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; systemctl enable tlp && systemctl enable acpid ; fi
 { echo 'M="$(find /home/*/.screenlayout/*.sh)"' 
 echo 'M1="$( xrandr | grep -Eo '"'eDP1|eDP-1'"' )"'
