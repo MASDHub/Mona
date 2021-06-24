@@ -9,8 +9,9 @@ head -n 8 -- "$0" | tail -n 5
 E='btrfs su cr @'                              #
 F='mount -o noatime,compress=zstd,subvol=@'    #
 G="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"  #
-H='etc/mkinitcpio.conf' ; I='timedatectl set-' #
+H='/etc/mkinitcpio.conf'; I='timedatectl set-' #
 J='/etc/pacman' ; sed -i 's/#Co/Co/' ${J}.conf #
+T=" $(curl -s https://ipapi.co/timezone) "     #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|SIZE|disk'
@@ -24,19 +25,17 @@ mkfs.vfat ${B}  ; mkfs.btrfs -fq ${C}
 mount ${C} /mnt ; cd /mnt
 ${E}home ; ${E} ; cd ; umount /mnt
 ${F} ${C} /mnt  ; mkdir /mnt/{boot,home}
-${F}home${C}/mnt/home ; mount${B}/mnt/boot
-if [[ ${G} == Intel ]]; then G1='i915 ' \  
-&& G2='intel-ucode  ' ; elif [[ ${G} == AMD ]]
-then G1='amdgpu ' && G2='amd-ucode' ; fi
+${F}home${C}/mnt/home; mount${B}/mnt/boot
+if [ ${G} == Intel ] ; then G1='i915 '\  
+ && G2='intel-ucode' ; elif [ ${G} == AMD ]
+then G2='amd-ucode ' && G1='amdgpu '
+fi; ${I}timezone${T} && ${I}ntp true 
 lsblk -o NAME,SIZE,MOUNTPOINT -e 7,11 
-T="$(curl -s https://ipapi.co/timezone)" 
-${I}timezone ${T} && ${I}ntp true
-reflector -p https -f 2 -a 8 --sort rate \
--c "$(curl -s https://ipapi.co/country)" \
---save ${J}.d/mirrorlist || reflector -p \
-https -a 12 -f 10 --score 10 --sort rate \
---save ${J}.d/mirrorlist 
-sed -i "s/ULES=()/ULES=(${G1}btrfs)/" /${H}
+sed -i "s/ULES=()/ULES=(${G1}btrfs)/" ${H}
+reflector -p https --sort rate -l 4 -f 2 -c \ 
+"$(curl -s https://ipapi.co/country)" -a 12 \
+--save ${J}.d/mirrorlist || reflector -a 12 \
+-p https --score 5 --save ${J}.d/mirrorlist    
 pacstrap -i /mnt base base-devel linux xorg \
 linux-headers linux-firmware efibootmgr vim \
 networkmanager rofi gufw htop obconf-qt git \
@@ -49,7 +48,7 @@ firefox firefox-ublock-origin geany-plugins \
 libreoffice-still otf-fira-mono trayer sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
 volumeicon screengrab galculator xorg-xinit \
-arandr ${G2}; cp /${H} /mnt/${H} ; curl -sL \
+arandr ${G2}; cp ${H} /mnt${H} ; curl -sL \
 https://raw.githubusercontent.com/djsharcode\
 /Mona/main/install.sh -o /mnt/etc/install.sh
 echo "${T}" > /mnt/etc/T
