@@ -44,10 +44,11 @@ ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime
 hwclock --systohc
 #if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; systemctl enable tlp && systemctl enable acpid ; fi
 echo -e 'M="$(find /home/*/.screenlayout/*.sh)"
-M1="$( xrandr | grep -Eo '"'eDP1|eDP-1'"' )"
-M2="$( xrandr | grep -Ec '"'HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1|DVI1|DVI-1'"' )"
-M3="$( xrandr | grep -Eo '"'HDMI-1|HDMI1|DVI-1|DVI1|VGA1|VGA-1'"' )"
-if [ -r "${M}" ] && $(grep -q xrandr ${M}) ; then ${M} ; else if [[ "${M2}" -ge "2" ]]
+M1="$(xrandr | grep -Eo '"'eDP1|eDP-1'"')"
+M2="$(xrandr | grep -Ec '"'HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1|DVI1|DVI-1'"')"
+M3="$(xrandr | grep -Eo '"'HDMI-1|HDMI1|DVI-1|DVI1|VGA1|VGA-1'"')"
+if [ -r "${M}" ] && $(grep -q xrandr ${M}) 
+then ${M} ; else if [[ "${M2}" -ge "2" ]]
 then xrandr --output "${M1}" --mode 1920x1080 --output "${M3}" --primary --auto
 fi\nfi' >> ${E}sddm/scripts/Xsetup
 echo -e "${A}NETWORK ENABLED${B}" ; ${F} NetworkManager
