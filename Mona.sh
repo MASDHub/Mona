@@ -1,17 +1,17 @@
 #!/bin/bash
 setfont ter-124b
 head -n 8 -- "$0" | tail -n 4
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-    #     Mozart - Moonlight Sonata            #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+    #     Mozart - Moonlight Sonata           #
  #         0:35 ━❍──────── -5:32           #
    #       ↻     ⊲  Ⅱ  ⊳     ↺               #
 #          VOLUME: ▁▂▃▄▅▆▇ 100%          # 
-E='mount -o noatime,compress=zstd,subvol=@'    #
-F='btrfs su cr @' ; G='/etc/mkinitcpio.conf'   #
-H="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)"  #
-I='timedatectl set' ; J='/etc/pacman.'         #
-T=" $(curl -s https://ipapi.co/timezone)"      #
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+E='mount -o noatime,compress=zstd,subvol=@'   #
+F='btrfs su cr @' ; G='/etc/mkinitcpio.conf'  #
+H="$(lscpu | grep -Eo 'AMD|Intel' | sort -u)" #
+I='timedatectl set' ; J='/etc/pacman.'        #
+T=" $(curl -s https://ipapi.co/timezone)"     #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate
 lsblk  | egrep --color 'NAME|SIZE|disk'
 read -r -p "Enter Install Disk :  " \
@@ -51,8 +51,8 @@ volumeicon screengrab galculator xorg-xinit \
 arandr ${H2} ; cp ${G} /mnt${G} ; curl -sSL \
 https://raw.githubusercontent.com/djsharcode\
 /Mona/main/install.sh -o /mnt/etc/install.sh
-echo ${T} > /mnt/etc/T
+echo ${T} > /mnt/etc/T 
 cp ${J}conf /mnt${J}conf
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
