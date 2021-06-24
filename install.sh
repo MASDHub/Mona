@@ -59,7 +59,9 @@ sed -i 's/auto/1920x1080,auto/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg ; rm /etc/install.sh
 cp /etc/X11/xinit/xinitrc /home/${U}/.xinitrc
 sed -i 's/twm/openbox-session/' /home/${U}/.xinitrc
-curl -sSL https://raw.githubusercontent.com/djSharcode/Mona/main/installMo.sh > /home/${U}/installMO.sh
-cd / ; chown root:root /home ; chmod 755 /home ; runuser --login ${U} --session-command "sh ~/installMO.sh"
+curl -sSL https://raw.githubusercontent.com/djSharcode/\
+Mona/main/installMo.sh > /home/${U}/installMO.sh
+cd / ; chown root:root /home ; chmod 755 /home
+runuser --login ${U} --session-command "sh ~/installMO.sh"
 # echo -e "${A}BLUETHOOTH ENABLED${B}" ; ${F} bluetooth
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
