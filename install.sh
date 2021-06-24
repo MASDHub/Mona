@@ -20,7 +20,7 @@ D='Cantarell 11/Fira Sans Condensed Book'
 C='Adwaita/Oranchelo' ; F='systemctl enable'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 echo -e "\n${A}Enter Root Password : ${B}" 
-until passwd ; do echo -en "${A}Again : ${B}" 
+until passwd ; do echo -en "${A}Re-try: ${B}" 
 done ; echo -en "\n${A}Enter User Name: ${B}" 
 read -r U1 ; U="${U1,,}"  ; until \
 [[ ${#U} -gt 4 ]] && [[ "${U}" =~ ^[a-z]*$ ]]
