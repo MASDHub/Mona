@@ -34,15 +34,12 @@ locale-gen ; echo "${P}" > /etc/hostname
 echo -e "
 127.0.0.1       localhost
 ::1             localhost
-127.0.1.1       ${P}.localdomain \
-${P}" >> /etc/hosts  ; sed -i -e \ 
-"1 s/${C}-Beka/" -e "s/${D}/" -e \ 
-"2 s/${C}/" ${E}-2.0/gtkrc ; sed \
--i -e "s/${D}/" -e "3 s/${C}/" -e\
- "2 s/${C}-Beka/" ${E}-3.0/settings.ini
-ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime
-hwclock --systohc
-#if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; systemctl enable tlp && systemctl enable acpid ; fi
+127.0.1.1       ${P}.localdomain ${P}" > /etc/hosts 
+sed -i -e "s/${D}/" -e "2 s/${C}/" \
+-e "1 s/${C}-Beka/" ${E}-2.0/gtkrc
+sed -i -e "s/${D}/" -e "3 s/${C}/" \
+-e "2 s/${C}-Beka/" ${E}-3.0/settings.ini
+ln -sf "/usr/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime ; hwclock --systohc
 echo -e 'M="$(find /home/*/.screenlayout/*.sh)"
 M1="$(xrandr | grep -Eo '"'eDP1|eDP-1'"')"
 M2="$(xrandr | grep -Ec '"'HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1|DVI1|DVI-1'"')"
@@ -65,4 +62,5 @@ Mona/main/installMo.sh > /home/${U}/installMO.sh
 cd / ; chown root:root /home ; chmod 755 /home
 runuser --login ${U} --session-command "sh ~/installMO.sh"
 # echo -e "${A}BLUETHOOTH ENABLED${B}" ; ${F} bluetooth
+#if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; systemctl enable tlp && systemctl enable acpid ; fi
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
