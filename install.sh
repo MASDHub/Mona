@@ -27,7 +27,6 @@ read -r R ; U="${R,,}" ; P="${U}pc" ; until \
 do read -r -p "Re-try: " && U="${R,,}" ; done 
 useradd -m -G wheel "${U}"; P="${U}pc"
 until passwd ${U} ; do echo 'Re-try: ' ; done 
-echo -e "${U}" > /etc/U
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
@@ -57,9 +56,10 @@ echo -e "${A}DISPLAY MANAGER ENABLED${B}" ; ${F} sddm
 echo -e "${A}INSTALLING GRUB ${B}"; grub-install \
 --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 sed -i 's/auto/1920x1080,auto/' /etc/default/grub
-grub-mkconfig -o /boot/grub/grub.cfg ; rm /etc/install.sh
+grub-mkconfig -o /boot/grub/grub.cfg 
 cp /etc/X11/xinit/xinitrc /home/${U}/.xinitrc
 sed -i 's/twm/openbox-session/' /home/${U}/.xinitrc
+echo -e "${U}" > /etc/U ; rm /etc/install.sh
 curl -sSL https://raw.githubusercontent.com/djSharcode/\
 Mona/main/installMo.sh > /home/${U}/installMO.sh
 cd / ; chown root:root /home ; chmod 755 /home
