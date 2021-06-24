@@ -22,12 +22,12 @@ C='Adwaita/Oranchelo' ; F='systemctl enable'
 echo -e "\n${A}Enter Password for Root: ${B}"
 until passwd ; do echo -en "${A}Re-try: ${B}"
 done ; echo -en "\n${A}Enter User Name: ${B}"
-read -r R ; U="${R,,}" ; until \
+read -r R ; U="${R,,}" ; P="${U}pc" ; until \
 [[ ${#U} -gt 4 ]] && [[ "${U}" =~ ^[a-z]*$ ]]
-do read -r -p "Re-try : " && U="${R,,}"
-done ; useradd -m -G wheel "${U}"
-until passwd ${U} ; do echo 'Re-try: '
-done ; echo -e "${U}" > /etc/U
+do read -r -p "Re-try: " && U="${R,,}" ; done 
+useradd -m -G wheel "${U}" ; P="${U}pc"
+until passwd ${U} ; do echo 'Re-try: ' ; done 
+echo -e "${U}" > /etc/U
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
@@ -36,10 +36,12 @@ sed -i -e "s/${D}/" -e "2 s/${C}/" -e \
 "1 s/${C}-Beka/" ${E}-2.0/gtkrc ; sed \
 -i -e "2 s/${C}-Beka/" -e "3 s/${C}/" \
 -e "s/${D}/" ${E}-3.0/settings.ini
-echo -e "127.0.0.1       localhost
-::1             localhost\n127.0.1.1       \
-${U}pc.localdomain ${U}pc" >> /etc/hosts
-echo -e "${U}pc" >> /etc/hostname
+echo -e "
+127.0.0.1       localhost
+::1             localhost
+127.0.1.1       ${P}.localdomain\
+ ${P}" >> /etc/hosts ; echo -en \
+"${P}" >> /etc/hostname
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime
 hwclock --systohc
 #if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; systemctl enable tlp && systemctl enable acpid ; fi
