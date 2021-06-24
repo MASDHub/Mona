@@ -30,7 +30,8 @@ until passwd ${U} ; do echo "Retry:\n" ; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
 sed -i 's/#en_US./en_US./' /etc/locale.gen
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
-locale-gen ; echo "${P}" > /etc/hostname
+locale-gen ; echo "${P}" > /etc/hostname 
+rm -- "$0" ; echo "${U}" > /etc/U 
 echo -e "
 127.0.0.1       localhost
 ::1             localhost
@@ -56,7 +57,6 @@ sed -i 's/auto/1920x1080,1024x768x32,auto/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg 
 cp /etc/X11/xinit/xinitrc /home/${U}/.xinitrc
 sed -i 's/twm/openbox-session/' /home/${U}/.xinitrc
-echo -e "${U}" > /etc/U ; rm /etc/install.sh
 curl -sSL https://raw.githubusercontent.com/djSharcode/\
 Mona/main/installMo.sh > /home/${U}/installMO.sh
 cd / ; chown root:root /home ; chmod 755 /home
