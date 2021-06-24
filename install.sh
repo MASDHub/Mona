@@ -30,17 +30,16 @@ until passwd ${U} ; do echo "Retry:\n" ; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
 sed -i 's/#en_US./en_US./' /etc/locale.gen
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
-locale-gen ; localectl set-locale LANG=en_US.UTF-8
+locale-gen ; echo "${P}" > /etc/hostname
+echo -e "
+127.0.0.1       localhost
+::1             localhost
+127.0.1.1       ${P}.localdomain \
+${P}" >> /etc/hosts
 sed -i -e "s/${D}/" -e "2 s/${C}/" -e \
 "1 s/${C}-Beka/" ${E}-2.0/gtkrc ; sed \
 -i -e "2 s/${C}-Beka/" -e "3 s/${C}/" \
 -e "s/${D}/" ${E}-3.0/settings.ini
-echo -e "
-127.0.0.1       localhost
-::1             localhost
-127.0.1.1       ${P}.localdomain\
- ${P}" >> /etc/hosts ; echo -en \
-"${P}" >> /etc/hostname
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime
 hwclock --systohc
 #if [[ "$( pacman -Qd | grep -Ec tpl )" == [1-9] ]] ; systemctl enable tlp && systemctl enable acpid ; fi
