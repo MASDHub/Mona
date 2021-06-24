@@ -24,8 +24,8 @@ read -r R ; until [[ "${U}" =~ ^[a-z]*$ ]] && \
 [[ ${#U} -gt 4 ]] ; do read -p 'Retry: ' R && \
 U="${R,,}" ; done ; useradd -m -G wheel "${U}"
 echo -e "${A}Enter the User's Password : ${B}"
-until passwd "${U}" ; do echo ; done  
-echo -e "${A}Enter Root Password:${B}" 
+until passwd "${U}" ; do echo ; done
+echo -e "${A}Enter Root Password:${B}"
 until passwd ; do echo ; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
 sed -i 's/#en_US./en_US./' /etc/locale.gen
