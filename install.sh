@@ -37,9 +37,9 @@ P="${U}pc" ; echo -e "
 ::1             localhost
 127.0.1.1       ${P}.localdomain ${P}" >> \
 /etc/hosts; sed -i -e "1 s/${C}-Beka/" -e \
-"2 s/${C}/" -e "s/${D}/" ${E}-2.0/gtkrc
-sed -i -e "2 s/${C}-Beka/" -e "s/${D}/"
--e "3 s/${C}/" ${E}-3.0/settings.ini
+ "2 s/${C}/" -e "s/${D}/" ${E}-2.0/gtkrc
+sed -i -e "3 s/${C}/" -e "2 s/${C}-Beka/" \
+-e "s/${D}/" ${E}-3.0/settings.ini
 ln -sf /usr/share/zoneinfo/"$(cat /etc/T)" \
 /etc/localtime ; hwclock --systohc ; echo -e '
 M="$(find /home/*/.screenlayout/*.sh)"
