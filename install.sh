@@ -19,13 +19,13 @@ A='\e[1;31m' ; B='\e[0m' ; E='/usr/share/gtk-'
 D='Cantarell 11/Fira Sans Condensed Book'
 C='Adwaita/Oranchelo' ; F='systemctl enable'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-echo -en "\n${A}Enter User Name : ${B}" ; read -r R 
+echo -en "\n${A}Enter User Name : ${B}" ; read -r R
 until [[ ${#U} -gt 4 ]] && [[ "${U}" =~ ^[a-z]*$ ]]
-do echo -e "${A}Retry: ${B}" && read R && U="${R,,}" 
+do echo -e "${A}Retry: ${B}" && read R && U="${R,,}"
 done ; useradd -m -G wheel "${U}" ; echo -e \
 "${A}Enter User's Password: ${B}" ; until passwd ${U}
 do echo; done; echo -e "${A}Enter Root Password: ${B}"
-until passwd ; do echo ; done 
+until passwd ; do echo ; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
 sed -i 's/#en_US./en_US./' /etc/locale.gen
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
@@ -35,7 +35,7 @@ P="${U}pc" ; echo -e "
 127.0.0.1       localhost
 ::1             localhost
 127.0.1.1       ${P}.localdomain ${P}" >> \
-/etc/hosts; sed -i -e "1 s/${C}-Beka/" -e \ 
+/etc/hosts; sed -i -e "1 s/${C}-Beka/" -e \
 "s/${D}/" -e "2 s/${C}/" ${E}2.0/gtkrc
 sed -i -e "2 s/${C}-Beka/" -e "3 s/${C}/" \
 -e "s/${D}/" ${E}3.0/settings.ini; 
@@ -51,7 +51,7 @@ then xrandr --output "${M1}" --mode 1920x1080 --output "${M3}" --primary --auto
 fi\nfi' >> ${E}sddm/scripts/Xsetup
 echo -e "${A}DISPLAY MANAGER ENABLED${B}" ; ${F} sddm 
 echo -e "${A}NETWORK ENABLED${B}" ; ${F} NetworkManager 
-echo -e "${A}INSTALLING GRUB${B}" ; grub-install \ 
+echo -e "${A}INSTALLING GRUB${B}" ; grub-install \
 --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 sed -i 's/auto/1920x1080,1024x768x32,auto/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg 
