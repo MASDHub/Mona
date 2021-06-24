@@ -18,7 +18,6 @@ head -n 16 -- "$0" | tail -n 13
 A='\e[1;31m' ; B='\e[0m' ; E='/usr/share/gtk'
 D='Cantarell 11/Fira Sans Condensed Book'
 C='Adwaita/Oranchelo' ; F='systemctl enable'
-T=
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 echo -en "\n${A}Enter User Name: ${B}"
 read -r R ; until [[ "${U}" =~ ^[a-z]*$ ]] && \
