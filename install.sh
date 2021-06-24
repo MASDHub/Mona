@@ -30,8 +30,8 @@ do echo -en "\n${A}Try again : ${B}" \
 useradd -m -G wheel "${U}"; echo -e "${U}" > /etc/U
 until passwd ${U} ; do echo "" ; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers 
+echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
-echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 locale-gen ; localectl set-locale LANG=en_US.UTF-8
 sed -i -e "1 s/${C}-Beka/" -e "2 s/${C}/" \
 -e "s/${D}/" ${E}/gtk-2.0/gtkrc   
