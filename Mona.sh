@@ -1,29 +1,29 @@
 #!/bin/bash
 setfont ter-124b
 head -n 8 -- "$0" | tail -n 4
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-    #     Mozart - Moonlight Sonata         #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+    #     Mozart - Moonlight Sonata          #
  #         0:35 ━❍──────── -5:32          #
-   #       ↻     ⊲  Ⅱ  ⊳     ↺              #
+   #       ↻     ⊲  Ⅱ  ⊳     ↺               #
 #          VOLUME: ▁▂▃▄▅▆▇ 100%          # 
-E='mount -o noatime,compress=zstd,subvol=@' #
-F='btrfs su cr @'; G='/etc/mkinitcpio.conf' #
-H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"   #
-I='timedatectl set' ; J='/etc/pacman.'      #
-T=" $(curl -s https://ipapi.co/timezone)"   #
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k | pacman-key --populate
-head -n 4 -- "$0" ; lsblk -do \
-NAME,SIZE -e 7,11|egrep --color [A-Z]
-read -r -p "Enter Install Disk :  " \
-A ; until sgdisk /dev/${A} -Z -o -n \
-1::+512M -t 1:EF00 -n -i -v -p ; do \
-read -r -p "No, Try Again :" A ; done
+E='mount -o noatime,compress=zstd,subvol=@'  #
+F='btrfs su cr @' ; G='/etc/mkinitcpio.conf' #
+H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"    #
+I='timedatectl set' ; J='/etc/pacman.'       #
+T=" $(curl -s https://ipapi.co/timezone)"    #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+gpg -k|pacman-key --populate
+head -n 4 -- "$0"; lsblk -e 7,11 \
+-do NAME,SIZE|egrep --color [A-Z]
+read -r -p 'Enter Disk Name: ' A \
+A ; until sgdisk /dev/${A} -Z -o \
+-n 1::+512M -t 1:EF00 -n -i -v -p
+do read -r -p "Try Again: " A ; done
 B=" $(ls /dev/* | egrep "^/dev/${A}p?1$") "
 C=" $(ls /dev/* | egrep "^/dev/${A}p?2$") "
 mkfs.vfat ${B}  ; mkfs.btrfs -fq ${C}
 mount ${C} /mnt ; cd /mnt
-${F}home ; ${F} ; cd ; umount /mnt
+${F}home ; ${F} ; cd; umount /mnt
 ${E} ${C} /mnt  ; mkdir /mnt/{boot,home}
 ${E}home${C}/mnt/home; mount${B}/mnt/boot
 lsblk -o NAME,SIZE,MOUNTPOINT -e 7,11
