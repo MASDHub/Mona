@@ -15,7 +15,7 @@ head -n 16 -- "$0" | tail -n 13
 #/88:.__ ,       _%-' ---  -       
  #  '''::===..-'   =  --.  `                 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='\e[1;31m' ; B='\e[0m' ; E='/usr/share/'
+A='\e[1;31m' ; B='\e[0m' ; E='/usr/share/gtk'
 D='Cantarell 11/Fira Sans Condensed Book'
 C='Adwaita/Oranchelo' ; F='systemctl enable'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -32,12 +32,12 @@ sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 locale-gen ; localectl set-locale LANG=en_US.UTF-8
-sed -i -e "1 s/${C}-Beka/" -e "2 s/${C}/" \
--e "s/${D}/" ${E}/gtk-2.0/gtkrc
-sed -i -e "2 s/${C}-Beka/" -e "3 s/${C}/" \
--e "s/${D}/" ${E}/gtk-3.0/settings.ini
+sed -i -e "s/${D}/" -e "2 s/${C}/" -e \
+"1 s/${C}-Beka/" ${E}-2.0/gtkrc ; sed \
+-i -e "2 s/${C}-Beka/" -e "3 s/${C}/" \
+-e "s/${D}/" ${E}-3.0/settings.ini
 echo -e "127.0.0.1       localhost
-::1             localhost\n127.0.1.1      \
+::1             localhost\n127.0.1.1       \
 ${U}pc.localdomain ${U}pc" >> /etc/hosts
 echo -e "${U}pc" >> /etc/hostname
 ln -sf "/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime
