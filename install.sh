@@ -22,9 +22,9 @@ C='Adwaita/Oranchelo' ; F='systemctl enable'
 echo -e "\n${A}Enter Password for Root: ${B}"
 until passwd ; do echo -en "${A}Re-try: ${B}"
 done ; echo -en "\n${A}Enter User Name: ${B}"
-read -r U1 ; U="${U1,,}" ; until \
+read -r R ; U="${R,,}" ; until \
 [[ ${#U} -gt 4 ]] && [[ "${U}" =~ ^[a-z]*$ ]]
-do read -r -p "Re-try: " && U="${U1,,}"
+do read -r -p "Re-try : " && U="${R,,}"
 done ; useradd -m -G wheel "${U}"
 until passwd ${U} ; do echo 'Re-try: '
 done ; echo -e "${U}" > /etc/U
