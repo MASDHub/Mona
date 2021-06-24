@@ -28,8 +28,8 @@ do read -r -p "Re-try: " && U="${R,,}" ; done
 useradd -m -G wheel "${U}"; P="${U}pc"
 until passwd ${U} ; do echo 'Re-try: ' ; done 
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
+sed -i 's/#en_US./en_US./' /etc/locale.gen
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
-sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 locale-gen ; localectl set-locale LANG=en_US.UTF-8
 sed -i -e "s/${D}/" -e "2 s/${C}/" -e \
 "1 s/${C}-Beka/" ${E}-2.0/gtkrc ; sed \
