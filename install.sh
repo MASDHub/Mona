@@ -25,7 +25,7 @@ done ; echo -en "\n${A}Enter User Name: ${B}"
 read -r R ; U="${R,,}" ; P="${U}pc" ; until \
 [[ ${#U} -gt 4 ]] && [[ "${U}" =~ ^[a-z]*$ ]]
 do read -r -p "Re-try: " && U="${R,,}" ; done 
-useradd -m -G wheel "${U}" ; P="${U}pc"
+useradd -m -G wheel "${U}"; P="${U}pc"
 until passwd ${U} ; do echo 'Re-try: ' ; done 
 echo -e "${U}" > /etc/U
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
