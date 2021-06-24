@@ -15,33 +15,34 @@ head -n 16 -- "$0" | tail -n 13
 #/88:.__ ,       _%-' ---  -       
  #  '''::===..-'   =  --.  `                 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='\e[1;31m' ; B='\e[0m' ; E='/usr/share/gtk'
+A='\e[1;31m' ; B='\e[0m' ; E='/usr/share/gtk-'
 D='Cantarell 11/Fira Sans Condensed Book'
 C='Adwaita/Oranchelo' ; F='systemctl enable'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 echo -en "\n${A}Enter a User Name : ${B}"
-read -r R ; U="${R,,}" ; P="${U}pc" ; until \
+read -r R ; U="${R,,}" ; until \
 [[ ${#U} -gt 4 ]] && [[ "${U}" =~ ^[a-z]*$ ]]
-do read -r -p "Retry : " && U="${R,,}" ; done 
-useradd -m -G wheel "${U}" ; P="${U}pc"
-echo -e "\n${A}Enter User Password : ${B}"
-until passwd ${U} ; do echo '' ; done
-echo -e "\n${A}Enter Root Password : ${B}"
-until passwd ; do echo '' ; done 
+do read -r -p "Retry : " && U="${R,,}" 
+done ; useradd -m -G wheel "${U}"
+echo -e "${A}Enter User Password : ${B}"
+until passwd ${U} ; do echo ; done
+echo -e "${A}Enter Root Password : ${B}"
+until passwd ; do echo ; done 
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
 sed -i 's/#en_US./en_US./' /etc/locale.gen
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 locale-gen ; echo "${P}" > /etc/hostname 
 rm -- "$0" ; echo "${U}" > /etc/U 
-echo -e "
+P="${U}pc" ; echo -e "
 127.0.0.1       localhost
 ::1             localhost
-127.0.1.1       ${P}.localdomain ${P}" > /etc/hosts 
-sed -i -e "s/${D}/" -e "2 s/${C}/" \
--e "1 s/${C}-Beka/" ${E}-2.0/gtkrc
-sed -i -e "s/${D}/" -e "3 s/${C}/" \
--e "2 s/${C}-Beka/" ${E}-3.0/settings.ini
-ln -sf "/usr/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" /etc/localtime ; hwclock --systohc
+127.0.1.1       ${P}.localdomain ${P}" >> \
+/etc/hosts; sed -i -e "1 s/${C}-Beka/" -e \ 
+"s/${D}/" -e "2 s/${C}/" ${E}2.0/gtkrc
+sed -i -e "2 s/${C}-Beka/" -e "3 s/${C}/" \
+-e "s/${D}/" ${E}3.0/settings.ini; ln -sf \
+"/usr/share/zoneinfo/$(curl -s https://ipapi.co/timezone)" \
+/etc/localtime ; hwclock --systohc
 echo -e 'M="$(find /home/*/.screenlayout/*.sh)"
 M1="$(xrandr | grep -Eo '"'eDP1|eDP-1'"')"
 M2="$(xrandr | grep -Ec '"'HDMI-1|HDMI1|eDP1|eDP-1|VGA1|VGA-1|DVI1|DVI-1'"')"
