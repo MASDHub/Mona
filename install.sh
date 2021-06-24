@@ -19,14 +19,15 @@ A='\e[1;31m' ; B='\e[0m' ; E='/usr/share/gtk'
 D='Cantarell 11/Fira Sans Condensed Book'
 C='Adwaita/Oranchelo' ; F='systemctl enable'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-echo -e "\n${A}Enter Password for Root: ${B}"
-until passwd ; do echo -en "${A}Re-try: ${B}"
-done ; echo -en "\n${A}Enter User Name: ${B}"
+echo -en "\n${A}Enter a User Name : ${B}"
 read -r R ; U="${R,,}" ; P="${U}pc" ; until \
 [[ ${#U} -gt 4 ]] && [[ "${U}" =~ ^[a-z]*$ ]]
 do read -r -p "Retry : " && U="${R,,}" ; done 
-useradd -m -G wheel "${U}"; P="${U}pc"
-until passwd ${U} ; do echo "Retry:\n" ; done 
+useradd -m -G wheel "${U}" ; P="${U}pc"
+echo -e "\n${A}Enter User Password : ${B}"
+until passwd ${U} ; do echo '' ; done
+echo -e "\n${A}Enter Root Password : ${B}"
+until passwd ; do echo '' ; done 
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
 sed -i 's/#en_US./en_US./' /etc/locale.gen
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
