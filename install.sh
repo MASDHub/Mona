@@ -24,9 +24,9 @@ until passwd ; do echo -en "${A}Re-try: ${B}"
 done ; echo -en "\n${A}Enter User Name: ${B}"
 read -r R ; U="${R,,}" ; P="${U}pc" ; until \
 [[ ${#U} -gt 4 ]] && [[ "${U}" =~ ^[a-z]*$ ]]
-do read -r -p "Re-try: " && U="${R,,}" ; done 
+do read -r -p "Retry : " && U="${R,,}" ; done 
 useradd -m -G wheel "${U}"; P="${U}pc"
-until passwd ${U} ; do echo 'Re-try: ' ; done 
+until passwd ${U} ; do echo "Retry:\n" ; done 
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
 sed -i 's/#en_US./en_US./' /etc/locale.gen
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
