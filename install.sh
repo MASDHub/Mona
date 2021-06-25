@@ -36,19 +36,19 @@ ln -sf ${C}/"$(cat /etc/T)" /etc/localtime
 locale-gen; echo "${U}" >> /etc/U ; hwclock \
 --systohc ; echo "${P}" > /etc/hostname; sed -i \
 's/twm/openbox-session/' /etc/X11/xinit/xinitrc
-##
-sed -i -e "2 s/$E-Beka/" -e "s/$D/" -e "3 s/$E/" \
-${C}/gtk-3.0/settings.ini ; sed -i -e "1 s/$E-Beka/" \
--e "s/$D/" -e "2 s/$E/" ${C}/gtk-2.0/gtkrc
-echo 'M="$(find /home/*/.screenlayout/*.sh)"
+echo -e 'M="$(find /home/*/.screenlayout/*.sh)"
 N="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
 O="$(xrandr|egrep -c '"'HDMI|eDP|VGA'"')"
 P="$(xrandr|egrep -o '"'HDMI-1|HDMI1|VGA1|VGA-1'"')"
 if [ -r "${M}" ] && $(grep -q xrandr ${M})
 then ${M} ; else if [[ "${O}" -ge "2" ]]
 then xrandr --output $N --off --output $P --auto
-fi ; fi' >> ${C}/sddm/scripts/Xsetup; echo \
--e "${A}DISPLAY MGR${B}"; ${F} sddm; echo \
+fi ; fi' >> ${C}/sddm/scripts/Xsetup
+##
+sed -i -e "2 s/$E-Beka/" -e "s/$D/" -e "3 s/$E/" \
+${C}/gtk-3.0/settings.ini; sed -i -e "1 s/$E-Beka/" \
+-e "s/$D/" -e "2 s/$E/" ${C}/gtk-2.0/gtkrc
+echo -e "${A}DISPLAY MGR${B}"; ${F} sddm; echo \
 -e "${A}NETWORKS${B}"; ${F} NetworkManager
 echo -e "\n${A}GRUB${B}\n" ; grub-install \
 --target=x86_64-efi --efi-directory=/boot \
