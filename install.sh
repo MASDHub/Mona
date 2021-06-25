@@ -40,8 +40,8 @@ echo -e 'M="$(find /home/*/.screenlayout/*.sh)"
 N="$(xrandr|egrep -o '"'HDMI-1|HDMI1'"')"
 O="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
 P="$(xrandr|egrep -c '"'HDMI|eDP'"')"
-if [ -r "${M}" ] && $(grep -q xrandr ${M})
-then ${M}; else if [[ "${P}" -ge "2" ]]
+if [ -r "${M}" ] && $(grep -q xrandr $M)
+then $M ; else if [[ "${P}" -ge "2" ]]
 then xrandr --output $O --off --output $N --auto
 fi ; fi' >> ${C}/sddm/scripts/Xsetup
 ##
