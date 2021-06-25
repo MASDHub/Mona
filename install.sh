@@ -35,8 +35,8 @@ echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 P="${U}pc" ; echo ${P} >> /etc/hostname 
 echo -e "127.0.0.1${S}localhost
 ::1${Z}localhost\n127.0.1.1${S}\
-$P.localdomain $P" >> /etc/hosts 
-ln -sf /usr/share/zoneinfo/$(cat /etc/T) \
+${P}.localdomain $P" > /etc/hosts  
+ln -sf ${C}zoneinfo/$(cat /etc/T) \
 /etc/localtime ; hwclock --systohc
 X="/$(cat /etc/U)/.xinitrc"
 cp /etc/X11/xinit/xinitrc $X
