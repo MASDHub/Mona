@@ -27,19 +27,19 @@ done ; useradd -m -G wheel ${U} ; echo -\
 e "${A}Enter User Password${B}" ; until \
 passwd  "${U}" ; do echo ; done ; echo -\
 e "Enter ${A}Root${B} Password" ; until \
-passwd ; do echo ; done ; P="${U}pc"
-echo -e "127.0.0.1${S}::1${Z}127.0.1.1\
+passwd; do echo; done; P="${U}1"; echo -\
+e "127.0.0.1${S}\n::1${Z}\n127.0.1.1\
        ${P}.localdomain $P" >> /etc/hosts 
 sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 ln -sf ${C}/"$(cat /etc/T)" /etc/localtime
-locale-gen; echo "${U}" >> /etc/U ; hwclock \
+locale-gen; echo "${U}" >> /etc/U; hwclock \
 --systohc ; echo "${P}" > /etc/hostname; sed -i \
 's/twm/openbox-session/' /etc/X11/xinit/xinitrc
 echo -e 'M="$(find /home/*/.screenlayout/*.sh)"
 N="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
-O="$(xrandr|egrep -c '"'HDMI|eDP|VGA'"')"
-P="$(xrandr|egrep -o '"'HDMI-1|HDMI1|VGA1|VGA-1'"')"
+O="$(xrandr|egrep -c '"'HDMI|eDP'"')"
+P="$(xrandr|egrep -o '"'HDMI-1|HDMI1'"')"
 if [ -r "${M}" ] && $(grep -q xrandr ${M})
 then ${M}; else if [[ "${O}" -ge "2" ]]
 then xrandr --output $N --off --output $P --auto
