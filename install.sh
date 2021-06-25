@@ -19,22 +19,23 @@ A='\e[1;31m' ; B='\e[0m' ; C='/usr/share/'
 D='Cantarell 11/Fira Sans Condensed Book'
 E='Adwaita/Oranchelo' ; F='systemctl enable'
 Z='             ' #~~~~~~~~~~~~~~~~~~~~~~~~~#
-echo -en "\n${A}User Name: ${B}"
-read -r R; until [[ ${#U} -gt 4 ]] && \
-[[ "${U}" =~ ^[a-z]*$ ]] ; do read -r \
+echo -en "${A}User Name: ${B}" ; read R \
+&& U="${R,,}" ; until [[ ${#U} -gt 4 ]] \
+&& [[ "${U}" =~ ^[a-z]*$ ]]; do read -r \
 -p 'Try Again : ' R && U="${R,,}"
 done ; useradd -m -G wheel "${U}"
 echo -e "${A}User Password: ${B}"
 until passwd ${U}; do echo; done
 echo -e "${A}Root${B} Password:"
 until passwd ; do echo ; done
-sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
-sed -i 's/#en_US./en_US./' /etc/locale.gen
+sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers
+sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
+locale-gen ; echo home/$U > /etc/U 
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
-P="${U}pc1" ; echo ${P} >> /etc/hostname
-locale-gen; echo home/$U > /etc/U ; echo \
--e "127.0.0.1${S}localhost\n::1${Z}localhost
-127.0.1.1${S}$P.localdomain $P" > /etc/hosts 
+P="${U}pc" ; echo ${P} >> /etc/hostname 
+echo -e "127.0.0.1${S}localhost
+::1${Z}localhost\n127.0.1.1${S}\
+$P.localdomain $P" >> /etc/hosts 
 ln -sf /usr/share/zoneinfo/$(cat /etc/T) \
 /etc/localtime ; hwclock --systohc
 X="/$(cat /etc/U)/.xinitrc"
