@@ -51,7 +51,7 @@ volumeicon screengrab galculator xorg-xinit \
 arandr ${H2} ; cp ${I} /mnt${I} ; curl -sSL \
 https://raw.githubusercontent.com/djsharcode\
 /Mona/main/install.sh -o /mnt/etc/install.sh
-echo ${T} > /mnt/etc/T 
+echo /${T} > /mnt/etc/T
 cp ${J}conf /mnt${J}conf
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
