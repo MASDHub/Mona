@@ -12,30 +12,29 @@ H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"    #
 I='timedatectl set' ; J='/etc/pacman.'       #
 T=" $(curl -s https://ipapi.co/timezone)"    #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k|pacman-key --populate
-head -n 4 -- "$0"; lsblk -e 7,11 \
--do NAME,SIZE|egrep --color [A-Z]
-read -r -p 'Enter Disk Name:  ' A
-until sgdisk /dev/${A} -Z -o -n \
--n 1::+512M -t 1:EF00 -n -i -v -p
+gpg -k | pacman-key --populate
+head -n 4 -- "$0" ; lsblk -e 7,11 \
+-do NAME,SIZE | egrep --color [A-Z]
+read -r -p 'Enter Disk Name: ' A
+until sgdisk /dev/${A} -Z -o -n\
+ 1::+512M -t 1:EF00 -n -i -v -p
 do read -r -p "Try Again: " A ; done
-B=" $(ls /dev/* | egrep "^/dev/${A}p?1$") "
-C=" $(ls /dev/* | egrep "^/dev/${A}p?2$") "
-mkfs.vfat ${B}  ; mkfs.btrfs -fq ${C}
-mount ${C} /mnt ; cd /mnt
-${F}home ; ${F} ; cd; umount /mnt
-${E} ${C} /mnt  ; mkdir /mnt/{boot,home}
-${E}home${C}/mnt/home; mount${B}/mnt/boot
-lsblk -o NAME,SIZE,MOUNTPOINT -e 7,11
-if [ ${H} == Intel ] ; then H1='i915 '\
- && H2='intel-ucode' ; elif [ ${H} == AMD ]
+B=" $(ls /dev/*|egrep "^/dev/${A}p?1$") "
+C=" $(ls /dev/*|egrep "^/dev/${A}p?2$") "
+mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
+mount ${C}/mnt ; cd /mnt
+${F}home; ${F} ; cd ; umount /mnt
+${E} ${C}/mnt  ; mkdir /mnt/{boot,home}
+mount ${B}/mnt/boot ; ${E}home${C}/mnt/home 
+if [ ${H} == Intel ]; then H1='i915 ' \
+&& H2='intel-ucode' ; elif [ ${H} == AMD ]
 then H1='amdgpu ' && H2='amd-ucode'; fi
 ${I}-timezone${T} && ${I}-ntp true ; sed -i \
 "s/ULES=()/ULES=(${H1}btrfs)/" ${G}; sed -i \
 's/#Co/Co/' ${J}conf; reflector -p https -c \
 "$(curl -s https://ipapi.co/country)" -a 12 \
 -f 2 --sort rate --save ${J}d/mirrorlist || \
-reflector -p https --score 5 -l 5 -a 4 -f 2 \
+reflector -p https --score 5 -l 5 -a 8 -f 2 \
 --verbose --sort rate --save ${J}d/mirrorlist
 pacstrap -i /mnt base base-devel linux xorg \
 linux-headers linux-firmware efibootmgr vim \
