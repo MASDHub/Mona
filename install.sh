@@ -43,7 +43,7 @@ sed -i 's/twm/openbox-session/' $X
 sed -i -e "2 s/$E-Beka/" -e "s/$D/" \
 "3 s/$E/" ${C}gtk-3.0/settings.ini
 sed -i -e "1 s/$E-Beka/" -e "s/$D/" \
--e "2 s/$E/" ${C}gtk-2.0/gtkrc ; echo '
+-e "2 s/$E/" ${C}gtk-2.0/gtkrc; echo '
 M="$(find /home/*/.screenlayout/*.sh)"
 N="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
 O="$(xrandr|egrep -c '"'HDMI|eDP|VGA'"')"
