@@ -15,7 +15,7 @@ head -n 16 -- "$0" | tail -n 13
 #/88:.__ ,       _%-' ---  -       
  #  '''::===..-'   =  --.  `                 
 S='       ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='\e[1;31m' ; B='\e[0m' ; C='/usr/share/'
+A='\e[1;31m' ; B='\e[0m' ; C='/usr/share'
 D='Cantarell 11/Fira Sans Condensed Book'
 E='Adwaita/Oranchelo' ; F='systemctl enable'
 Z='             ' #~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -28,29 +28,28 @@ e "${A}Enter User Password${B}" ; until \
 passwd  "${U}" ; do echo ; done ; echo -\
 e "Enter ${A}Root${B} Password" ; until \
 passwd ; do echo ; done
-sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers 
+sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
-P="${U}pc" ; echo "${P}" >> /etc/hostname 
-locale-gen; echo home/$U > /etc/U ; echo \
--e "127.0.0.1${S}localhost\n::1${Z}localhost
-127.0.1.1${S}$P.localdomain $P" > /etc/hosts  
-ln -sf ${C}zoneinfo/$(cat /etc/T) \
-/etc/localtime ; hwclock --systohc
-X="/$(cat /etc/U)/.xinitrc"
-cp /etc/X11/xinit/xinitrc $X
-sed -i 's/twm/openbox-session/' $X
+P="${U}pc" ; echo "${P}" >> /etc/hostname
+ln -sf ${C}"$(cat /etc/T)" /etc/localtime
+locale-gen; echo "${U}" > /etc/U; hwclock \
+--systohc; X="home/$(cat /etc/U)/.xinitrc"
+cp /etc/X11/xinit/xinitrc /$X
+sed -i 's/twm/openbox-session/' /$X
 sed -i -e "2 s/$E-Beka/" -e "s/$D/" \
--e "3 s/$E/" ${C}gtk-3.0/settings.ini
+-e "3 s/$E/" ${C}/gtk-3.0/settings.ini
 sed -i -e "1 s/$E-Beka/" -e "s/$D/" \
--e "2 s/$E/" ${C}gtk-2.0/gtkrc; echo '
-M="$(find /home/*/.screenlayout/*.sh)"
+-e "2 s/$E/" ${C}/gtk-2.0/gtkrc
+echo -e "127.0.0.1${S}localhost\n::1${Z}localhost
+127.0.1.1${S}$P.localdomain $P" > /etc/hosts 
+echo 'M="$(find /home/*/.screenlayout/*.sh)"
 N="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
 O="$(xrandr|egrep -c '"'HDMI|eDP|VGA'"')"
 P="$(xrandr|egrep -o '"'HDMI-1|HDMI1|VGA1|VGA-1'"')"
 if [ -r "${M}" ] && $(grep -q xrandr ${M})
 then ${M} ; else if [[ "${O}" -ge "2" ]]
 then xrandr --output $N --off --output $P --auto
-fi ; fi' >> ${C}sddm/scripts/Xsetup; echo \
+fi ; fi' >> ${C}/sddm/scripts/Xsetup; echo \
 -e "${A}DISPLAY MGR${B}"; ${F} sddm; echo \
 -e "${A}NETWORKS${B}"; ${F} NetworkManager
 echo -e "\n${A}GRUB${B}\n" ; grub-install \
