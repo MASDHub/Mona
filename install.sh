@@ -34,9 +34,9 @@ sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 ln -sf ${C}/"$(cat /etc/T)" /etc/localtime
 locale-gen; echo "${U}" >> /etc/U; hwclock \
---systohc ; echo "${P}" > /etc/hostname
+--systohc ; echo "${P}" > /etc/hostname ; sed -i \
+'s/twm/openbox-session/' /etc/X11/xinit/xinitrc
 ##
-sed -i 's/twm/openbox-session/' /etc/X11/xinit/xinitrc
 sed -i -e "2 s/$E-Beka/" -e "s/$D/" -e "3 s/$E/" \
 ${C}/gtk-3.0/settings.ini ; sed -i -e "1 s/$E-Beka/" \
 -e "s/$D/" -e "2 s/$E/" ${C}/gtk-2.0/gtkrc
