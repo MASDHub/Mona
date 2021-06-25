@@ -3,9 +3,9 @@ setfont ter-124b
 head -n 8 -- "$0" | tail -n 4
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     #     Mozart - Moonlight Sonata          #
- #         0:35 ━❍──────── -5:32          #
-   #       ↻     ⊲  Ⅱ  ⊳     ↺               #
-#          VOLUME: ▁▂▃▄▅▆▇ 100%          # 
+ #         0:35 ━❍──────── -5:32      #
+   #       ↻     ⊲  Ⅱ  ⊳     ↺            #
+#          VOLUME: ▁▂▃▄▅▆▇ 100%        #
 E='mount -o noatime,compress=zstd,subvol=@'  #
 F='btrfs su cr @' ; G='/etc/mkinitcpio.conf' #
 H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"    #
@@ -56,4 +56,4 @@ echo ${T} > /mnt/etc/T
 cp ${J}conf /mnt${J}conf
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
