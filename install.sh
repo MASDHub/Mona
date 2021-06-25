@@ -31,17 +31,15 @@ passwd ; do echo ; done
 sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 ln -sf ${C}/"$(cat /etc/T)" /etc/localtime
-locale-gen ; echo /${U} >> /etc/U; hwclock\
- --systohc ; X="home$(cat /etc/U)/.xinitrc"
-P="${U}pc" ; echo "$P" > /etc/hostname
-cp /etc/X11/xinit/xinitrc /$X
-sed -i -e 's/twm/openbox-session/' /$X
-sed -i -e "2 s/$E-Beka/" -e "s/$D/" \
--e "3 s/$E/" ${C}/gtk-3.0/settings.ini
-sed -i -e "1 s/$E-Beka/" -e "s/$D/" \
--e "2 s/$E/" ${C}/gtk-2.0/gtkrc
-echo -e "127.0.0.1${S}localhost\n::1${Z}localhost
-127.0.1.1${S}$P.localdomain $P" > /etc/hosts 
+P="${U}pc" ; echo "${P}" > /etc/hostname
+locale-gen ; echo ${U} >> /etc/U ; hwclock \
+--systohc  ; echo -e "127.0.0.1${S}localhost
+::1${Z}localhost\n127.0.1.1${S}$P.localdomain
+$P" > /etc/hosts 
+sed -i 's/twm/openbox-session/' /etc/X11/xinit/xinitrc
+sed -i -e "2 s/$E-Beka/" -e "s/$D/" -e "3 s/$E/" \
+${C}/gtk-3.0/settings.ini ; sed -i -e "1 s/$E-Beka/" \
+-e "s/$D/" -e "2 s/$E/" ${C}/gtk-2.0/gtkrc
 echo 'M="$(find /home/*/.screenlayout/*.sh)"
 N="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
 O="$(xrandr|egrep -c '"'HDMI|eDP|VGA'"')"
