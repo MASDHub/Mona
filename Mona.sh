@@ -19,8 +19,8 @@ e 7,11 | egrep --color [A-Z] ; read -r -p \
 -Z -o -n 1::+512M -t 1:EF00 -n -i -p ; do \
 lsblk -e 7,11 -do NAME,SIZE|egrep --color \
 [A-Z] && read -r -p "Retry: " A ; done
-B="$(ls /dev/* | egrep "^/dev/${A}p?1$") "
-C="$(ls /dev/* | egrep "^/dev/${A}p?2$") "
+B="$(ls /dev/* | egrep "^/dev/${A}p?1$")"
+C="$(ls /dev/* | egrep "^/dev/${A}p?2$")"
 mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
 mount ${C} /mnt; cd /mnt; ${F}home; ${F}
 cd; umount /mnt; ${E} ${C} /mnt
