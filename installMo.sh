@@ -45,7 +45,6 @@ echo -e 'sleep 1 && rm ~/'"${F}"'/vlc.dockitem'
 echo -e 'sleep 1 && sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart'
 echo -e 'sleep 1 && pkill volumeicon' ; echo -e 'sleep 2 && sed -i -e '"'s/b_slider=false/b_slider=true/'"' -e '"'s/5/1/'"' -e '"'s/l=false/l=true/'"' ~/.config/volumeicon/volumeicon' 
 echo -e 'sleep 1 && volumeicon' ; echo 'sleep 10 && rm ~/docks.ini && rm ~/mona.sh' ; } > ~/mona.sh 
-U="$(cat /etc/U)"
-su root -c "chmod 755 /home/${U}/mona.sh && rm /etc/U && rm -- $0"
+su root -c "chmod 755 /$(cat /etc/U)/mona.sh && rm /etc/U && rm -- $0"
 echo -e '\e[1;31mDone!\nTo Finish Type: 'reboot'\e[0m'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
