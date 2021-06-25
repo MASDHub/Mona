@@ -19,15 +19,15 @@ e 7,11 | egrep --color [A-Z] ; read -r -p \
 -Z -o -n 1::+512M -t 1:EF00 -n -i -p ; do \
 lsblk -e 7,11 -do NAME,SIZE|egrep --color \
 [A-Z] && read -r -p "Retry: " A ; done
-B=" $(ls /dev/*|egrep "^/dev/${A}p?1$") "
-C=" $(ls /dev/*|egrep "^/dev/${A}p?2$") "
+B="$(ls /dev/* | egrep "^/dev/${A}p?1$") "
+C="$(ls /dev/* | egrep "^/dev/${A}p?2$") "
 mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
-mount ${C}/mnt ; cd /mnt
-${F}home; ${F} ; cd ; umount /mnt
-${E} ${C}/mnt  ; mkdir /mnt/{boot,home}
-mount ${B}/mnt/boot ; ${E}home${C}/mnt/home 
-if [ ${H} == Intel ]; then H1='i915 ' \
-&& H2='intel-ucode' ; elif [ ${H} == AMD ]
+mount ${C} /mnt; cd /mnt; ${F}home; ${F}
+cd; umount /mnt; ${E} ${C} /mnt
+mkdir /mnt/{boot,home} ; mount ${B} /mnt/boot
+${E}home ${C} /mnt/home; lsblk -e 7,11
+if [ "${H}" == Intel ] ; then H1='i915 ' && \
+H2='intel-ucode ' ; fi ; if [ "${H}" == AMD ]
 then H1='amdgpu ' && H2='amd-ucode'; fi
 ${I}-timezone${T} && ${I}-ntp true ; sed -i \
 "s/ULES=()/ULES=(${H1}btrfs)/" ${G}; sed -i \
