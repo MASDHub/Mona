@@ -40,34 +40,26 @@ P="${U}pc" ; echo "${U}" > /etc/U ; echo "
  > /etc/hosts ; rm -- "$0" ; ln -sf \
 /usr/share/zoneinfo/"$(cat /etc/T)" \
 /etc/localtime ; hwclock --systohc 
-cp /etc/X11/${X}/${X}c /home/${U}/.${X}c  
-sed -i 's/twm/openbox-session/'\
- /home/${U}/.${X}c ; sed -i -e \
-"1 s/${C}-Beka/" -e "s/$D/" -e \
-"2 s/$C/" -e ${E}2.0/gtkrc 
-sed -i -e "2 s/${C}-Beka/" \
--e "s/$D/" -e "3 s/$C/" -e \
-${E}3.0/settings.ini; echo \
+sed -i -e "3 s/${C}/" -e "s/$D/" -e \
+"2 s/$C-Beka/" ${E}3.0/settings.ini 
+sed -i -e "2 s/${C}/" -e "s/$D/" -e \
+"1 s/$C-Beka/" ${E}2.0/gtkrc ; echo \
 'M="$(find /home/*/.screenlayout/*.sh)"
 M1="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
 M2="$(xrandr|egrep -c '"'HDMI|eDP|VGA'"')"
 M3="$(xrandr|egrep -o '"'HDMI-1|HDMI1|VGA1|VGA-1'"')"
-if [ -r "${M}" ] && $(grep -q xrandr ${M}) 
+if [ -r "${M}" ] && $(grep -q xrandr ${M})
 then ${M} ; else if [[ "${M2}" -ge "2" ]]
 then xrandr --output ${M1} --off --output ${M3} --auto
 fi ; fi' >> ${E}sddm/scripts/Xsetup
-echo -e "${A}DISPLAY ENABLED${B}" ; ${F} sddm 
-echo -e "${A}NETWORK CONNECTED${B}" ; ${F} NetworkManager 
+echo -e "${A}DISPLAY ENABLED${B}" ; ${F} sddm
+echo -e "${A}NETWORK CONNECTED${B}" ; ${F} NetworkManager
 echo -e "${A}INSTALLING GRUB${B}" ; grub-install \
 --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 sed -i 's/auto/1920x1080,1024x768x32,auto/' /etc/default/grub
-grub-mkconfig -o /boot/grub/grub.cfg
-
+grub-mkconfig -o /boot/grub/grub.cfg ; rm /etc/T
 curl -sSL https://raw.githubusercontent.com/djSharcode/\
 Mona/main/installMo.sh > /home/${U}/installMO.sh
-
-rm /etc/T ;
-
 cd / ; chown root:root /home ; chmod 755 /home
 runuser --login ${U} --session-command "sh ~/installMO.sh"
 # echo -e "${A}BLUETHOOTH ENABLED${B}" ; ${F} bluetooth
