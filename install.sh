@@ -41,7 +41,7 @@ N="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
 O="$(xrandr|egrep -c '"'HDMI|eDP|VGA'"')"
 P="$(xrandr|egrep -o '"'HDMI-1|HDMI1|VGA1|VGA-1'"')"
 if [ -r "${M}" ] && $(grep -q xrandr ${M})
-then ${M} ; else if [[ "${O}" -ge "2" ]]
+then ${M}; else if [[ "${O}" -ge "2" ]]
 then xrandr --output $N --off --output $P --auto
 fi ; fi' >> ${C}/sddm/scripts/Xsetup
 ##
