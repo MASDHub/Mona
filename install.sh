@@ -17,7 +17,7 @@ head -n 16 -- "$0" | tail -n 13
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='\e[1;31m' ; B='\e[0m' ; E='/usr/share/gtk-'
 D='Cantarell 11/Fira Sans Condensed Book'
-C='Adwaita/Oranchelo' ; F='systemctl enable'
+C='Adwaita/Oranchelo' ; F='systemctl enable '
 X='xinit'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 echo -en "\n${A}User Name: ${B}"
@@ -48,13 +48,13 @@ sed -i -e "2 s/${C}/" -e "s/$D/" -e \
 M1="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
 M2="$(xrandr|egrep -c '"'HDMI|eDP|VGA'"')"
 M3="$(xrandr|egrep -o '"'HDMI-1|HDMI1|VGA1|VGA-1'"')"
-if [ -r "${M}" ] && $(grep -q xrandr ${M})
-then ${M} ; else if [[ "${M2}" -ge "2" ]]
+if [ -r "${M}" ] && $(grep -q xrandr ${M}) 
+then ${M} ; else if [[ "${M2}" -ge "2" ]] 
 then xrandr --output ${M1} --off --output ${M3} --auto
 fi ; fi' >> ${E}sddm/scripts/Xsetup
-echo -e "${A}DISPLAY ENABLED${B}" ; ${F} sddm
-echo -e "${A}NETWORK CONNECTED${B}" ; ${F} NetworkManager
-echo -e "${A}INSTALLING GRUB${B}" ; grub-install \
+echo -e "${A}DISPLAY ENABLED${B}"; ${F}sddm
+echo -e "${A}NETWORK CONNECT${B}"; ${F}NetworkManager
+echo -e "${A}INSTALLING GRUB${B}"; grub-install \
 --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 sed -i 's/auto/1920x1080,1024x768x32,auto/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg ; rm /etc/T
