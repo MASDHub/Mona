@@ -42,7 +42,7 @@ X="/$(cat /etc/U)/.xinitrc"
 cp /etc/X11/xinit/xinitrc $X
 sed -i 's/twm/openbox-session/' $X
 sed -i -e "2 s/$E-Beka/" -e "s/$D/" \
-"3 s/$E/" ${C}gtk-3.0/settings.ini
+-e "3 s/$E/" ${C}gtk-3.0/settings.ini
 sed -i -e "1 s/$E-Beka/" -e "s/$D/" \
 -e "2 s/$E/" ${C}gtk-2.0/gtkrc; echo '
 M="$(find /home/*/.screenlayout/*.sh)"
