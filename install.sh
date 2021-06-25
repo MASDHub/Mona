@@ -37,12 +37,12 @@ locale-gen; echo "${U}" >> /etc/U; hwclock \
 --systohc ; echo "${P}" > /etc/hostname; sed -i \
 's/twm/openbox-session/' /etc/X11/xinit/xinitrc
 echo -e 'M="$(find /home/*/.screenlayout/*.sh)"
-N="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
-O="$(xrandr|egrep -c '"'HDMI|eDP'"')"
-P="$(xrandr|egrep -o '"'HDMI-1|HDMI1'"')"
+N="$(xrandr|egrep -o '"'HDMI-1|HDMI1'"')"
+O="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
+P="$(xrandr|egrep -c '"'HDMI|eDP'"')"
 if [ -r "${M}" ] && $(grep -q xrandr ${M})
-then ${M}; else if [[ "${O}" -ge "2" ]]
-then xrandr --output $N --off --output $P --auto
+then ${M}; else if [[ "${P}" -ge "2" ]]
+then xrandr --output $O --off --output $N --auto
 fi ; fi' >> ${C}/sddm/scripts/Xsetup
 ##
 sed -i -e "2 s/$E-Beka/" -e "s/$D/" -e "3 s/$E/" \
