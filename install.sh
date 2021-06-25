@@ -20,13 +20,13 @@ D='Cantarell 11/Fira Sans Condensed Book'
 C='Adwaita/Oranchelo' ; F='systemctl enable'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 echo -en "\n${A}User Name: ${B}"
-read R ; until [[ ${#U} -gt 4 ]] \
-&& [[ "${U}" =~ ^[a-z]*$ ]] ; do \
+read R; until [[ ${#U} -gt 4 ]] \
+&& [[ "${U}" =~ ^[a-z]*$ ]]; do \
 read -p 'Retry: ' R && U="${R,,}"
 done ; useradd -m -G wheel "${U}"
 echo -e "${A}User Password: ${B}"
-until passwd ${U} ; do echo ; done
-echo -e "${A}Root Password:${B}"
+until passwd ${U}; do echo; done 
+echo -e "${A}Root${B} Password:"
 until passwd ; do echo ; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
 sed -i 's/#en_US./en_US./' /etc/locale.gen
