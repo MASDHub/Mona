@@ -30,8 +30,8 @@ e "Enter ${A}Root${B} Password" ; until \
 passwd ; do echo ; done
 sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
-P="${U}pc" ; echo "${P}" >> /etc/hostname
-ln -sf ${C}"$(cat /etc/T)" /etc/localtime
+ln -sf ${C}/"$(cat /etc/T)" /etc/localtime
+P="${U}pc"; echo "${P}" >> /etc/hostname
 locale-gen; echo /${U} >> /etc/U; hwclock \
 --systohc ; X="home$(cat /etc/U)/.xinitrc"
 rm /etc/T ; cp /etc/X11/xinit/xinitrc /$X
