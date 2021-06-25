@@ -18,7 +18,7 @@ head -n 16 -- "$0" | tail -n 13
 A='\e[1;31m' ; B='\e[0m' ; E='/usr/share/gtk-'
 D='Cantarell 11/Fira Sans Condensed Book'
 C='Adwaita/Oranchelo' ; F='systemctl enable '
-X='xinit'
+X="$(cat /etc/U)"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 echo -en "\n${A}User Name: ${B}"
 read R; until [[ ${#U} -gt 4 ]] \
@@ -32,8 +32,8 @@ until passwd; do echo; done
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
 sed -i 's/#en_US./en_US./' /etc/locale.gen
 echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
-locale-gen ; echo "${P}" > /etc/hostname
-P="${U}pc" ; echo "${U}" > /etc/U ; echo "
+locale-gen; echo "${P}" >> /etc/hostname
+echo -e "/home/"${U}"/" >> /etc/U ; echo "
 127.0.0.1       localhost
 ::1             localhost
 127.0.1.1       ${P}.localdomain $P"\
@@ -52,6 +52,8 @@ if [ -r "${M}" ] && $(grep -q xrandr ${M})
 then ${M} ; else if [[ "${M2}" -ge "2" ]] 
 then xrandr --output ${M1} --off --output ${M3} --auto
 fi ; fi' >> ${E}sddm/scripts/Xsetup
+cp /etc/X11/xinit/xinitrc ${X}.xinitrc
+sed -i 's/twm/openbox-session/' ${X}.xinitrc
 echo -e "${A}DISPLAY ENABLED${B}"; ${F}sddm
 echo -e "${A}NETWORK CONNECT${B}"; ${F}NetworkManager
 echo -e "${A}INSTALLING GRUB${B}"; grub-install \
