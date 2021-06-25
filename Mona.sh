@@ -1,17 +1,17 @@
 #!/bin/bash
 setfont ter-124b
 head -n 8 -- "$0" | tail -n 4
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-    #     Mozart - Moonlight Sonata          #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+    #     Mozart - Moonlight Sonata         #
  #         0:35 ━❍──────── -5:32      #
    #       ↻     ⊲  Ⅱ  ⊳     ↺            #
 #          VOLUME: ▁▂▃▄▅▆▇ 100%        #
-E='mount -o noatime,compress=zstd,subvol=@'  #
-F='btrfs su cr @' ; G='/etc/mkinitcpio.conf' #
-H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"    #
-I='timedatectl set' ; J='/etc/pacman.'       #
-T=" $(curl -s https://ipapi.co/timezone)"    #
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+E='mount -o noatime,compress=zstd,subvol=@' #
+F='btrfs su cr @' ; G='timedatectl set'     #
+H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"   #
+I='/etc/mkinitcpio.conf' ; J='/etc/pacman.' #
+T=" $(curl -s https://ipapi.co/timezone)"   #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate; head -n 5 \
 -- "$0"| tail -n 1 ; lsblk -do NAME,SIZE -\
 e 7,11 | egrep --color [A-Z] ; read -r -p \
@@ -29,8 +29,8 @@ ${E}home ${C} /mnt/home; lsblk -e 7,11
 if [ "${H}" == Intel ] ; then H1='i915 ' && \
 H2='intel-ucode ' ; fi ; if [ "${H}" == AMD ]
 then H1='amdgpu ' && H2='amd-ucode'; fi
-${I}-timezone${T} && ${I}-ntp true ; sed -i \
-"s/ULES=()/ULES=(${H1}btrfs)/" ${G}; sed -i \
+${G}-timezone${T} && ${G}-ntp true ; sed -i \
+"s/ULES=()/ULES=(${H1}btrfs)/" ${I}; sed -i \
 's/#Co/Co/' ${J}conf; reflector -p https -c \
 "$(curl -s https://ipapi.co/country)" -a 12 \
 -f 2 --sort rate --save ${J}d/mirrorlist || \
@@ -48,7 +48,7 @@ firefox firefox-ublock-origin geany-plugins \
 libreoffice-still otf-fira-mono trayer sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
 volumeicon screengrab galculator xorg-xinit \
-arandr ${H2} ; cp ${G} /mnt${G} ; curl -sSL \
+arandr ${H2} ; cp ${I} /mnt${I} ; curl -sSL \
 https://raw.githubusercontent.com/djsharcode\
 /Mona/main/install.sh -o /mnt/etc/install.sh
 echo ${T} > /mnt/etc/T 
