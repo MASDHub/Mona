@@ -34,8 +34,8 @@ P="${U}pc" ; echo "${P}" >> /etc/hostname
 ln -sf ${C}"$(cat /etc/T)" /etc/localtime
 locale-gen; echo "${U}" > /etc/U; hwclock \
 --systohc; X="home/$(cat /etc/U)/.xinitrc"
-cp /etc/X11/xinit/xinitrc /$X
-sed -i 's/twm/openbox-session/' /$X
+rm /etc/T; cp /etc/X11/xinit/xinitrc /$X
+sed -i -e 's/twm/openbox-session/' /$X
 sed -i -e "2 s/$E-Beka/" -e "s/$D/" \
 -e "3 s/$E/" ${C}/gtk-3.0/settings.ini
 sed -i -e "1 s/$E-Beka/" -e "s/$D/" \
@@ -58,6 +58,6 @@ echo -e "\n${A}GRUB${B}\n" ; grub-install \
 /etc/default/grub; grub-mkconfig -o /boot/grub/grub.cfg
 curl -sSL https://raw.githubusercontent.com/djSharcode\
 /Mona/main/installMo.sh > /"$(cat /etc/U)"/installMO.sh 
-rm /etc/T ; cd /; chown root:root /home; chmod 755 /home
+cd /; chown root:root /home; chmod 755 /home
 runuser --login $U --session-command "sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
