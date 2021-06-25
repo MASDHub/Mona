@@ -19,15 +19,15 @@ A='\e[1;31m' ; B='\e[0m' ; C='/usr/share/'
 D='Cantarell 11/Fira Sans Condensed Book'
 E='Adwaita/Oranchelo' ; F='systemctl enable'
 Z='             ' #~~~~~~~~~~~~~~~~~~~~~~~~~#
-echo -en "${A}User Name: ${B}" ; read -r \
-R && U="${R,,}"; until [[ ${#U} -gt 4 ]] \
-&& [[ "${U}" =~ ^[a-z]*$ ]] ; do read -r \
--p 'Try Again : ' R && U="${R,,}"
-done ; useradd -m -G wheel "${U}"
-echo -e "${A}User Password: ${B}"
-until passwd ${U}; do echo; done
-echo -e "${A}Root${B} Password:"
-until passwd ; do echo ; done
+printf "${A}User Name: ${B}"; read -r R \
+&& U="${R,,}" ; until [[ ${#U} -gt 4 ]] \
+&& [[ "${U}" =~ ^[a-z]*$ ]]; do read -r \
+-p 'Try Again: ' R && U="${R,,}" 
+done ; useradd -m -G wheel ${U} ; echo -\
+e "${A}Enter User Password${B}" ; until \
+passwd  "${U}" ; do echo ; done ; echo -\
+e "Enter ${A}Root${B} Password" ; until \
+passwd ; do echo ; done 
 sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 locale-gen ; echo home/$U > /etc/U 
