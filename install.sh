@@ -59,7 +59,7 @@ fi ; fi' >> /${E}/sddm/scripts/Xsetup ; echo -e \
 sed -i 's/auto/1920x1080,auto/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg ; curl -sSL \
 https://raw.githubusercontent.com/djSharcode/Mona\
-/main/installMo.sh > /$(cat /etc/U)/installMO.sh 
+/main/installMo.sh > /"$(cat /etc/U)"/installMO.sh 
 rm /etc/T ; cd /; chown root:root /home; chmod 755 /home
 runuser --login $U --session-command "sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
