@@ -12,12 +12,12 @@ H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"    #
 I='timedatectl set' ; J='/etc/pacman.'       #
 T=" $(curl -s https://ipapi.co/timezone)"    #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k|pacman-key --populate; head -n 5 -\
-- "$0"|tail -n 1 ; lsblk -do NAME,SIZE -e\
- 7,11 | egrep --color [A-Z] ; read -r -p \
-'Disk Name: ' A ; until sgdisk /dev/${A} \
--Z -o -n 1::+512M -t 1:EF00 -n -i -p; do \
-lsblk -e 7,11 -o NAME,SIZE|egrep --color \
+gpg -k | pacman-key --populate; head -n 5 \
+-- "$0"| tail -n 1 ; lsblk -do NAME,SIZE -\
+e 7,11 | egrep --color [A-Z] ; read -r -p \
+'Disk Name : ' A ; until sgdisk /dev/${A} \
+-Z -o -n 1::+512M -t 1:EF00 -n -i -p ; do \
+lsblk -e 7,11 -do NAME,SIZE|egrep --color \
 [A-Z] && read -r -p "Retry: " A ; done
 B=" $(ls /dev/*|egrep "^/dev/${A}p?1$") "
 C=" $(ls /dev/*|egrep "^/dev/${A}p?2$") "
