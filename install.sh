@@ -21,8 +21,8 @@ E='Adwaita/Oranchelo' ; F='systemctl enable'
 Z='             ' #~~~~~~~~~~~~~~~~~~~~~~~~~#
 printf "${A}User Name: ${B}"; read -r R \
 && U="${R,,}" ; until [[ ${#U} -gt 4 ]] \
-&& [[ "${U}" =~ ^[a-z]*$ ]]; do read -r \
--p 'Try Again: ' R && U="${R,,}" 
+&& [[ "${U}" =~ ^[a-z]*$ ]]; do printf "\
+${A}Retry:${B}" && read -r R && U="${R,,}" 
 done ; useradd -m -G wheel ${U} ; echo -\
 e "${A}Enter User Password${B}" ; until \
 passwd  "${U}" ; do echo ; done ; echo -\
