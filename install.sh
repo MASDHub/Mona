@@ -14,11 +14,11 @@ head -n 16 -- "$0" | tail -n 13
 #d88%            %%%8--'-.        
 #/88:.__ ,       _%-' ---  -       
  #  '''::===..-'   =  --.  `                 
-S='       ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+S='       localhost' #~~~~~~~~~~~~~~~~~~~~~#
 A='\e[1;31m' ; B='\e[0m' ; C='/usr/share'
 D='Cantarell 11/Fira Sans Condensed Book'
 E='Adwaita/Oranchelo' ; F='systemctl enable'
-Z='             ' #~~~~~~~~~~~~~~~~~~~~~~~~~#
+Z='             localhost' #~~~~~~~~~~~~~~~#
 printf "${A}User Name: ${B}"; read -r R \
 && U="${R,,}" ; until [[ ${#U} -gt 4 ]] \
 && [[ "${U}" =~ ^[a-z]*$ ]]; do printf "\
@@ -27,15 +27,15 @@ done ; useradd -m -G wheel ${U} ; echo -\
 e "${A}Enter User Password${B}" ; until \
 passwd  "${U}" ; do echo ; done ; echo -\
 e "Enter ${A}Root${B} Password" ; until \
-passwd ; do echo ; done
+passwd ; do echo ; done ; P="${U}pc"
+echo -e "127.0.0.1${S}::1${Z}127.0.1.1\
+       ${P}.localdomain $P" >> /etc/hosts 
 sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 ln -sf ${C}/"$(cat /etc/T)" /etc/localtime
-P="${U}pc" ; echo "${P}" > /etc/hostname
-locale-gen ; echo ${U} >> /etc/U ; hwclock \
---systohc  ; echo -e "127.0.0.1${S}localhost
-::1${Z}localhost\n127.0.1.1${S}$P.localdomain
-$P" > /etc/hosts 
+locale-gen; echo "${U}" >> /etc/U; hwclock \
+--systohc ; echo "${P}" > /etc/hostname
+##
 sed -i 's/twm/openbox-session/' /etc/X11/xinit/xinitrc
 sed -i -e "2 s/$E-Beka/" -e "s/$D/" -e "3 s/$E/" \
 ${C}/gtk-3.0/settings.ini ; sed -i -e "1 s/$E-Beka/" \
