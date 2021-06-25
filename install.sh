@@ -27,15 +27,13 @@ done ; useradd -m -G wheel ${U} ; echo -\
 e "${A}Enter User Password${B}" ; until \
 passwd  "${U}" ; do echo ; done ; echo -\
 e "Enter ${A}Root${B} Password" ; until \
-passwd ; do echo ; done 
-sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers
+passwd ; do echo ; done
+sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers 
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
-locale-gen ; echo home/$U > /etc/U 
-echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
-P="${U}pc" ; echo ${P} >> /etc/hostname 
-echo -e "127.0.0.1${S}localhost
-::1${Z}localhost\n127.0.1.1${S}\
-${P}.localdomain $P" > /etc/hosts  
+P="${U}pc" ; echo "${P}" >> /etc/hostname 
+locale-gen; echo home/$U > /etc/U ; echo \
+-e "127.0.0.1${S}localhost\n::1${Z}localhost
+127.0.1.1${S}$P.localdomain $P" > /etc/hosts  
 ln -sf ${C}zoneinfo/$(cat /etc/T) \
 /etc/localtime ; hwclock --systohc
 X="/$(cat /etc/U)/.xinitrc"
