@@ -33,8 +33,8 @@ echo -e "127.0.0.1${S}::1${Z}127.0.1.1\
 sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 ln -sf ${C}/"$(cat /etc/T)" /etc/localtime
-locale-gen; echo "${U}" >> /etc/U; hwclock \
---systohc ; echo "${P}" > /etc/hostname ; sed -i \
+locale-gen; echo "${U}" >> /etc/U ; hwclock \
+--systohc ; echo "${P}" > /etc/hostname; sed -i \
 's/twm/openbox-session/' /etc/X11/xinit/xinitrc
 ##
 sed -i -e "2 s/$E-Beka/" -e "s/$D/" -e "3 s/$E/" \
