@@ -29,7 +29,7 @@ passwd  "${U}" ; do echo ; done ; echo -\
 e "Enter ${A}Root${B} Password" ; until \
 passwd; do echo; done; P="${U}1"; echo -\
 e "127.0.0.1${S}\n::1${Z}\n127.0.1.1    \
-       ${P}.localdomain $P" >> /etc/hosts
+       ${P}.localdomain $P" > /etc/hosts
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 ln -sf "${C}/$(cat /etc/T)" /etc/localtime
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers; hwc\
