@@ -48,11 +48,11 @@ firefox firefox-ublock-origin geany-plugins \
 libreoffice-still otf-fira-mono trayer sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
 volumeicon screengrab galculator xorg-xinit \
-arandr ${H2} ; cp ${I} /mnt${I} ; curl -sSL \
+arandr geeqie ${H2} ; curl -sSL \
 https://raw.githubusercontent.com/djsharcode\
 /Mona/main/install.sh -o /mnt/etc/install.sh
 echo "zoneinfo/${T}" >> /mnt/etc/T
-cp ${J}conf /mnt${J}conf
+cp ${J}conf /mnt${J}conf ; cp ${I} /mnt${I} 
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
