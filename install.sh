@@ -28,13 +28,13 @@ e "${A}Enter User Password${B}" ; until \
 passwd  "${U}" ; do echo ; done ; echo -\
 e "Enter ${A}Root${B} Password" ; until \
 passwd; do echo; done; P="${U}1"; echo -\
-e "127.0.0.1${S}\n::1${Z}\n127.0.1.1  \
-     ${P}.localdomain ${P}" >> /etc/hosts 
-sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers
+e "127.0.0.1${S}\n::1${Z}\n127.0.1.1    \
+       ${P}.localdomain $P" > /etc/hosts
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 ln -sf ${C}/"$(cat /etc/T)" /etc/localtime
-locale-gen; echo "${U}" >> /etc/U; hwclock \
---systohc ; echo "${P}" > /etc/hostname; sed -i \
+sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
+locale-gen ; echo ${U} >> /etc/U; hwclock\
+ --systohc ; echo ${P} > /etc/hostname; sed -i \
 's/twm/openbox-session/' /etc/X11/xinit/xinitrc
 echo -e 'M="$(find /home/*/.screenlayout/*.sh)"
 N="$(xrandr|egrep -o '"'HDMI-1|HDMI1'"')"
