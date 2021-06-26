@@ -5,11 +5,11 @@ A='.config/openbox' ; B='<item label="'
 Z='.config/pikaur.conf' ; S='sleep 2 &&'
 C='"><action name="Execute"><command>'
 D='</command></action></item>' 
-E='<separator></separator>' Q='docks.ini'
+E='<separator></separator>' ; Q='docks.ini'
 F='.config/plank/dock1/launchers'
 G='net/launchpad/plank/docks'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-mkdir ~/${A} ; git clone \
+mkdir ~/.config ~/${A} ; git clone \
 https://aur.archlinux.org/pikaur.git
 cd pikaur; makepkg -sri; pikaur -S \
 picom-git oranchelo-icon-theme-git \
