@@ -37,7 +37,7 @@ lock --systohc; echo $P > /etc/hostname
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
 locale-gen ; echo $U >> /etc/U; sed -i 's\
 /twm/openbox-session/' /etc/X11/xinit/xinitrc
--e 'M="$(find /home/*/.screenlayout/*.sh)"
+echo -e 'M="$(find /home/*/.screenlayout/*.sh)"
 N="$(xrandr|egrep -o '"'HDMI-1|HDMI1'"')"
 O="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
 P="$(xrandr|egrep -c '"'HDMI|eDP'"')"
