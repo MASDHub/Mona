@@ -9,7 +9,9 @@ E='<separator></separator>' ; Q='docks.ini'
 F='.config/plank/dock1/launchers'
 G='net/launchpad/plank/docks'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-mkdir ~/.config ~/${A} ; git clone \
+mkdir ~/.config 
+cp -a etc/xdg/openbox/ ~/.config/
+git clone \
 https://aur.archlinux.org/pikaur.git
 cd pikaur; makepkg -sri; pikaur -S \
 picom-git oranchelo-icon-theme-git \
@@ -23,17 +25,20 @@ e 's/W-e/0x85/' -e 's/A-space/0x85/' -\
 e 's/Konqueror/m/' -e '5,99 s/9/13/' -\
 e 's/Clearlooks/Bear2/' -e \
 's/kfmclient openProfile filemanagement/rofi -show drun/' ~/${A}/rc.xml
-cp -a etc/xdg/openbox/ ~/.config/
-##
-echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">
-${B}Files${C}nemo${D}\n${B}Search${C}rofi -show drun${D}
-${B}Web${C}firefox${D}\n${B}Terminal${C}alacritty${D}
-${B}Text${C}geany${D}\n${B}Calculator${C}galculator${D}
-${E}\n${B}Refresh${C}openbox --reconfigure${D}\n${E}
-${B}Lock Screen${C}xlock -mode atlantis +description \
--echokeys -echokey '*' -info "'"Enter password to unlock"'"${D}
-${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}
-</menu></openbox_menu>" >> ~/${A}/menu.xml
+echo -e "<menu id="'"root-menu"'" \
+label="'"Openbox 3"'"> \n${B}Files\
+${C}nemo${D}\n${B}Search${C}rofi -\
+show drun ${D}\n${B}Web${C}firefox\
+${D}\n${B}Terminal${C}alacritty${D}
+${B}Text${C}geany${D}\n${B}Calcula\
+tor${C}galculator${D}${E}\n${B}Ref\
+resh${C}openbox --reconfigure ${D}\
+${E}${B}Lock Screen${C}xlock -mode\
+atlantis -echokeys -echokey '*' -i\
+nfo +description "'"Password : "'"\
+${D}\n${B}Reboot${C}reboot${D}${B}\
+Power Off${C}poweroff${D}\n</menu>\
+</openbox_menu>" >> ~/${A}/menu.xml
 echo -e "lxqt-policykit &\n\npicom \
 --experimental-backends &\n\nplank &
 \ntrayer --monitor primary --align \
