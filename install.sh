@@ -44,11 +44,11 @@ P="$(xrandr|egrep -c '"'HDMI|eDP'"')"
 if [ -r "${M}" ] && $(grep -q xrandr ${M})
 then ${M} ; else if [[ "${P}" -ge "2" ]]
 then xrandr --output $O --off --output $N --auto
-fi ; fi' >> ${C}/sddm/scripts/Xsetup
-sed -i -e "2 s/${E}-Beka/" -e "s/${D}/" \
--e "3 s/${E}/" ${C}/gtk-3.0/settings.ini 
-sed -i -e "1 s/${E}-Beka/" -e "s/${D}/" \
--e "2 s/$E/" ${C}/gtk-2.0/gtkrc; sed -i \
+fi ; fi' > ${C}/sddm/scripts/Xsetup
+sed -i -e "2 s/${E}-Beka/" -e "s/${D}/" -\
+e "3 s/${E}/" ${C}/gtk-3.0/settings.ini 
+sed -i -e "1 s/${E}-Beka/" -e "s/${D}/" -\
+e "2 s/${E}/" ${C}/gtk-2.0/gtkrc; sed -i \
 's/auto/1920x1080,auto/' /etc/default/grub
 echo -e "${A}DISPLAY MANGER${B}"; ${F}sddm
 echo -e "${A}NETWORK${B}"; ${F}NetworkManager
