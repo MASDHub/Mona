@@ -9,14 +9,14 @@ E='<separator></separator>'
 F='.config/plank/dock1/launchers'
 G='net/launchpad/plank/docks'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-git clone \
+mkdir ~/${A} ; git clone \
 https://aur.archlinux.org/pikaur.git
 cd pikaur; makepkg -sri; pikaur -S \
 picom-git oranchelo-icon-theme-git \
 jbxkb ttf-ms-fonts timeshift; sed -\
 i 's/g = no/g = yes/' ~/${Z}; sed -\
 i 's/g = no/g = yes/' ~/${Z}; sed -\
-i '5,$d' ~/${A}/menu.xml; mkdir ~/$A
+i '5,$d' ~/${A}/menu.xml
 cp -a etc/xdg/openbox/ ~/.config/
 echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">
 ${B}Files${C}nemo${D}\n${B}Search${C}rofi -show drun${D}
