@@ -4,8 +4,8 @@ set -euo pipefail
 A='.config/openbox' ; B='<item label="'
 Z='.config/pikaur.conf' ; S='sleep 2 &&'
 C='"><action name="Execute"><command>'
-D='</command></action></item>'
-E='<separator></separator>'
+D='</command></action></item>' 
+E='<separator></separator>' Q='docks.ini'
 F='.config/plank/dock1/launchers'
 G='net/launchpad/plank/docks'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -40,10 +40,10 @@ echo -e "lxqt-policykit &\n\npicom \
 right --tint 0x716966 --height 40 -\
 -transparent true &\n\n(nm-applet) &
 \n(volumeicon) &\n\n(sleep 5 && sh \
-~/mona.sh)&" > ~/${A}/autostart
-echo -e 'dconf dump /'"$G"'/ > ~/docks.ini
-'"$S"' sed -i '"'s/bottom/right/'"' ~/docks.ini
-'"$S"' cat ~/docks.ini | dconf load /'"$G"'/
+~/mona.sh) &" > ~/$A/autostart
+echo -e 'dconf dump /'"$G"'/ > ~/'"$Q"'
+'"$S"' sed -i '"'s/bottom/right/'"' ~/'"$Q"'
+'"$S"' cat ~/'"$Q"' | dconf load /'"$G"'/
 '"$S"' echo -e "'"[PlankDockItemPreferences]
 Launcher=file:///usr/share/applications/nemo\
 .desktop"'"\ > ~/'"$F"'/nemo.dockitem
@@ -58,7 +58,7 @@ Launcher=file:///usr/share/applications/nemo\
 '"'s/b_slider=false/b_slider=true/'"'\
   ~/.config/volumeicon/volumeicon
 '"$S"' volumeicon ; sleep 10 && \
-rm ~/docks.ini && rm ~/mona.sh' > ~/mona.sh 
+rm ~/'"$Q"' && rm ~/mona.sh' > ~/mona.sh 
 su root -c "chmod 755 /$(cat /etc/U)/mona.sh && rm /etc/U && rm -- $0"
 echo -e '\e[1;31mDone!\nTo Finish Type: "'"reboot"'"\e[0m'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
