@@ -16,7 +16,13 @@ picom-git oranchelo-icon-theme-git \
 jbxkb ttf-ms-fonts timeshift; sed -\
 i 's/g = no/g = yes/' ~/${Z}; sed -\
 i 's/g = no/g = yes/' ~/${Z}; sed -\
-i '5,$d' ~/${A}/menu.xml
+i '5,$d' ~/${A}/menu.xml ; sed -i -\
+e '5,120 s/8/12/' -e '131 s/4/2/' -\
+e 's/sans/Fira Sans Condensed Book/' -\
+e 's/W-e/0x85/' -e 's/A-space/0x85/' -\
+e 's/Konqueror/m/' -e '5,99 s/9/13/' -\
+e 's/Clearlooks/Bear2/' -e \
+'s/kfmclient openProfile filemanagement/rofi -show drun/' ~/${A}/rc.xml
 cp -a etc/xdg/openbox/ ~/.config/
 echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">
 ${B}Files${C}nemo${D}\n${B}Search${C}rofi -show drun${D}
