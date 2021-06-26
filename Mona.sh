@@ -1,6 +1,6 @@
 #!/bin/bash
 setfont ter-124b
-head -n 8 -- "$0" | tail -n 4
+head -n 8 -- $0|tail -n 4
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     #     Mozart - Moonlight Sonata       #
  #         0:35 ━❍──────── -5:32     #
@@ -15,7 +15,7 @@ T="$(curl -s https://ipapi.co/timezone)"
 gpg -k |pacman-key --populate; head -n 5 -\
 - "$0" | tail -n 1 ; lsblk -do NAME,SIZE -\
 e 7,11 | grep -E --color [A-Z] ; read -r -\
-p 'Disk Name: ' A : until sgdisk /dev/$A -\
+p 'Disk Name: ' A ; until sgdisk /dev/$A -\
 Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
 do lsblk -e 7,11 -do NAME,SIZE | grep -E -\
 -color [A-Z] && read -r -p 'Retry: ' A; done
