@@ -17,7 +17,7 @@ head -n 16 -- $0|tail -n 13
 S='       localhost' #~~~~~~~~~~~~~~~~~~~~~#
 A='\e[1;31m' ; B='\e[0m' ; C='/usr/share'
 D='Cantarell 11/Fira Sans Condensed Book'
-E='Adwaita/Oranchelo' ; F='systemctl enable'
+E='Adwaita/Oranchelo' ; F='systemctl enable '
 Z='             localhost' #~~~~~~~~~~~~~~~#
 printf "${A}User Name: ${B}"; read -r R \
 && U="${R,,}" ; until [[ ${#U} -gt 4 ]] \
@@ -45,18 +45,19 @@ if [ -r "${M}" ] && $(grep -q xrandr ${M})
 then ${M} ; else if [[ "${P}" -ge "2" ]]
 then xrandr --output $O --off --output $N --auto
 fi ; fi' >> ${C}/sddm/scripts/Xsetup
-##
-sed -i -e "2 s/${E}-Beka/" -e "s/$D/" -e "3 s/$E/" \
-${C}/gtk-3.0/settings.ini; sed -i -e "1 s/$E-Beka/" \
--e "s/$D/" -e "2 s/$E/" ${C}/gtk-2.0/gtkrc
-echo -e "${A}DISPLAY MGR${B}"; ${F} sddm; echo \
--e "${A}NETWORKS${B}"; ${F} NetworkManager
-echo -e "\n${A}GRUB${B}\n" ; grub-install \
---target=x86_64-efi --efi-directory=/boot \
---bootloader-id=GRUB; sed -i 's/auto/1920x1080,auto/' \
-/etc/default/grub; grub-mkconfig -o /boot/grub/grub.cfg
-curl -sSL https://raw.githubusercontent.com/djSharcode\
-/Mona/main/installMo.sh > /"$(cat /etc/U)"/installMO.sh 
-cd /; chown root:root /home; chmod 755 /home
+sed -i -e "2 s/${E}-Beka/" -e "s/$D/" \
+-e "3 s/$E/" ${C}/gtk-3.0/settings.ini 
+sed -i -e "1 s/$E-Beka/" -e "s/$D/" \
+-e "2 s/$E/" ${C}/gtk-2.0/gtkrc
+echo -e "${A}DISPLAY MANGER${B}"; ${F}sddm
+echo -e "${A}NETWORK${B}"; ${F}NetworkManager
+sed -i 's/auto/1920x1080,auto/' /etc/default/grub
+echo -e "${A}GRUB${B}\n" ; grub-install --\
+target=x86_64-efi --efi-directory=/boot --\
+bootloader-id=GRUB; grub-mkconfig -o /boot\
+/grub/grub.cfg ; curl -sSL https://raw.git\
+hubusercontent.com/djSharcode/Mona/main/in\
+stallMo.sh >> "/home/$U/installMO.sh"; cd /
+chown root:root /home ; chmod 755 /home
 runuser --login $U --session-command "sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
