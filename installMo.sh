@@ -44,7 +44,8 @@ right --tint 0x716966 --height 40 -\
 echo -e 'dconf dump /'"${G}"'/ > ~/docks.ini
 sleep 2 && sed -i '"'s/bottom/right/'"' ~/docks.ini
 sleep 2 && cat ~/docks.ini | dconf load /'"${G}"'/
-sleep 2 && echo -e "'"[PlankDockItemPreferences]\nLauncher=file:///usr/share/applications/nemo.desktop"'" > ~/'"${F}"'/nemo.dockitem
+sleep 2 && echo -e "'"[PlankDockItemPreferences]
+Launcher=file:///usr/share/applications/nemo.desktop"'" > ~/'"${F}"'/nemo.dockitem
 sleep 1 && rm ~/'"${F}"'/geeqie.dockitem
 sleep 1 && rm ~/'"${F}"'/vlc-1.dockitem
 sleep 1 && rm ~/'"${F}"'/vlc.dockitem
