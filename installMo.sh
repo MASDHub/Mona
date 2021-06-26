@@ -2,21 +2,22 @@
 set -euo pipefail 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='.config/openbox' ; B='<item label="'
+Z='.config/pikaur.conf'
 C='"><action name="Execute"><command>'
 D='</command></action></item>'
 E='<separator></separator>'
 F='.config/plank/dock1/launchers'
 G='net/launchpad/plank/docks'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-mkdir ~/$A ; git clone \
+git clone \
 https://aur.archlinux.org/pikaur.git
 cd pikaur; makepkg -sri; pikaur -S \
 picom-git oranchelo-icon-theme-git \
 jbxkb ttf-ms-fonts timeshift; sed -\
-i 's/g = no/g = yes/' ~/.config/pikaur.conf
-sed -i 's/g = no/g = yes/' ~/.config/pikaur.conf
-cp -a /etc/xdg/openbox/ ~/.config/
-sed -i '5,$d' ~/${A}/menu.xml
+i 's/g = no/g = yes/' ~/${Z}; sed -\
+i 's/g = no/g = yes/' ~/${Z}; sed -\
+i '5,$d' ~/${A}/menu.xml; mkdir ~/$A
+cp -a etc/xdg/openbox/ ~/.config/
 echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">
 ${B}Files${C}nemo${D}\n${B}Search${C}rofi -show drun${D}
 ${B}Web${C}firefox${D}\n${B}Terminal${C}alacritty${D}
