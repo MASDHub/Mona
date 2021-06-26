@@ -1,22 +1,22 @@
 #!/bin/bash
 setfont ter-124b
 head -n 8 -- "$0" | tail -n 4
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-    #     Mozart - Moonlight Sonata         #
- #         0:35 ━❍──────── -5:32      #
-   #       ↻     ⊲  Ⅱ  ⊳     ↺            #
-#          VOLUME: ▁▂▃▄▅▆▇ 100%        #
-E='mount -o noatime,compress=zstd,subvol=@' #
-F='btrfs su cr @' ; G='timedatectl set'     #
-H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"   #
-I='/etc/mkinitcpio.conf' ; J='/etc/pacman.' #
-T=" $(curl -s https://ipapi.co/timezone)"   #
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+    #     Mozart - Moonlight Sonata       #
+ #         0:35 ━❍──────── -5:32     #
+   #       ↻     ⊲  Ⅱ  ⊳     ↺          #
+#          VOLUME: ▁▂▃▄▅▆▇ 100%      #
+E='mount -o noatime,compress=zstd,subvol=@' 
+F='btrfs su cr @' ; G='timedatectl set-'    
+H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"   
+I='/etc/mkinitcpio.conf' ; J='/etc/pacman.' 
+T="$(curl -s https://ipapi.co/timezone)"    
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k | pacman-key --populate; head -n 5 \
 -- "$0"| tail -n 1 ; lsblk -do NAME,SIZE -\
 e 7,11 | egrep --color [A-Z] ; read -r -p \
-'Disk Name : ' A ; until sgdisk /dev/${A} \
--Z -o -n 1::+512M -t 1:EF00 -n -i -p ; do \
+'Disk Name: ' A; until sgdisk /dev/${A} -Z\
+ -o -n 1::+512M -t 1:EF00 -n -i -v -p; do \
 lsblk -e 7,11 -do NAME,SIZE|egrep --color \
 [A-Z] && read -r -p "Retry: " A ; done
 B="$(ls /dev/* | egrep "^/dev/${A}p?1$")"
@@ -29,7 +29,7 @@ ${E}home ${C} /mnt/home; lsblk -e 7,11
 if [ "${H}" == Intel ] ; then H1='i915 ' && \
 H2='intel-ucode ' ; fi ; if [ "${H}" == AMD ]
 then H1='amdgpu ' && H2='amd-ucode'; fi
-${G}-timezone${T} && ${G}-ntp true ; sed -i \
+${G}timezone ${T} && ${G}ntp true  ; sed -i \
 "s/ULES=()/ULES=(${H1}btrfs)/" ${I}; sed -i \
 's/#Co/Co/' ${J}conf; reflector -p https -c \
 "$(curl -s https://ipapi.co/country)" -a 12 \
