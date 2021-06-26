@@ -2,7 +2,7 @@
 set -euo pipefail 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='.config/openbox' ; B='<item label="'
-Z='.config/pikaur.conf'
+Z='.config/pikaur.conf' ; S='sleep 2 &&'
 C='"><action name="Execute"><command>'
 D='</command></action></item>'
 E='<separator></separator>'
@@ -41,19 +41,24 @@ right --tint 0x716966 --height 40 -\
 -transparent true &\n\n(nm-applet) &
 \n(volumeicon) &\n\n(sleep 5 && sh \
 ~/mona.sh)&" > ~/${A}/autostart
-echo -e 'dconf dump /'"${G}"'/ > ~/docks.ini
-sleep 2 && sed -i '"'s/bottom/right/'"' ~/docks.ini
-sleep 2 && cat ~/docks.ini | dconf load /'"${G}"'/
-sleep 2 && echo -e "'"[PlankDockItemPreferences]
-Launcher=file:///usr/share/applications/nemo.desktop"'" > ~/'"${F}"'/nemo.dockitem
-sleep 1 && rm ~/'"${F}"'/geeqie.dockitem
-sleep 1 && rm ~/'"${F}"'/vlc-1.dockitem
-sleep 1 && rm ~/'"${F}"'/vlc.dockitem
-sleep 1 && sed -i '"'13,"'$d'"'"' ~/.config/openbox/autostart
-sleep 1 && pkill volumeicon 
-sleep 2 && sed -i -e '"'s/b_slider=false/b_slider=true/'"' -e '"'s/5/1/'"' -e '"'s/l=false/l=true/'"' ~/.config/volumeicon/volumeicon
-sleep 1 && volumeicon
-sleep 10 && rm ~/docks.ini && rm ~/mona.sh' > ~/mona.sh 
+echo -e 'dconf dump /'"$G"'/ > ~/docks.ini
+'"$S"' sed -i '"'s/bottom/right/'"' ~/docks.ini
+'"$S"' cat ~/docks.ini | dconf load /'"$G"'/
+'"$S"' echo -e "'"[PlankDockItemPreferences]
+Launcher=file:///usr/share/applications/nemo\
+.desktop"'"\ > ~/'"$F"'/nemo.dockitem
+'"$S"' rm ~/'"$F"'/geeqie.dockitem
+'"$S"' rm ~/'"$F"'/vlc-1.dockitem
+'"$S"' rm ~/'"$F"'/vlc.dockitem
+'"$S"' sed -i '"'13,"'$d'"'"'\
+ ~/.config/openbox/autostart
+'"$S"' pkill volumeicon 
+'"$S"' sed -i -e '"'s/5/1/'"' \
+-e '"'s/l=false/l=true/'"' -e \
+'"'s/b_slider=false/b_slider=true/'"'\
+  ~/.config/volumeicon/volumeicon
+'"$S"' volumeicon ; sleep 10 && \
+rm ~/docks.ini && rm ~/mona.sh' > ~/mona.sh 
 su root -c "chmod 755 /$(cat /etc/U)/mona.sh && rm /etc/U && rm -- $0"
 echo -e '\e[1;31mDone!\nTo Finish Type: "'"reboot"'"\e[0m'
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
