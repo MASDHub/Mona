@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-head -n 16 -- "$0"|tail -n 13
+head -n 16 -- $0|tail -n 13
  #8'         8888
 #d8.-=. ,==-.:888b
 #>8 `~` :`~' d8888
@@ -32,11 +32,11 @@ e "127.0.0.1${S}\n::1${Z}\n127.0.1.1    \
        ${P}.localdomain $P" > /etc/hosts
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 sed -i '0,/# %/ s/# %/ %/'  /etc/sudoers
-locale-gen ; echo "${U}" > /etc/U ; sed -i \
-'s/twm/openbox-session/'  /etc/X11/xinit/xinitrc
-ln -sf ${C}$(cat /etc/T) /etc/localtime; hwclo\
-k --systohc ; echo $P > /etc/hostname; echo -e \
-'M="$(find /home/*/.screenlayout/*.sh)"
+locale-gen ; echo "${U}" > /etc/U; sed -i\
+ 's/twm/openbox-session/' /etc/X11/xinit/xinitrc
+ln -sf ${C}$(cat /etc/T) /etc/localtime; hwcl\
+ok --systohc; echo $P > /etc/hostname; echo \
+-e 'M="$(find /home/*/.screenlayout/*.sh)"
 N="$(xrandr|egrep -o '"'HDMI-1|HDMI1'"')"
 O="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
 P="$(xrandr|egrep -c '"'HDMI|eDP'"')"
