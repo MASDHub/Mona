@@ -12,13 +12,13 @@ H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"
 I='/etc/mkinitcpio.conf' ; J='/etc/pacman.' 
 T="$(curl -s https://ipapi.co/timezone)"    
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k | pacman-key --populate; head -n 5 \
--- "$0"| tail -n 1 ; lsblk -do NAME,SIZE -\
-e 7,11 | egrep --color [A-Z] ; read -r -p \
-'Disk Name: ' A; until sgdisk /dev/${A} -Z\
- -o -n 1::+512M -t 1:EF00 -n -i -v -p; do \
-lsblk -e 7,11 -do NAME,SIZE|egrep --color \
-[A-Z] && read -r -p "Retry: " A ; done
+gpg -k |pacman-key --populate; head -n 5 -\
+- "$0" | tail -n 1 ; lsblk -do NAME,SIZE -\
+e 7,11;| grep -E --color [A-Z] ; read -r -\
+p 'Disk Name:' A: until sgdisk /dev/${A} -\
+Z -o -n 1::+512M -t 1:EF00 -n -i -v -p 
+do lsblk -e 7,11 -do NAME,SIZE | grep -E -\
+-color [A-Z] && read -r -p 'Retry:' A; done
 B="$(ls /dev/* | egrep "^/dev/${A}p?1$")"
 C="$(ls /dev/* | egrep "^/dev/${A}p?2$")"
 mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
