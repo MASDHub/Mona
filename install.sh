@@ -32,11 +32,11 @@ e "127.0.0.1${S}\n::1${Z}\n127.0.1.1    \
        ${P}.localdomain $P" > /etc/hosts
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 ln -sf ${C}/"$(cat /etc/T)" /etc/localtime
-sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
-locale-gen ; echo ${U} >> /etc/U; hwclock\
- --systohc ; echo ${P} > /etc/hostname; sed -i \
+sed -i '0,/# %/ s/# %/ %/' /etc/sudoers; hwc\
+lock --systohc; echo $U > /etc/U; sed -i \
 's/twm/openbox-session/' /etc/X11/xinit/xinitrc
-echo -e 'M="$(find /home/*/.screenlayout/*.sh)"
+locale-gen ; echo $P >> /etc/hostname; echo -e '
+M="$(find /home/*/.screenlayout/*.sh)"
 N="$(xrandr|egrep -o '"'HDMI-1|HDMI1'"')"
 O="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
 P="$(xrandr|egrep -c '"'HDMI|eDP'"')"
