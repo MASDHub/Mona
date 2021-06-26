@@ -1,23 +1,22 @@
 #!/usr/bin/bash
 set -euo pipefail 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-Z='.config' ; A="${Z}/openbox" 
-B='<item label="'
+A='.config/openbox' ; B='<item label="'
 C='"><action name="Execute"><command>'
 D='</command></action></item>'
 E='<separator></separator>'
-F="${Z}/plank/dock1/launchers"
+F='.config/plank/dock1/launchers'
 G='net/launchpad/plank/docks'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-git clone \
-https://aur.archlinux.org/pikaur.git  
-cd pikaur ; makepkg -fsri ; pikaur -S \
-ttf-ms-fonts timeshift picom-git jbxkb\
- oranchelo-icon-theme-git ; sed -i \
-'s/g = no/g = yes/' ~/$Z/pikaur.conf
-mkdir ~/$A; cp -a /etc/xdg/openbox/ ~/$Z/
-sed -i 's/g = no/g = yes/' ~/$Z/pikaur.conf
-sed -i '5,$d' ~/${A}/menu.xml 
+mkdir ~/$A ; git clone \
+https://aur.archlinux.org/pikaur.git
+cd pikaur; makepkg -sri; pikaur -S \
+picom-git oranchelo-icon-theme-git \
+jbxkb ttf-ms-fonts timeshift; sed -\
+i 's/g = no/g = yes/' ~/.config/pikaur.conf
+sed -i 's/g = no/g = yes/' ~/.config/pikaur.conf
+cp -a /etc/xdg/openbox/ ~/.config/
+sed -i '5,$d' ~/${A}/menu.xml
 echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">
 ${B}Files${C}nemo${D}\n${B}Search${C}rofi -show drun${D}
 ${B}Web${C}firefox${D}\n${B}Terminal${C}alacritty${D}
