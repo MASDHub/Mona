@@ -24,6 +24,7 @@ e 's/Konqueror/m/' -e '5,99 s/9/13/' -\
 e 's/Clearlooks/Bear2/' -e \
 's/kfmclient openProfile filemanagement/rofi -show drun/' ~/${A}/rc.xml
 cp -a etc/xdg/openbox/ ~/.config/
+##
 echo -e "<menu id="'"root-menu"'" label="'"Openbox 3"'">
 ${B}Files${C}nemo${D}\n${B}Search${C}rofi -show drun${D}
 ${B}Web${C}firefox${D}\n${B}Terminal${C}alacritty${D}
@@ -33,11 +34,6 @@ ${B}Lock Screen${C}xlock -mode atlantis +description \
 -echokeys -echokey '*' -info "'"Enter password to unlock"'"${D}
 ${B}Reboot${C}reboot${D}\n${B}Power Off${C}poweroff${D}
 </menu></openbox_menu>" >> ~/${A}/menu.xml
-sed -i -e '50,120 s/9/13/' -e 's/W-e/0x85/' -e '131 s/4/2/' \
--e 's/kfmclient openProfile filemanagement/rofi -show drun/' \
--e 's/sans/Fira Sans Condensed Book/g' -e 's/Konqueror/menu/' \
--e '50,120 s/8/12/' -e 's/A-space/0x85/' \
--e 's/Clearlooks/Bear2/' ~/${A}/rc.xml
 echo -e "lxqt-policykit &\n\npicom \
 --experimental-backends &\n\nplank &
 \ntrayer --monitor primary --align \
