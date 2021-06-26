@@ -15,7 +15,7 @@ head -n 16 -- $0|tail -n 13
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
 S='       localhost' #~~~~~~~~~~~~~~~~~~~~~#
-A='\e[1;31m' ; B='\e[0m' ; C='/usr/share/'
+A='\e[1;31m' ; B='\e[0m' ; C='/usr/share'
 D='Cantarell 11/Fira Sans Condensed Book'
 E='Adwaita/Oranchelo' ; F='systemctl enable'
 Z='             localhost' #~~~~~~~~~~~~~~~#
@@ -29,13 +29,14 @@ passwd  "${U}" ; do echo ; done ; echo -\
 e "Enter ${A}Root${B} Password" ; until \
 passwd; do echo; done; P="${U}1"; echo -\
 e "127.0.0.1${S}\n::1${Z}\n127.0.1.1    \
-       ${P}.localdomain $P" > /etc/hosts
+       ${P}.localdomain $P" >> /etc/hosts
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
-sed -i '0,/# %/ s/# %/ %/'  /etc/sudoers
-locale-gen ; echo "${U}" > /etc/U; sed -i\
- 's/twm/openbox-session/' /etc/X11/xinit/xinitrc
-ln -sf ${C}$(cat /etc/T) /etc/localtime; hwcl\
-ok --systohc; echo $P > /etc/hostname; echo \
+ln -sf "${C}/$(cat /etc/T)" /etc/localtime
+sed -i '0,/# %/ s/# %/ %/' /etc/sudoers; hwc\
+lock --systohc; echo $P > /etc/hostname
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
+locale-gen ; echo $U >> /etc/U; sed -i 's\
+/twm/openbox-session/' /etc/X11/xinit/xinitrc
 -e 'M="$(find /home/*/.screenlayout/*.sh)"
 N="$(xrandr|egrep -o '"'HDMI-1|HDMI1'"')"
 O="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
@@ -46,8 +47,8 @@ then xrandr --output $O --off --output $N --auto
 fi ; fi' >> ${C}/sddm/scripts/Xsetup
 ##
 sed -i -e "2 s/${E}-Beka/" -e "s/$D/" -e "3 s/$E/" \
-${C}gtk-3.0/settings.ini; sed -i -e "1 s/$E-Beka/" \
--e "s/$D/" -e "2 s/$E/" ${C}gtk-2.0/gtkrc
+${C}/gtk-3.0/settings.ini; sed -i -e "1 s/$E-Beka/" \
+-e "s/$D/" -e "2 s/$E/" ${C}/gtk-2.0/gtkrc
 echo -e "${A}DISPLAY MGR${B}"; ${F} sddm; echo \
 -e "${A}NETWORKS${B}"; ${F} NetworkManager
 echo -e "\n${A}GRUB${B}\n" ; grub-install \
