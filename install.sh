@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-head -n 16 -- "$0" | tail -n 13
+head -n 16 -- "$0"|tail -n 13
  #8'         8888
 #d8.-=. ,==-.:888b
 #>8 `~` :`~' d8888
