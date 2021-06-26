@@ -28,8 +28,8 @@ e "${A}Enter User Password${B}" ; until \
 passwd  "${U}" ; do echo ; done ; echo -\
 e "Enter ${A}Root${B} Password" ; until \
 passwd; do echo; done; P="${U}1"; echo -\
-e "127.0.0.1${S}\n::1${Z}\n127.0.1.1\
-       ${P}.localdomain $P" >> /etc/hosts 
+e "127.0.0.1${S}\n::1${Z}\n127.0.1.1  \
+     ${P}.localdomain ${P}" >> /etc/hosts 
 sed -i '0,/# %w/ s/# %w/ %w/' /etc/sudoers
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 ln -sf ${C}/"$(cat /etc/T)" /etc/localtime
