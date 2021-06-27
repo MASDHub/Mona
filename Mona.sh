@@ -22,7 +22,7 @@ do lsblk -e 7,11 -do NAME,SIZE | grep -E -\
 B="$(ls /dev/*|egrep "^/dev/${A}p?1$") "
 C="$(ls /dev/*|egrep "^/dev/${A}p?2$") "
 mkfs.vfat ${B}; mkfs.btrfs -fq ${C}
-mount ${C}/mnt; cd /mnt; ${F}home 
+mount ${C}/mnt; cd /mnt; ${F}home
 ${F}; cd ; umount /mnt ; ${E} ${C} /mnt
 mkdir /mnt/{boot,home} ; mount ${B}/mnt/boot
 ${E}home ${C}/mnt/home ; lsblk -e 7,11
@@ -48,11 +48,11 @@ firefox firefox-ublock-origin geany-plugins \
 libreoffice-still otf-fira-mono trayer sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
 volumeicon screengrab galculator xorg-xinit \
-arandr geeqie ${H2} ; curl -sSL \
+arandr geeqie ${H2}; cp ${J}conf /mnt${J}conf
+echo "zoneinfo/$T" > /mnt/etc/T ; curl -sSL \
 https://raw.githubusercontent.com/djsharcode\
 /Mona/main/install.sh -o /mnt/etc/install.sh
-echo "zoneinfo/${T}" >> /mnt/etc/T
-cp ${J}conf /mnt${J}conf ; cp ${I} /mnt${I} 
+cp ${I} /mnt${I}
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
