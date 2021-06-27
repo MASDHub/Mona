@@ -17,7 +17,7 @@ head -n 16 -- $0|tail -n 13
 S='       localhost' #~~~~~~~~~~~~~~~~~~~~~#
 A='\e[1;31m' ; B='\e[0m' ; C='/usr/share'
 D='Cantarell 11/Fira Sans Condensed Book'
-E='Adwaita/Oranchelo' ; F='systemctl enable '
+E='Adwaita/Oranchelo' ; F='systemctl enable'
 Z='             localhost' #~~~~~~~~~~~~~~~#
 printf "${A}User Name: ${B}"; read -r R \
 && U="${R,,}" ; until [[ ${#U} -gt 4 ]] \
@@ -52,8 +52,8 @@ sed -i -e "2 s/${E}-Beka/" -e "s/${D}/" -\
 e "3 s/${E}/" ${C}/gtk-3.0/settings.ini 
 sed -i -e "1 s/${E}-Beka/" -e "s/${D}/" -\
 e "2 s/${E}/" ${C}/gtk-2.0/gtkrc ; echo -\
-e "${A}NETWORKS: ON{B}"; ${F}NetworkManager
-echo -e "${A}DISPLAY MANAGER${B}"; ${F}sddm
+e "${A}NETWORKS-ON{B}"; ${F} NetworkManager
+echo -e "${A}ENABLE DISPLAY${B}"; ${F} sddm
 echo -e ${A}GRUB BIO${B}"; grub-install --\
 target=x86_64-efi --efi-directory=/boot --\
 bootloader-id=GRUB; grub-mkconfig > /boot/\
