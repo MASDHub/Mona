@@ -50,14 +50,15 @@ e "3 s/${E}/" ${C}/gtk-3.0/settings.ini
 sed -i -e "1 s/${E}-Beka/" -e "s/${D}/" -\
 e "2 s/${E}/" ${C}/gtk-2.0/gtkrc; sed -i \
 's/auto/1920x1080,auto/' /etc/default/grub
-echo -e "${A}DISPLAY MANGER${B}"; ${F}sddm
-echo -e "${A}NETWORK${B}"; ${F}NetworkManager
-echo -e "${A}GRUB${B}"; grub-install --\
+printf "${A}DISPLAY MANGER${B}"; ${F}sddm
+printf "${A}NETWORK${B}"; ${F}NetworkManager
+printf "${A}GRUB${B}"; grub-install --\
 target=x86_64-efi --efi-directory=/boot\
 --bootloader-id=GRUB; grub-mkconfig -o \
  /boot/grub/grub.cfg; curl -sL https://\
 raw.githubusercontent.com/djSharcode/Mona\
 /main/installMo.sh > /home/$U/installMO.sh
 cd /; chown root:root /home; chmod 755 /home
-runuser --login $U --session-command "sh ~/installMO.sh"
+runuser --login $U --session-command \
+"sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
