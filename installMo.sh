@@ -1,11 +1,11 @@
 #!/usr/bin/bash
-set -euo pipefail 
+set -euo pipefail ;  S='sleep 2 &&'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='.config/openbox' ; B='<item label="'
-Z='.config/pikaur.conf' ; S='sleep 2 &&'
+Z='.config/pikaur.conf' ; Q='docks.ini'
 C='"><action name="Execute"><command>'
 D='</command></action></item>' 
-E='<separator></separator>' ; Q='docks.ini'
+E='<separator></separator>'
 F='.config/plank/dock1/launchers'
 G='net/launchpad/plank/docks'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -46,7 +46,7 @@ right --tint 0x716966 --height 40 -\
 -transparent true &\n\nnm-applet &\n
 volumeicon &\n(sleep 5 && sh ~/m.sh)\
  &" >> "~/${A}/autostart" ; echo -e \
-'dconf dump /'"${G}"'/ > ~/'"${Q}"' \ 
+'dconf dump /'"${G}"'/ > ~/'"${Q}"' \
 '"$S"' sed -i '"'s/bottom/right/'"' \
 ~/'"${Q}"'\n'"${S}"' cat ~/'"${Q}"' \
 | dconf load /'"${G}"'/   \n'"${S}"'\
@@ -66,5 +66,5 @@ volumeicon ; sleep 10 && rm ~/'"$Q"' && \
 rm ~/m.sh' > ~/m.sh
 su root -c "chmod 755 /$(cat /etc/U)/m.sh \
 && rm /etc/U && rm -- $0" ; echo -e '\e\
-[1;31mDone!\nTo Finish Type: "'"reboot"'"\e[0m'
+[1;31mDone!\nTo Finish Type: reboot\e[0m'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
