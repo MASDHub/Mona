@@ -44,23 +44,23 @@ echo -e "lxqt-policykit &\n\npicom \
 \ntrayer --monitor primary --align \
 right --tint 0x716966 --height 40 -\
 -transparent true &\n\nnm-applet &\n
-volumeicon &\n(sleep 5 && sh ~/m.sh)\
- &" >> ~/${A}/autostart ; echo -e \
-'dconf dump /'"${G}"'/ > ~/'"${Q}"' \
+volumeicon &\n\n(sleep 5 && sh ~/m.\
+sh) &" > ~/${A}/autostart; echo -e \
+'dconf dump /'"${G}"'/ > ~/'"${Q}"'
 '"$S"' sed -i '"'s/bottom/right/'"' \
 ~/'"${Q}"'\n'"${S}"' cat ~/'"${Q}"' \
-| dconf load /'"${G}"'/   \n'"${S}"'\
+| dconf load /'"${G}"'/  \n'"${S}"' \
 echo -e "'"[PlankDockItemPreferences]
 Launcher=file:///usr/share/applications\
 /nemo.desktop"'" > ~/'"$F"'/nemo.dockitem
 '"$S"' rm ~/'"$F"'/geeqie.dockitem
 '"$S"' rm ~/'"$F"'/vlc-1.dockitem
 '"$S"' rm ~/'"$F"'/vlc.dockitem
-'"$S"' sed -i '"'12,"'$d'"'"' 
+'"$S"' sed -i '"'13,"'$d'"'"' \
 ~/.config/openbox/autostart\n'"$S"' \
 pkill volumeicon\n'"$S"'\nsed -i -e \
 '"'s/5/1/'"' -e '"'s/l=false/l=true/'"' \
--e '"'s/b_slider=false/b_slider=true/'"'\
+-e '"'s/b_slider=false/b_slider=true/'"' \
 ~/.config/volumeicon/volumeicon\n'"$S"' \
 volumeicon ; sleep 10 && rm ~/'"$Q"' && \
 rm ~/m.sh' > ~/m.sh
