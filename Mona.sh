@@ -10,7 +10,7 @@ E='mount -o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @' ; G='timedatectl set'
 H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"
 I='/etc/mkinitcpio.conf' ; J='/etc/pacman.'
-T=" $(curl -s https://ipapi.co/timezone)"
+T="$(curl -s https://ipapi.co/timezone)"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate; head -n 5 -\
 - "$0"| tail -n 1 ; lsblk -do NAME,SIZE -\
