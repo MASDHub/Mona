@@ -64,7 +64,7 @@ pkill volumeicon\n'"$S"'\nsed -i -e \
 ~/.config/volumeicon/volumeicon\n'"$S"' \
 volumeicon ; sleep 10 && rm ~/'"$Q"' && \
 rm ~/m.sh' > ~/m.sh
-su root -c "chmod 755 /$(cat /etc/U)/m.sh \
-&& rm /etc/U && rm -- $0" ; echo -e '\e\
-[1;31mDone!\nTo Finish Type: reboot\e[0m'
+su root -c "chmod 755 /home/$(cat /etc/U)\
+/m.sh && rm /etc/U && rm -- $0"; echo -e \
+'\e[1;31mDone!\nTo Finish Type: reboot\e[0m'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
