@@ -51,7 +51,7 @@ e "3 s/${E}/" ${C}/gtk-3.0/settings.ini
 sed -i -e "1 s/${E}-Beka/" -e "s/${D}/" -\
 e "2 s/${E}/" ${C}/gtk-2.0/gtkrc; sed -i \
 's/twm/openbox-session/' /etc/X11/xinit/xinitrc
-echo -e "${A}NETWORKS{B}"; ${F} NetworkManager
+echo -e "${A}NETWORKS${B}"; ${F} NetworkManager
 echo -e "${A}ENABLE DISPLAY${B}"; ${F} sddm
 echo -e "${A}GRUB-2${B}" ; grub-install --\
 target=x86_64-efi --efi-directory=/boot --\
