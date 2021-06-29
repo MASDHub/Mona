@@ -14,11 +14,11 @@ head -n 16 -- $0|tail -n 13
 #d88%            %%%8--'-.
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
-S='       localhost' #~~~~~~~~~~~~~~~~~~~~~#
+S='       ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='\e[1;31m' ; B='\e[0m' ; C='/usr/share'
 D='Cantarell 11/Fira Sans Condensed Book'
 E='Adwaita/Oranchelo' ; F='systemctl enable'
-Z='             ' #~~~~~~~~~~~~~~~~~~~~~~~~#
+Z='             localhost' #~~~~~~~~~~~~#
 printf "${A}User Name: ${B}"; read -r R \
 && U="${R,,}" ; until [[ ${#U} -gt 4 ]] \
 && [[ "${U}" =~ ^[a-z]*$ ]]; do printf "\
@@ -28,8 +28,8 @@ e "${A}Enter User Password${B}" ; until \
 passwd  "${U}" ; do echo ; done ; echo -\
 e "Enter ${A}Root${B} Password" ; until \
 passwd; do echo; done; P="${U}1"; echo -\
-e "127.0.0.1${S}\n::1${Z}localhost\n127.\
-0.1.1${Z}$P.localdomain $P" > /etc/hosts
+e "127.0.0.1${S}localhost\n::1${Z}\n127.\
+0.1.1${S}$P.localdomain $P" > /etc/hosts
 sed -i 's/#en_US.U/en_US.U/' /etc/locale.gen
 ln -sf "${C}/$(cat /etc/T)" /etc/localtime
 sed -i '0,/# %/ s/# %/ %/' /etc/sudoers
