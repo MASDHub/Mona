@@ -45,7 +45,7 @@ echo -e "lxqt-policykit &\n\npicom \
 right --tint 0x716966 --height 40 -\
 -transparent true &\n\nnm-applet &\n
 volumeicon &\n(sleep 5 && sh ~/m.sh)\
- &" >> "~/${A}/autostart" ; echo -e \
+ &" >> ~/${A}/autostart ; echo -e \
 'dconf dump /'"${G}"'/ > ~/'"${Q}"' \
 '"$S"' sed -i '"'s/bottom/right/'"' \
 ~/'"${Q}"'\n'"${S}"' cat ~/'"${Q}"' \
