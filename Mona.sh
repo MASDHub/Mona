@@ -1,6 +1,6 @@
 #!/bin/bash
 setfont ter-124b
-head -n 8 -- $0|tail -n 5
+head -n 8 -- $0 | tail -n 5
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     #     Mozart - Moonlight Sonata         #
  #         0:35 ━❍──────── -5:32        #
@@ -8,7 +8,7 @@ head -n 8 -- $0|tail -n 5
 #          VOLUME: ▁▂▃▄▅▆▇ 100%         #
 E='mount -o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @' ; G='timedatectl set'
-H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"
+H="$(lscpu | egrep -o 'AMD|Intel' | sort -u)"
 I='/etc/mkinitcpio.conf' ; J='/etc/pacman.'
 T="$(curl -s https://ipapi.co/timezone)"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
