@@ -1,30 +1,31 @@
 #!/bin/bash
 setfont ter-124b
 head -n 8 -- $0|tail -n 5
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-    #     Mozart - Moonlight Sonata       #
- #         0:35 ━❍──────── -5:32     #
-   #       ↻     ⊲  Ⅱ  ⊳     ↺          #
-#          VOLUME: ▁▂▃▄▅▆▇ 100%      #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+    #     Mozart - Moonlight Sonata         #
+ #         0:35 ━❍──────── -5:32        #
+   #       ↻     ⊲  Ⅱ  ⊳     ↺            #
+#          VOLUME: ▁▂▃▄▅▆▇ 100%         #
 E='mount -o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @' ; G='timedatectl set'
 H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"
 I='/etc/mkinitcpio.conf' ; J='/etc/pacman.'
 T="$(curl -s https://ipapi.co/timezone)"
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k |pacman-key --populate; head -n 5 -\
-- "$0" | tail -n 1 ; lsblk -do NAME,SIZE -\
-e 7,11 | grep -E --color [A-Z] ; read -r -\
-p 'Disk Name: ' A ; until sgdisk /dev/$A -\
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+${G}-timezone${T} && ${G}-ntp true ; sed -i \
+gpg -k | pacman-key --populate ; head -n 5 -\
+- "$0" | tail -n 1 ; lsblk -d -o NAME,SIZE -\
+e 7,11 | grep -E --color '[A-Z]' ; read -r -\
+p 'Disk Name: ' A ; until sgdisk /dev/${A} -\
 Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
-do lsblk -e 7,11 -do NAME,SIZE| grep -E --\
-color [A-Z] && read -r -p 'Retry: ' A; done
-B="$(ls /dev/*|egrep "^/dev/${A}p?1$") "
-C="$(ls /dev/*|egrep "^/dev/${A}p?2$") "
-mkfs.vfat ${B}; mkfs.btrfs -fq ${C}
-mount ${C}/mnt; cd /mnt; ${F}home
-${F} ; cd ; umount /mnt; ${E} ${C} /mnt
-mkdir /mnt/{boot,home} ; mount ${B}/mnt/boot
+do lsblk -e 7,11 -do NAME,SIZE,TYPE | grep -\
+-color [A-Z] && read -r -p 'Retry: ' A ; done
+B="$(ls /dev/* | egrep "^/dev/${A}p?1$")"
+C="$(ls /dev/* | egrep "^/dev/${A}p?2$")"
+mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
+mount ${C} /mnt; cd /mnt; ${F}; ${F}home
+cd; umount /mnt; ${E} ${C} /mnt
+mkdir /mnt/{boot,home} ; mount ${B} /mnt/boot
 ${E}home ${C} /mnt/home; lsblk -e 7,11
 if [ "${H}" == Intel ] ; then H1='i915 ' && \
 H2='intel-ucode ' ; fi ; if [ "${H}" == AMD ]
@@ -49,10 +50,10 @@ libreoffice-still otf-fira-mono trayer sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
 volumeicon screengrab galculator xorg-xinit \
 arandr geeqie ${H2}; cp ${J}conf /mnt${J}conf
-echo "zoneinfo/$T" > /mnt/etc/T ; curl -sSL \
-https://raw.githubusercontent.com/djsharcode\
-/Mona/main/install.sh -o /mnt/etc/install.sh
-cp ${I} /mnt${I}
+curl -sSL https://raw.githubusercontent.com/\
+djsharcode/Mona/main/install.sh -o /mnt/etc/\
+install.sh; cp ${I} /mnt${I}
+echo "zoneinfo/$T" >/mnt/etc/T
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
