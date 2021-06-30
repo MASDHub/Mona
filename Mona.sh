@@ -12,7 +12,6 @@ H="$(lscpu | egrep -o 'AMD|Intel' | sort -u)"
 I='/etc/mkinitcpio.conf' ; J='/etc/pacman.'
 T="$(curl -s https://ipapi.co/timezone)"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-${G}-timezone${T} && ${G}-ntp true ; sed -i \
 gpg -k | pacman-key --populate ; head -n 5 -\
 - "$0" | tail -n 1 ; lsblk -d -o NAME,SIZE -\
 e 7,11 | grep -E --color '[A-Z]' ; read -r -\
