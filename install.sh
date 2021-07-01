@@ -1,6 +1,4 @@
 #!/bin/bash
-set -euo pipefail
-head -n 16 -- $0|tail -n 13
  #8'         8888
 #d8.-=. ,==-.:888b
 #>8 `~` :`~' d8888
@@ -14,7 +12,7 @@ head -n 16 -- $0|tail -n 13
 #d88%            %%%8--'-.
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
-S='       ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+head -n 14 -- $0|tail -n 13 ; S='       '
 A='\e[1;31m' ; B='\e[0m' ; C='/usr/share'
 D='Cantarell 11/Fira Sans Condensed Book'
 E='Adwaita/Oranchelo'; F='systemctl enable'
