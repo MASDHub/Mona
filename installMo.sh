@@ -1,14 +1,14 @@
 #!/usr/bin/bash
-set -euo pipefail ;  
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='.config/openbox' ; B='<item label="'
+set -euo pipefail
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+A='.config/openbox'; B='<item label="'
 C='"><action name="Execute"><command>'
-D='</command></action></item>' 
-E='<separator></separator>' 
+D='</command></action></item>'
+E='<separator></separator>'
 F='~/.config/plank/dock1/launchers/'
 G='/net/launchpad/plank/docks/'
 H='sleep 2 &&' ; I='~/docks.ini'
-Z='.config/pikaur.conf' #~~~~~~~~~~~~~~#
+Z='.config/pikaur.conf' #~~~~~~~~~~#
 mkdir ~/.config ; git clone \
 https://aur.archlinux.org/pikaur.git
 cp -a /etc/xdg/openbox/ ~/.config/ 
@@ -45,26 +45,24 @@ echo -e "lxqt-policykit &\n\npicom \
 right --tint 0x716966 --height 40 -\
 -transparent true &\n\nnm-applet &\n
 volumeicon &\n\n(sleep 5 && sh ~/m.\
-sh) &" > ~/${A}/autostart
-echo -e 'dconf dump '"$G"' > '"$I"'
-'"$H"' sed -i '"'s/bottom/right/'"' \
-'"$I"'\n'"$H"' cat '"$I"' | dconf \
-load '"$G"'\n'"$H"' echo -e "'"[Plank\
-DockItemPreferences]\nLauncher=file:/\
-//usr/share/applications/nemo.deskto\
-p"'" >> '"$F"'nemo.dockitem\n'"$H"' \
-rm '"$F"'geeqie.dockitem\n'"$H"' rm \
-'"$F"'vlc-1.dockitem\n'"$H"' rm '"$F"'\
-vlc.dockitem\n'"$H"' \
-sed -i '"'13,"'$d'"'"' ~/'"$A"'/\
-autostart\n'"$H"' pkill volumeicon
-'"$H"' sed -i -e '"'s/5/1/'"' -e \
-'"'s/l=false/l=true/'"' -e \
-'"'s/b_slider=false/b_slider=true/'"' \
-~/.config/volumeicon/volumeicon\n
-'"$H"' volumeicon; sleep 10 && \
-rm '"$I"' && rm -- $0' > ~/m.sh
-su root -c "chmod 755 /home/$(cat /etc/U)\
-/m.sh && rm /etc/U && rm -- $0"; echo -e \
-'\e[1;31mDone!\nTo Finish Type: reboot\e[0m'
+sh) &" > ~/${A}/autostart; echo -e \
+'dconf dump '"$G"' > '"$I"'\n'"$H"' \
+sed -i '"'s/bottom/right/'"' '"$I"' \
+'"$H"' cat '"$I"'|dconf load '"$G"' \
+'"$H"' echo -e "'"[PlankDockItemPref\
+erences]\nLauncher=file:///usr/share\
+/applications/nemo.desktop"'" > '"$F"'\
+nemo.dockitem\n'"$H"' rm '"$F"'geeqie.\
+dockitem\n'"$H"' rm '"$F"'vlc-1.dockit\
+em\n'"$H"' rm '"$F"'vlc.dockitem\n'"$H"' \
+sed -i '"'13,"'$d'"'"' ~/'"$A"'/autostart
+'"$H"' pkill volumeicon\n'"$H"' sed -i -e\
+ '"'s/5/1/'"' -e '"'s/l=false/l=true/'"' \
+ -e '"'s/b_slider=false/b_slider=true/'"'\
+ ~/.config/volumeicon/volumeicon\n'"$H"' \
+volumeicon\n sleep 10 && rm '"$I"' && rm \
+-- $0' >> ~/m.sh ; su root -c "chmod 755 \
+/home/$(cat /etc/U)/m.sh && rm /etc/U && \
+rm -- $0"
+echo -e '\e[1;31mDone!\nType: reboot\e[0m'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
