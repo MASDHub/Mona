@@ -45,10 +45,10 @@ echo -e "lxqt-policykit &\n\npicom \
 right --tint 0x716966 --height 40 -\
 -transparent true &\n\nnm-applet &\n
 volumeicon &\n\n(sleep 5 && sh ~/m.\
-sh) &" > ~/${A}/autostart; echo -e \
-'dconf dump '"$G"' > '"$I"'\n'"$H"' \
-sed -i '"'s/bottom/right/'"' '"$I"' \
-'"$H"' cat '"$I"'|dconf load '"$G"' \
+sh) &" > ~/$A/autostart ; echo -e '
+dconf dump '"$G"' > '"$I"'\n'"$H"' \
+sed -i '"'s/bottom/right/'"' '"$I"'
+'"$H"' cat '"$I"'|dconf load '"$G"'
 '"$H"' echo -e "'"[PlankDockItemPref\
 erences]\nLauncher=file:///usr/share\
 /applications/nemo.desktop"'" > '"$F"'\
@@ -58,11 +58,11 @@ em\n'"$H"' rm '"$F"'vlc.dockitem\n'"$H"' \
 sed -i '"'13,"'$d'"'"' ~/'"$A"'/autostart
 '"$H"' pkill volumeicon\n'"$H"' sed -i -e\
  '"'s/5/1/'"' -e '"'s/l=false/l=true/'"' \
- -e '"'s/b_slider=false/b_slider=true/'"'\
- ~/.config/volumeicon/volumeicon\n'"$H"' \
-volumeicon\n sleep 10 && rm '"$I"' && rm \
--- $0' >> ~/m.sh ; su root -c "chmod 755 \
-/home/$(cat /etc/U)/m.sh && rm /etc/U && \
-rm -- $0"
+-e '"'s/b_slider=false/b_slider=true/'"' \
+~/.config/volumeicon/volumeicon\n'"$H"' \
+volumeicon\nsleep 10 && rm '"$I"' && rm \
+-- $0' > ~/m.sh ; su root -c "chmod 755 \
+/home/$(cat /etc/U)/m.sh && rm /etc/U &&\
+ rm -- $0"
 echo -e '\e[1;31mDone!\nType: reboot\e[0m'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
