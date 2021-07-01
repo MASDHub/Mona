@@ -1,5 +1,6 @@
 #!/bin/bash
-setfont ter-124b; head -n 7 -- $0 | tail -n 5
+set -euo pipefail
+setfont ter-124b; head -n 8 -- $0 | tail -n 5
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     #     Mozart - Moonlight Sonata         #
  #         0:35 ━❍──────── -5:32        #
