@@ -1,14 +1,14 @@
 #!/usr/bin/bash
-set -euo pipefail ;  S='sleep 2 &&'
+set -euo pipefail ;  
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='.config/openbox' ; B='<item label="'
 C='"><action name="Execute"><command>'
 D='</command></action></item>' 
-E='<separator></separator>'
+E='<separator></separator>' 
 F='~/.config/plank/dock1/launchers/'
 G='/net/launchpad/plank/docks/'
-Z='.config/pikaur.conf' ; Q='docks.ini'
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+H='sleep 2 &&' ; I='~/docks.ini'
+Z='.config/pikaur.conf' #~~~~~~~~~~~~~~#
 mkdir ~/.config ; git clone \
 https://aur.archlinux.org/pikaur.git
 cp -a /etc/xdg/openbox/ ~/.config/ 
@@ -46,24 +46,24 @@ right --tint 0x716966 --height 40 -\
 -transparent true &\n\nnm-applet &\n
 volumeicon &\n\n(sleep 5 && sh ~/m.\
 sh) &" > ~/${A}/autostart
-echo -e 'dconf dump '"$G"' > ~/'"$Q"'
-'"$S"' sed -i '"'s/bottom/right/'"' \
-~/'"$Q"'\n'"$S"' cat ~/'"$Q"'|dconf \
-load '"$G"'\n'"$S"' echo -e "'"[Plan\
-kDockItemPreferences]\nLauncher=file\
-:///usr/share/applications/nemo.desk\
-top"'" >> '"$F"'nemo.dockitem
-'"$S"' rm '"$F"'geeqie.dockitem
-'"$S"' rm '"$F"'vlc-1.dockitem
-'"$S"' rm '"$F"'vlc.dockitem
-'"$S"' sed -i '"'13,"'$d'"'"' ~/'"$A"'/\
-autostart\n'"$S"' pkill volumeicon
-'"$S"' sed -i -e '"'s/5/1/'"' -e \
+echo -e 'dconf dump '"$G"' > '"$I"'
+'"$H"' sed -i '"'s/bottom/right/'"' \
+'"$I"'\n'"$H"' cat '"$I"' | dconf \
+load '"$G"'\n'"$H"' echo -e "'"[Plank\
+DockItemPreferences]\nLauncher=file:/\
+//usr/share/applications/nemo.deskto\
+p"'" >> '"$F"'nemo.dockitem\n'"$H"' \
+rm '"$F"'geeqie.dockitem\n'"$H"' rm \
+'"$F"'vlc-1.dockitem\n'"$H"' rm '"$F"'\
+vlc.dockitem\n'"$H"' \
+sed -i '"'13,"'$d'"'"' ~/'"$A"'/\
+autostart\n'"$H"' pkill volumeicon
+'"$H"' sed -i -e '"'s/5/1/'"' -e \
 '"'s/l=false/l=true/'"' -e \
 '"'s/b_slider=false/b_slider=true/'"' \
 ~/.config/volumeicon/volumeicon\n
-'"$S"' volumeicon; sleep 10 && \
-rm ~/'"$Q"' && rm -- $0' > ~/m.sh
+'"$H"' volumeicon; sleep 10 && \
+rm '"$I"' && rm -- $0' > ~/m.sh
 su root -c "chmod 755 /home/$(cat /etc/U)\
 /m.sh && rm /etc/U && rm -- $0"; echo -e \
 '\e[1;31mDone!\nTo Finish Type: reboot\e[0m'
