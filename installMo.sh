@@ -1,30 +1,30 @@
 #!/usr/bin/bash
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='~/.config/openbox'; H='sleep 2 && ' 
+A='.config/openbox'; H='sleep 2 && ' 
 B='<item label="' ; I=' ~/docks.ini'
 C='"><action name="Execute"><command>'
 D='</command></action></item>'
 E='<separator></separator>'
 F=' ~/.config/plank/dock1/launchers/'
 G=' /net/launchpad/plank/docks/ '
-Z='~/.config/pikaur.conf' #~~~~~~~~~~#
+Z='.config/pikaur.conf' #~~~~~~~~~~#
 mkdir ~/.config ; git clone \
 https://aur.archlinux.org/pikaur.git
 cp -a /etc/xdg/openbox/ ~/.config/ 
 cd pikaur; makepkg -sri; pikaur -S \
 picom-git oranchelo-icon-theme-git \
-jbxkb ttf-ms-fonts timeshift; sed \
--i 's/g = no/g = yes/' ${Z} ; sed \
--i 's/g = no/g = yes/' ${Z} ; sed \
--i '5,$d' $A/menu.xml ; sed -i -e \
+jbxkb ttf-ms-fonts timeshift ; sed \
+-i 's/g = no/g = yes/' ~/${Z}; sed \
+-i 's/g = no/g = yes/' ~/${Z}; sed \
+-i '5,$d' ~/$A/menu.xml; sed -i -e \
 's/sans/Fira Sans Condensed Book/' \
 -e '5,120 s/8/12/' -e '131 s/4/2/' \
 -e 's/kfmclient openProfile/rofi/' \
 -e 's/filemanagement/-show drun/g' \
 -e 's/W-e/0x85/' -e 's/A-space/0x85/' \
 -e 's/Konqueror/m/' -e '5,99 s/9/13/' \
--e 's/Clearlooks/Bear2/' ${A}/rc.xml
+-e 's/Clearlooks/Bear2/' ~/$A/rc.xml
 echo -e "<menu id="'"root-menu"'" \
 label="'"Openbox 3"'"> \n${B}Files\
 ${C}nemo${D}\n${B}Search${C}rofi -\
@@ -38,14 +38,14 @@ atlantis -echokeys -echokey '*' -i\
 nfo +description "'"Password : "'"\
 ${D}\n${B}Reboot${C}reboot${D}${B}\
 Power Off${C}poweroff${D}\n</menu>\
-</openbox_menu>" >> ${A}/menu.xml
+</openbox_menu>" >> ~/${A}/menu.xml
 echo -e "lxqt-policykit &\n\npicom \
 --experimental-backends &\n\nplank &
 \ntrayer --monitor primary --align \
 right --tint 0x716966 --height 40 -\
 -transparent true &\n\nnm-applet &\n
 \nvolumeicon &\n\n(sleep 5 && sh ~/\
-m.sh) &">${A}/autostart; echo -e \
+m.sh) &">~/$A/autostart; echo -e \
 'dconf dump'"$G"'>>'"$I"'\n'"$H"'\
 sed -i '"'s/bottom/right/'"''"$I"'
 '"$H"'cat'"$I"' | dconf load'"$G"'
