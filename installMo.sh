@@ -8,7 +8,7 @@ D='</command></action></item>'
 E='<separator></separator>'
 F=' ~/.config/plank/dock1/launchers/'
 G=' /net/launchpad/plank/docks/ '
-Z='~/.config/pikaur.conf' #~~~~~~~~~#
+Z='~/.config/pikaur.conf' #~~~~~~~~~~#
 mkdir ~/.config ; git clone \
 https://aur.archlinux.org/pikaur.git
 cp -a /etc/xdg/openbox/ ~/.config/ 
