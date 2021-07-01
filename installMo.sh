@@ -7,7 +7,7 @@ C='"><action name="Execute"><command>'
 D='</command></action></item>'
 E='<separator></separator>'
 F=' ~/.config/plank/dock1/launchers/'
-G=' /net/launchpad/plank/docks/'
+G=' /net/launchpad/plank/docks/ '
 Z='~/.config/pikaur.conf' #~~~~~~~~~#
 mkdir ~/.config ; git clone \
 https://aur.archlinux.org/pikaur.git
@@ -45,8 +45,8 @@ echo -e "lxqt-policykit &\n\npicom \
 right --tint 0x716966 --height 40 -\
 -transparent true &\n\nnm-applet &\n
 \nvolumeicon &\n\n(sleep 5 && sh ~/\
-m.sh) &">${A}/autostart; echo -e '
-dconf dump'"$G"' > '"$I"'\n'"$H"'\
+m.sh) &">${A}/autostart; echo -e \
+'dconf dump'"$G"'>>'"$I"'\n'"$H"'\
 sed -i '"'s/bottom/right/'"''"$I"'
 '"$H"'cat'"$I"' | dconf load'"$G"'
 '"$H"'echo -e "'"[PlankDockItemPrefe\
