@@ -17,7 +17,7 @@ head -n 16 -- $0|tail -n 13
 S='       ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='\e[1;31m' ; B='\e[0m' ; C='/usr/share'
 D='Cantarell 11/Fira Sans Condensed Book'
-E='Adwaita/Oranchelo' ; F='systemctl enable'
+E='Adwaita/Oranchelo'; F='systemctl enable'
 Z='             localhost' #~~~~~~~~~~~~#
 printf "${A}User Name: ${B}"; read -r R \
 && U="${R,,}" ; until [[ ${#U} -gt 4 ]] \
