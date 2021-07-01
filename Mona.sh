@@ -25,7 +25,7 @@ mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
 mount ${C} /mnt; cd /mnt; ${F}; ${F}home
 cd; umount /mnt; ${E} ${C} /mnt
 mkdir /mnt/{boot,home} ; mount ${B} /mnt/boot
-${E}home ${C} /mnt/home; lsblk -e 7,11
+${E}home ${C} /mnt/home; lsblk -n -e 7,11
 if [ "${H}" == Intel ] ; then H1='i915 ' && \
 H2='intel-ucode ' ; fi ; if [ "${H}" == AMD ]
 then H1='amdgpu ' && H2='amd-ucode'; fi
