@@ -12,12 +12,12 @@ Z='.config/pikaur.conf' #~~~~~~~~~~~#
 mkdir ~/.config ; git clone \
 https://aur.archlinux.org/pikaur.git
 cp -a /etc/xdg/openbox/ ~/.config/ 
-cd pikaur; makepkg -sri; pikaur -S \
-picom-git oranchelo-icon-theme-git \
-jbxkb ttf-ms-fonts timeshift ; sed \
--i 's/g = no/g = yes/' ~/${Z}; sed \
--i 's/g = no/g = yes/' ~/${Z}; sed \
--i '5,$d' ~/$A/menu.xml; sed -i -e \
+cd pikaur/ ; makepkg -fsri ; pikaur \
+-S picom-git timeshift ttf-ms-fonts \
+jbxkb oranchelo-icon-theme-git; sed \
+-i 's/g = no/g = yes/' ~/${Z} ; sed \
+-i 's/g = no/g = yes/' ~/${Z} ; sed \
+-i '5,$d' ~/$A/menu.xml ; sed -i -e \
 's/sans/Fira Sans Condensed Book/' \
 -e '5,120 s/8/12/' -e '131 s/4/2/' \
 -e 's/kfmclient openProfile/rofi/' \
