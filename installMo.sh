@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='.config/openbox' ; H='sleep 2 && '
+A='.config/openbox'; H='sleep 2 && '
 B='<item label="' ; I=' ~/docks.ini'
 C='"><action name="Execute"><command>'
 D='</command></action></item>'
