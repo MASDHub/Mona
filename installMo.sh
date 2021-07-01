@@ -64,4 +64,4 @@ lumeicon\nsleep 9 && rm'"$I"' && rm \
 mod 755 /home/$(cat /etc/U)/mona.sh \
 && rm /etc/U && rm -- $0" ; echo -e \
 '\e[1;31mDone! :)\nType: reboot\e[0m'
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
