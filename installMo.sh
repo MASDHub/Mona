@@ -44,8 +44,8 @@ echo -e "lxqt-policykit &\n\npicom \
 \ntrayer --monitor primary --align \
 right --tint 0x716966 --height 40 -\
 -transparent true &\n\nnm-applet &\n
-\nvolumeicon &\n\n(sleep 5 && sh ~/\
-m.sh) &">~/$A/autostart; echo -e \
+volumeicon &\n\n(sleep 5 && sh ~/mo\
+na.sh) &">~/$A/autostart ; echo -e \
 'dconf dump'"$G"'>>'"$I"'\n'"$H"'\
 sed -i '"'s/bottom/right/'"''"$I"'
 '"$H"'cat'"$I"' | dconf load'"$G"'
