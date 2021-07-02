@@ -48,7 +48,7 @@ firefox firefox-ublock-origin geany-plugins \
 libreoffice-still otf-fira-mono trayer sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
 volumeicon screengrab galculator xorg-xinit \
-arandr geeqie clipgrab conky-manager ${H2}
+arandr geeqie clipgrab conky-manager xpad ${H2}
 curl -sSL https://raw.githubusercontent.com/\
 djsharcode/Mona/main/install.sh -o /mnt/etc/\
 install.sh ; cp ${I} /mnt${I}
