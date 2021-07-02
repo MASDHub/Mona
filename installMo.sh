@@ -17,7 +17,7 @@ cd pikaur/ ; makepkg -fsri ; pikaur \
 jbxkb oranchelo-icon-theme-git qxkb 
 sed -i 's/g = no/g = yes/' ~/${Z}
 sed -i 's/g = no/g = yes/' ~/${Z}
-sed -i '5,$d' ~$A/menu.xml; sed -i\
+sed -i '5,$d' ~$A/menu.xml; sed -i \
 -e '5,120 s/8/12/' -e '131 s/4/2/' \
 -e 's/kfmclient openProfile/rofi/' \
 -e 's/filemanagement/-show drun/g' \
