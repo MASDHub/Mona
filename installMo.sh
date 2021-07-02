@@ -19,9 +19,9 @@ notes ; sed -i 's/g = no/g = yes/' ~\
 $Z; sed -i 's/g = no/g = yes/' ~$Z \
 sed -i '5,$d' ~$A/menu.xml; sed -i \
 -e '5,120 s/8/12/' -e '131 s/4/2/' \
--e 's/kfmclient openProfile/rofi/' \
--e 's/filemanagement/-show drun/g' \
 -e 's/W-e/0x85/' -e '5,99 s/9/13/' \
+-e 's/kfmclient openProfile/rofi/g' \
+-e 's/filemanagement/-show drun/g' \
 -e 's/A-space/0x85/' -e \
 's/sans/Fira Sans Condensed Book/' \
 's/Clearlooks/Bear2/' ~${A}/rc.xml
@@ -53,10 +53,10 @@ sed -i '"'s/bottom/right/'"''"$I"'
 '"$H"'echo -e "'"[PlankDockItemPrefe\
 rences]\nLauncher=file:///usr/share/\
 applications/nemo.desktop"'" >'"$F"'\
-nemo.dockitem\n'"$H"'rm'"$F"'vlc.doc\
-kitem\n'"$H"'sed -i '"'15,"'$d'"'"' \
-~'"$A"'/autostart\n'"$H"'pkill volum\
-eicon\n'"$H"'sed -i -e '"'s/5/1/'"' \
+nemo.dockitem\n'"$H"'sed -i \
+'"'15,"'$d'"'"' ~'"$A"'/autostart
+'"$H"'pkill volumeicon
+'"$H"'sed -i -e '"'s/5/1/'"' \
 -e '"'s/l=false/l=true/'"' -e '"'s/b\
 _slider=false/b_slider=true/'"' ~/.c\
 onfig/volumeicon/volumeicon\n'"$H"'v\
