@@ -7,7 +7,7 @@ C='"><action name="Execute"><command>'
 D='</command></action></item>'
 E='<separator></separator>'
 F='~/.config/plank/dock1/launchers/'
-G='/net/launchpad/plank/docks/ '
+G='/net/launchpad/plank/docks/'
 Z='.config/pikaur.conf' #~~~~~~~~~~#
 mkdir ~/.config ; git clone \
 https://aur.archlinux.org/pikaur.git
@@ -52,17 +52,17 @@ sed -i '"'s/bottom/right/'"' '"$I"'
 '"$H"' cat '"$I"' |dconf load '"$G"'
 '"$H"' echo -e "'"[PlankDockItemPrefe\
 rences]\nLauncher=file:///usr/share/ap\
-plications/nemo.desktop"'" > '"$F"' n\
-emo.dockitem\n'"$H"'pkill volumeicon
+plications/nemo.desktop"'" > '"$F"'ne\
+mo.dockitem\n'"$H"'pkill volumeicon
 '"$H"'sed -i -e '"'s/l=false/l=true/'"' \
 -e '"'s/b_slider=false/b_slider=true/'"'\
  -e '"'s/5/1/'"' ~/.config/volumeicon/vol\
-umeicon \n'"$H"' sed -i '"'15,"'$d'"'"' \
-~/'"$A"'/autostart\n'"$H"'rm '"$F"'{geeq\
-ie.dockitem,vlc-1.dockitem}\n'"$H"'volum\
-eicon\nsleep 18 && rm '"$I"' && \
-rm -- $0' > ~/m.sh ; su root -c \
-"chmod 755 /home/$(cat /etc/U)/m.sh \
-&& rm /etc/U && rm -- $0" ; echo -e \
-'\e[1;31mDone! :)\nType: reboot\e[0m'
+umeicon \n'"$H"'sed -i '"'15,"'$d'"'"' \
+~/'"$A"'/autostart\n'"$H"'rm '"$F"'{gee\
+qie.dockitem,vlc-1.dockitem}\n'"$H"'vol\
+umeicon\nsleep 18 && rm '"$I"' && rm -\
+- $0' > ~/m.sh; su root -c "chmod 755 \
+/home/$(cat /etc/U)/m.sh && rm -- $0" \
+&& rm /etc/U; echo -e '\e[1;31mDone! :)
+Type: reboot\e[0m'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
