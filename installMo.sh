@@ -52,7 +52,7 @@ sed -i '"'s/bottom/right/'"' '"$I"'
 '"$H"' cat '"$I"' |dconf load '"$G"'
 '"$H"' echo -e "'"[PlankDockItemPrefe\
 rences]\nLauncher=file:///usr/share/a\
-plications/nemo.desktop"'" >'"$F"'ne\
+pplications/nemo.desktop"'" >'"$F"'ne\
 mo.dockitem\n'"$H"'pkill volumeicon
 '"$H"'sed -i -e '"'s/l=false/l=true/'"' \
 -e '"'s/b_slider=false/b_slider=true/'"'\
