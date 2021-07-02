@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='.config/openbox'; H='sleep 2 &&'
+A='.config/openbox'; H='sleep 2 && '
 B='<item label="' ; I='~/docks.ini'
 C='"><action name="Execute"><command>'
 D='</command></action></item>'
@@ -47,22 +47,22 @@ right --tint 0x716966 --height 40 -\
 leep 2 && nm-applet) &\n\n(sleep 2 \
 && volumeicon) &\n\n(sleep 2 && sh \
 ~/m.sh) &">~/$A/autostart; echo -e \
-'dconf dump '"$G"' >'"$I"'\n'"$H"' \
+'dconf dump '"$G"' > '"$I"'\n'"$H"'\
 sed -i '"'s/bottom/right/'"' '"$I"'
-'"$H"' cat '"$I"'|dconf load '"$G"'
-'"$H"' echo -e "'"[PlankDockItemPref\
-erences]\nLauncher=file:///usr/share\
-/applications/nemo.desktop"'">'"$F"'\
-nemo.dockitem\n'"$H"' rm '"$F"'{geeq\
-ie.dockitem,vlc-1.dockitem}\n'"$H"' \
-sed -i '"'15,"'$d'"'"' ~/'"$A"'/auto\
-start\n'"$H"' pkill volumeicon\n'"$H"'\
-sed -i -e '"'s/5/1/'"' -e '"'s/l=false\
-/l=true/'"' -e '"'s/b_slider=false/b_s\
-lider=true/'"' ~/.config/volumeicon/vol\
-umeicon\n'"$H"' volumeicon \nsleep 18 \
-&& rm '"$I"' && rm -- $0' >~/m.sh; su \
-root -c "chmod 755 && rm /etc/U /home/\
-$(cat /etc/U)/m.sh && rm -- $0"; echo \
--e '\e[1;31mDone! :)\nType: reboot\e[0m'
+'"$H"' cat '"$I"' |dconf load '"$G"'
+'"$H"' echo -e "'"[PlankDockItemPrefe\
+rences]\nLauncher=file:///usr/share/ap\
+plications/nemo.desktop"'" > '"$F"' n\
+emo.dockitem\n'"$H"'pkill volumeicon
+'"$H"'sed -i -e '"'s/l=false/l=true/'"' \
+-e '"'s/b_slider=false/b_slider=true/'"'\
+ -e '"'s/5/1/'"' ~/.config/volumeicon/vol\
+umeicon \n'"$H"' sed -i '"'15,"'$d'"'"' \
+~/'"$A"'/autostart\n'"$H"'rm '"$F"'{geeq\
+ie.dockitem,vlc-1.dockitem}\n'"$H"'volum\
+eicon\nsleep 18 && rm '"$I"' && \
+rm -- $0' > ~/m.sh ; su root -c \
+"chmod 755 /home/$(cat /etc/U)/m.sh \
+&& rm /etc/U && rm -- $0" ; echo -e \
+'\e[1;31mDone! :)\nType: reboot\e[0m'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
