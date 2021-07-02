@@ -16,7 +16,7 @@ cd pikaur/ ; makepkg -fsri ; pikaur \
 -S picom-git timeshift ttf-ms-fonts \
 jbxkb oranchelo-icon-theme-git qxkb \
 notes ; sed -i 's/g = no/g = yes/' ~\
-/$Z; sed -i 's/g = no/g = yes/' ~/$Z \
+/$Z; sed -i 's/g = no/g = yes/' ~/$Z
 sed -i '5,$d' ~/$A/menu.xml; sed -i \
 -e '5,120 s/8/12/' -e '131 s/4/2/' \
 -e 's/W-e/0x85/' -e '5,99 s/9/13/' \
