@@ -1,13 +1,13 @@
 #!/usr/bin/bash
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='.config/openbox'; H='sleep 2 && '
-B='<item label="' ; I=' ~/docks.ini'
+A='.config/openbox'; H='sleep 2 &&'
+B='<item label="' ; I='~/docks.ini'
 C='"><action name="Execute"><command>'
 D='</command></action></item>'
 E='<separator></separator>'
-F=' ~/.config/plank/dock1/launchers/'
-G=' /net/launchpad/plank/docks/ '
+F='~/.config/plank/dock1/launchers/'
+G='/net/launchpad/plank/docks/ '
 Z='.config/pikaur.conf' #~~~~~~~~~~#
 mkdir ~/.config ; git clone \
 https://aur.archlinux.org/pikaur.git
@@ -47,23 +47,23 @@ right --tint 0x716966 --height 40 -\
 leep 2 && nm-applet) &\n\n(sleep 2 \
 && volumeicon) &\n\n(sleep 2 && sh \
 ~/m.sh) &">~/$A/autostart; echo -e \
-'dconf dump'"$G"'>>'"$I"'\n'"$H"'\
-sed -i '"'s/bottom/right/'"''"$I"'
-'"$H"'cat'"$I"' | dconf load'"$G"'
-'"$H"'echo -e "'"[PlankDockItemPrefe\
-rences]\nLauncher=file:///usr/share/\
-applications/nemo.desktop"'">'"$F"'\
-nemo.dockitem\nrm'"$F"'{vlc.dockit\
-em,geeqie.dockitem,vlc-1.dockitem}
-'"$H"'sed -i '"'15,"'$d'"'"' ~/'"$A"'\
-/autostart\n'"$H"'pkill volumeicon
-'"$H"'sed -i -e '"'s/5/1/'"' -e \
-'"'s/l=false/l=true/'"' -e '"'s/b\
-_slider=false/b_slider=true/'"' ~/.c\
-onfig/volumeicon/volumeicon\n'"$H"'v\
-olumeicon\nsleep 9 && rm'"$I"' && r\
-m -- $0'>~/m.sh; su root -c "chmod \
-755 /home/$(cat /etc/U)/m.sh && rm \
-/etc/U && rm -- $0" ; echo -e '
-\e[1;31mDone! :)\nType: reboot\e[0m'
+'dconf dump '"$G"' >'"$I"'\n'"$H"' \
+sed -i '"'s/bottom/right/'"' '"$I"'
+'"$H"' cat '"$I"'|dconf load '"$G"'
+'"$H"' echo -e "'"[PlankDockItemPref\
+erences]\nLauncher=file:///usr/share/\
+applications/nemo.desktop"'">>'"$F"'\
+nemo.dockitem\nrm '"$F"'{geeqie.dock\
+item,vlc-1.dockitem}\n'"$H"' sed -i \
+'"'15,"'$d'"'"' ~/'"$A"'/autostart
+'"$H"' pkill volumeicon\n'"$H"' sed \
+-i -e '"'s/5/1/'"' -e '"'s/l=false/l\
+=true/'"' -e '"'s/b_slider=false/b_s\
+lider=true/'"' ~/.config/volumeicon/v\
+olumeicon\n'"$H"' volumeicon\nsleep \
+9 && rm '"$I"' && rm -- $0' > ~/m.sh 
+su root -c "chmod 755 && rm /etc/U \
+/home/$(cat /etc/U)/m.sh && rm -- $0"
+echo -e ' \e[1;31mDone! :)
+Type: reboot\e[0m'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
