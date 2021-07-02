@@ -8,15 +8,15 @@ D='</command></action></item>'
 E='<separator></separator>'
 F=' ~/.config/plank/dock1/launchers/'
 G=' /net/launchpad/plank/docks/ '
-Z='.config/pikaur.conf' #~~~~~~~~~~~#
+Z='/.config/pikaur.conf' #~~~~~~~~~~#
 mkdir ~/.config ; git clone \
 https://aur.archlinux.org/pikaur.git
 cp -a /etc/xdg/openbox/ ~/.config/ 
 cd pikaur/ ; makepkg -fsri ; pikaur \
 -S picom-git timeshift ttf-ms-fonts \
-jbxkb oranchelo-icon-theme-git qxkb 
-sed -i 's/g = no/g = yes/' ~/${Z}
-sed -i 's/g = no/g = yes/' ~/${Z}
+jbxkb oranchelo-icon-theme-git qxkb \
+notes ; sed -i 's/g = no/g = yes/' ~\
+$Z; sed -i 's/g = no/g = yes/' ~$Z \
 sed -i '5,$d' ~$A/menu.xml; sed -i \
 -e '5,120 s/8/12/' -e '131 s/4/2/' \
 -e 's/kfmclient openProfile/rofi/' \
