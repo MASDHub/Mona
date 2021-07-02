@@ -22,9 +22,9 @@ sed -i '5,$d' ~/$A/menu.xml; sed -i \
 -e 's/W-e/0x85/' -e '5,99 s/9/13/' \
 -e 's/kfmclient openProfile/rofi/' \
 -e 's/filemanagement/-show drun/g' \
--e 's/A-space/0x85/' -e \
+-e 's/Clearlooks/Bear2/' -e \
 's/sans/Fira Sans Condensed Book/' \
--e 's/Clearlooks/Bear2/' ~/$A/rc.xml
+-e 's/A-space/0x85/' ~/$A/rc.xml
 echo -e "<menu id="'"root-menu"'" \
 label="'"Openbox 3"'"> \n${B}Files\
 ${C}nemo${D}\n${B}Search${C}rofi -\
