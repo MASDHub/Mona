@@ -59,9 +59,9 @@ item,vlc-1.dockitem}\n'"$H"' sed -i \
 '"$H"' pkill volumeicon\n'"$H"' sed \
 -i -e '"'s/5/1/'"' -e '"'s/l=false/l\
 =true/'"' -e '"'s/b_slider=false/b_s\
-lider=true/'"' ~/.config/volumeicon/v\
-olumeicon\n'"$H"' volumeicon\nsleep \
-9 && rm '"$I"' && rm -- $0' > ~/m.sh 
+lider=true/'"' ~/.config/volumeicon/\
+volumeicon\n'"$H"' volumeicon\nsleep\
+ 9 && rm '"$I"' && rm -- $0' >~/m.sh 
 su root -c "chmod 755 && rm /etc/U \
 /home/$(cat /etc/U)/m.sh && rm -- $0"
 echo -e ' \e[1;31mDone! :)
