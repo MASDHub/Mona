@@ -43,9 +43,10 @@ echo -e "lxqt-policykit &\n\npicom \
 --experimental-backends &\n\nplank &
 \ntrayer --monitor primary --align \
 right --tint 0x716966 --height 40 -\
--transparent true &\n\nnm-applet &\n
-volumeicon &\n\n(sleep 5 && sh ~/mo\
-na.sh) &">~$A/autostart; echo -e \
+-transparent true &\n\nxpad &\n\n(s\
+leep 2 && nm-applet) &\n\n(sleep 2 \
+&& volumeicon) &\n\n(sleep 2 && sh \
+~/m.sh) &">~$A/autostart ; echo -e \
 'dconf dump'"$G"'>>'"$I"'\n'"$H"'\
 sed -i '"'s/bottom/right/'"''"$I"'
 '"$H"'cat'"$I"' | dconf load'"$G"'
@@ -53,15 +54,15 @@ sed -i '"'s/bottom/right/'"''"$I"'
 rences]\nLauncher=file:///usr/share/\
 applications/nemo.desktop"'" >'"$F"'\
 nemo.dockitem\n'"$H"'rm'"$F"'vlc.doc\
-kitem\n'"$H"'sed -i '"'13,"'$d'"'"' \
+kitem\n'"$H"'sed -i '"'15,"'$d'"'"' \
 ~'"$A"'/autostart\n'"$H"'pkill volum\
 eicon\n'"$H"'sed -i -e '"'s/5/1/'"' \
 -e '"'s/l=false/l=true/'"' -e '"'s/b\
 _slider=false/b_slider=true/'"' ~/.c\
 onfig/volumeicon/volumeicon\n'"$H"'v\
-olumeicon\nsleep 9 && rm'"$I"' && rm\
- -- $0' > ~/mona.sh ; su root -c "ch\
-mod 755 /home/$(cat /etc/U)/mona.sh \
-&& rm /etc/U && rm -- $0" ; echo -e \
-'\e[1;31mDone! :)\nType: reboot\e[0m'
+olumeicon\nsleep 9 && rm'"$I"' && r\
+m -- $0'>~/m.sh; su root -c "chmod \
+755 /home/$(cat /etc/U)/m.sh && rm \
+/etc/U && rm -- $0" ; echo -e '
+\e[1;31mDone! :)\nType: reboot\e[0m'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
