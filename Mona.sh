@@ -48,11 +48,11 @@ firefox firefox-ublock-origin geany-plugins \
 libreoffice-still otf-fira-mono trayer sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
 volumeicon screengrab galculator xorg-xinit \
-arandr geeqie clipgrab ${H2} ; cp ${J}conf \
-/mnt${J}conf
+arandr geeqie clipgrab conky-manager ${H2}
 curl -sSL https://raw.githubusercontent.com/\
 djsharcode/Mona/main/install.sh -o /mnt/etc/\
-install.sh; cp ${I} /mnt${I}
+install.sh ; cp ${I} /mnt${I}
+cp ${J}conf /mnt${J}conf
 echo "zoneinfo/$T" >/mnt/etc/T
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
