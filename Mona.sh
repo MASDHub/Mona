@@ -12,7 +12,7 @@ H="$(lscpu| egrep -o 'AMD|Intel'| sort -u)"
 I='/etc/mkinitcpio.conf' ; J='/etc/pacman.'
 T="$(curl -sSL https://ipapi.co/timezone) "
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k|pacman-key --populate ; head -n 5 -\
+gpg -k|pacman-key --populate ; head -n 4 -\
 - "$0"|tail -n 1 ; lsblk -d -o NAME,SIZE -\
 e 7,11|grep -E --color '[A-Z]' ; read -r -\
 p 'Disk Name: ' A ; until sgdisk /dev/$A -\
