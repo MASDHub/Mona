@@ -48,7 +48,8 @@ firefox firefox-ublock-origin geany-plugins \
 libreoffice-still otf-fira-mono trayer sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
 volumeicon screengrab galculator xorg-xinit \
-arandr geeqie ${H2}; cp ${J}conf /mnt${J}conf
+arandr geeqie clipgrab ${H2} ; cp ${J}conf \
+/mnt${J}conf
 curl -sSL https://raw.githubusercontent.com/\
 djsharcode/Mona/main/install.sh -o /mnt/etc/\
 install.sh; cp ${I} /mnt${I}
