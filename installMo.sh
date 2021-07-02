@@ -51,8 +51,8 @@ leep 2 && nm-applet) &\n\n(sleep 2 \
 sed -i '"'s/bottom/right/'"' '"$I"'
 '"$H"' cat '"$I"'|dconf load '"$G"'
 '"$H"' echo -e "'"[PlankDockItemPref\
-erences]\nLauncher=file:///usr/share/\
-applications/nemo.desktop"'">>'"$F"'\
+erences]\nLauncher=file:///usr/share\
+/applications/nemo.desktop"'">'"$F"'\
 nemo.dockitem\nrm '"$F"'{geeqie.dock\
 item,vlc-1.dockitem}\n'"$H"' sed -i \
 '"'15,"'$d'"'"' ~/'"$A"'/autostart
