@@ -34,8 +34,8 @@ ${G}-timezone ${T}&& ${G}-ntp true ; sed -i \
 's/#Co/Co/' ${J}conf; reflector -p https -c \
 "$(curl -s https://ipapi.co/country)" -a 12 \
 -f 2 --sort rate --save ${J}d/mirrorlist || \
-reflector -p https --score 5 -l 5 -a 8 -f 2 \
---verbose --sort rate --save ${J}d/mirrorlist
+reflector -p https -a 8 --score 5 --verbose \
+--sort rate --isos --save ${J}d/mirrorlist
 pacstrap -i /mnt base base-devel linux xorg \
 linux-headers linux-firmware efibootmgr vim \
 networkmanager rofi gufw htop obconf-qt git \
