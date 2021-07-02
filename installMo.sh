@@ -51,8 +51,8 @@ leep 2 && nm-applet) &\n\n(sleep 2 \
 sed -i '"'s/bottom/right/'"' '"$I"'
 '"$H"' cat '"$I"'|dconf load '"$G"'
 '"$H"' echo -e "'"[PlankDockItemPr\
-eferences]\nLauncher=file:///usr/sh\
-are/applications/nemo.desktop"'" >\
+eferences]\nLauncher=file:///usr/s\
+hare/applications/nemo.desktop"'">\
 '"$F"'nemo.dockitem\n'"$H"' pkill \
 volumeicon\n'"$H"' sed -i -e \
 '"'s/5/1/'"' -e '"'s/l=false/l=true/'"' \
