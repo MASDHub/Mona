@@ -57,11 +57,11 @@ hare/applications/nemo.desktop"'">\
 volumeicon\n'"$H"' sed -i -e \
 '"'s/5/1/'"' -e '"'s/l=false/l=true/'"' \
 -e '"'s/b_slider=false/b_slider=true/'"'\
- ~/.config/volumeicon/volumeicon\n'"$H"' \
-sed -i '"'15,"'$d'"'"' ~/'"$A"'/autostar\
-t\n'"$H"' rm '"$F"'{geeqie.dockitem,vlc-\
-1.dockitem}\n'"$H"' volumeicon\nsleep 18\
- && rm '"$I"' && rm -- $0' >~/m.sh ; su \
+ ~/.config/volumeicon/volumeicon\n'"$H"'\
+ sed -i '"'15,"'$d'"'"' ~/'"$A"'/autosta\
+rt\n'"$H"' rm '"$F"'{geeqie.dockitem,vlc\
+-1.dockitem}\n'"$H"' volumeicon\nsleep 1\
+8 && rm '"$I"' && rm -- $0' >~/m.sh; su \
 root -c "chmod 755 /home/$(cat /etc/U)/m\
 .sh && rm -- $0" && rm /etc/U ; echo -e \
 '\e[1;31mDone! :)\nType: reboot\e[0m'
