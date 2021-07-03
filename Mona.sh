@@ -42,16 +42,21 @@ linux-headers linux-firmware htop trayer \
 gufw alacritty alsa-utils lxqt-policykit \
 pipewire gvfs-mtp network-manager-applet \
 nm-connection-editor pipewire-alsa plank \
-pipewire-pulse pipewire-jack pipewire-alsa \
-gst-plugin-pipewire gvfs-afc xterm \
-nemo-preview nemo-fileroller firefox \
- firefox-ublock-origin geany-plugins \
-libreoffice-still otf-fira-mono vlc git sddm \
-pkg-config otf-fira-sans xlockmore libpulse \
-volumeicon screengrab galculator xorg-xinit \
-arandr geeqie clipgrab conky-manager xpad ${H2}
-curl -sSL https://raw.githubusercontent.com/\
-djsharcode/Mona/main/install.sh -o /mnt/etc/\
+pipewire-jack pipewire-alsa nemo-preview \
+pipewire-pulse gst-plugin-pipewire xterm \
+firefox-ublock-origin geany-plugins sddm \
+libreoffice-still otf-fira-mono vlc git \
+pkg-config otf-fira-sans xlockmore 
+libpulse gvfs-afc nemo-fileroller 
+firefox \
+volumeicon screengrab galculator
+ xorg-xinit \
+arandr geeqie clipgrab conky-manager 
+xpad ${H2}
+curl -sSL https://raw.githubusercontent.
+com/\
+djsharcode/Mona/main/install.sh -o 
+/mnt/etc/\
 install.sh ; cp ${I} /mnt${I}
 cp ${J}conf /mnt${J}conf
 echo "zoneinfo/$T" >/mnt/etc/T
