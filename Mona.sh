@@ -27,7 +27,7 @@ cd; umount/mnt;${E} ${C}/mnt;mkdir /m\
 nt/{boot,home};${E}home ${C}/mnt/home
 mount ${B}/mnt/boot ;lsblk -ne 7,11
 if [ "${H}" == AMD ];then H2='amd-ucode'\
-&& H1='amdgpu '; elif [ "${H}" == Intel ]
+&&H1='amdgpu ';elif [ "${H}" == Intel ]
 then H1='i915 ' && H2='intel-ucode' ; fi
 ${G}timezone${T}&&${G}ntp true ; sed -i \
 "s/ULES=()/ULES=(${H1}btrfs)/"${I}; sed \
