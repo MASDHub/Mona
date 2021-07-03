@@ -12,21 +12,21 @@ H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"
 I='/etc/mkinitcpio.conf'; J='/etc/pacman.'
 T="$(curl -sSL https://ipapi.co/timezone) "
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k |pacman-key --populate; printf '
-%50s\n'|tr ' ' -; lsblk -do NAME,SIZE -\
-e 7,11 |egrep --color '|NAME'; read -p \
-$'\e[1;31mDisk Name\e[0m: ' A; until sg\
-disk /dev/$A -Z -n 1::+512M -t 1:EF00 -n
-do lsblk -do NAME,SIZE -e 7,11 && read \
--p $'\e[1;31mRe-try\e[0m: ' A; done 
+gpg -k|pacman-key --populate;printf '%50s
+'|tr ' ' -;lsblk -do NAME,SIZE -e 7,11 |
+egrep --color '|NAME';read -p $'\e[1;31m
+Enter Disk Name\e[0m: ' A; until sgdisk \
+/dev/$A -Z -n 1::+512M -t 1:EF00 -n -p
+do lsblk -e 7,11 -o NAME,SIZE&&read -p $'
+\e[1;31mRe-try\e[0m: ' A; done 
 B="$(ls /dev/* | egrep "^/dev/${A}p?1$") "
 C="$(ls /dev/* | egrep "^/dev/${A}p?2$") "
 mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
-mount ${C}/mnt ; cd /mnt; ${F}; ${F}home
-cd; umount /mnt; ${E} ${C}/mnt; mkdir /\
-mnt/{boot,home}; mount ${B}/mnt/boot
-${E}home ${C}/mnt/home ; lsblk -n -e 7,11
-if [ "${H}" == Intel ] ; then H1='i915 ' && \
+mount ${C}/mnt ; cd /mnt;${F};${F}home
+cd;umount /mnt ; ${E} ${C}/mnt;mkdir /\
+mnt/{boot,home}; mount${B}/mnt/boot
+${E}home ${C}/mnt/home; lsblk -n -e 7,11
+if [ "${H}" == Intel ]; then H1='i915 ' && \
 H2='intel-ucode ' ; fi ; if [ "${H}" == AMD ]
 then H1='amdgpu ' && H2='amd-ucode'; fi
 ${G}-timezone ${T}&& ${G}-ntp true ; sed -i \
