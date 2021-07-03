@@ -25,7 +25,7 @@ C="$(ls /dev/* | egrep "^${Z}p?2$") "
 mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
 mount ${C}/mnt ; cd /mnt
 ${F}; ${F}home ; cd ; umount/mnt 
-${E}=@ ${C}/mnt; mkdir /mnt/{boot,home}
+${E}=@ ${C}/mnt;mkdir /mnt/{boot,home}
 mount ${B}/mnt/boot; ${E}=@home \
 ${C}/mnt/home; if [ "${H}" == Intel ]
 then H2='intel-ucode'&&H1='i915 '; fi
