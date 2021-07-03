@@ -18,7 +18,7 @@ e 7,11 |egrep --color '|NAME'; read -p \
 $'\e[1;31mDisk Name\e[0m: ' A; until sg\
 disk /dev/$A -Z -n 1::+512M -t 1:EF00 -n
 do lsblk -do NAME,SIZE -e 7,11 && read \
--p $'\e[1;31m'Re-try\e[0m: ' A ; done 
+-p $'\e[1;31mRe-try\e[0m: ' A ; done 
 B="$(ls /dev/* | egrep "^/dev/${A}p?1$") "
 C="$(ls /dev/* | egrep "^/dev/${A}p?2$") "
 mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
