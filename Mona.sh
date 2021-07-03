@@ -41,10 +41,10 @@ efibootmgr obconf-qt networkmanager rofi \
 linux-headers linux-firmware htop trayer \
 gufw alacritty alsa-utils lxqt-policykit \
 pipewire gvfs-mtp network-manager-applet \
-nm-connection-editor pipewire-alsa firefox \
+nm-connection-editor pipewire-alsa plank \
 pipewire-pulse pipewire-jack pipewire-alsa \
 gst-plugin-pipewire gvfs-afc xterm \
-nemo-preview nemo-fileroller plank \
+nemo-preview nemo-fileroller firefox \
  firefox-ublock-origin geany-plugins \
 libreoffice-still otf-fira-mono vlc git sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
