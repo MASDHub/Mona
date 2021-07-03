@@ -13,23 +13,23 @@ I='/etc/mkinitcpio.conf' ; J='/etc/pacman.'
 T=" $(curl -sSL https://ipapi.co/timezone)"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '%50s
-'|tr ' ' -;lsblk -do NAME,SIZE -e 7,11 |
-egrep --color '|NAME';read -p $'\e[1;31m
+'|tr ' ' -; lsblk -do NAME,SIZE -e 7,11 |
+egrep --color '|NAME'; read -p $'\e[1;31m
 Enter Disk Name\e[0m: ' A; until sgdisk \
 /dev/$A -Z -n 1::+512M -t 1:EF00 -n -p
 do lsblk -e 7,11 -o NAME,SIZE&&read -p $'
 \e[1;31mRe-try\e[0m: ' A ; done
-B="$(ls /dev/*|egrep "^/dev/${A}p?1$") "
-C="$(ls /dev/*|egrep "^/dev/${A}p?2$") "
-mkfs.vfat ${B};mkfs.btrfs -fq ${C}
-mount ${C}/mnt;cd /mnt;${F} ;${F}home
-cd; umount/mnt;${E} ${C}/mnt;mkdir /m\
-nt/{boot,home};${E}home ${C}/mnt/home
-mount ${B}/mnt/boot ;lsblk -ne 7,11
+B="$( ls /dev/*|egrep "^/dev/${A}p?1$" )"
+C="$( ls /dev/*|egrep "^/dev/${A}p?2$" )"
+mkfs.vfat ${B} ;mkfs.btrfs -fq ${C}
+mount ${C} /mnt;cd /mnt; ${F} ;${F}home
+cd; umount/mnt ;${E} ${C} /mnt;mkdir /\
+mnt/{boot,home};${E}home ${C} /mnt/home
+mount ${B} /mnt/boot;lsblk -ne 7,11
 if [ "${H}" == AMD ];then H1='amdgpu '&&
 H2='amd-ucode'; elif [ "${H}" == Intel ]
-then H1='i915 ' &&H2='intel-ucode'; fi
-${G}timezone${T}&&${G}ntp true
+then H1='i915 ' && H2='intel-ucode' ; fi
+${G}timezone${T}&& ${G}ntp true
 sed -i "s/ULES=()/ULES=(${H1}btrfs)/" ${I}
 sed -i 's/#Co/Co/' ${J}conf;reflector -c \
 "$(curl -s https://ipapi.co/country)" -p \
