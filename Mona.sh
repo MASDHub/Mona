@@ -37,14 +37,14 @@ https --sort rate --save ${J}d/mirrorlist||
 reflector -p https --score 5 --sort rate \
 -a 4 --save ${J}d/mirrorlist;pacstrap -i \
 /mnt base base-devel linux xorg grub vim \
-efibootmgr obconf-qt networkmanager plank \
+efibootmgr obconf-qt networkmanager rofi \
 linux-headers linux-firmware htop vlc git \
 gufw alacritty alsa-utils lxqt-policykit \
 pipewire gvfs-mtp network-manager-applet \
 nm-connection-editor pipewire-alsa firefox \
 pipewire-pulse pipewire-jack pipewire-alsa \
 gst-plugin-pipewire gvfs-afc xterm \
-nemo-preview nemo-fileroller rofi \
+nemo-preview nemo-fileroller plank \
  firefox-ublock-origin geany-plugins \
 libreoffice-still otf-fira-mono trayer sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
