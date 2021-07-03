@@ -28,23 +28,24 @@ nt/{boot,home};${E}home ${C}/mnt/home
 mount ${B}/mnt/boot ;lsblk -ne 7,11
 if [ "${H}" == AMD ];then H1='amdgpu '&&
 H2='amd-ucode'; elif [ "${H}" == Intel ]
-then H1='i915 ' && H2='intel-ucode' ; fi
-${G}timezone${T}&&${G}ntp true ; sed -i \
-"s/ULES=()/ULES=(${H1}btrfs)/"${I}; sed \
--i's/#Co/Co/' ${J}conf;reflector -p https -c \
-"$(curl -s https://ipapi.co/country)" -a 12 \
--f 2 --sort rate --save ${J}d/mirrorlist || \
-reflector -p https -a 8 --score 5 --verbose \
---sort rate --isos --save ${J}d/mirrorlist
-pacstrap -i /mnt base base-devel linux xorg \
-linux-headers linux-firmware efibootmgr vim \
-networkmanager rofi gufw htop obconf-qt git \
-network-manager-applet nm-connection-editor \
-pipewire pipewire-alsa pipewire-pulse plank \
-pipewire-jack alsa-utils lxqt-policykit vlc \
-gst-plugin-pipewire gvfs-afc gvfs-mtp xterm \
-nemo-preview nemo-fileroller alacritty grub \
-firefox firefox-ublock-origin geany-plugins \
+then H1='i915 ' &&H2='intel-ucode'; fi
+${G}timezone${T}&&${G}ntp true; sed \
+-i "s/ULES=()/ULES=(${H1}btrfs)/"${I}sed \
+sed -i 's/#Co/Co/' ${J}conf; reflector -c \
+"$(curl -s https://ipapi.co/country)" -p \
+https --sort rate --save ${J}d/mirrorlist||
+reflector -p https --score 10 --sort rate \
+-a 4 --save ${J}d/mirrorlist;pacstrap -i \
+/mnt base base-devel linux xorg grub vim \
+efibootmgr obconf-qt networkmanager plank \
+linux-headers linux-firmware htop vlc git \
+gufw alacritty alsa-utils lxqt-policykit \
+pipewire gvfs-mtp network-manager-applet \
+nm-connection-editor pipewire-alsa firefox \
+pipewire-pulse pipewire-jack pipewire-alsa \
+gst-plugin-pipewire gvfs-afc xterm \
+nemo-preview nemo-fileroller rofi \
+ firefox-ublock-origin geany-plugins \
 libreoffice-still otf-fira-mono trayer sddm \
 pkg-config otf-fira-sans xlockmore libpulse \
 volumeicon screengrab galculator xorg-xinit \
