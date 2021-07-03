@@ -50,13 +50,10 @@ firefox volumeicon screengrab galculator \
 nemo-fileroller git pkg-config xlockmore \
 otf-fira-sans galculator libpulse arandr \
 gvfs-afc xorg-xinit geeqie conky-manager \
-clipgrab ${H2}
-curl -sSL https://raw.githubusercontent.
-com/\
-djsharcode/Mona/main/install.sh -o 
-/mnt/etc/\
-install.sh ; cp ${I} /mnt${I}
-cp ${J}conf /mnt${J}conf
+clipgrab ${H2};cp ${I} /mnt${I};curl -sL \
+https://raw.githubusercontent.com/djsharc\
+ode/Mona/main/install.sh -o /mnt/etc/inst\
+all.sh; cp ${J}conf /mnt${J}conf
 echo "zoneinfo/$T" >/mnt/etc/T
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
