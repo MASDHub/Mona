@@ -21,16 +21,17 @@ do lsblk -e 7,11 -o NAME,SIZE&&read -p $'
 \e[1;31mRe-try\e[0m: ' A ; done
 B="$(ls /dev/* | egrep "^/dev/${A}p?1$")"
 C="$(ls /dev/* | egrep "^/dev/${A}p?2$")"
-mkfs.vfat ${B} ;mkfs.btrfs -fq ${C}
-mount ${C} /mnt;cd /mnt ; ${F} ;${F}home
-cd; umount/mnt ;${E}@ ${C} /mnt;mkdir /\
-mnt/{boot,home};${E}@home ${C} /mnt/home
-mount ${B} /mnt/boot;lsblk -ne 7,11
-if [ "${H}" == AMD ];then H1='amdgpu '&&
-H2='amd-ucode'; elif [ "${H}" == Intel ]
-then H1='i915 ' && H2='intel-ucode' ; fi
-${G}timezone $T && ${G}ntp true
-sed -i "s/ULES=()/ULES=(${H1}btrfs)/" ${I}
+mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
+mount ${C} /mnt; cd /mnt
+${F}; ${F} home; cd ; umount/mnt 
+${E}@ ${C} /mnt; mkdir /mnt/{boot,home}
+mount ${B} /mnt/boot ; ${E}@home \
+${C} /mnt/home ; if [ "${H}" == AMD ]
+then H1='amdgpu ' && H2='amd-ucode' ; fi
+if [ "${H}" == Intel ];then H1='i915 '&&
+H2='intel-ucode  '; fi;lsblk -e 7,11
+${G}timezone ${T} ;${G}ntp true
+sed -i "s/ULES=()/ULES=(${H1}btrfs)/" $I
 sed -i 's/#Co/Co/' ${J}conf;reflector -c \
 "$(curl -s https://ipapi.co/country)" -p \
 https --sort rate --save ${J}d/mirrorlist||
