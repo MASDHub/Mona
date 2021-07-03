@@ -7,7 +7,7 @@ setfont ter-124b;head -n 8 -- $0|tail -n 4
    #         ↻     ⊲  Ⅱ  ⊳     ↺      #
 #         VOLUME: ▁▂▃▄▅▆▇ 100%      #
 E='mount -o noatime,compress=zstd,subvol='
-F='btrfs su cr @' ; G='timedatectl set'
+F='btrfs su cr @' ; G='timedatectl set-'
 H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"
 I='/etc/mkinitcpio.conf'; J='/etc/pacman.'
 T="$(curl -sSL https://ipapi.co/timezone)"
@@ -23,12 +23,12 @@ B="$(ls /dev/* | egrep "^/dev/${A}p?1$")"
 C="$(ls /dev/* | egrep "^/dev/${A}p?2$")"
 mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
 mount ${C} /mnt; cd /mnt
-${F}; ${F} home; cd ; umount/mnt 
+${F} ; ${F}home; cd ; umount/mnt 
 ${E}@ ${C} /mnt; mkdir /mnt/{boot,home}
-mount ${B} /mnt/boot; ${E}@home ${C}\
-/mnt/home ; if  [ "${H}" == 'Intel' ]
+mount ${B} /mnt/boot; ${E}@home \
+${C}/mnt/home; if [ "${H}" == Intel ]
 then H2='intel-ucode'&&H1='i915 '; fi
-lsblk -e 7,11; if [ "${H}" == 'AMD' ]
+lsblk -ne 7,11 ; if [ "${H}" == AMD ]
 then H1='amdgpu '&&H2='amd-ucode'; fi
 ${G}timezone ${T}&&${G}ntp true
 sed -i "s/ULES=()/ULES=(${H1}btrfs)/" $I
