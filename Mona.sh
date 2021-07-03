@@ -18,7 +18,7 @@ egrep --color '|NAME';read -p $'\e[1;31m
 Enter Disk Name\e[0m: ' A; until sgdisk \
 /dev/$A -Z -n 1::+512M -t 1:EF00 -n -p
 do lsblk -e 7,11 -o NAME,SIZE&&read -p $'
-\e[1;31mRe-try\e[0m: ' A; done
+\e[1;31mRe-try\e[0m: ' A ; done
 B="$(ls /dev/*|egrep "^/dev/${A}p?1$") "
 C="$(ls /dev/*|egrep "^/dev/${A}p?2$") "
 mkfs.vfat ${B};mkfs.btrfs -fq ${C}
