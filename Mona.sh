@@ -8,7 +8,7 @@ setfont ter-124b;head -n 8 -- $0|tail -n 4
 #         VOLUME: ▁▂▃▄▅▆▇ 100%      #
 E='mount -o noatime,compress=zstd,subvol='
 F='btrfs su cr @' ; G='timedatectl set-'
-H="$( lscpu|egrep -o 'AMD|Intel'|sort -u)"
+H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"
 I='/etc/mkinitcpio.conf'; J='/etc/pacman.'
 T="$(curl -sSL https://ipapi.co/timezone)"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -19,8 +19,8 @@ Enter Disk Name\e[0m: ' A; until sgdisk \
 /dev/$A -Z -n 1::+512M -t 1:EF00 -n -p
 do lsblk -e 7,11 -o NAME,SIZE&&read -p $'
 \e[1;31mRe-try\e[0m: ' A ; done
-B="$( ls /dev/*|egrep "^/dev/${A}p?1$" )"
-C="$( ls /dev/*|egrep "^/dev/${A}p?2$" )"
+B="$(ls /dev/* | egrep "^/dev/${A}p?1$")"
+C="$(ls /dev/* | egrep "^/dev/${A}p?2$")"
 mkfs.vfat ${B} ;mkfs.btrfs -fq ${C}
 mount ${C} /mnt;cd /mnt ; ${F} ;${F}home
 cd; umount/mnt ;${E}@ ${C} /mnt;mkdir /\
