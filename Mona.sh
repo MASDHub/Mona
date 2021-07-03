@@ -45,14 +45,12 @@ nm-connection-editor pipewire-alsa plank \
 pipewire-jack pipewire-alsa nemo-preview \
 pipewire-pulse gst-plugin-pipewire xterm \
 firefox-ublock-origin geany-plugins sddm \
-libreoffice-still otf-fira-mono vlc git \
-pkg-config otf-fira-sans xlockmore 
-libpulse gvfs-afc nemo-fileroller 
-firefox \
-volumeicon screengrab galculator
- xorg-xinit \
-arandr geeqie clipgrab conky-manager 
-xpad ${H2}
+libreoffice-still otf-fira-mono vlc xpad \
+firefox volumeicon screengrab galculator \
+nemo-fileroller git pkg-config xlockmore \
+otf-fira-sans galculator libpulse arandr \
+gvfs-afc xorg-xinit geeqie conky-manager \
+clipgrab ${H2}
 curl -sSL https://raw.githubusercontent.
 com/\
 djsharcode/Mona/main/install.sh -o 
