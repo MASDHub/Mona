@@ -8,17 +8,17 @@ setfont ter-124b; head -n 8 -- $0|tail -n 4
 #         VOLUME: ▁▂▃▄▅▆▇ 100%       #
 E='mount -o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @' ; G='timedatectl set'
-H="$(lscpu| egrep -o 'AMD|Intel'| sort -u)"
-I='/etc/mkinitcpio.conf' ; J='/etc/pacman.'
+H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"
+I='/etc/mkinitcpio.conf'; J='/etc/pacman.'
 T="$(curl -sSL https://ipapi.co/timezone) "
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k|pacman-key --populate ; head -n 4 -\
-- "$0"|tail -n 1 ; lsblk -d -o NAME,SIZE -\
-e 7,11|grep -E --color '[A-Z]' ; read -r -\
-p 'Disk Name: ' A ; until sgdisk /dev/$A -\
-Z -o -n 1::+512M -t 1:EF00 -n -i -v -p
-do lsblk -e 7,11 -do NAME,SIZE,TYPE|grep -\
--color [A-Z] && read -p 'Retry: ' A ; done
+gpg -k |pacman-key --populate ; printf '
+%50s\n'|tr ' ' -; lsblk -do NAME,SIZE -\
+e 7,11 |egrep --color '|NAME'; read -p \
+$'\e[1;31mDisk Name\e[0m: ' A; until sg\
+disk /dev/$A -Z -n 1::+512M -t 1:EF00 -n
+do lsblk -do NAME,SIZE -e 7,11 && read \
+-p $'\e[1;31m'Re-try\e[0m: ' A ; done 
 B="$(ls /dev/* | egrep "^/dev/${A}p?1$") "
 C="$(ls /dev/* | egrep "^/dev/${A}p?2$") "
 mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
