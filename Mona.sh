@@ -30,7 +30,7 @@ if [ "${H}" == AMD ];then H1='amdgpu '&&
 H2='amd-ucode'; elif [ "${H}" == Intel ]
 then H1='i915 ' &&H2='intel-ucode'; fi
 ${G}timezone${T}&&${G}ntp true;sed -\
-i "s/ULES=()/ULES=(${H1}btrfs)/"${I};sed \
+i "s/ULES=()/ULES=(${H1}btrfs)/" ${I}
 sed -i 's/#Co/Co/' ${J}conf;reflector -c \
 "$(curl -s https://ipapi.co/country)" -p \
 https --sort rate --save ${J}d/mirrorlist||
