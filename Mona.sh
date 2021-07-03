@@ -25,11 +25,11 @@ mkfs.vfat ${B};mkfs.btrfs -fq ${C}
 mount ${C}/mnt;cd /mnt
 ${F}; ${F}home;cd;umount /mnt
 ${E} ${C}/mnt ;mkdir /mnt/{boot,home}
-${E}home ${C}/mnt/home;lsblk -ne 7,11
-mount ${B}/mnt/boot;if [ "${H}" == AMD ]
-then H2='amd-ucode' && H1='amdgpu ' ; fi
+${E}home ${C}/mnt/home;mount ${B}/mnt/boot
+lsblk -ne 7,11;if [ "${H}" == AMD ]
+then H1='amdgpu '&&H2='amd-ucode'; fi
 if [ "${H}" == Intel ];then H1='i915 '&&\
-H2='intel-ucode'; fi; ${G}-timezone${T}&&\
+H2='intel-ucode'; fi;${G}-timezone${T}&&\
 ${G}-ntp true;sed -i 's/#Co/Co/' ${J}conf
 sed -i "s/ULES=()/ULES=(${H1}btrfs)/"${I}
 reflector -p https -c \
