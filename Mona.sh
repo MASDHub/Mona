@@ -1,10 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#    Mozart - Moonlight Sonata    #
-#     0:35 ━❍──────── -5:32  #
+#    Mozart - Moonlight Sonata     #
+#     0:35 ━❍──────── -5:32       #
 #       ↻     ⊲  Ⅱ  ⊳     ↺        #
-#    VOLUME: ▁▂▃▄▅▆▇ 100%     #
+#    VOLUME: ▁▂▃▄▅▆▇ 100%        #
 E='o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @' ; G='/etc/pacman.'
 I='curl -s https:/';setfont ter-124b
@@ -12,10 +12,10 @@ H="$( lscpu | grep -E 'AMD|Intel' )"
 K='timedatectl set';head -n 7 -- $0|
 tail -n 4 ; J='/etc/mkinitcpio.conf'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k|pacman-key --populate; printf '
-%50s' |tr ' ' -;lsblk -do NAME,SIZE -\
-e 7,11|egrep --color '|NAME';read -p \
-$'\e[1;31mEnter Install Disk\e[0m: ' A
+gpg -k |pacman-key --populate;printf '
+%50s\n'|tr ' ' -;lsblk -do NAME,SIZE \
+-e 7,11|grep --color '[A-Z]';read -p$'
+\e[1;31mEnter Install Disk\e[0m: ' A
 until Z="/dev/$A"&&sgdisk ${Z} -Z -n \
 1::+512M -t 1:EF00 -n -p;do lsblk -e \
 7,11 -do NAME|egrep --color '|NAME' &&
