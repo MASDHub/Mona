@@ -39,26 +39,29 @@ reflector -p https -c $(${I}country) \
 --sort rate --save ${G}d/mirrorlist||
 reflector -p https --score 10 --sort \
 rate -a 12 --save ${G}d/mirrorlist
-pacstrap -i /mnt base base-devel \
-linux xorg grub vim \
-efibootmgr obconf-qt networkmanager rofi \
-linux-headers linux-firmware htop trayer \
-gufw alacritty alsa-utils lxqt-policykit \
-pipewire gvfs-mtp network-manager-applet \
-nm-connection-editor pipewire-alsa plank \
-pipewire-jack pipewire-alsa nemo-preview \
-pipewire-pulse gst-plugin-pipewire xterm \
-firefox-ublock-origin geany-plugins sddm \
-libreoffice-still otf-fira-mono vlc xpad \
-firefox volumeicon screengrab galculator \
-nemo-fileroller git pkg-config xlockmore \
-otf-fira-sans galculator libpulse arandr \
-gvfs-afc xorg-xinit geeqie conky-manager \
-clipgrab ${S} ; cp ${G}conf /mnt${G}conf \
-curl -L https://raw.githubusercontent.com\
-/djsharcode/Mona/main/install.sh -o /mnt/\
-etc/install.sh;cp $J /mnt$J
-echo "zoneinfo/$(${I}timezone)">/mnt/etc/T
+pacstrap -i /mnt base base-devel vim \
+xorg linux linux xorg networkmanager \
+linux-headers linux-firmware firefox \
+alsa-utils efibootmgr linux-firmware \
+linux-headers network-manager-applet \
+pipewire-pulse lxqt-policykit geeqie \
+nm-connection-editor nemo-fileroller \
+gufw pipewire gvfs-mtp pipewire-alsa \
+screengrab galculator git pkg-config \
+alacritty rofi grub htop trayer sddm \
+plank pipewire-jack nemo-preview vlc \
+xterm volumeicon xlockmore obconf-qt \
+pipewire-alsa otf-fira-mono libpulse \
+xpad otf-fira-sans galculator arandr \
+geany-plugins clipgrab conky-manager \
+firefox-ublock-origin xorg-xinit \
+gst-plugin-pipewire gvfs-afc \
+libreoffice-still ${S} ; cp ${G}conf \
+/mnt${G}conf;curl -sL https://raw.git\
+hubusercontent.com/djsharcode/Mona/ma\
+in/install.sh -o /mnt/wtc/install.sh
+echo "zoneinfo/$(${I}timezone)">/mnt/\
+etc/T;cp $J /mnt$J
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt sh /etc/install.sh
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+arch-chroot /mnt sh /etc/instal.sh
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
