@@ -12,13 +12,13 @@ H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"
 I='/etc/mkinitcpio.conf';J='/etc/pacman.'
 T="$(curl -sL https://ipapi.co/timezone)"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k|pacman-key --populate; printf \
-'%50s'|tr ' ' -;lsblk -do NAME,SIZE -\
-e 7,11|egrep --color '|NAME';read -p \
-$'\e[1;31mEnter Disk Name\e[0m:  ' A
+gpg -k|pacman-key --populate ; printf \
+'%50s'|tr ' ' -; lsblk -do NAME,SIZE -\
+e 7,11|egrep --color '|NAME';read -p $'
+\e[1;31mEnter Install Disk\e[0m: ' A
 until Z="/dev/$A"&&sgdisk ${Z} -Z -n \
 1::+512M -t 1:EF00 -n -p;do lsblk -e \
-7,11 -o NAME,SIZE&&read -p $'\e[1;31m
+7,11 -do NAME,SIZE&&read -p $'\e[1;31m
 Retry\e[0m: ' A; done
 B="$(ls /dev/* | egrep "^${Z}p?1$") "
 C="$(ls /dev/* | egrep "^${Z}p?2$") "
