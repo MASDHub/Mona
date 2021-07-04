@@ -23,7 +23,7 @@ Retry\e[0m: ' A; done
 B="$(ls /dev/*|egrep "^${Z}p?1$") "
 C="$(ls /dev/*|egrep "^${Z}p?2$") "
 mkfs.vfat ${B};mkfs.btrfs -fq ${C}
-mount ${C}/mnt;cd /mnt;${F}
+mount ${C}/mnt; cd /mnt ;${F}
 ${F}home ; cd ;umount/mnt;${E}l=@
 ${C}/mnt ; mkdir /mnt/{boot,home}
 mount ${B}/mnt/boot;${E}l=@home \
