@@ -32,15 +32,15 @@ ${C} /mnt/home; lsblk -ne 7,11 ; if
 then S='amd-ucode ' && Q='amdgpu '
 else S='intel-ucode'&& Q='i915 ';fi
 fi;${G}timezone "$(${T}timezone)"&&
-${G}ntp true
-sed -i "s/ULES=()/ULES=(${Q}btrfs)/" \
-/${I} ; sed -i 's/#Co/Co/' ${J}conf
-reflector -p https --sort rate -c \
-"$(curl -s https://ipapi.co/country)" \
---save ${J}d/mirrorlist||reflector -p \
-https -a 8 -f 2 --score 5 --sort rate \
---save ${J}d/mirrorlist ; pacstrap -i \
-/mnt base base-devel linux xorg grub vim \
+${G}ntp true;sed -i 's/#Co/Co/' \
+${J}conf; sed -i 
+"s/ULES=()/ULES=(${Q}btrfs)/" /$I
+reflector -p https -c $(${T}country) \
+--sort rate --save ${J}d/mirrorlist||
+reflector -p https --score 10 --sort \
+rate -a 12 --save ${J}d/mirrorlist
+pacstrap -i /mnt base base-devel \
+linux xorg grub vim \
 efibootmgr obconf-qt networkmanager rofi \
 linux-headers linux-firmware htop trayer \
 gufw alacritty alsa-utils lxqt-policykit \
