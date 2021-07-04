@@ -8,9 +8,8 @@ head -n 8 -- $0|tail -n 4
 #    VOLUME: ▁▂▃▄▅▆▇ 100%      #
 E='noatime,compress=zstd,subvol='
 F='btrfs su cr ';G='timedatectl set-'
-I='etc/mkinitcpio.conf'
-J='/etc/pacman.'
-H="$(lscpu|egrep -o 'AMD|Intel')"
+H="$(lscpu|egrep 'AMD|Intel')"
+I='etc/mkinitcpio.conf';J='etc/pacman.'
 T='curl -s https://ipapi.co/'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate; printf '
@@ -33,7 +32,7 @@ then S='amd-ucode ' && Q='amdgpu '
 else S='intel-ucode'&& Q='i915 ';fi
 fi;${G}timezone "$(${T}timezone)"&&
 ${G}ntp true;lsblk -ne 7,11; sed \
--i 's/#Co/Co/' ${J}conf ; sed -i "
+-i 's/#Co/Co/' /${J}conf ; sed -i "
 s/ULES=()/ULES=(${Q}btrfs)/" /$I
 reflector -p https -c $(${T}country) \
 --sort rate --save ${J}d/mirrorlist||
@@ -54,7 +53,7 @@ firefox volumeicon screengrab galculator \
 nemo-fileroller git pkg-config xlockmore \
 otf-fira-sans galculator libpulse arandr \
 gvfs-afc xorg-xinit geeqie conky-manager \
-clipgrab ${S} ; cp ${J}conf /mnt${J}conf \
+clipgrab ${S};cp /${J}conf /mnt/${J}conf \
 curl -L https://raw.githubusercontent.com\
 /djsharcode/Mona/main/install.sh -o /mnt/\
 etc/install.sh;cp /$I /mnt/$I
