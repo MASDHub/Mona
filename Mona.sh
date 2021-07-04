@@ -18,8 +18,8 @@ gpg -k |pacman-key --populate;printf '
 [1;31mInstall Disk\e[0m: ' A;until Z=\
 "/dev/$A"&&sgdisk $Z -Z -n 1::+512M -\
 t 1:EF00 -n -p ; do lsblk -e 7,11 -o \
-NAME,SIZE|grep --color [A-Z]&&read -p$'
-\e[1;31mRetry\e[0m: ' A ; done
+NAME,SIZE|grep --color [A-Z]&&read -p\
+$'\e[1;31mRetry\e[0m: ' A ; done
 B="$(ls /dev/* | egrep "^${Z}p?1$") "
 C="$(ls /dev/* | egrep "^${Z}p?2$") "
 mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
