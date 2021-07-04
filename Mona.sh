@@ -59,8 +59,8 @@ libreoffice-still ${S} ; cp ${G}conf \
 /mnt${G}conf;curl -sL https://raw.git\
 hubusercontent.com/djsharcode/Mona/ma\
 in/install.sh -o /mnt/wtc/install.sh
-echo "zoneinfo/$(${I}timezone)">/mnt/\
-etc/T;cp $J /mnt$J
+echo zoneinfo/$($I/ipapi.co/timezone)\
+>/mnt/etc/T;cp ${J} /mnt${J}
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/instal.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
