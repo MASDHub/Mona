@@ -5,7 +5,7 @@ head -n 8 -- $0|tail -n 4
     #     Mozart - Moonlight Sonata  #
  #         0:35 ━❍──────── -5:32    #
    #         ↻     ⊲  Ⅱ  ⊳     ↺     #
-#         VOLUME: ▁▂▃▄▅▆▇ 100%     #
+#         VOLUME: ▁▂▃▄▅▆▇ 100%    #
 E='mount -o noatime,compress=zstd,subvo'
 F='btrfs su cr @' ; G='timedatectl set'
 I='etc/mkinitcpio.conf';J='/etc/pacman.'
