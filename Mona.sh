@@ -35,7 +35,7 @@ ${K}-timezone $($I/ipapi.co/timezone)\
 -e 's/#Co/Co/' ${G}conf ; sed -i "s/U\
 LES=(/ULES=(${Q}btrfs/" $J:reflector \
 -p https -c $(${I}/ipapi.co/country) \
---sort rate --save ${G}d/mirrorlist||
+--sort rate --save ${G}d/mirrorlist ||
 reflector -p https --score 10 --sort \
 rate -a 12 --save ${G}d/mirrorlist
 pacstrap -i /mnt base base-devel vim \
