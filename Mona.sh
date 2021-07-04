@@ -10,7 +10,7 @@ E='mount -o noatime,compress=zstd,subvo'
 F='btrfs su cr';G='timedatectl set-'
 I='etc/mkinitcpio.conf';J='/etc/pacman.'
 H="$(lscpu|egrep -o 'AMD|Intel')"
-T='curl -s https://ipapi.co/' "$(timezone)"
+T='curl -s https://ipapi.co/'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate; printf '
 %50s' |tr ' ' -;lsblk -do NAME,SIZE -\
@@ -29,8 +29,8 @@ ${C} /mnt ; mkdir /mnt/{boot,home}
 mount ${B} /mnt/boot ;${E}l=@home \
 ${C} /mnt/home; lsblk -ne 7,11 ; if
 [ -n ${H} ];then if [ ${H} == AMD ]
-then S='amd-ucode ' &&Q='amdgpu '
-else S='intel-ucode'&&Q='i915 ';fi
+then S='amd-ucode ' && Q='amdgpu '
+else S='intel-ucode'&& Q='i915 ';fi
 fi;${G}timezone "$(${T}timezone)"&&
 ${G}ntp true
 sed -i "s/ULES=()/ULES=(${Q}btrfs)/" \
