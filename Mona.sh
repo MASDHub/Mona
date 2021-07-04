@@ -6,7 +6,7 @@ head -n 8 -- $0|tail -n 4
  #    0:35 ━❍──────── -5:32    #
  #     ↻     ⊲  Ⅱ  ⊳     ↺        #
 #    VOLUME: ▁▂▃▄▅▆▇ 100%      #
-E='noatime,compress=zstd,subvol='
+E='noatime,compress=zstd,subvol=@'
 F='btrfs su cr ';G='timedatectl set-'
 H="$(lscpu|egrep 'AMD|Intel')"
 I='etc/mkinitcpio.conf';J='etc/pacman.'
@@ -20,13 +20,13 @@ until Z="/dev/$A"&&sgdisk ${Z} -Z -n \
 1::+512M -t 1:EF00 -n -p;do lsblk -e \
 7,11 -do NAME,SIZE&&read -p $'\e[1;31m
 Retry\e[0m: ' A; done
-B="$(ls /dev/*| egrep "^${Z}p?1$") "
-C="$(ls /dev/*| egrep "^${Z}p?2$") "
-mkfs.vfat ${B};mkfs.btrfs -fq ${C}
+B="$(ls /dev/*|egrep "^${Z}p?1$") "
+C="$(ls /dev/*|egrep "^${Z}p?2$") "
+mkfs.vfat ${B};mkfs.btrfs -fq${C}
 mount ${C}/mnt;cd /mnt;${F}@;${F}@home
 cd ;umount/mnt;mount -o ${E};${C}/mnt
 mkdir /mnt/{boot,home};mount ${B}/mnt\
-/boot;mount -o ${E}@home ${C}/mnt/home
+/boot; mount -o ${E}home ${C}/mnt/home
 if [[ -n ${H} ]];then if [ $H == AMD ]
 then S='amd-ucode ' && Q='amdgpu '
 else S='intel-ucode'&& Q='i915 ';fi
