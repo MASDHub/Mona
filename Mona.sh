@@ -29,15 +29,16 @@ ${C}/mnt ; mkdir /mnt/{boot,home}
 mount ${B}/mnt/boot;${E}l=@home \
 ${C}/mnt/home ; lsblk -ne 7,11 ; if
 [ -n ${H} ];then if [ ${H} == AMD ]
-then H2='amd-ucode ' &&H1='amdgpu '
-else H2='intel-ucode'&&H1='i915 ';fi
+then S='amd-ucode ' &&Q='amdgpu '
+else S='intel-ucode'&&Q='i915 ';fi
 fi;${G}-timezone ${T}&&${G}-ntp true
-sed -i "s/ULES=()/ULES=(${H1}btrfs)/" /$I
-sed -i 's/#Co/Co/' ${J}conf;reflector -c \
-"$(curl -s https://ipapi.co/country)" -p \
-https --sort rate --save ${J}d/mirrorlist||
-reflector -p https --score 5 --sort rate \
--a 4 --save ${J}d/mirrorlist;pacstrap -i \
+sed -i "s/ULES=()/ULES=(${Q}btrfs)/" \
+/${I} ; sed -i 's/#Co/Co/' ${J}conf
+reflector -p https --sort rate -c \
+"$(curl -s https://ipapi.co/country)" \
+--save ${J}d/mirrorlist||reflector -p \
+https -a 8 -f 2 --score 5 --sort rate \
+--save ${J}d/mirrorlist ; pacstrap -i \
 /mnt base base-devel linux xorg grub vim \
 efibootmgr obconf-qt networkmanager rofi \
 linux-headers linux-firmware htop trayer \
@@ -52,7 +53,7 @@ firefox volumeicon screengrab galculator \
 nemo-fileroller git pkg-config xlockmore \
 otf-fira-sans galculator libpulse arandr \
 gvfs-afc xorg-xinit geeqie conky-manager \
-clipgrab ${H2}; cp ${J}conf /mnt${J}conf \
+clipgrab ${S} ; cp ${J}conf /mnt${J}conf \
 curl -L https://raw.githubusercontent.com\
 /djsharcode/Mona/main/install.sh -o /mnt/\
 etc/install.sh;cp /$I /mnt/$I
