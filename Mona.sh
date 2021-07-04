@@ -7,7 +7,7 @@ head -n 8 -- $0|tail -n 4
    #         ↻     ⊲  Ⅱ  ⊳     ↺     #
 #         VOLUME: ▁▂▃▄▅▆▇ 100%     #
 E='mount -o noatime,compress=zstd,subvo'
-F='btrfs su cr @';G='timedatectl set-'
+F='btrfs su cr @' ; G='timedatectl set-'
 I='etc/mkinitcpio.conf';J='/etc/pacman.'
 H="$(lscpu|egrep -o 'AMD|Intel')"
 T="$(curl -s https://ipapi.co/timezone)"
