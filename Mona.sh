@@ -12,26 +12,26 @@ H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"
 I='/etc/mkinitcpio.conf';J='/etc/pacman.'
 T="$(curl -s https://ipapi.co/timezone)"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k|pacman-key --populate ; printf '
-%50s' |tr ' ' -; lsblk -do NAME,SIZE -\
-e 7,11|egrep --color '|NAME';read -p $'
-\e[1;31mEnter Install Disk\e[0m: ' A
+gpg -k|pacman-key --populate; printf '
+%50s' |tr ' ' -;lsblk -do NAME,SIZE -\
+e 7,11|egrep --color '|NAME';read -p \
+$'\e[1;31mEnter Install Disk\e[0m: ' A
 until Z="/dev/$A"&&sgdisk ${Z} -Z -n \
 1::+512M -t 1:EF00 -n -p;do lsblk -e \
 7,11 -do NAME,SIZE&&read -p $'\e[1;31m
 Retry\e[0m: ' A; done
-B="$(ls /dev/* | egrep "^${Z}p?1$") "
-C="$(ls /dev/* | egrep "^${Z}p?2$") "
-mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
-mount ${C}/mnt ; cd /mnt
-${F}; ${F}home ; cd ; umount/mnt 
-${E}=@ ${C}/mnt;mkdir /mnt/{boot,home}
-mount ${B}/mnt/boot; ${E}=@home \
-${C}/mnt/home; if [ "${H}" == Intel ]
-then H2='intel-ucode'&&H1='i915 '; fi
-lsblk -ne 7,11 ; if [ "${H}" == AMD ]
-then H1='amdgpu '&&H2='amd-ucode'; fi
-${G}timezone ${T}&&${G}ntp true
+B="$(ls /dev/*|egrep "^${Z}p?1$") "
+C="$(ls /dev/*|egrep "^${Z}p?2$") "
+mkfs.vfat ${B};mkfs.btrfs -fq ${C}
+mount ${C}/mnt;cd /mnt;${F}
+${F}home ; cd ;umount/mnt;${E}=@
+${C}/mnt ;mkdir /mnt/{boot,home}
+mount ${B}/mnt/boot;${E}=@home \
+${C}/mnt/home ; lsblk -ne 7,11 ; if 
+[ -n ${H} ];then if [ ${H} == AMD ]
+then H1='amdgpu ' && H2='amd-ucode'
+else H2='intel-ucode'&&H1='i915 ';fi
+fi ; ${G}timezone ${T}&&${G}ntp true
 sed -i "s/ULES=()/ULES=(${H1}btrfs)/" $I
 sed -i 's/#Co/Co/' ${J}conf;reflector -c \
 "$(curl -s https://ipapi.co/country)" -p \
