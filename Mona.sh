@@ -25,8 +25,8 @@ C="$(ls /dev/* | egrep "^${Z}p?2$") "
 mkfs.vfat ${B} ; mkfs.btrfs -fq${C}
 mount ${C}/mnt ; cd /mnt;${F};${F}home
 cd ;umount/mnt ; mount -${E} ;${C}/mnt
-mkdir /mnt/{boot,home};mount${B}/mnt/\
-boot; mount -${E}home ${C}/mnt/home
+mkdir /mnt/{boot,home};mount ${B}/mnt\
+/boot ; mount -${E}home ${C}/mnt/home
 if [[ -n ${H} ]];then if [ $H == AMD ]
 then S='amd-ucode ' && Q='amdgpu '
 else S='intel-ucode'&& Q='i915 ';fi;fi
