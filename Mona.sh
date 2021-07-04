@@ -5,7 +5,7 @@ head -n 8 -- $0|tail -n 4
 #     Mozart - Moonlight Sonata    #
 #      0:35 ━❍──────── -5:32     #
 #       ↻     ⊲  Ⅱ  ⊳     ↺       #
-#       VOLUME: ▁▂▃▄▅▆▇ 100%        #
+#       VOLUME: ▁▂▃▄▅▆▇ 100%    #
 E='noatime,compress=zstd,subvol=@'
 F='btrfs su cr @';G='/etc/pacman.'
 H="$(lscpu|egrep 'AMD|Intel')"
