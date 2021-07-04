@@ -1,10 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#     Mozart - Moonlight Sonata    #
-#      0:35 ━❍──────── -5:32     #
-#       ↻     ⊲  Ⅱ  ⊳     ↺       #
-#       VOLUME: ▁▂▃▄▅▆▇ 100%    #
+#    Mozart - Moonlight Sonata    #
+#     0:35 ━❍──────── -5:32  #
+#       ↻     ⊲  Ⅱ  ⊳     ↺        #
+#    VOLUME: ▁▂▃▄▅▆▇ 100%     #
 E='o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @' ; G='/etc/pacman.'
 I='curl -s https:/';setfont ter-124b
@@ -20,19 +20,19 @@ until Z="/dev/$A"&&sgdisk ${Z} -Z -n \
 1::+512M -t 1:EF00 -n -p;do lsblk -e \
 7,11 -do NAME,SIZE&&read -p $'\e[1;31m
 Retry\e[0m: ' A; done
-B="$(ls /dev/*|egrep "^${Z}p?1$") "
-C="$(ls /dev/*|egrep "^${Z}p?2$") "
-mkfs.vfat ${B};mkfs.btrfs -fq${C}
-mount ${C}/mnt;cd /mnt;${F};${F}home
-cd ;umount/mnt; mount -${E};${C}/mnt
-mkdir /mnt/{boot,home};mount ${B}/mnt\
-/boot; mount -${E}home ${C}/mnt/home
+B="$(ls /dev/* | egrep "^${Z}p?1$") "
+C="$(ls /dev/* | egrep "^${Z}p?2$") "
+mkfs.vfat ${B} ; mkfs.btrfs -fq${C}
+mount ${C}/mnt ; cd /mnt;${F};${F}home
+cd ;umount/mnt ; mount -${E} ;${C}/mnt
+mkdir /mnt/{boot,home};mount${B}/mnt/\
+boot; mount -${E}home ${C}/mnt/home
 if [[ -n ${H} ]];then if [ $H == AMD ]
 then S='amd-ucode ' && Q='amdgpu '
 else S='intel-ucode'&& Q='i915 ';fi;fi
 ${K}-timezone $($I/ipapi.co/timezone)\
 &&${K}-ntp true; lsblk -e 7,11 ; sed \
--e 's/#Co/Co/' ${G}conf ; sed -i "s/U\
+-i 's/#Co/Co/' ${G}conf ; sed -i "s/U\
 LES=(/ULES=(${Q}btrfs/" $J:reflector \
 -p https -c $(${I}/ipapi.co/country) \
 --sort rate --save ${G}d/mirrorlist ||
