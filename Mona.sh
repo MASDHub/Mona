@@ -2,16 +2,16 @@
 set -euo pipefail;setfont ter-124b
 head -n 8 -- $0|tail -n 4
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-  #  Mozart - Moonlight Sonata      #
- #    0:35 ━❍──────── -5:32    #
- #     ↻     ⊲  Ⅱ  ⊳     ↺        #
-#    VOLUME: ▁▂▃▄▅▆▇ 100%      #
+#     Mozart - Moonlight Sonata    #
+#      0:35 ━❍──────── -5:32     #
+#       ↻     ⊲  Ⅱ  ⊳     ↺       #
+#       VOLUME: ▁▂▃▄▅▆▇ 100%        #
 E='noatime,compress=zstd,subvol=@'
-F='btrfs su cr @';J='/etc/pacman.' 
-G='timedatectl set-'
+F='btrfs su cr @';G='/etc/pacman.'
 H="$(lscpu|egrep 'AMD|Intel')"
-I='/etc/mkinitcpio.conf'
-T='curl -s https://ipapi.co/'
+I='curl -s https://ipapi.co/'
+J='/etc/mkinitcpio.conf'
+K='timedatectl set-'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate; printf '
 %50s' |tr ' ' -;lsblk -do NAME,SIZE -\
@@ -31,14 +31,14 @@ mkdir /mnt/{boot,home};mount ${B}/mnt\
 if [[ -n ${H} ]];then if [ $H == AMD ]
 then S='amd-ucode ' && Q='amdgpu '
 else S='intel-ucode'&& Q='i915 ';fi
-fi;${G}timezone "$(${T}timezone)"&&
-${G}ntp true;lsblk -ne 7,11; sed \
--i 's/#Co/Co/' ${J}conf ; sed -i "
-s/ULES=()/ULES=(${Q}btrfs)/" /$I
-reflector -p https -c $(${T}country) \
---sort rate --save ${J}d/mirrorlist||
+fi;${K}timezone "$(${I}timezone)"&&
+${K}ntp true;lsblk -ne 7,11; sed \
+-i 's/#Co/Co/' ${G}conf ; sed -i "
+s/ULES=()/ULES=(${Q}btrfs)/" $J
+reflector -p https -c $(${I}country) \
+--sort rate --save ${G}d/mirrorlist||
 reflector -p https --score 10 --sort \
-rate -a 12 --save ${J}d/mirrorlist
+rate -a 12 --save ${G}d/mirrorlist
 pacstrap -i /mnt base base-devel \
 linux xorg grub vim \
 efibootmgr obconf-qt networkmanager rofi \
@@ -54,11 +54,11 @@ firefox volumeicon screengrab galculator \
 nemo-fileroller git pkg-config xlockmore \
 otf-fira-sans galculator libpulse arandr \
 gvfs-afc xorg-xinit geeqie conky-manager \
-clipgrab ${S} ; cp ${J}conf /mnt${J}conf \
+clipgrab ${S} ; cp ${G}conf /mnt${G}conf \
 curl -L https://raw.githubusercontent.com\
 /djsharcode/Mona/main/install.sh -o /mnt/\
-etc/install.sh;cp /$I /mnt/$I
-echo "zoneinfo/$T" >/mnt/etc/T
+etc/install.sh;cp $J /mnt$J
+echo "zoneinfo/$(${I}timezone)">/mnt/etc/T
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/install.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
