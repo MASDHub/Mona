@@ -7,7 +7,7 @@ head -n 8 -- $0|tail -n 4
    #         ↻     ⊲  Ⅱ  ⊳     ↺     #
 #         VOLUME: ▁▂▃▄▅▆▇ 100%    #
 E='mount -o noatime,compress=zstd,subvo'
-F='btrfs su cr @' ; G='timedatectl set'
+F='btrfs su cr @' ; G='timedatectl set-'
 I='etc/mkinitcpio.conf';J='/etc/pacman.'
 H="$(lscpu|egrep -o 'AMD|Intel')"
 T="$(curl -s https://ipapi.co/timezone)"
@@ -31,7 +31,7 @@ ${C}/mnt/home ; lsblk -ne 7,11 ; if
 [ -n ${H} ];then if [ ${H} == AMD ]
 then S='amd-ucode ' &&Q='amdgpu '
 else S='intel-ucode'&&Q='i915 ';fi
-fi;${G}-timezone ${T}&&${G}-ntp true
+fi;${G}timezone ${T}&&${G}ntp true
 sed -i "s/ULES=()/ULES=(${Q}btrfs)/" \
 /${I} ; sed -i 's/#Co/Co/' ${J}conf
 reflector -p https --sort rate -c \
