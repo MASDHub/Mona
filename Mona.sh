@@ -18,8 +18,8 @@ e 7,11|egrep --color '|NAME';read -p \
 $'\e[1;31mEnter Install Disk\e[0m: ' A
 until Z="/dev/$A"&&sgdisk ${Z} -Z -n \
 1::+512M -t 1:EF00 -n -p;do lsblk -e \
-7,11 -do NAME,SIZE&&read -p $'\e[1;31m
-Retry\e[0m: ' A; done
+7,11 -do NAME|egrep --color '|NAME' &&
+read -p $'\e[1;31mRetry\e[0m: ' A;done
 B="$(ls /dev/* | egrep "^${Z}p?1$") "
 C="$(ls /dev/* | egrep "^${Z}p?2$") "
 mkfs.vfat ${B} ; mkfs.btrfs -fq${C}
