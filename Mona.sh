@@ -14,8 +14,8 @@ tail -n 4 ; J='/etc/mkinitcpio.conf'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k |pacman-key --populate;printf '
 %50s\n'|tr ' ' -;lsblk -do NAME,SIZE \
--e 7,11|grep --color '[A-Z]';read -p$'
-\e[1;31mEnter Install Disk\e[0m: ' A
+-e 7,11|grep --color [A-Z];read -p$'\e
+[1;31mEnter Disk for Install\e[0m: ' A
 until Z="/dev/$A"&&sgdisk ${Z} -Z -n \
 1::+512M -t 1:EF00 -n -p;do lsblk -e \
 7,11 -do NAME|egrep --color '|NAME' &&
