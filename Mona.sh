@@ -5,7 +5,7 @@ set -euo pipefail
 #     0:35 ━❍──────── -5:32        #
 #       ↻     ⊲  Ⅱ  ⊳     ↺        #
 #    VOLUME: ▁▂▃▄▅▆▇ 100%          #
-E='-o noatime,compress=zstd,subvol=@'
+E='o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @' ; G='/etc/pacman.'
 I='curl -s https:/';setfont ter-124b
 H="$( lscpu | grep -E 'AMD|Intel' )"
@@ -22,7 +22,7 @@ NAME,SIZE|grep --color [A-Z]&&read -p$'
 \e[1;31mRetry\e[0m: ' A ; done
 B="$(ls /dev/* | egrep "^${Z}p?1$") "
 C="$(ls /dev/* | egrep "^${Z}p?2$") "
-mkfs.vfat ${B} ; mkfs.btrfs -fq${C}
+mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
 mount ${C}/mnt ; cd /mnt;${F};${F}home
 cd;umount /mnt ; mount -${E} ${C}/mnt
 mkdir /mnt/{boot,home};mount ${B}/mnt\
