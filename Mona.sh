@@ -53,9 +53,9 @@ xterm volumeicon xlockmore obconf-qt \
 pipewire-alsa otf-fira-mono libpulse \
 xpad otf-fira-sans galculator arandr \
 geany-plugins clipgrab conky-manager \
-firefox-ublock-origin xorg-xinit \
-gst-plugin-pipewire gvfs-afc \
-libreoffice-still ${S} ; cp ${G}conf \
+gst-plugin-pipewire libreoffice-still\
+ firefox-ublock-origin xorg-xinit gvf\
+s-afc ${S} ; cp ${G}conf \
 /mnt${G}conf;curl -sL https://raw.git\
 hubusercontent.com/djsharcode/Mona/ma\
 in/install.sh -o /mnt/mtc/install.sh
