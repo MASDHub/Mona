@@ -27,11 +27,11 @@ mount ${C}/mnt;cd /mnt;${F}
 ${F}home ; cd ;umount/mnt;${E}l=@
 ${C}/mnt ; mkdir /mnt/{boot,home}
 mount ${B}/mnt/boot;${E}l=@home \
-${C}/mnt/home ; lsblk -ne 7,11 ; if 
+${C}/mnt/home ; lsblk -ne 7,11 ; if
 [ -n ${H} ];then if [ ${H} == AMD ]
-then H1='amdgpu ' && H2='amd-ucode'
-else H2='intel-ucode'&&H1='i915 ';fi
-fi ; ${G}timezone ${T}&&${G}ntp true
+then H2='amd-ucode' && H1='amdgpu '
+else H2='intel-ucode' && H1='i915 '
+fi;fi;${G}timezone ${T}&&${G}ntp true
 sed -i "s/ULES=()/ULES=(${H1}btrfs)/" /$I
 sed -i 's/#Co/Co/' ${J}conf;reflector -c \
 "$(curl -s https://ipapi.co/country)" -p \
