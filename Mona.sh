@@ -4,7 +4,7 @@ set -euo pipefail
 #    Mozart - Moonlight Sonata     #
 #     0:35 ━❍──────── -5:32        #
 #       ↻     ⊲  Ⅱ  ⊳     ↺        #
-#    VOLUME: ▁▂▃▄▅▆▇ 100%          #
+#    VOLUME: ▁▂▃▄▅▆▇ 100%       #
 E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @' ; G='/etc/pacman.'
 I='curl -s https://ipapi';setfont te\
