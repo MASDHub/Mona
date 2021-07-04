@@ -7,7 +7,7 @@ head -n 8 -- $0|tail -n 4
    #         ↻     ⊲  Ⅱ  ⊳     ↺     #
 #         VOLUME: ▁▂▃▄▅▆▇ 100%     #
 E='mount -o noatime,compress=zstd,subvo'
-F='btrfs su cr @' ; G='timedatectl set-'
+F='btrfs su cr @' ; G='timedatectl set'
 I='etc/mkinitcpio.conf';J='/etc/pacman.'
 H="$(lscpu|egrep -o 'AMD|Intel')"
 T="$(curl -s https://ipapi.co/timezone)"
@@ -29,9 +29,9 @@ ${C}/mnt ; mkdir /mnt/{boot,home}
 mount ${B}/mnt/boot;${E}l=@home \
 ${C}/mnt/home ; lsblk -ne 7,11 ; if
 [ -n ${H} ];then if [ ${H} == AMD ]
-then H2='amd-ucode' && H1='amdgpu '
-else H2='intel-ucode' && H1='i915 '
-fi;fi;${G}timezone ${T}&&${G}ntp true
+then H2='amd-ucode'&&H1='amdgpu '
+else H2='intel-ucode'&&H1='i915 ';fi
+fi;${G}-timezone ${T}&&${G}-ntp true
 sed -i "s/ULES=()/ULES=(${H1}btrfs)/" /$I
 sed -i 's/#Co/Co/' ${J}conf;reflector -c \
 "$(curl -s https://ipapi.co/country)" -p \
