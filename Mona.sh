@@ -2,7 +2,7 @@
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #    Mozart - Moonlight Sonata     #
-#     0:35 ━❍──────── -5:32        #
+#     0:35 ━❍──────── -5:32       #
 #       ↻     ⊲  Ⅱ  ⊳     ↺        #
 #    VOLUME: ▁▂▃▄▅▆▇ 100%       #
 E='-o noatime,compress=zstd,subvol=@'
