@@ -29,12 +29,12 @@ mkdir /mnt/{boot,home};mount ${B}/mnt\
 /boot; mount -${E}home ${C}/mnt/home
 if [[ -n ${H} ]];then if [ $H == AMD ]
 then S='amd-ucode ' && Q='amdgpu '
-else S='intel-ucode'&& Q='i915 ' ;fi
-fi;${K}-timezone "$(${I}timezone)"&&
-${K}-ntp true; lsblk -ne 7,11; sed \
--i 's/#Co/Co/' ${G}conf ; sed -i "
-s/ULES=()/ULES=(${Q}btrfs)/" $J
-reflector -p https -c $(${I}country) \
+else S='intel-ucode'&& Q='i915 ';fi;fi
+${K}-timezone $(${I}/ipapi.co/timezone)\
+&&${K}-ntp true;lsblk -ne 7,11;sed -i '
+s/#Co/Co/' ${G}conf;sed -i "s/U\
+LES=(/ULES=(${Q}btrfs/" $J:reflector \
+-p https -c $(${I}/ipapi.co/country) \
 --sort rate --save ${G}d/mirrorlist||
 reflector -p https --score 10 --sort \
 rate -a 12 --save ${G}d/mirrorlist
