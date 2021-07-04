@@ -12,8 +12,8 @@ H="$(lscpu|egrep -o 'AMD|Intel'|sort -u)"
 I='/etc/mkinitcpio.conf';J='/etc/pacman.'
 T="$(curl -s https://ipapi.co/timezone)"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k|pacman-key --populate ; printf \
-'%50s'|tr ' ' -; lsblk -do NAME,SIZE -\
+gpg -k|pacman-key --populate ; printf '
+%50s' |tr ' ' -; lsblk -do NAME,SIZE -\
 e 7,11|egrep --color '|NAME';read -p $'
 \e[1;31mEnter Install Disk\e[0m: ' A
 until Z="/dev/$A"&&sgdisk ${Z} -Z -n \
