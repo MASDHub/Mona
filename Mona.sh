@@ -15,16 +15,16 @@ tail -n 4 ; J='/etc/mkinitcpio.conf'
 gpg -k |pacman-key --populate;printf '
 %50s\n'|tr ' ' -;lsblk -do NAME,SIZE \
 -e 7,11|grep --color [A-Z];read -p$'\e
-[1;31mInstall Disk\e[0m: ' A ; until \
-Z="dev/$A"&&sgdisk $Z -Z -n 1::+512M \
--t 1:EF00 -n -p; do lsblk -e 7,11 -o \
+[1;31mInstall Disk\e[0m: ' A;until Z=\
+"/dev/$A"&&sgdisk $Z -Z -n 1::+512M -\
+t 1:EF00 -n -p ; do lsblk -e 7,11 -o \
 NAME,SIZE|grep --color [A-Z]&&read -p$'
 \e[1;31mRetry\e[0m: ' A ; done
-B="$(ls /dev/* | egrep "^/${Z}p?1$") "
-C="$(ls /dev/* | egrep "^/${Z}p?2$") "
-mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
+B="$(ls /dev/* | egrep "^${Z}p?1$") "
+C="$(ls /dev/* | egrep "^${Z}p?2$") "
+mkfs.vfat ${B} ; mkfs.btrfs -fq${C}
 mount ${C}/mnt ; cd /mnt;${F};${F}home
-cd ;umount/mnt ; mount -${E} ;${C}/mnt
+cd;umount /mnt ; mount -${E} ;${C}/mnt
 mkdir /mnt/{boot,home};mount ${B}/mnt\
 /boot ; mount -${E}home ${C}/mnt/home
 if [[ -n ${H} ]];then if [ $H == AMD ]
