@@ -5,13 +5,13 @@ set -euo pipefail
 #     0:35 ━❍──────── -5:32        #
 #       ↻     ⊲  Ⅱ  ⊳     ↺        #
 #    VOLUME: ▁▂▃▄▅▆▇ 100%          #
-E='o noatime,compress=zstd,subvol=@'
+E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @' ; G='/etc/pacman.'
-I='curl -s https:/';setfont ter-124b
-H="$( lscpu | grep -E 'AMD|Intel' )"
-K='timedatectl set';head -n 7 -- $0|
-tail -n 4 ; J='/etc/mkinitcpio.conf'
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+I='curl -s https://ipapi';setfont te\
+r-124b;H="$(lscpu|egrep -o 'AMD|Intel
+'|sort -u)"; J='/etc/mkinitcpio.conf'
+K='timedatectl set-';head -n 7 -- $0|
+tail -n 4 #~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k |pacman-key --populate;printf '
 %50s\n'|tr ' ' -;lsblk -do NAME,SIZE \
 -e 7,11|grep --color [A-Z];read -p$'\e
@@ -25,17 +25,17 @@ C="$(ls /dev/* | egrep "^${Z}p?2$") "
 mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
 mount ${C}/mnt ; cd /mnt;${F};${F}home
 cd;umount /mnt ; mount -${E} ${C}/mnt
-mkdir /mnt/{boot,home};mount ${B}/mnt\
+mkdir /mnt/{boot,home}; mount${B}/mnt\
 /boot ; mount -${E}home ${C}/mnt/home
-if [[ -n ${H} ]];then if [ $H == AMD ]
+lsblk -e 7,11 ; if [[ $H == AMD ]]
 then S='amd-ucode ' && Q='amdgpu '
-else S='intel-ucode'&& Q='i915 ';fi;fi
-${K}-timezone $($I/ipapi.co/timezone)\
-&&${K}-ntp true; lsblk -e 7,11 ; sed \
--i 's/#Co/Co/' ${G}conf ; sed -i "s/U\
-LES=(/ULES=(${Q}btrfs/" $J:reflector \
--p https -c $(${I}/ipapi.co/country) \
---sort rate --save ${G}d/mirrorlist ||
+else S='intel-ucode'&& Q='i915 ';fi
+${K}timezone $(${I}.co/timezone)&&
+${K}ntp true; sed -i 's/#Co/Co/' \
+${G}conf ; sed -i "s/ULES=(/ULES=\
+(${Q}btrfs/" $J ; reflector -p https \
+--sort rate -c "$(${I}.co/country)" \
+-a 12 -f 2 --save ${G}d/mirrorlist ||
 reflector -p https --score 10 --sort \
 rate -a 8 -f 2 --save ${G}d/mirrorlist
 pacstrap -i /mnt base base-devel vim \
@@ -59,7 +59,7 @@ s-afc ${S} ; cp ${G}conf \
 /mnt${G}conf;curl -sL https://raw.git\
 hubusercontent.com/djsharcode/Mona/ma\
 in/install.sh -o /mnt/mtc/install.sh
-echo zoneinfo/$($I/ipapi.co/timezone)\
+echo zoneinfo/$(${I}.co/timezone) \
 >/mnt/etc/T;cp ${J} /mnt${J}
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/instal.sh
