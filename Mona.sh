@@ -58,7 +58,7 @@ gst-plugin-pipewire gvfs-afc \
 libreoffice-still ${S} ; cp ${G}conf \
 /mnt${G}conf;curl -sL https://raw.git\
 hubusercontent.com/djsharcode/Mona/ma\
-in/install.sh -o /mnt/wtc/install.sh
+in/install.sh -o /mnt/mtc/install.sh
 echo zoneinfo/$($I/ipapi.co/timezone)\
 >/mnt/etc/T;cp ${J} /mnt${J}
 genfstab -U /mnt >> /mnt/etc/fstab
