@@ -27,9 +27,9 @@ done ; useradd -m -G wheel ${U} ; echo -\
 e "${A}Enter User Password${B}" ; until \
 passwd  "${U}" ; do echo ; done ; echo -\
 e "Enter ${A}Root${B} Password" ; until \
-passwd; do : ; done; P="${U}pc" ;echo -e "
-127.0.0.1${S}localhost\n::1${Z}127.0.1.1\
-${S}$P.localdomain $P">/etc/hosts ; sed \
+passwd;do :;done;P="${U}C";echo -e "127.\
+0.0.1${S}localhost\n::1${Z}127.0.1.1${S}\
+${P}.localdomain $P" > /etc/hosts ; sed \
 -i '0,/# %/ s/# %/ %/' /etc/sudoers
 echo "LANG=${G}TF-8" > /etc/locale.conf
 sed -i "s/#${G}/${G}/" /etc/locale.gen
@@ -38,7 +38,8 @@ locale-gen; echo $P >> /etc/hostname;hwc\
 lock --systohc;echo $U>/etc/U ;sed -i 's\
 /auto/1920x1080,auto/' /etc/default/grub
 echo openbox-session > /home/${U}/.xinitrc
-echo 'M="$(find /home/*/.screenlayout/*.sh)"
+echo '
+M="$(find /home/*/.screenlayout/*.sh)"
 N="$(xrandr|egrep -o '"'HDMI-1|HDMI1'"')"
 O="$(xrandr|egrep -o '"'eDP1|eDP-1'"')"
 P="$(xrandr|egrep -c '"'HDMI|eDP'"')"
