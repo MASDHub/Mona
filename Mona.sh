@@ -7,8 +7,8 @@ set -euo pipefail
 #    VOLUME: ▁▂▃▄▅▆▇ 100%       #
 E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @' ; G='/etc/pacman.'
-I='curl -s https://ipapi';setfont te\
-r-124b;H="$(lscpu|egrep -o 'AMD|Intel
+I='curl -s https://ipap';setfont ter\
+-124b;H="$(lscpu|egrep -o 'AMD|Intel
 '|sort -u)"; J='/etc/mkinitcpio.conf'
 K='timedatectl set-';head -n 7 -- $0|
 tail -n 4 #~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -30,11 +30,11 @@ mkdir /mnt/{boot,home};mount${B}/mnt\
 lsblk -e 7,11 ; if [[ $H == AMD ]]
 then S='amd-ucode ' && Q='amdgpu '
 else S='intel-ucode'&& Q='i915 ';fi
-${K}timezone $(${I}.co/timezone)&&
+${K}timezone $(${I}i.co/timezone)&&
 ${K}ntp true; sed -i 's/#Co/Co/' \
 ${G}conf ; sed -i "s/ULES=(/ULES=\
 (${Q}btrfs/" $J ; reflector -p https \
---sort rate -c "$(${I}.co/country)" \
+--sort rate -c "$(${I}i.co/country)" \
 -a 12 -f 2 --save ${G}d/mirrorlist ||
 reflector -p https --score 10 --sort \
 rate -a 8 -f 2 --save ${G}d/mirrorlist
@@ -59,7 +59,7 @@ s-afc ${S} ; cp ${G}conf \
 /mnt${G}conf;curl -sL https://raw.git\
 hubusercontent.com/djsharcode/Mona/ma\
 in/install.sh -o /mnt/mtc/install.sh
-echo zoneinfo/$(${I}.co/timezone) \
+echo zoneinfo/$(${I}i.co/timezone) \
 >/mnt/etc/T;cp ${J} /mnt${J}
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/instal.sh
