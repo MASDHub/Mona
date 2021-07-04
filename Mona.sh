@@ -5,7 +5,7 @@ set -euo pipefail
 #     0:35 ━❍──────── -5:32        #
 #       ↻     ⊲  Ⅱ  ⊳     ↺        #
 #    VOLUME: ▁▂▃▄▅▆▇ 100%          #
-E='o noatime,compress=zstd,subvol=@'
+E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @' ; G='/etc/pacman.'
 I='curl -s https:/';setfont ter-124b
 H="$( lscpu | grep -E 'AMD|Intel' )"
