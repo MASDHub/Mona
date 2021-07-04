@@ -6,9 +6,10 @@ head -n 8 -- $0|tail -n 4
  #         0:35 ━❍──────── -5:32    #
    #         ↻     ⊲  Ⅱ  ⊳     ↺     #
 #         VOLUME: ▁▂▃▄▅▆▇ 100%    #
-E='mount -o noatime,compress=zstd,subvo'
+E='mount -o noatime,compress=zstd,subvol='
 F='btrfs su cr';G='timedatectl set-'
-I='etc/mkinitcpio.conf';J='/etc/pacman.'
+I='/etc/mkinitcpio.conf'
+J='/etc/pacman.'
 H="$(lscpu|egrep -o 'AMD|Intel')"
 T='curl -s https://ipapi.co/'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -20,21 +21,20 @@ until Z="/dev/$A"&&sgdisk ${Z} -Z -n \
 1::+512M -t 1:EF00 -n -p;do lsblk -e \
 7,11 -do NAME,SIZE&&read -p $'\e[1;31m
 Retry\e[0m: ' A; done
-B="$(ls /dev/* |egrep "^${Z}p?1$")"
-C="$(ls /dev/* |egrep "^${Z}p?2$")"
-mkfs.vfat ${B} ;mkfs.btrfs -fq ${C}
-mount ${C} /mnt; cd /mnt ;${F} @
-${F} @home; cd;umount/mnt;${E}l=@
-${C} /mnt ; mkdir /mnt/{boot,home}
-mount ${B} /mnt/boot ;${E}l=@home \
+B="$(ls /dev/* | egrep "^${Z}p?1$")"
+C="$(ls /dev/* | egrep "^${Z}p?2$")"
+mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
+mount ${C} /mnt; cd /mnt ; ${F} @
+${F} @home; cd ;umount/mnt;${E}@
+${C} /mnt ;mkdir /mnt/{boot,home}
+mount ${B} /mnt/boot ; ${E}@home \
 ${C} /mnt/home; lsblk -ne 7,11 ; if
-[ -n ${H} ];then if [ ${H} == AMD ]
+[[ -n ${H} ]] ;then if [ ${H} == AMD ]
 then S='amd-ucode ' && Q='amdgpu '
-else S='intel-ucode'&& Q='i915 ';fi
-fi;${G}timezone "$(${T}timezone)"&&
-${G}ntp true;sed -i 's/#Co/Co/' \
-${J}conf; sed -i 
-"s/ULES=()/ULES=(${Q}btrfs)/" /$I
+else S='intel-ucode'&& Q='i915 ';fi;fi
+${G}timezone "$(${T}timezone)"&&${G}\
+ntp true;sed -i 's/#Co/Co/' ${J}conf 
+sed -i "s/ULES=(/ULES=(${Q}btrfs/" $I
 reflector -p https -c $(${T}country) \
 --sort rate --save ${J}d/mirrorlist||
 reflector -p https --score 10 --sort \
