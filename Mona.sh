@@ -9,7 +9,7 @@ E=' -o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @' ; G='/etc/pacman.'
 I='curl -s https://ipapi.c';setfont t\
 er-124b;H="$(lscpu|egrep -o 'AMD|Intel
-'|sort -u)"; J='/etc/mkinitcpio.conf'
+'|sort -u)" ; J='/etc/mkinitcpio.conf'
 K='timedatectl set-';head -n 7 -- $0 |
 tail -n 4 #~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k |pacman-key --populate;printf '
