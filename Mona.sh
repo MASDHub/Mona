@@ -5,12 +5,12 @@ set -euo pipefail
 #     0:35 ━❍──────── -5:32       #
 #       ↻     ⊲  Ⅱ  ⊳     ↺        #
 #    VOLUME: ▁▂▃▄▅▆▇ 100%       #
-E='-o noatime,compress=zstd,subvol=@'
+E=' -o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @' ; G='/etc/pacman.'
-I='curl -s https://ipap';setfont ter\
--124b;H="$(lscpu|egrep -o 'AMD|Intel
-'|sort -u)"; J='/etc/mkinitcpio.conf'
-K='timedatectl set-';head -n 7 -- $0|
+I='curl -s https://ipapi.co';setfont \
+ter-124b;H="$(lscpu|egrep -o 'AMD|Inte
+l'|sort -u)"; J='/etc/mkinitcpio.conf'
+K='timedatectl set-';head -n 7 -- $0 |
 tail -n 4 #~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k |pacman-key --populate;printf '
 %50s\n'|tr ' ' -;lsblk -do NAME,SIZE \
@@ -34,7 +34,7 @@ ${K}timezone $(${I}i.co/timezone)&&
 ${K}ntp true ; sed -i 's/#Co/Co/' \
 ${G}conf ; sed -i "s/ULES=(/ULES=(\
 ${Q}btrfs/" ${J}; reflector -p https \
---sort rate -c "$(${I}i.co/country)" \
+--sort rate -c "$(${I}/country)" \
 -a 12 -f 2 --save ${G}d/mirrorlist ||
 reflector -p https --score 10 --sort \
 rate -a 8 -f 2 --save ${G}d/mirrorlist
