@@ -1,13 +1,13 @@
 #!/usr/bin/bash
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='.config/openbox';H='sleep 2&& '
-B='<item label="' ; I=' docks.ini'
+A='.config/openbox' ; H='sleep 2&& 
+';B='<item label="';I=' docks.ini'
 E='<separator> </separator>' ; C='
 "><actionname="Execute"><command>'
-D='</command></action></item>';F='
- .config/plank/dock1/launchers/'
-G='/net/launchpad/plank/docks/'
+F=' .config/plank/dock1/launchers/'
+D='</command></action></item>'
+G=' /net/launchpad/plank/docks/'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 mkdir .config;cp -a /etc/xdg/openbox\
 / .config/ ; git clone \
@@ -46,23 +46,23 @@ right --tint 0x716966 --height 40 -\
 leep 2&&nm-applet) &\n\n(sleep 3&&v\
 olumeicon) &\n\n(sleep 4&&sh m.sh) &
 "> $A/autostart
-echo -e 'dconf dump '"$G"' >'"$I"'
+echo -e 'dconf dump'"$G"' >'"$I"'
 '"$H"'sed -i '"'s/bottom/right/'"' \
-'"$I"'\n'"$H"'cat'"$I"'|dconf load \
+'"$I"'\n'"$H"'cat'"$I"'|dconf load\
 '"$G"'\n'"$H"'echo -e "'"[PlankDock\
 ItemPreferences]\nLauncher=file:///\
 usr/share/applications/nemo.desktop\
-"'">'"$F"'nemo.dockitem\n'"$H"'pkil\
-l volumeicon\n'"$H"'sed -i -e '"'s/\
-5/1/'"' -e '"'s/l=false/l=true/'"' \
--e '"'s/b_slider=false/b_slider=tru\
-e/'"' .config/volumeicon/volumeicon
+"'">'"$F"'nemo.dockitem\n'"$H"'pki\
+ll volumeicon\n'"$H"'sed -i -e '"'s\
+/5/1/'"' -e '"'s/l=false/l=true/'"' \ 
+-e '"'s/b_slider=false/b_slider=t\
+rue/'"' .config/volumeicon/volumeicon
 '"$H"'sed -i '"'15,"'$d'"'"' '"$A"'\
 /autostart\n'"$H"'rm'"$F"'{geeqie.d\
 ockitem,vlc-1.dockitem}\n'"$H"'volu\
-meicon\nsleep 18&&rm'"$I"'&&rm -- $0
-'>m.sh;su root -c "chmod 755 /home/\
-$(cat /etc/U)/m.sh&&rm /etc/U &&rm \
--- $0";echo -e '\e[1;31mDone!
+meicon\nsleep 18&&rm'"$I"'&& rm -- \
+$0'> m.sh ; su root -c "chmod 755 /\
+home/$(cat /etc/U)/m.sh&&rm /etc/U&&
+rm -- $0";echo -e '\e[1;31mDone!
 Type: reboot\e[0m'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
