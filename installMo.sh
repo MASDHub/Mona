@@ -7,7 +7,7 @@ E='<separator> </separator>' ; C='
 "><actionname="Execute"><command>'
 F=' .config/plank/dock1/launchers/'
 D='</command></action></item>'
-G=' /net/launchpad/plank/docks/'
+G='/net/launchpad/plank/docks/'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 mkdir .config;cp -a /etc/xdg/openbox\
 / .config/ ; git clone \
@@ -46,9 +46,9 @@ right --tint 0x716966 --height 40 -\
 leep 2&&nm-applet) &\n\n(sleep 3&&v\
 olumeicon) &\n\n(sleep 4&&sh m.sh) &
 "> $A/autostart
-echo -e 'dconf dump'"$G"' >'"$I"'
+echo -e 'dconf dump '"$G"' >'"$I"'
 '"$H"'sed -i '"'s/bottom/right/'"' \
-'"$I"'\n'"$H"'cat'"$I"'|dconf load\
+'"$I"'\n'"$H"'cat'"$I"'|dconf load \
 '"$G"'\n'"$H"'echo -e "'"[PlankDock\
 ItemPreferences]\nLauncher=file:///\
 usr/share/applications/nemo.desktop\
