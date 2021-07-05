@@ -6,7 +6,7 @@ A='.config/openbox';H='sleep 2 && ';B='
 <separator></separator>'
 C='"><actionname="Execute"><command>'
 D='</command></action></item>'
-F='~/.config/plank/dock1/launchers/'
+F=' ~/.config/plank/dock1/launchers/'
 G='/net/launchpad/plank/docks/'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 mkdir ~/.config;cp -a /etc/xdg/openbox\
@@ -45,23 +45,24 @@ right --tint 0x716966 --height 40 -\
 -transparent true &\n\nxpad &\n\n(s\
 leep 2 && nm-applet) &\n\n(sleep 2 \
 && volumeicon) &\n\n(sleep 2 && sh \
-~/m.sh) &">~/$A/autostart; echo -e \
-'dconf dump '"$G"' >'"$I"'\n'"$H"' \
-sed -i '"'s/bottom/right/'"' '"$I"'
-'"$H"' cat '"$I"'|dconf load '"$G"'
-'"$H"' echo -e "'"[PlankDockItemPr\
-eferences]\nLauncher=file:///usr/s\
-hare/applications/nemo.desktop"'">\
-'"$F"'nemo.dockitem\n'"$H"' pkill \
-volumeicon\n'"$H"' sed -i -e \
-'"'s/5/1/'"' -e '"'s/l=false/l=true/'"' \
--e '"'s/b_slider=false/b_slider=true/'"'\
- ~/.config/volumeicon/volumeicon\n'"$H"'\
- sed -i '"'15,"'$d'"'"' ~/'"$A"'/autosta\
-rt\n'"$H"' rm '"$F"'{geeqie.dockitem,vlc\
--1.dockitem}\n'"$H"' volumeicon\nsleep 1\
-8 && rm '"$I"' && rm -- $0' >~/m.sh; su \
-root -c "chmod 755 /home/$(cat /etc/U)/m\
-.sh && rm -- $0" && rm /etc/U ; echo -e \
-'\e[1;31mDone! :)\nType: reboot\e[0m'
+~/m.sh) &">~/$A/autostart; 
+echo -e 'dconf dump '"$G"' >'"$I"'
+'"$H"'sed -i '"'s/bottom/right/'"' \
+'"$I"'\n'"$H"'cat'"$I"'|dconf load \
+'"$G"'\n'"$H"' echo -e "'"[PlankDoc\
+kItemPreferences]\nLauncher=file:///\
+usr/share/applications/nemo.desktop\
+"'">'"$F"'nemo.dockitem\n'"$H"'pkil\
+l volumeicon\n'"$H"'sed -i -e '"'s/\
+5/1/'"' -e '"'s/l=false/l=true/'"' \
+-e '"'s/b_slider=false/b_slider=tru\
+e/'"' ~/.config/volumeicon/volumeicon
+'"$H"'sed -i '"'15,"'$d'"'"' '"$A"'\
+/autostart\n'"$H"'rm'"$F"'{geeqie.d\
+ockitem,vlc-1.dockitem}\n'"$H"'volu\
+meicon\nsleep 18&&rm'"$I"'&&rm -- $0
+'>~/mona.sh;su root -c "chmod 755 /\
+home/$(cat /etc/U)/mona.sh&&rm -- $0
+"&&rm /etc/U; echo -e '\e[1;31mDone!
+Type: reboot\e[0m'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
