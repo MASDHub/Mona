@@ -14,8 +14,8 @@ mkdir .config;cp -a /etc/xdg/openbox/ \
 https://aur.archlinux.org/pikaur.git
 cd pikaur/;makepkg -fsri;pikaur -S \
 picom-git timeshift ttf-ms-fonts \
-oranchelo-icon-theme-git ; sed -i '
-s/g = no/g = yes/' .config/pikaur.conf
+oranchelo-icon-theme-git ; sed -i 's\
+/g = no/g = yes/' .config/pikaur.conf
 sed -i '5,$d' $A/menu.xml ; sed -i \
 -e '5,120 s/8/12/' -e '131 s/4/2/' \
 -e 's/W-e/0x85/' -e '5,99 s/9/13/' \
