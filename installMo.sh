@@ -49,8 +49,8 @@ leep 2 && nm-applet) &\n\n(sleep 2 \
 echo -e 'dconf dump '"$G"' >'"$I"'
 '"$H"'sed -i '"'s/bottom/right/'"' \
 '"$I"'\n'"$H"'cat'"$I"'|dconf load \
-'"$G"'\n'"$H"' echo -e "'"[PlankDoc\
-kItemPreferences]\nLauncher=file:///\
+'"$G"'\n'"$H"'echo -e "'"[PlankDock\
+ItemPreferences]\nLauncher=file:///\
 usr/share/applications/nemo.desktop\
 "'">'"$F"'nemo.dockitem\n'"$H"'pkil\
 l volumeicon\n'"$H"'sed -i -e '"'s/\
