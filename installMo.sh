@@ -1,16 +1,16 @@
 #!/usr/bin/bash
 set -euo pipefail
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='.config/openbox';H='sleep 2&&'
-E='<separator></separator>' ; B='
-<item label="' ; I=' ~/docks.ini'
-C='"><actionname="Execute"><command>'
-D='</command></action></item>'
-F=' ~/.config/plank/dock1/launchers/'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+A='.config/openbox';H='sleep 2 && '
+B='<item label="' ; I=' docks.ini'
+E='<separator> </separator>' ; C='
+"><actionname="Execute"><command>'
+D='</command></action></item>';F='
+ .config/plank/dock1/launchers/'
 G='/net/launchpad/plank/docks/'
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-mkdir .config;cp -a /etc/xdg/openbox/ \
-.config/ ; git clone \
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+mkdir .config;cp -a /etc/xdg/openbox\
+/ .config/ ; git clone \
 https://aur.archlinux.org/pikaur.git
 cd pikaur/; makepkg -fsri; pikaur -\
 S picom-git timeshift ttf-ms-fonts \
