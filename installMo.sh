@@ -52,9 +52,9 @@ echo -e 'dconf dump'"$G"' >'"$I"'
 '"$G"'\n'"$H"'echo -e "'"[PlankDock\
 ItemPreferences]\nLauncher=file:///\
 usr/share/applications/nemo.desktop\
-"'">'"$F"'nemo.dockitem\n'"$H"'pki\
-ll volumeicon\n'"$H"'sed -i -e '"'s\
-/5/1/'"' -e '"'s/l=false/l=true/'"' \ 
+"'">'"$F"'nemo.dockitem\n'"$H"'pkil\
+l volumeicon\n'"$H"'sed -i -e '"'s/\
+5/1/'"' -e '"'s/l=false/l=true/'"' \ 
 -e '"'s/b_slider=false/b_slider=t\
 rue/'"' .config/volumeicon/volumeicon
 '"$H"'sed -i '"'15,"'$d'"'"' '"$A"'\
