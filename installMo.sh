@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='.config/openbox';H='sleep 2 && ';B='
-<item label="' ; I=' ~/docks.ini' ;E='
-<separator></separator>'
+A='.config/openbox';H='sleep 2 &&'
+E='<separator></separator>' ; B='
+<item label="' ; I=' ~/docks.ini'
 C='"><actionname="Execute"><command>'
 D='</command></action></item>'
 F=' ~/.config/plank/dock1/launchers/'
@@ -43,9 +43,9 @@ echo -e "lxqt-policykit &\n\npicom \
 \ntrayer --monitor primary --align \
 right --tint 0x716966 --height 40 -\
 -transparent true &\n\nxpad &\n\n(s\
-leep 2 && nm-applet) &\n\n(sleep 2 \
-&& volumeicon) &\n\n(sleep 2 && sh \
-m.sh) &"> $A/autostart; 
+leep 2&&nm-applet) &\n\n(sleep 3&&v\
+olumeicon) &\n\n(sleep 4&&sh m.sh) &
+"> $A/autostart
 echo -e 'dconf dump '"$G"' >'"$I"'
 '"$H"'sed -i '"'s/bottom/right/'"' \
 '"$I"'\n'"$H"'cat'"$I"'|dconf load \
