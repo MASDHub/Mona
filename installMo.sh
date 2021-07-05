@@ -1,14 +1,14 @@
 #!/usr/bin/bash
 set -euo pipefail
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 A='.config/openbox';H='sleep 2 && ';B='
-<item label="' ; I=' ~/docks.ini'
-C='"><action name="Execute"><command>'
+<item label="' ; I=' ~/docks.ini' ;E='
+<separator></separator>'
+C='"><actionname="Execute"><command>'
 D='</command></action></item>'
-E='<separator></separator>'
 F='~/.config/plank/dock1/launchers/'
 G='/net/launchpad/plank/docks/'
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 mkdir ~/.config;cp -a /etc/xdg/openbox\
 / ~/.config/ ; git clone \
 https://aur.archlinux.org/pikaur.git
