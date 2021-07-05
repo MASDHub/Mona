@@ -14,7 +14,7 @@ https://aur.archlinux.org/pikaur.git
 cp -a /etc/xdg/openbox/ ~/.config/ 
 cd pikaur/ ; makepkg -fsri ; pikaur \
 -S picom-git timeshift ttf-ms-fonts \
-jbxkb oranchelo-icon-theme-git notes #qxkb
+jbxkb oranchelo-icon-theme-git #qxkb
 sed -i 's/g = no/g = yes/' ~/$Z ; se\
 d -i 's/g = no/g = yes/' ~/$Z ; sed \
 -i '5,$d' ~/${A}/menu.xml ; sed -i \
