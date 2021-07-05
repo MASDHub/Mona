@@ -55,8 +55,8 @@ usr/share/applications/nemo.desktop\
 "'">'"$F"'nemo.dockitem\n'"$H"'pkil\
 l volumeicon\n'"$H"'sed -i -e '"'s/\
 5/1/'"' -e '"'s/l=false/l=true/'"' \ 
--e '"'s/b_slider=false/b_slider=t\
-rue/'"' .config/volumeicon/volumeicon
+-e '"'s/b_slider=false/b_slider=tru\
+e/'"' .config/volumeicon/volumeicon
 '"$H"'sed -i '"'15,"'$d'"'"' '"$A"'\
 /autostart\n'"$H"'rm'"$F"'{geeqie.d\
 ockitem,vlc-1.dockitem}\n'"$H"'volu\
