@@ -30,10 +30,10 @@ mkdir /mnt/{boot,home};mount${B}/mnt\
 lsblk -e 7,11 ; if [[ $H == AMD ]]
 then S='amd-ucode ' && Q='amdgpu '
 else S='intel-ucode'&& Q='i915 '
-fi; ${K}timezone $(${I}o/timezone)&&
+fi;${K}timezone $(${I}o/timezone)&&
 ${K}ntp true ; sed -i 's/#Co/Co/' \
 ${G}conf ; sed -i "s/ULES=(/ULES=(\
-${Q}btrfs/" $J ;reflector -p https \
+${Q}btrfs/" $J;reflector -p https \
 --sort rate -c "$(${I}o/country)" \
 -a 12 -f 2 --save ${G}d/mirrorlist ||
 reflector -p https --score 10 --sort \
