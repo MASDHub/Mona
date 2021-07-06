@@ -7,11 +7,11 @@ set -euo pipefail
 #    VOLUME: ▁▂▃▄▅▆▇ 100%         #
 E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @';K='timedatectl set'
-I='curl -s https://ipapi';H="$(lscpu|
-egrep -o 'AMD|Intel'|sort -u)";head \
--n 7 -- $0|tail -n 4;G='/etc/pacman.'
-J='/etc/mkinitcpio.conf';setfont ter\
--124b #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+I='curl -s https://ipapi.co/';setfon\
+t ter-124b;H="$(lscpu|egrep -o 'AMD |
+Intel'|sort -u)";G='/etc/pacman.';J='
+/etc/mkinitcpio.conf' ;head -n 7 $0 |
+tail -n 4 #~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %47s\n'|tr ' ' -;until lsblk -do NAM\
 E,SIZE -e 7,11|grep --color '[A-Z]'&&
@@ -51,7 +51,7 @@ htop pipewire-jack volumeicon xterm \
 nemo-preview gvfs-mtp geany-plugins \
 xlockmore xpad galculator obconf-qt \
 conky-manager pipewire-alsa screengr\
-ab gvfs-afc nitrogen pipewire ${S} 
+ab gvfs-afc nitrogen pipewire ${S}
 cp ${G}conf /mnt${G}conf;curl -s htt\
 ps://raw.githubusercontent.com/djsha\
 rcode/Mona/main/install.sh -o /mnt/e\
