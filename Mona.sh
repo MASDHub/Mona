@@ -21,14 +21,13 @@ $Z -Z -n 1::+512M -t 1:EF00 -n -p;do :
 done;lsblk -e 7,11|egrep --color '|/*'
 B="$(ls /dev/*|egrep "^${Z}p?1$") "
 C="$(ls /dev/*|egrep "^${Z}p?2$") "
-mkfs.vfat ${B};mkfs.btrfs -fq ${C}
-mount ${C}/mnt;cd /mnt;${F};${F}home
-cd;umount /mnt;mount${E} ${C}/mnt
-mkdir /mnt/{boot,home};mount ${B}/\
-mnt/boot;mount${E}home ${C}/mnt/home
-; if [[ $H == AMD ]]
-then S='amd-ucode ' && Q='amdgpu '
-else S='intel-ucode'&& Q='i915 '
+mkfs.vfat ${B}; mkfs.btrfs -fq ${C}
+mount ${C}/mnt; cd /mnt;${F}home;${F}
+cd;umount /mnt; mount${E} ${C}/mnt
+mkdir /mnt/{boot,home};mount $B/mnt/\
+boot;mount${E}home ${C}/mnt/home;if \
+[ $H == AMD ];then S='amd-ucode'&&Q='
+amdgpu ';else S='intel-ucode'&&Q='i915 '
 fi;${K}set-timezone $(${I}/timezone)&&
 ${K}set-ntp true ; sed -i 's/#Co/Co/' \
 ${G}conf ; sed -i "s/ULES=(/ULES=(\
