@@ -28,7 +28,7 @@ mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount ${E}home $C/mnt/home;if [[
 $H == Intel ]];then S='intel-ucode' \
 &&Q='i915 ';else S='amd-ucode'&&Q='
-amdgpu';fi;sed -i 's/#Co/Co/' ${G}conf
+amdgpu';fi;sed -i "33 s/#//" ${G}conf
 sed -i "s/ULES=(/ULES=(${Q}btrfs/" $J
 ${K}set-timezone "$(${I}/timezone)"&&
 ${K}set-ntp true;reflector -p https \
