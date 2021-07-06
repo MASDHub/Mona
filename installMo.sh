@@ -6,7 +6,7 @@ A='.config/openbox' ; H='sleep 2&&
 E='<separator> </separator>' ; C='
 "><actionname="Execute"><command>'
 F='.config/plank/dock1/launchers/'
-D='</command></action></item>'
+D='</command></action></item><item label="'
 G='/net/launchpad/plank/docks/'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 mkdir .config;cp -a /etc/xdg/openbox\
@@ -25,18 +25,18 @@ sed -i '5,$d' $A/menu.xml ; sed -i \
 /Fira Sans Condensed Book/' -e 's/A\
 -space/0x85/' ${A}/rc.xml; echo -e "
 <menu id="'"root-menu"'" label="'" \
-Openbox 3"'">\n${B}Files${C}nemo${D}
-${B}Search${C}rofi -show drun${D}$B
-Web${C}Firefox${D}\n${B}Terminal${C}
-alacritty${D}\n${B}Text${C}geany${D}
-${B}Calculator${C}galculator${D}${E}
-${B}Refresh${C}openbox --reconfigure
-${D}${E}${B}Lock Screen${C}xlock -m\
-ode atlantis -echokeys -echokey '*
-' -info +description "'"Password: "'
-"${D}\n${B}Reboot${C}reboot${D}${B}\
-Power Off${C}poweroff${D}\n</menu><\
-/openbox_menu>">>$A/menu.xml;echo -\
+Openbox 3"'"> \n<item label="Files \
+${C}nemo${D}Search${C}rofi -show dr\
+un${D}Web${C}Firefox${D}\nTerminal \
+${C}alacritty${D}\nText${C}geany${D}
+Calculator${C}galculator${D}${E}Ref\
+resh${C}openbox --reconfigure${D}$E\
+Lock Screen${C}xlock -mode atlantis\
+ -echokeys -echokey '*' -info +desc\
+ription "'"Password: "'"${D}\nReboot
+${C}reboot${D}Power Off${C}poweroff\
+</command></action></item></menu></\
+openbox_menu>">>$A/menu.xml; echo -\
 e "lxqt-policykit &\n\npicom --expe\
 rimental-backends &\n\nplank &\n\nt\
 rayer --monitor primary --align rig\
@@ -46,8 +46,8 @@ p 2&&nm-applet) &\n\n(sleep 3&&volu\
 meicon) &\n\n(sleep 4&&sh m.sh) &" \
 >$A/autostart;echo -e 'dconf dump '"
 $G"'>'"$I"';'"$H"'sed -i '"'s/botto\
-m/right/'"''"$I"';'"$H"'cat'"$I"' |
-dconf load '"$G"'; '"$H"'echo -e "'
+m/right/'"''"$I"' ;'"$H"'cat'"$I"' |
+dconf load '"$G"' ; '"$H"'echo -e "'
 "[PlankDockItemPreferences]\nLaunch\
 er=file:///usr/share/applications/n\
 emo.desktop"'">> '"$F"'nemo.dockitem
