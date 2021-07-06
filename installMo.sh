@@ -46,23 +46,21 @@ right --tint 0x716966 --height 40 -\
 leep 2&&nm-applet) &\n\n(sleep 3&&v\
 olumeicon) &\n\n(sleep 4&&sh m.sh) &
 "> $A/autostart
-echo -e 'dconf dump '"$G"' >'"$I"'
-'"$H"'sed -i '"'s/bottom/right/'"' \
-'"$I"'\n'"$H"'cat'"$I"'|dconf load \
-'"$G"'\n'"$H"'echo -e "'"[PlankDock\
-ItemPreferences]\nLauncher=file:///\
-usr/share/applications/nemo.desktop\
-"'">'"$F"'nemo.dockitem\n'"$H"'pkil\
-l volumeicon\n'"$H"'sed -i -e '"'s/\
-5/1/'"' -e '"'s/l=false/l=true/'"' \ 
--e '"'s/b_slider=false/b_slider=tru\
-e/'"' .config/volumeicon/volumeicon
-'"$H"'sed -i '"'15,"'$d'"'"' '"$A"'\
-/autostart\n'"$H"'rm'"$F"'{geeqie.d\
-ockitem,vlc-1.dockitem}\n'"$H"'volu\
-meicon\nsleep 18&&rm'"$I"'&& rm -- \
-$0'> m.sh ; su root -c "chmod 755 /\
-home/$(cat /etc/U)/m.sh&&rm /etc/U&&
-rm -- $0";echo -e '\e[1;31mDone!
-Type: reboot\e[0m'
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+echo -e 'dconf dump '"$G"'>'"$I"''"
+$H"'sed -i '"'s/bottom/right/'"'\'"
+$I"';'"$H"'cat'"$I"'|dconf load \'"
+$G"';'"$H"'echo -e "'"[PlankDockIt\
+emPreferences]\nLauncher=file:///us\
+r/share/applications/nemo.desktop"'
+">>'"$F"'nemo.dockitem;'"$H"'rm'"$F
+"'\{geeqie.dockitem,vlc-1.dockitem}
+'"$H"'pkill volumeicon;'"$H"'sed -\
+i '"'15,"'$d'"'"' '"$A"'/autostart
+'"$H"'sed -i -e '"'s/5/1/'"' -e '"'
+13,16 s/false/true/'"' .config/volu\
+meicon/volumeicon;'"$H"'volumeicon
+sleep 18&&rm'"$I"'&&rm -- $0'>m.sh
+su root -c "echo -e '\e[1;31mDone!
+Type:reboot\e[0m'&&rm -- $0&&chmod\
+ 755 $(cat /etc/U)h&&rm /etc/U"
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
