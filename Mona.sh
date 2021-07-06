@@ -34,8 +34,7 @@ ${K}set-timezone "$(${I}/timezone)"&&
 ${K}set-ntp true;reflector -p https \
 -c $($I/country) --sort rate --save \
 ${G}d/mirrorlist||reflector --score \
-10 --sort rate \
--p https -a 12  --save \
+10 -p https -a 4 --sort rate --save \
 ${G}d/mirrorlist ; pacstrap -i /mnt \
 base base-devel vim \
 xorg linux linux xorg networkmanager \
