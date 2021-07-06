@@ -21,30 +21,30 @@ sed -i '5,$d' $A/menu.xml ; sed -i \
 -e 's/W-e/0x85/' -e '5,99 s/9/13/' \
 -e 's/kfmclient openProfile/rofi/' \
 -e 's/filemanagement/-show drun/g' \
--e 's/Clearlooks/Bear2/' -e 's/sans\
-/Fira Sans Condensed Book/' -e 's/A\
--space/0x85/' ${A}/rc.xml; echo -e "
-<menu id="'"root-menu"'" label="'" \
-Openbox 3"'"> \n<item label="Files \
-${C}nemo${D}Search${C}rofi -show dr\
-un${D}Web${C}Firefox${D}\nTerminal \
-${C}alacritty${D}\nText${C}geany${D}
-Calculator${C}galculator${D}${E}Ref\
-resh${C}openbox --reconfigure${D}$E\
-Lock Screen${C}xlock -mode atlantis\
- -echokeys -echokey '*' -info +desc\
-ription "'"Password: "'"${D}\nReboot
-${C}reboot${D}Power Off${C}poweroff\
-</command></action></item></menu></\
-openbox_menu>">>$A/menu.xml; echo -\
-e "lxqt-policykit &\n\npicom --expe\
-rimental-backends &\n\nplank &\n\nt\
-rayer --monitor primary --align rig\
-ht --tint 0x716966 --height 40 --tr\
-ansparent true &\n\nxpad &\n\n(slee\
-p 2&&nm-applet) &\n\n(sleep 3&&volu\
-meicon) &\n\n(sleep 4&&sh m.sh) &" \
->$A/autostart;echo -e 'dconf dump '"
+-e 's/sans/Fira Sans Condensed Book/
+' -e 's/Clearlooks/Bear2/' -e 's/A-\
+space/0x85/' $A/rc.xml;echo -e "<me\
+nu id="'"root-menu"'" label="'" Ope\
+nbox 3"'">\n<item label="Files${C}n\
+emo${D}Search${C}rofi -show drun${D}
+Web${C}Firefox${D}\nTerminal${C}ala\
+critty${D}\nText${C}geany${D}Calcul\
+ator${C}galculator${D}${E}Refresh${C}
+openbox --reconfigure${D}${E}Lock S\
+creen${C}xlock -mode atlantis -echo\
+keys -echokey '*' -info +descriptio\
+n "'"Password: "'"${D}\nReboot${C}r\
+eboot${D}Power Off${C}poweroff</com\
+mand></action></item></menu></openb\
+ox_menu>">>$A/menu.xml;echo -e "lxq\
+t-policykit &\n\npicom --experiment\
+al-backends &\n\nplank &\n\ntrayer \
+--monitor primary --align right --t\
+int 0x716966 --height 40 --transpar\
+ent true &\n\nxpad &\n\n(sleep 2&&n\
+m-applet) &\n\n(sleep 3&&volumeicon\
+) &\n\n(sleep 4&&sh m.sh) &">$A/aut\
+ostart ; echo -e 'dconf dump '"
 $G"'>'"$I"';'"$H"'sed -i '"'s/botto\
 m/right/'"''"$I"' ;'"$H"'cat'"$I"' |
 dconf load '"$G"' ; '"$H"'echo -e "'
