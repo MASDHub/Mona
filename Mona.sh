@@ -2,9 +2,9 @@
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #    Mozart - Moonlight Sonata    #
-#     0:35 ━❍──────── -5:32      #
+#     0:35 ━❍──────── -5:32       #
 #       ↻     ⊲  Ⅱ  ⊳     ↺       #
-#    VOLUME: ▁▂▃▄▅▆▇ 100%      #
+#    VOLUME: ▁▂▃▄▅▆▇ 100%         #
 E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @';G='/etc/pacman.'
 I='curl -s https://ipapi';H="$(lscpu|
@@ -14,8 +14,8 @@ J='/etc/mkinitcpio.conf';setfont ter\
 -124b #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %50s\n'|tr ' ' -;until lsblk -do NAM\
-E,SIZE -e 7,11|grep --color '|NAME'&&
-read -r -p$'\e[31mEnter Installation-
+E,SIZE -e 7,11|grep --color '[A-Z]'&&
+read -p$'\e[1;31mEnter Installation -
 Disk\e[0m: ' A&&Z="/dev/$A"&&sgdisk \
 $Z -Z -n 1::+512M -t 1:EF00 -n 2;do :
 done;lsblk -pe 7,11|egrep --color ?/*
@@ -28,7 +28,7 @@ mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount ${E}home $C/mnt/home;if [[
 "$H" == Intel ]];then Q='i915 '&&S='
 intel-ucode';else S='amd-ucode'&&Q='
-amdgpu ';fi;sed -i 's/#Co/Co/' $Gconf
+amdgpu ';fi;sed -i '33 s/#//' ${G}conf
 sed -i "s/ULES=(/ULES=(${Q}btrfs/" $J
 ${K}set-timezone $($I.co/timezone) &&
 ${K}set-ntp true;reflector -p https \
