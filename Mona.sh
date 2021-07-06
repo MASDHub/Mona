@@ -6,10 +6,10 @@ set -euo pipefail
 #       ↻     ⊲  Ⅱ  ⊳     ↺       #
 #    VOLUME: ▁▂▃▄▅▆▇ 100%         #
 E='-o noatime,compress=zstd,subvol=@'
-F='btrfs su cr @';G='/etc/pacman.'
+F='btrfs su cr @';K='timedatectl set'
 I='curl -s https://ipapi';H="$(lscpu|
 egrep -o 'AMD|Intel'|sort -u)";head \
--n 7 -- $0|tail -n 4;K='timedatectl '
+-n 7 -- $0|tail -n 4;G='/etc/pacman.'
 J='/etc/mkinitcpio.conf';setfont ter\
 -124b #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
@@ -30,8 +30,8 @@ boot;mount ${E}home $C/mnt/home;if [[
 intel-ucode';else S='amd-ucode'&&Q='
 amdgpu ';fi;sed -i '33 s/#//' ${G}conf
 sed -i "s/ULES=(/ULES=(${Q}btrfs/" $J
-${K}set-timezone $($I.co/timezone) &&
-${K}set-ntp true;reflector -p https \
+${K}-timezone $($I.co/timezone)&&
+${K}-ntp true;reflector -p https \
 -c "$(${I}.co/country)" -f 2 --save \
 ${G}d/mirrorlist||reflector --score \
 5 -p https -a 12 --sort rate --save \
