@@ -6,7 +6,7 @@ set -euo pipefail
 #       ↻     ⊲  Ⅱ  ⊳     ↺       #
 #    VOLUME: ▁▂▃▄▅▆▇ 100%      #
 E='-o noatime,compress=zstd,subvol=@'
-F='btrfs su cr @';G=' /etc/pacman.'
+F='btrfs su cr @';G='/etc/pacman.'
 I='curl -s https://ipapi';H="$(lscpu|
 egrep -o 'AMD|Intel'|sort -u)";head \
 -n 7 -- $0|tail -n 4;K='timedatectl '
@@ -28,18 +28,18 @@ mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount ${E}home $C/mnt/home;if [[
 "$H" == Intel ]];then Q='i915 '&&S='
 intel-ucode';else S='amd-ucode'&&Q='
-amdgpu ';fi;sed -i "33 s/#//"${G}conf
+amdgpu ';fi;sed -i 's/#Co/Co/' $Gconf
 sed -i "s/ULES=(/ULES=(${Q}btrfs/" $J
 ${K}set-timezone "$(${I}/timezone)"&&
 ${K}set-ntp true;reflector -p https \
--c $($I/country) --sort rate --save\
+-c $($I/country) --sort rate --save \
 ${G}d/mirrorlist||reflector --score \
-10 -p https -a 4 --sort rate --save\
+10 -p https -a 4 --sort rate --save \
 ${G}d/mirrorlist ; pacstrap -i /mnt \
-base base-devel vim \
+base base-devel \
 xorg linux linux xorg networkmanager \
 linux-headers linux-firmware firefox \
-alsa-utils efibootmgr linux-firmware \
+alsa-utils efibootmgr xorg-xinit vim \
 linux-headers network-manager-applet \
 pipewire-pulse lxqt-policykit geeqie \
 nm-connection-editor nemo-fileroller \
@@ -52,8 +52,8 @@ pipewire-alsa otf-fira-mono libpulse \
 xpad otf-fira-sans galculator arandr \
 geany-plugins clipgrab conky-manager \
 gst-plugin-pipewire nitrogen firefox-\
-ublock-origin gvfs-afc xorg-xinit \
-libreoffice-still ${S} ; cp${G}conf \
+ublock-origin gvfs-afc libreoffice-st\
+ill ${S} ; cp ${G}conf \
 /mnt${G}conf;curl -sL https://raw.git\
 hubusercontent.com/djsharcode/Mona/ma\
 in/install.sh -o /mnt/mtc/install.sh
