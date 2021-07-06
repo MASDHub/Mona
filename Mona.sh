@@ -28,8 +28,8 @@ mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount ${E}home $C/mnt/home;if [[
 "$H" == Intel ]];then Q='i915 '&&S='
 intel-ucode';else S='amd-ucode'&&Q='
-amdgpu ';fi;sed -i '33 s/#//' ${G}conf
-sed -i "s/ULES=(/ULES=(${Q}btrfs/" $J
+amdgpu ';fi;sed -i 's/#Co/Co/' ${G}co\
+nf;sed -i "0,/()/s//(${Q}btrfs)/" $J
 ${K}-timezone "$(${I}.co/timezone)"&&
 ${K}-ntp true;reflector -p https -c \
 $($I.co/country) --sort rate --save \
