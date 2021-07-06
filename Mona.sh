@@ -54,7 +54,7 @@ conky-manager pipewire-alsa screengr\
 ab gvfs-afc nitrogen pipewire ${S} 
 cp ${G}conf /mnt${G}conf;curl -s htt\
 ps://raw.githubusercontent.com/djsha\
-rcode/Mona/main/install.sh -o /mnt/m\
+rcode/Mona/main/install.sh -o /mnt/e\
 tc/install.sh;cp ${J} /mnt${J};echo \
 zoneinfo/$($I.co/timezone)>/mnt/etc/T
 genfstab -U /mnt >> /mnt/etc/fstab
