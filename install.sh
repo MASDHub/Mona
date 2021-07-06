@@ -46,8 +46,8 @@ N='"$O"'o '"'HDMI-1|HDMI1'"')"\nO='\
 "$O"'o '"'eDP1|eDP-1'"')" \nP='"$O"\
 'c '"'HDMI|eDP'"')"\nif [ -r ${M} ]\
 &&$(grep -q xrandr ${M});then ${M}
-else if [[ "${P}" -ge "2" ]]; then \
-xrandr --output $O --off --output $N\
+else if [[ "${P}" -ge "2" ]];then x\
+randr --output $O --off --output $N\
  --auto;fi;fi'>${C}sddm/scripts/Xsetup
 sed -i -e "2 s/$E-Beka/" -e "3 s/$E/
 " -e "s/${D}$K/" ${C}gtk-3.0/settin\
