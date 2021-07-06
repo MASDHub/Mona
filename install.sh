@@ -62,9 +62,9 @@ ${A}GRUB${B}";grub-install --target\
 =x86_64-efi --efi-directory=/boot -\
 -bootloader-id=GRUB;grub-mkconfig>/\
 boot/grub/grub.cfg;curl -s https://\
-raw.githubusercontent.com/djSharcode/M\
-ona/main/installMo.sh >/home/$U/ins\
-tallMO.sh;cd /;chown root:root /home
+raw.githubusercontent.com/djSharcod\
+e/Mona/main/installMo.sh>/home/$U/in\
+stallMO.sh;cd /;chown root:root /home
 chmod 755 /home;runuser --login $U \
 --session-command "sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
