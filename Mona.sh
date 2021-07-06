@@ -34,7 +34,7 @@ ${K}set-timezone $($I.co/timezone) &&
 ${K}set-ntp true;reflector -p https \
 -c "$(${I}.co/country)" -f 2 --save \
 ${G}d/mirrorlist||reflector --score \
-10 -p https -a 4 --sort rate --save \
+5 -p https -a 12 --sort rate --save \
 ${G}d/mirrorlist ; pacstrap -i /mnt \
 base base-devel xorg linux xorg vim \
 efibootmgr xorg-xinit linux-headers \
