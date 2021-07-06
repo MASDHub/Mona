@@ -55,11 +55,11 @@ gs.ini;sed -i -e "s/${D}$K/" -e "s/\
 $E-Beka/" -e "2 s/$E/" ${C}gtk-2.0/\
 gtkrc;sed -i 's/twm/openbox-session/
 ' /etc/X11/xinit/xinitrc ; echo -e "
-${A}DISPLAY ENABLED${B}" ; ${F}sddm
-echo -e "${A}NETWORKS ENABLED${B}
-";${F}NetworkManager;echo -e "${A}
-GRUB${B}";grub-install --target=x86\
-_64-efi --efi-directory=/boot --boo\
+${A}ENABLE DISPLAY MGR${B}";${F}sddm
+echo -e "${A}NETWORKS CONNECTED${B}"
+${F}NetworkManager;echo -e "${A}GRUB
+${B}";grub-install --target=x86_64-\
+efi --efi-directory=/boot --boo\
 tloader-id=GRUB;grub-mkconfig>/boot\
 /grub/grub.cfg;curl -s https://raw.\
 githubusercontent.com/djSharcode/Mo\
