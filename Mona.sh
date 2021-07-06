@@ -30,35 +30,33 @@ boot;mount ${E}home $C/mnt/home;if [[
 intel-ucode';else S='amd-ucode'&&Q='
 amdgpu ';fi;sed -i 's/#Co/Co/' $Gconf
 sed -i "s/ULES=(/ULES=(${Q}btrfs/" $J
-${K}set-timezone "$(${I}/timezone)"&&
+${K}set-timezone $($I.co/timezone) &&
 ${K}set-ntp true;reflector -p https \
--c $($I/country) --sort rate --save \
+-c "$(${I}.co/country)" -f 2 --save \
 ${G}d/mirrorlist||reflector --score \
 10 -p https -a 4 --sort rate --save \
 ${G}d/mirrorlist ; pacstrap -i /mnt \
-base base-devel \
-xorg linux linux xorg networkmanager \
-linux-headers linux-firmware firefox \
-alsa-utils efibootmgr xorg-xinit vim \
-linux-headers network-manager-applet \
-pipewire-pulse lxqt-policykit geeqie \
-nm-connection-editor nemo-fileroller \
-gufw pipewire gvfs-mtp pipewire-alsa \
-screengrab galculator git pkg-config \
-alacritty rofi grub htop trayer sddm \
-plank pipewire-jack nemo-preview vlc \
-xterm volumeicon xlockmore obconf-qt \
-pipewire-alsa otf-fira-mono libpulse \
-xpad otf-fira-sans galculator arandr \
-geany-plugins clipgrab conky-manager \
-gst-plugin-pipewire nitrogen firefox-\
-ublock-origin gvfs-afc libreoffice-st\
-ill ${S} ; cp ${G}conf \
-/mnt${G}conf;curl -sL https://raw.git\
-hubusercontent.com/djsharcode/Mona/ma\
-in/install.sh -o /mnt/mtc/install.sh
-echo zoneinfo/$(${I}/timezone) \
->/mnt/etc/T;cp ${J} /mnt${J}
+base base-devel xorg linux xorg vim \
+efibootmgr xorg-xinit linux-headers \
+linux-headers arandr linux-firmware \
+pipewire-alsa trayer alsa-utils vlc \
+firefox network-manager-applet gufw \
+pipewire-pulse lxqt-policykit plank \
+geeqie gst-plugin-pipewire libpulse \
+firefox-ublock-origin otf-fira-mono \
+otf-fira-sans libreoffice-still git \
+alacritty grub nemo-fileroller sddm \
+galculator pkg-config rofi clipgrab \
+htop pipewire-jack volumeicon xterm \
+nemo-preview gvfs-mtp geany-plugins \
+xlockmore xpad galculator obconf-qt \
+conky-manager pipewire-alsa screengr\
+ab gvfs-afc nitrogen pipewire ${S} 
+cp ${G}conf /mnt${G}conf;curl -s htt\
+ps://raw.githubusercontent.com/djsha\
+rcode/Mona/main/install.sh -o /mnt/m\
+tc/install.sh;cp ${J} /mnt${J};echo \
+zoneinfo/$($I.co/timezone)>/mnt/etc/T
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/instal.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
