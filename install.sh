@@ -1,6 +1,4 @@
 #!/bin/bash
-set -euo pipefail; head -n 15 -- $0|
-tail -n 13 
  #8'         8888
 #d8.-=. ,==-.:888b
 #>8 `~` :`~' d8888
@@ -14,7 +12,8 @@ tail -n 13
 #d88%            %%%8--'-.
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
-Z='             localhost
+set -euo pipefail;head -n 14 -- $0 |
+tail -n 13;Z='             localhost
 ';A='\e[1;31m';B='\e[0m';G='en_US.U'
 K=' 11/Fira Sans Condensed Book';E='
 Adwaita/Oranchelo';D='Cantarell';F='
