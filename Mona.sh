@@ -1,17 +1,17 @@
 #!/bin/bash
 set -euo pipefail
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#    Mozart - Moonlight Sonata     #
-#     0:35 ━❍──────── -5:32       #
-#       ↻     ⊲  Ⅱ  ⊳     ↺        #
-#    VOLUME: ▁▂▃▄▅▆▇ 100%       #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#    Mozart - Moonlight Sonata    #
+#     0:35 ━❍──────── -5:32      #
+#       ↻     ⊲  Ⅱ  ⊳     ↺       #
+#    VOLUME: ▁▂▃▄▅▆▇ 100%      #
 E='-o noatime,compress=zstd,subvol=@'
-F='btrfs su cr @';G='/etc/pacman.';H="
-$(lscpu|egrep -o 'AMD|Intel'|sort -u)"
-I='curl -s https://ipapi.co';setfont \
-ter-124b;head -n 7 -- $0|tail -n 4;J='
-/etc/mkinitcpio.conf';K='timedatectl '
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+F='btrfs su cr @';G='/etc/pacman.'
+I='curl -s https://ipapi';H="$(lscpu|
+egrep -o 'AMD|Intel'|sort -u)";head \
+-n 7 -- $0|tail -n 4;K='timedatectl '
+J='/etc/mkinitcpio.conf';setfont ter\
+-124b #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %50s\n'|tr ' ' -;until lsblk -do NAM\
 E,SIZE -e 7,11|grep --color '|NAME'&&
@@ -22,7 +22,7 @@ done;lsblk -pe 7,11|egrep --color ?/*
 B="$( ls /dev/*|egrep "^${Z}p?1$" ) "
 C="$( ls /dev/*|egrep "^${Z}p?2$" ) "
 mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
-mount ${C}/mnt ; cd /mnt;${F}home;$F
+mount ${C}/mnt ; cd /mnt;${F}home;${F}
 cd;umount /mnt ; mount ${E} ${C}/mnt
 mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount ${E}home $C/mnt/home;if [[
