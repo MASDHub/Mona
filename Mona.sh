@@ -26,8 +26,8 @@ mount ${C}/mnt ;cd /mnt;${F}home;${F}
 cd;umount /mnt ;mount ${E} ${C}/mnt
 mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount ${E}home $C/mnt/home;if [[
-"$H" == Intel ]];then Q='i915 '&&S='
-intel-ucode';else S='amd-ucode'&&Q='
+"$H" == Intel ]];then Q='i915 ' &&S='
+intel-ucode';else S='amd-ucode' &&Q='
 amdgpu ';fi;sed -i 's/#Co/Co/' ${G}c\
 cnf;sed -i "0,/()/s//(${Q}btrfs)/" $J
 ${K}-timezone "$(${I}.co/timezone)"&&
