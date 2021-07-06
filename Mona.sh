@@ -29,7 +29,7 @@ boot;mount ${E}home $C/mnt/home;if [[
 "$H" == Intel ]];then Q='i915 ' &&S='
 intel-ucode';else S='amd-ucode' &&Q='
 amdgpu ';fi;sed -i 's/#Co/Co/' ${G}c\
-cnf;sed -i "0,/()/s//(${Q}btrfs)/" $J
+onf;sed -i "0,/()/s//(${Q}btrfs)/" $J
 ${K}-timezone "$(${I}.co/timezone)"&&
 ${K}-ntp true;reflector -p https -c \
 $($I.co/country) --sort rate --save \
