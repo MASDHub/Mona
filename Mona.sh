@@ -31,7 +31,7 @@ amd-ucode';else S='intel-ucode'&&Q='
 i915 ';fi;sed -i 's/#Co/Co/' ${G}conf
 sed -i "s/ULES=(/ULES=(${Q}btrfs/" $J
 ${K}set-timezone "$(${I}/timezone)"&&
-${K}set-ntp true; reflector -p https \
+${K}set-ntp true;reflector -p https \
 -c $($I/country) --sort rate --save \
 ${G}d/mirrorlist||reflector -p https \
 --score 10 -a 12 --sort rate --save \
