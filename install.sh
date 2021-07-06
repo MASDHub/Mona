@@ -64,7 +64,7 @@ tloader-id=GRUB;grub-mkconfig>/boot\
 /grub/grub.cfg;curl -s https://raw.\
 githubusercontent.com/djSharcode/Mo\
 na/main/installMo.sh>/home/$U/insta\
-llMO.sh;cd /;chown root:root /home
+llMO.sh; cd /; chown root:root /home
 chmod 755 /home;runuser --login $U \
 --session-command "sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
