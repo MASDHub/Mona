@@ -31,8 +31,8 @@ intel-ucode';else S='amd-ucode'&&Q='
 amdgpu ';fi;sed -i '33 s/#//' ${G}conf
 sed -i "s/ULES=(/ULES=(${Q}btrfs/" $J
 ${K}-timezone "$(${I}.co/timezone)"&&
-${K}-ntp true ;reflector -p https -c \
-$(${I}.co/country) --sort rate --save \
+${K}-ntp true;reflector -p https -c \
+$($I.co/country) --sort rate --save \
 ${G}d/mirrorlist||reflector --score \
 5 -p https -a 12 --sort rate --save \
 ${G}d/mirrorlist ; pacstrap -i /mnt \
