@@ -36,7 +36,7 @@ ${K}set-ntp true;reflector -p https \
 ${G}d/mirrorlist||reflector --score \
 10 -p https -a 4 --sort rate --save \
 ${G}d/mirrorlist ; pacstrap -i /mnt \
-base base-devel vim libreoffice-still \
+base base-devel vim \
 xorg linux linux xorg networkmanager \
 linux-headers linux-firmware firefox \
 alsa-utils efibootmgr linux-firmware \
