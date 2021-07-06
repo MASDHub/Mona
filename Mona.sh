@@ -26,17 +26,17 @@ mount ${C}/mnt; cd /mnt;${F}home;${F}
 cd;umount /mnt; mount${E} ${C}/mnt
 mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount${E}home ${C}/mnt/home;if \
-[ $H == AMD ];then S='amd-ucode'&&Q='
-amdgpu ';else S='intel-ucode'&&Q='i915 '
-fi;${K}set-timezone $(${I}/timezone)&&
-${K}set-ntp true ; sed -i 's/#Co/Co/' \
-${G}conf ; sed -i "s/ULES=(/ULES=(\
-${Q}btrfs/" $J;reflector -p https \
---sort rate -c "$(${I}/country)" \
--a 12 -f 2 --save ${G}d/mirrorlist ||
-reflector -p https --score 10 --sort \
-rate -a 8 -f 2 --save ${G}d/mirrorlist
-pacstrap -i /mnt base base-devel vim \
+[[ $H == AMD ]];then Q='amdgpu'&&S='
+amd-ucode';else S='intel-ucode'&&Q='
+i915 ';fi;sed -i 's/#Co/Co/' ${G}conf
+sed -i "s/ULES=(/ULES=(${Q}btrfs/" $J
+${K}set-timezone "$(${I}/timezone)"&&
+${K}set-ntp true; reflector -p https \
+-c $($I/country) --sort rate --save \
+${G}d/mirrorlist||reflector -p https \
+--score 10 -a 12 --sort rate --save \
+${G}d/mirrorlist ; pacstrap -i /mnt \
+base base-devel vim \
 xorg linux linux xorg networkmanager \
 linux-headers linux-firmware firefox \
 alsa-utils efibootmgr linux-firmware \
