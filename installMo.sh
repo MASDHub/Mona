@@ -1,12 +1,12 @@
 #!/usr/bin/bash
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='.config/openbox' ; H='sleep 2&& 
-';B='<item label="';I=' docks.ini'
-E='<separator> </separator>' ; C='
-"><actionname="Execute"><command>'
-F='.config/plank/dock1/launchers/'
-D='</command></action></item><item label="'
+A='.config/openbox'; H='sleep 2&& 
+'; I=' docks.ini'; D='</command><
+/action></item><item label="';E='
+<separator></separator>';C='"><ac
+tionname="Execute"><command>';F='
+.config/plank/dock1/launchers/'
 G='/net/launchpad/plank/docks/'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 mkdir .config;cp -a /etc/xdg/openbox\
