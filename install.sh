@@ -59,9 +59,9 @@ ${A}DISPLAY ENABLED${B}" ; ${F}sddm
 echo -e "${A}NETWORKS ENABLE${B}"
 ${F}NetworkManager ; echo -e "
 ${A}GRUB${B}";grub-install --target\
-=x86_64-efi --efi-directory=/boot --\
-bootloader-id=GRUB;grub-mkconfig>/bo\
-ot/grub/grub.cfg;curl -s https://raw\
+=x86_64-efi --efi-directory=/boot -\
+-bootloader-id=GRUB;grub-mkconfig>/\
+boot/grub/grub.cfg;curl -s https://raw\
 .githubusercontent.com/djSharcode/M\
 ona/main/installMo.sh >/home/$U/ins\
 tallMO.sh;cd /;chown root:root /home
