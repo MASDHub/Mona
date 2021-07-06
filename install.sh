@@ -60,9 +60,9 @@ echo -e "${A}NETWORKS ENABLED${B}
 ";${F}NetworkManager;echo -e "${A}
 GRUB${B}";grub-install --target=x86\
 _64-efi --efi-directory=/boot --boo\
-tloader-id=GRUB;grub-mkconfig>/boot/\
-grub/grub.cfg;curl -s https://\
-raw.githubusercontent.com/djSharcod\
+tloader-id=GRUB;grub-mkconfig>/boot\
+/grub/grub.cfg;curl -s https://raw\
+.githubusercontent.com/djSharcod\
 e/Mona/main/installMo.sh>/home/$U/i\
 nstallMO.sh;cd /;chown root:root /home
 chmod 755 /home;runuser --login $U \
