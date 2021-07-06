@@ -12,13 +12,13 @@ I='curl -s https://ipapi.co';setfont \
 ter-124b;head -n 7 -- $0|tail -n 4;J='
 /etc/mkinitcpio.conf';K='timedatectl '
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-gpg -k |pacman-key --populate;printf '
-%50s\n'|tr ' ' -;until lsblk -e 7,11 \
--do NAME,SIZE|egrep --color 'G|NAME'&&
-read -p$'\e[31mEnter Installation-Disk
-Name\e[0m: ' A&&Z="/dev/$A"&& sgdisk \
-$Z -Z -n 1::+512M -t 1:EF00 -n -p;do :
-done;lsblk -e 7,11|egrep --color '|/*'
+gpg -k|pacman-key --populate;printf '
+%50s\n'|tr ' ' -;until lsblk -do NAM\
+E,SIZE -e 7,11|grep --color '|NAME'&&
+read -r -p$'\e[31mEnter Installation-
+Disk\e[0m: ' A&&Z="/dev/$A"&&sgdisk \
+$Z -Z -n 1::+512M -t 1:EF00 -n -p;do\
+:;done;lsblk -pe 7,11|egrep --color /
 B="$(ls /dev/*|egrep "^${Z}p?1$") "
 C="$(ls /dev/*|egrep "^${Z}p?2$") "
 mkfs.vfat ${B}; mkfs.btrfs -fq ${C}
