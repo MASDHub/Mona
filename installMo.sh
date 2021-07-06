@@ -43,23 +43,23 @@ rayer --monitor primary --align rig\
 ht --tint 0x716966 --height 40 --tr\
 ansparent true &\n\nxpad &\n\n(slee\
 p 2&&nm-applet) &\n\n(sleep 3&&volu\
-meicon) &\n\n(sleep 4&&sh m.sh) &">\
-$A/autostart;echo -e 'dconf dump '"
-$G"'>'"$I"''"
-$H"'sed -i '"'s/bottom/right/'"'\'"
-$I"';'"$H"'cat'"$I"'|dconf load \'"
-$G"';'"$H"'echo -e "'"[PlankDockIt\
-emPreferences]\nLauncher=file:///us\
-r/share/applications/nemo.desktop"'
-">>'"$F"'nemo.dockitem;'"$H"'rm'"$F
-"'\{geeqie.dockitem,vlc-1.dockitem}
-'"$H"'pkill volumeicon;'"$H"'sed -\
-i '"'15,"'$d'"'"' '"$A"'/autostart
-'"$H"'sed -i -e '"'s/5/1/'"' -e '"'
-13,16 s/false/true/'"' .config/volu\
-meicon/volumeicon;'"$H"'volumeicon
-sleep 18&&rm'"$I"'&&rm -- $0'>m.sh
-su root -c "echo -e '\e[1;31mDone!
-Type:reboot\e[0m'&&rm -- $0&&chmod\
- 755 $(cat /etc/U)h&&rm /etc/U"
+meicon) &\n\n(sleep 4&&sh m.sh) &" \
+>$A/autostart;echo -e 'dconf dump '"
+$G"'>'"$I"';'"$H"'sed -i '"'s/botto\
+m/right/'"''"$I"';'"$H"'cat'"$I"' |
+dconf load '"$G"'; '"$H"'echo -e "'
+"[PlankDockItemPreferences]\nLaunch\
+er=file:///usr/share/applications/n\
+emo.desktop"'">>'"$F"'nemo.dockitem
+'"$H"'rm'"$F"'{geeqie.dockitem,vlc-\
+1.dockitem};'"$H"'pkill volumeicon
+'"$H"'sed -i '"'15,"'$d'"'"' '"$A"
+'/autostart'"$H"'sed -i -e '"'s/5/1/
+'"' -e '"'13,16 s/false/true/'"' .c\
+onfig/volumeicon/volumeicon ; '"$H"
+'volumeicon; sleep 18 && rm'"$I"' &&
+rm -- $0'>m.sh;su root -c "echo -e '
+\e[1;31mDone!\nType: reboot\e[0m' &&
+rm -- $0&&chmod 755 $(cat /etc/U)h&&
+rm /etc/U"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
