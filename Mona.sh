@@ -13,7 +13,7 @@ egrep -o 'AMD|Intel'|sort -u)";head \
 J='/etc/mkinitcpio.conf';setfont ter\
 -124b #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
-%50s\n'|tr ' ' -;until lsblk -do NAM\
+%47s\n'|tr ' ' -;until lsblk -do NAM\
 E,SIZE -e 7,11|grep --color '[A-Z]'&&
 read -p$'\e[1;31mEnter Installation -
 Disk\e[0m: ' A&&Z="/dev/$A"&&sgdisk \
