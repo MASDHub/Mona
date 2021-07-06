@@ -5,7 +5,7 @@ set -euo pipefail
 #     0:35 ━❍──────── -5:32       #
 #       ↻     ⊲  Ⅱ  ⊳     ↺        #
 #    VOLUME: ▁▂▃▄▅▆▇ 100%       #
-E=' -o noatime,compress=zstd,subvol=@'
+E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @';G='/etc/pacman.';H="
 $(lscpu|egrep -o 'AMD|Intel'|sort -u)"
 I='curl -s https://ipapi.co';setfont \
@@ -19,15 +19,15 @@ read -r -p$'\e[31mEnter Installation-
 Disk\e[0m: ' A&&Z="/dev/$A"&&sgdisk \
 $Z -Z -n 1::+512M -t 1:EF00 -n 2;do :
 done;lsblk -pe 7,11|egrep --color ?/*
-B="$(ls /dev/*|egrep "^${Z}p?1$") "
-C="$(ls /dev/*|egrep "^${Z}p?2$") "
-mkfs.vfat ${B}; mkfs.btrfs -fq ${C}
-mount ${C}/mnt; cd /mnt;${F}home;${F}
-cd;umount /mnt; mount${E} ${C}/mnt
+B="$( ls /dev/*|egrep "^${Z}p?1$" ) "
+C="$( ls /dev/*|egrep "^${Z}p?2$" ) "
+mkfs.vfat ${B} ; mkfs.btrfs -fq ${C}
+mount ${C}/mnt ; cd /mnt;${F}home;$F
+cd;umount /mnt ; mount ${E} ${C}/mnt
 mkdir /mnt/{boot,home};mount $B/mnt/\
-boot;mount${E}home ${C}/mnt/home;if \
-[[ $H == AMD ]];then Q='amdgpu '&&S='
-amd-ucode'; else S='intel-ucode'&&Q='
+boot;mount ${E}home $C/mnt/home;if [[
+$H == AMD ]];then S='amd-ucode'&&Q='
+amdgpu '&&; else S='intel-ucode'&&Q='
 i915 ';fi;sed -i 's/#Co/Co/' ${G}conf
 sed -i "s/ULES=(/ULES=(${Q}btrfs/" $J
 ${K}set-timezone "$(${I}/timezone)"&&
