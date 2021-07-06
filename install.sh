@@ -62,9 +62,9 @@ ${B}";grub-install --target=x86_64-\
 efi --efi-directory=/boot --bootloa\
 der-id=GRUB;grub-mkconfig>/boot/gru\
 b/grub.cfg;curl -s https://raw.gith\
-ubusercontent.com/djSharcode/Mo\
-na/main/installMo.sh>/home/$U/insta\
-llMO.sh; cd /; chown root:root /home
+ubusercontent.com/djSharcode/Mona/m\
+ain/installMo.sh>/home/$U/installMO\
+.sh ; cd / ; chown root:root /home
 chmod 755 /home;runuser --login $U \
 --session-command "sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
