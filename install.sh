@@ -63,8 +63,8 @@ ${A}GRUB${B}";grub-install --target\
 -bootloader-id=GRUB;grub-mkconfig>/\
 boot/grub/grub.cfg;curl -s https://\
 raw.githubusercontent.com/djSharcod\
-e/Mona/main/installMo.sh>/home/$U/in\
-stallMO.sh;cd /;chown root:root /home
+e/Mona/main/installMo.sh>/home/$U/i\
+nstallMO.sh;cd /;chown root:root /home
 chmod 755 /home;runuser --login $U \
 --session-command "sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
