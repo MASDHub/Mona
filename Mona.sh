@@ -17,8 +17,8 @@ gpg -k|pacman-key --populate;printf '
 E,SIZE -e 7,11|grep --color '|NAME'&&
 read -r -p$'\e[31mEnter Installation-
 Disk\e[0m: ' A&&Z="/dev/$A"&&sgdisk \
-$Z -Z -n 1::+512M -t 1:EF00 -n -p;do\
-:;done;lsblk -pe 7,11|egrep --color /
+$Z -Z -n 1::+512M -t 1:EF00 -n 2;do :
+done;lsblk -pe 7,11|egrep --color ?/*
 B="$(ls /dev/*|egrep "^${Z}p?1$") "
 C="$(ls /dev/*|egrep "^${Z}p?2$") "
 mkfs.vfat ${B}; mkfs.btrfs -fq ${C}
