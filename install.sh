@@ -59,10 +59,10 @@ ${A}ENABLE DISPLAY MGR${B}";${F}sddm
 echo -e "${A}NETWORKS CONNECTED${B}"
 ${F}NetworkManager;echo -e "${A}GRUB
 ${B}";grub-install --target=x86_64-\
-efi --efi-directory=/boot --bootload\
-er-id=GRUB;grub-mkconfig>/boot\
-/grub/grub.cfg;curl -s https://raw.\
-githubusercontent.com/djSharcode/Mo\
+efi --efi-directory=/boot --bootloa\
+der-id=GRUB;grub-mkconfig>/boot/gru\
+b/grub.cfg;curl -s https://raw.gith\
+ubusercontent.com/djSharcode/Mo\
 na/main/installMo.sh>/home/$U/insta\
 llMO.sh; cd /; chown root:root /home
 chmod 755 /home;runuser --login $U \
