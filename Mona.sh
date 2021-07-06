@@ -26,7 +26,7 @@ mount ${C}/mnt; cd /mnt;${F}home;${F}
 cd;umount /mnt; mount${E} ${C}/mnt
 mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount${E}home ${C}/mnt/home;if \
-[[ $H == AMD ]];then Q='amdgpu'&&S='
+[[ $H == AMD ]];then Q='amdgpu '&&S='
 amd-ucode';else S='intel-ucode'&&Q='
 i915 ';fi;sed -i 's/#Co/Co/' ${G}conf
 sed -i "s/ULES=(/ULES=(${Q}btrfs/" $J
