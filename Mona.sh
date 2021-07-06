@@ -59,4 +59,4 @@ tc/install.sh;cp ${J} /mnt${J};echo \
 zoneinfo/$($I.co/timezone)>/mnt/etc/T
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/instal.sh
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
