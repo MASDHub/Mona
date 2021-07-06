@@ -6,7 +6,7 @@ set -euo pipefail
 #       ↻     ⊲  Ⅱ  ⊳     ↺       #
 #    VOLUME: ▁▂▃▄▅▆▇ 100%      #
 E='-o noatime,compress=zstd,subvol=@'
-F='btrfs su cr @';G='/etc/pacman.'
+F='btrfs su cr @';G=' /etc/pacman.'
 I='curl -s https://ipapi';H="$(lscpu|
 egrep -o 'AMD|Intel'|sort -u)";head \
 -n 7 -- $0|tail -n 4;K='timedatectl '
@@ -26,15 +26,15 @@ mount ${C}/mnt ; cd /mnt;${F}home;$F
 cd;umount /mnt ; mount ${E} ${C}/mnt
 mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount ${E}home $C/mnt/home;if [[
-"$H" == Intel ]];then S='intel-ucode
-'&&Q='i915 ';else S='amd-ucode'&&Q='
-amdgpu ';fi;sed -i "33 s/#//" ${G}conf
+"$H" == Intel ]];then Q='i915 '&&S='
+intel-ucode';else S='amd-ucode'&&Q='
+amdgpu ';fi;sed -i "33 s/#//"${G}conf
 sed -i "s/ULES=(/ULES=(${Q}btrfs/" $J
 ${K}set-timezone "$(${I}/timezone)"&&
 ${K}set-ntp true;reflector -p https \
--c $($I/country) --sort rate --save \
+-c $($I/country) --sort rate --save\
 ${G}d/mirrorlist||reflector --score \
-10 -p https -a 4 --sort rate --save \
+10 -p https -a 4 --sort rate --save\
 ${G}d/mirrorlist ; pacstrap -i /mnt \
 base base-devel vim \
 xorg linux linux xorg networkmanager \
@@ -53,7 +53,7 @@ xpad otf-fira-sans galculator arandr \
 geany-plugins clipgrab conky-manager \
 gst-plugin-pipewire nitrogen firefox-\
 ublock-origin gvfs-afc xorg-xinit \
-libreoffice-still ${S} ; cp ${G}conf \
+libreoffice-still ${S} ; cp${G}conf \
 /mnt${G}conf;curl -sL https://raw.git\
 hubusercontent.com/djsharcode/Mona/ma\
 in/install.sh -o /mnt/mtc/install.sh
