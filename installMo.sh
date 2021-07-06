@@ -5,7 +5,7 @@ A='.config/openbox' ; H='sleep 2&&
 ';B='<item label="';I=' docks.ini'
 E='<separator> </separator>' ; C='
 "><actionname="Execute"><command>'
-F=' .config/plank/dock1/launchers/'
+F='.config/plank/dock1/launchers/'
 D='</command></action></item>'
 G='/net/launchpad/plank/docks/'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -50,9 +50,9 @@ m/right/'"''"$I"';'"$H"'cat'"$I"' |
 dconf load '"$G"'; '"$H"'echo -e "'
 "[PlankDockItemPreferences]\nLaunch\
 er=file:///usr/share/applications/n\
-emo.desktop"'">>'"$F"'nemo.dockitem
-'"$H"'rm'"$F"'{geeqie.dockitem,vlc-\
-1.dockitem};'"$H"'pkill volumeicon
+emo.desktop"'">> '"$F"'nemo.dockitem
+'"$H"'rm '"$F"'{geeqie.dockitem,vlc\
+-1.dockitem};'"$H"'pkill volumeicon
 '"$H"'sed -i '"'15,"'$d'"'"' '"$A"
 '/autostart'"$H"'sed -i -e '"'s/5/1/
 '"' -e '"'13,16 s/false/true/'"' .c\
