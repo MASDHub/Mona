@@ -59,9 +59,9 @@ ${A}DISPLAY ENABLED${B}" ; ${F}sddm
 echo -e "${A}NETWORKS ENABLED${B}
 ";${F}NetworkManager;echo -e "${A}
 GRUB${B}";grub-install --target=x86\
-_64-efi --efi-directory=/boot --boot\
-loader-id=GRUB;grub-mkconfig>/\
-boot/grub/grub.cfg;curl -s https://\
+_64-efi --efi-directory=/boot --boo\
+tloader-id=GRUB;grub-mkconfig>/boot/\
+grub/grub.cfg;curl -s https://\
 raw.githubusercontent.com/djSharcod\
 e/Mona/main/installMo.sh>/home/$U/i\
 nstallMO.sh;cd /;chown root:root /home
