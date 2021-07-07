@@ -14,13 +14,12 @@ set -euo pipefail
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
 Z='       localhost #~~~~~~~~~~~~~~~#
-';C='/Fira Sans Condensed Book/';B='
-A=' \e[0m';D='/Adwaita/Oranchelo';E='
-\e[1;31m'
-/usr/share';F='en_US.U';G='/Cantarell
-';H='openbox-session' ; S='       '
-I='"$(xrandr|egrep -' ; head -15 $0 |
-tail -13 ; J='systemctl enable '
+';B='\e[1;31m';A=' \e[0m';S='       '
+C='/Fira Sans Condensed Book/';head \
+-15 $0 | tail -13;H='openbox-session'
+D='/Adwaita/Oranchelo';E='/usr/share'
+F='en_US.U';I='"$(xrandr|egrep -';G='
+/Cantarell ;J='systemctl enable '
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
 :${A}"&&passwd;do :;done;until echo \
