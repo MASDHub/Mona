@@ -13,7 +13,7 @@
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-set -euo pipefail
+set -euo pipefail;V='openbox-session'
 K=' 11/Fira Sans Condensed Book/';E='
 /Adwaita/Oranchelo';S='.1       ';F=' 
 systemctl enable ';D='/Cantarell';C='
@@ -36,13 +36,13 @@ ln -sf "${C}$(cat /etc/T)" /etc/loca\
 ltime;echo LANG=${G}TF-8 > /etc/loca\
 le.conf;echo /home/$U/m.sh>/etc/U ;s\
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
-ers;locale-gen;echo ${P} > /etc/host\
+ers;locale-gen;echo ${P} > /etc/host\ 
 name; sed -i "s/#${G}/$G/" /etc/loca\
 le.gen;sed -i 's/auto/1920x1080,auto/
 ' /etc/default/grub;hwclock --systohc
-echo openbox-session>/home/$U/.xinitrc
-sed -i 's/twm/openbox-session/' /etc\
-/X11/xinit/xinitrc;echo -e '
+echo $V > /home/$U/.xinitrc; sed -i "
+s/twm/$V/" /etc/X11/xinit/xinitrc
+echo -e '
 M="$(find /home/*/.screenlayout/*.sh)"
 N='"$O"'o '"'HDMI-1|HDMI1'"')" \nO='\
 "$O"'o '"'eDP1|eDP-1'"')"  \nP='"$O"\
