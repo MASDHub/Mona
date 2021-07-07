@@ -49,11 +49,11 @@ s$E-Beka/" $C/gtk-2.0/gtkrc;echo -e '
 M="$(find /home/*/.screenlayout/*.sh)"
 N='"$O"'o '"'HDMI-1|HDMI1'"')" \nO='\
 "$O"'o '"'eDP1|eDP-1'"')"  \nP='"$O"\
-'c '"'HDMI|eDP'"')" \nif [ -r ${M} ]\
-&&$(grep -q xrandr ${M});then ${M}
-else if [[ "${P}" -ge "2" ]];then xr\
-andr --output $O --off --output $N -\
--auto;fi;fi' >${C}/sddm/scripts/Xsetup
+'c '"'HDMI|eDP'"')"\nif [ -r ${M} ]&&
+$(grep -q xrandr ${M});then $M;else \
+if [[ "${P}" -ge "2" ]];then xrandr \
+--output $O --off --output $N --auto
+fi;fi' >${C}/sddm/scripts/Xsetup
 echo -e "${A}DISPLAY ON${B}"${F}sddm
 echo -e "${A}NETWORKS CONNECTED${B}"
 ${F}NetworkManager; echo -e "${A}GRUB
