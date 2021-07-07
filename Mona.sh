@@ -27,7 +27,7 @@ cd; umount /mnt;mount ${E} ${C} /mnt
 mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount ${E}home $C/mnt/home;if [[
 $H == Intel ]];then S='intel-ucode'&&
-Q='i915 ';elif [[ $H == AMD ]];then \
+Q='i915 ';fi;if [[ $H == AMD ]];then \
 S='amd-ucode'&&Q='amdgpu ';fi;sed -i "
 0,/()/s//(${Q}btrfs)/" ${J}; sed -i '
 0s/#Co/Co/' ${G}conf  
