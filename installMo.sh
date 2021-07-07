@@ -58,8 +58,8 @@ emo.desktop"'">> '"$F"'nemo.dockitem
 '"' -e '"'13,16 s/false/true/'"' .c\
 onfig/volumeicon/volumeicon ; '"$H"
 'volumeicon; sleep 18 && rm'"$I"' &&
-rm -- $0'>m.sh;su root -c "echo -e '
-\e[1;31mDone!\nType: reboot\e[0m' &&
-rm -- $0&&chmod 755 $(cat /etc/U)h&&
+rm $0'>m.sh; su root -c "echo -e '\e
+[1;31mDone!\nType: reboot\e[0m\n' &&
+rm $0&&chmod 755 $(cat /etc/U)m.sh&&
 rm /etc/U"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
