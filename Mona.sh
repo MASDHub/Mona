@@ -30,9 +30,9 @@ boot;mount ${E}home $C/mnt/home;if [[
 intel-ucode';else S='amd-ucode' &&Q='
 amdgpu ';fi;sed -i 's/#Co/Co/' ${G}c\
 onf;sed -i "0,/()/s//(${Q}btrfs)/" $J
-${K}-timezone "$(${I}.co/timezone)"&&
-${K}-ntp true;reflector -p https -c \
-$($I.co/country) --sort rate --save \
+${K}-timezone $(${I}timezone)&&${K}\
+-ntp true;reflector -p https -c \
+"$(${I}country)" --sort rate --save \
 ${G}d/mirrorlist||reflector --score \
 5 -p https -a 12 --sort rate --save \
 ${G}d/mirrorlist ; pacstrap -i /mnt \
@@ -56,7 +56,7 @@ cp ${G}conf /mnt${G}conf;curl -s htt\
 ps://raw.githubusercontent.com/djsha\
 rcode/Mona/main/install.sh -o /mnt/e\
 tc/install.sh;cp ${J} /mnt${J};echo \
-zoneinfo/$($I.co/timezone)>/mnt/etc/T
+zoneinfo/$(${I}timezone)>/mnt/etc/T
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/instal.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
