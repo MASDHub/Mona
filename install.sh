@@ -41,8 +41,8 @@ le.gen;sed -i 's/auto/1920x1080,auto/
 echo "${H}">/home/${U}/.xinitrc;sed \
 -i "s/twm/$H/" /etc/X11/xinit/xinitrc
 sed -i -e "2 s$D-Beka/" -e "3 s$D/" \
--e "s/$G/$C" $E/gtk-3.0/settings.ini
-sed -i -e "2 s$D/" -e "s/$G/$C" -e "
+-e "s/$G/$C/" $E/gtk-3.0/settings.ini
+sed -i -e "2 s$D/" -e "s/$G/$C/" -e "
 s$D-Beka/" $E/gtk-2.0/gtkrc;echo -e \
 'M=$(find /home/*/.screenlayout/*.sh)
 N='"$I"'o '"'HDMI-1|HDMI1'"')" \nO='\
