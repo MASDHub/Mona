@@ -48,8 +48,8 @@ N='"$O"'o '"'HDMI-1|HDMI1'"')" \nO='\
 'c '"'HDMI|eDP'"')" \nif [ -r ${M} ]\
 &&$(grep -q xrandr ${M});then ${M}
 else if [[ "${P}" -ge "2" ]];then xr\
-andr --output $O --off --output $N --\
-auto;fi;fi' > ${C}sddm/scripts/Xsetup
+andr --output $O --off --output $N -\
+-auto;fi;fi' >${C}sddm/scripts/Xsetup
 sed -i -e "2 s${E}-Beka/" -e "s${D}$K
 " -e "3 s$E/"  ${C}gtk-3.0/settings.\
 ini; sed -i -e "s$E-Beka/" -e "2 s$E/
@@ -58,11 +58,11 @@ ini; sed -i -e "s$E-Beka/" -e "2 s$E/
 echo -e "${A}NETWORKS CONNECTED${B}"
 ${F}NetworkManager;echo -e "${A}GRUB
 ${B}"; grub-install --target=x86_64-\
-efi --efi-directory=/boot --bootloader\
--id=GRUB;grub-mkconfig>/boot/grub/gru\
-b.cfg;curl -s https://raw.githubuser\
-content.com/djSharcode/Mona/main/ins\
-tallMo.sh>/home/$U/installMO.sh; cd /
+efi --efi-directory=/boot --bootloade\
+r-id=GRUB;grub-mkconfig>/boot/grub/gr\
+ub.cfg;curl -s https://raw.githubuse\
+rcontent.com/djSharcode/Mona/main/in\
+stallMo.sh>/home/$U/installMO.sh;cd /
 chown root:root /home;chmod 755 /home
 runuser --login $U --session-command \
 "sh ~/installMO.sh"
