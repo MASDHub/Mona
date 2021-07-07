@@ -32,8 +32,8 @@ Q='amdgpu '&&S='amd-ucode';fi; sed -\
 i "0,/()/s//(${Q}btrfs)/" $J;sed -i '
 s/#Co/Co/' ${G}conf ; ${K}-timezone \
 "$(${I}/timezone)" && ${K}-ntp true
-reflector -p https -c "$($I/country)
-" -a 8 -f 2 --sort rate --save ${G}d\
+reflector -p https -a 8 --sort rate \
+-c "$($I/country)" -f 2 --save ${G}d\
 /mirrorlist||reflector --score 5 -p \
 https -a 12 --sort rate --save ${G}d\
 /mirrorlist ; pacstrap -i /mnt base \
