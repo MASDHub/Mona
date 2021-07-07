@@ -48,8 +48,8 @@ oot/grub/grub.cfg;sed -i -e "s/$G/$C/
 k-3.0/settings.ini;sed -i -e "2 s$D/
 " -e "s/$G/$C/" -e "s$D-Beka/" $E/gt\
 k-2.0/gtkrc;echo -e "${B}NETWORKS${A}
-";${G}NetworkManager;echo -e "{A}SDDM
-${A}";${J}sddm;echo -e \
+";${G}NetworkManager ; echo -e "${B}
+SDDM ENABLED${A}";${J}sddm; echo -e \
 'M=$(find /home/*/.screenlayout/*.sh)
 N='"$I"'o '"'HDMI-1|HDMI1'"')" \nO='\
 "$I"'o '"'eDP1|eDP-1'"')"  \nP='"$I"\
