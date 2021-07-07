@@ -18,8 +18,8 @@ S='       ';Z='             localhost
 tail -13;C='Fira Sans Condensed Book'
 E='/usr/share/gtk';G='/Cantarell';H='
 openbox-session';J='systemctl enable'
-F='en_US.U';D='Adwaita/Oranchelo';I='
-"$(xrandr|egrep -' #~~~~~~~~~~~~~~~~#
+F='en_US.U';D='/Adwaita/Oranchelo'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
 :${A}"&&passwd;do :;done;until print\
 f "${B}User Name: ${A}"&&read -r R &&
@@ -43,12 +43,12 @@ le.gen;locale-gen;sed -i 's/au/1920x\
 ${B}GRUB${A}";grub-install --target=\
 x86_64-efi --efi-directory=/boot --b\
 ootloader-id=GRUB;grub-mkconfig > /b\
-oot/grub/grub.cfg;sed -i -e "s$G/$C/
-" -e "2 s/$D-Beka/" -e "3 s/$D/" $E-\
-3.0/settings.ini;sed -i -e "s$G/$C/
-" "2 s/$D/" -e "s/$D-Beka/" $E-2.0/g\
-tkrc;echo -e "${B}NETWORK${A}";${G}N\
-etworkManager;echo -e "${B}SDDM${A}"
+oot/grub/grub.cfg; sed -i -e "s$G/$C/
+" -e "2 s$D-Beka/" -e "3 s$D/" $E-3.\
+0/settings.ini;sed -i -e "s$G/$C/" "
+2 s/$D/" -e "s$D-Beka/" $E-2.0/gtkrc
+echo -e "${B}NETWORK${A}";${G}Networ\
+kManager;echo -e "${B}DISPLAY ON${A}"
 ${J}sddm;I='"$(xrandr|egrep -';echo \
 -e 'N='"$I"'o '"'HDMI-1|HDMI1'"')" 
 M=$(find /home/*/.screenlayout/*.sh)
