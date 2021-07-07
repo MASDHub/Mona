@@ -26,9 +26,9 @@ U="${R,,}" ;until [[ ${#U} -gt 4 ]]&&
 [[ "${U}" =~ ^[a-z]*$ ]]; do printf "
 ${A}Retry: ${B}"&&read R&& U="${R,,}"
 done;useradd -m -G wheel $U;echo -e "
-${A}Enter User Password${B}" ;until \
-passwd ${U}; do echo; done; echo -e "
-Enter ${A}Root${B} Password"; until \
+${A}Enter User Password${B}"; until \
+passwd $U;do :;done;echo -e "Make New
+${A}Root${B}(Admin) Password";until \
 passwd;do :;done;P="${U}PC";echo -e "
 127.0.0${S}localhost\n::1${Z}127.0.1\
 ${S}${P}.localdomain $P" > /etc/hosts
@@ -36,7 +36,7 @@ ln -sf "${C}$(cat /etc/T)" /etc/loca\
 ltime;echo LANG=${G}TF-8 > /etc/loca\
 le.conf;echo "/home/$U/" > /etc/U
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
-ers;locale-gen;echo ${P} > /etc/host\ 
+ers;locale-gen;echo ${P} > /etc/host\
 name; sed -i "s/#${G}/$G/" /etc/loca\
 le.gen;sed -i 's/auto/1920x1080,auto/
 ' /etc/default/grub;hwclock --systohc
