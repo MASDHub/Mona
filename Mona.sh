@@ -33,7 +33,7 @@ Q='amdgpu '&&S='amd-ucode';fi;lsblk \
 s/#Co/Co/' ${G}conf ; ${K}-timezone \
 "$(${I}/timezone)" && ${K}-ntp true
 reflector -p https -a 8 --sort rate \
--c "$($I/country)" -f 2 --save ${G}d\
+-c $(${I}/country) -f 2 --save ${G}d\
 /mirrorlist||reflector --score 5 -p \
 https -a 12 --sort rate --save ${G}d\
 /mirrorlist ; pacstrap -i /mnt base \
