@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
  #8'         8888
 #d8.-=. ,==-.:888b
 #>8 `~` :`~' d8888
@@ -13,53 +14,53 @@
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-set -euo pipefail;V='openbox-session'
-K='/Fira Sans Condensed Book/';E='
-/Adwaita/Oranchelo';S='.1       ';F=' 
-systemctl enable';D='/Cantarell';C='
-/usr/share';A='\e[1;31m';G='en_US.U'
-B='\e[0m' ; Z='             localhost
-';O='"$(xrandr|egrep -';head -14 $0 |
-tail -13 #~~~~~~~~~~~~~~~~~~~~~~~~~~#
-printf "${A}User Name: ${B}" ; read R
+A='\e[0m' ; Z='             localhost
+'; C='/Fira Sans Condensed Book/';B='
+\e[1;31m' ;D='/Adwaita/Oranchelo';E='
+/usr/share';F='en_US.U';G='/Cantarell
+';H='openbox-session' ; S='.1       '
+I='"$(xrandr|egrep -' ; head -14 $0 |
+tail -13 ; J='systemctl enable '
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+printf "${B}User Name: ${A}" ; read R
 U="${R,,}" ;until [[ ${#U} -gt 4 ]]&&
 [[ "${U}" =~ ^[a-z]*$ ]]; do printf "
-${A}Retry: ${B}"&&read R&& U="${R,,}"
+${B}Retry: ${A}"&&read R&& U="${R,,}"
 done;useradd -m -G wheel $U;echo -e "
-${A}Enter User Password${B}"; until \
+${B}Enter User Password${A}"; until \
 passwd $U;do :;done;echo -e "Make New
-${A}Root${B}(Admin) Password";until \
+${B}Root${A}(Admin) Password";until \
 passwd;do :;done;P="${U}PC";echo -e "
 127.0.0${S}localhost\n::1${Z}127.0.1\
 ${S}${P}.localdomain $P" > /etc/hosts
-ln -sf ${C}/$(cat /etc/TZ) /etc/loca\
-ltime;echo LANG=${G}TF-8 > /etc/loca\
+ln -sf ${E}/$(cat /etc/TZ) /etc/loca\
+ltime;echo LANG=${F}TF-8 > /etc/loca\
 le.conf;echo "/home/$U/" > /etc/U
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;locale-gen;echo "$P" > /etc/host\
-name; sed -i "s/#${G}/$G/" /etc/loca\
+name; sed -i "s/#${F}/$F/" /etc/loca\
 le.gen;sed -i 's/auto/1920x1080,auto/
 ' /etc/default/grub;hwclock --systohc
-echo "${V}">/home/${U}/.xinitrc;sed \
--i "s/twm/$V/" /etc/X11/xinit/xinitrc
-sed -i -e "2 s$E-Beka/" -e "3 s$E/" \
--e "s$D/$K" ${C}/gtk-3.0/settings.ini
-sed -i -e "2 s$E/" -e "s${D}/$K" -e "
-s$E-Beka/" $C/gtk-2.0/gtkrc;echo -e \
+echo "${H}">/home/${U}/.xinitrc;sed \
+-i "s/twm/$H/" /etc/X11/xinit/xinitrc
+sed -i -e "2 s$D-Beka/" -e "3 s$D/" \
+-e "s$G/$C" ${E}/gtk-3.0/settings.ini
+sed -i -e "2 s$D/" -e "s${G}/$C" -e "
+s$D-Beka/" $E/gtk-2.0/gtkrc;echo -e \
 'M=$(find /home/*/.screenlayout/*.sh)
-N='"$O"'o '"'HDMI-1|HDMI1'"')" \nO='\
-"$O"'o '"'eDP1|eDP-1'"')"  \nP='"$O"\
+N='"$I"'o '"'HDMI-1|HDMI1'"')" \nO='\
+"$I"'o '"'eDP1|eDP-1'"')"  \nP='"$I"\
 'c '"'HDMI|eDP'"')"\nif [ -r ${M} ]&&
 $(grep -q xrandr ${M});then $M;else \
 if [[ ${P} -ge 2 ]]; then xrandr --o\
 utput $O --mode 1920x1080 --pos 0x0 \
 --rotate normal --output $N --primar\
 y --mode auto --pos 1920x0 --rotate \
-normal;fi;fi' >$C/sddm/scripts/Xsetup
-echo -e "${A}CONNECTING NETWORKS${B}
-";${F}NetworkManager ; echo -e "${A}
-DISPLAY MANAGER ENABLED${B}";${F}sddm
-echo -e "${A}GRUB INSTALL${B}" ; gru\
+normal;fi;fi' >$E/sddm/scripts/Xsetup
+echo -e "${B}CONNECTING NETWORKS${A}
+";${J}NetworkManager ; echo -e "${B}
+DISPLAY MANAGER ENABLED${A}";${J}sddm
+echo -e "${A}GRUB INSTALL${A}" ; gru\
 b-install --target=x86_64-efi --efi-\
 directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
