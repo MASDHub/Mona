@@ -37,7 +37,7 @@ reflector -p https -c "$($I/country)
 /mirrorlist||reflector --score 5 -p \
 https -a 12 --sort rate --save ${G}d\
 /mirrorlist ; pacstrap -i /mnt base \
-base-devel xorg linux xorg gvfs-afc \
+base-devel xorg linux xorg pipewire \
 efibootmgr xorg-xinit linux-headers \
 linux-headers arandr linux-firmware \
 pipewire-alsa trayer alsa-utils vlc \
@@ -51,7 +51,7 @@ galculator pkg-config rofi clipgrab \
 htop pipewire-jack volumeicon xterm \
 nemo-preview gvfs-mtp geany-plugins \
 xlockmore xpad galculator obconf-qt \
-vim conky-manager nitrogen pipewire \
+vim conky-manager nitrogen gvfs-afc \
 screengrab pipewire-alsa ${S};curl -\
 s https://raw.githubusercontent.com/\
 djsharcode/Mona/main/install.sh>/mnt\
