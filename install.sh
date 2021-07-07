@@ -19,7 +19,7 @@ C='/Fira Sans Condensed Book/';head \
 -15 $0 | tail -13;H='openbox-session'
 D='/Adwaita/Oranchelo';E='/usr/share'
 F='en_US.U';I='"$(xrandr|egrep -';G='
-/Cantarell ;J='systemctl enable '
+/Cantarell';J='systemctl enable '
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
 :${A}"&&passwd;do :;done;until echo \
