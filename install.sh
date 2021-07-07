@@ -32,7 +32,7 @@ do :;done;P="${U}pc";echo -e "127.0.\
 1.1${S}$P.localdomain $P" >/etc/hosts
 ln -sf ${E}/$(cat /etc/TZ) /etc/loca\
 ltime;echo "LANG=${F}TF-8">/etc/loca\
-le.conf;echo "/home/$U/m.">/etc/U
+le.conf;echo "/home/${U}/">/etc/U
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;locale-gen;echo "${P}">/etc/host\
 name; sed -i "s/#${F}/$F/" /etc/loca\
