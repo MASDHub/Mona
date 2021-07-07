@@ -57,7 +57,7 @@ s https://raw.githubusercontent.com/\
 djsharcode/Mona/main/install.sh>/mnt\
 /etc/install.sh;cp ${J} /mnt${J};cp \
 ${G}conf /mnt${G}conf;echo zoneinfo/\
-$($I/timezone)>/mnt/etc/T
-genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt sh /etc/instal.sh
+$($I/timezone)>/mnt/etc/T;genfstab -\
+U /mnt >>/mnt/etc/fstab;arch-chroot \
+/mnt sh /etc/instal.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
