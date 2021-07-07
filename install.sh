@@ -54,9 +54,9 @@ sed -i -e "2 s${E}-Beka/" -e "s${D}$K
 " -e "3 s$E/"  ${C}gtk-3.0/settings.\
 ini; sed -i -e "s$E-Beka/" -e "2 s$E/
 " "s${D}$K"  ${C}gtk-2.0/gtkrc;echo \
--e "${A}ENABLE DISPLAY${B}";${F}sddm
+-e "${A}DISPLAY ENABLED${B}";${F}sddm
 echo -e "${A}NETWORKS CONNECTED${B}"
-${F}NetworkManager;echo -e "${A}GRUB
+${F}NetworkManager; echo -e "${A}GRUB
 ${B}"; grub-install --target=x86_64-\
 efi --efi-directory=/boot --bootload\
 rr-id=GRUB;grub-mkconfig>/boot/grub/\
