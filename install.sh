@@ -13,7 +13,7 @@ set -euo pipefail
 #d88%            %%%8--'-.
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
-S='       ';Z='        localhost
+S='       ';Z='             localhost
 ';B='\e[1;31m';A='\e[0m';head -15 $0|
 tail -13;C='Fira Sans Condensed Book'
 E='/usr/share';D='/Adwaita/Oranchelo'
@@ -28,8 +28,8 @@ U="${R,,}"&&[[ "$U" =~ ^[a-z]*$ ]] &&
 -m -G wheel ${U}; until echo -e "${B}
 Enter User's Password${A}"&&passwd $U
 do :;done;P="${U}pc";echo -e "127.0.\
-0.1${S}localhost\n::1     ${Z}127.0.\
-1.1${S}$P.localdomain $P" >/etc/hosts
+0.1${S}localhost\n::1${Z}127.0.1.1$S\
+${P}.localdomain  ${P}" >> /etc/hosts
 ln -sf ${E}/$(cat /etc/TZ) /etc/loca\
 ltime;echo "LANG=${F}TF-8">/etc/loca\
 le.conf;echo "/home/${U}/">/etc/U;hw\
