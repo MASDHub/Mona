@@ -39,9 +39,9 @@ sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;locale-gen;echo ${P} > /etc/host\
 name; sed -i "s/#${G}/$G/" /etc/loca\
 le.gen;sed -i 's/auto/1920x1080,auto/
-' /etc/default/grub;hwclock --systoh\
-c;echo openbox-session>/home/$U/.xin\
-itrc ; sed -i 's/twm/openbox-session/
+' /etc/default/grub;hwclock --systohc
+echo openbox-session>/home/$U/.xinit\
+rc ; sed -i 's/twm/openbox-session/
 ' /etc/X11/xinit/xinitrc ; echo -e '
 M="$(find /home/*/.screenlayout/*.sh)"
 N='"$O"'o '"'HDMI-1|HDMI1'"')" \nO='\
