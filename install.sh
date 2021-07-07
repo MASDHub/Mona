@@ -12,8 +12,8 @@
 #d88%            %%%8--'-.
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
-set -euo pipefail;head -n 14 -- $0 |
-tail -n 13;Z='             localhost
+set -euo pipefail;head -14 $0|
+tail -13 ; Z='             localhost
 ';A='\e[1;31m';B='\e[0m';G='en_US.U'
 K=' 11/Fira Sans Condensed Book';E='
 Adwaita/Oranchelo';D='Cantarell';F='
