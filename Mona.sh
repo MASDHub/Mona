@@ -28,9 +28,10 @@ mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount ${E}home $C/mnt/home;if [[
 -n $H ]];then if [ $H == AMD ];then \
 S='amd-ucode'&&Q='amdgpu ';else Q='
-i915 '&&S='intel-ucode';fi;fi; sed -\
-i "0,/()/s//(${Q}btrfs)/" $J; sed -\
-i '0s/#Co/Co/' ${G}conf
+i915 '&&S='intel-ucode';fi;fi;sed -i "
+0,/()/s//(${Q}btrfs)/
+'0s/#Co/Co/' ${G}conf  $J; sed -\
+i ;
 ${K}-timezone $(${I}timezone)&&${K}-\
 ntp true;reflector -p https -a 6 -c \
 "$(${I}country)" --sort rate --save \
