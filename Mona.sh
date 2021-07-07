@@ -7,11 +7,11 @@ set -euo pipefail
 #    VOLUME: ▁▂▃▄▅▆▇ 100%         #
 E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @';K='timedatectl set'
-I='curl -s https://ipapi.co/';setfon\
-t ter-124b;H="$(lscpu|egrep -o 'AMD |
-Intel'|sort -u)";G='/etc/pacman.';J='
-/etc/mkinitcpio.conf' ;head -n 7 $0 |
-tail -n 4 #~~~~~~~~~~~~~~~~~~~~~~~~~#
+setfont ter-124n;G='/etc/pacman.';I='
+curl -s https://ipapi.co/';H="lscpu |
+egrep -o 'AMD|Intel'|sort -u";head -\
+7 $0|tail -4;J='/etc/mkinitcpio.conf'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %47s\n'|tr ' ' -;until lsblk -do NAM\
 E,SIZE -e 7,11|grep --color '[A-Z]'&&
