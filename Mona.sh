@@ -29,7 +29,7 @@ $H == Intel ]];then S='intel-ucode'&&
 Q='i915 ';elif [[ $H == AMD ]];then \
 Q='amdgpu '&&S='amd-ucode';fi;lsblk \
 -pe 7,11|egrep --color ?/* ; sed -i "
-0,/()/s//(${Q}btrfs)/" $J ; sed -i '
+0,/()/s//(${Q}btrfs)/" ${J}; sed -i '
 s/#Co/Co/' ${G}conf ; ${K}-timezone \
 "$(${I}/timezone)" && ${K}-ntp true
 reflector -p https -a 8 --sort rate \
