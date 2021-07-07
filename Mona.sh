@@ -9,8 +9,8 @@ E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @';K='timedatectl set'
 setfont ter-124n;G='/etc/pacman.';I='
 curl -s https://ipapi.co';head -7 $0|
-tail -4;H="$(lscpu|egrep -o 'AMD|Intel
-'|sort -u)";J='/etc/mkinitcpio.conf'
+tail -4;H=$(lscpu|egrep -o 'AMD|Intel
+'|sort -u) ; J='/etc/mkinitcpio.conf'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %47s\n'|tr ' ' -;until lsblk -do NAM\
@@ -26,8 +26,8 @@ mount ${C} /mnt;cd /mnt;${F}home;${F}
 cd; umount /mnt;mount ${E} ${C} /mnt
 mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount ${E}home $C/mnt/home;if [[
--n "$H" ]];then if [ "$H" == Intel ]
-then Q='i915 '&&S='intel-ucode';else \
+-n $H ]];then if [ $H == Intel ];then \
+Q='i915 '&&S='intel-ucode';else \
 S='amd-ucode' &&Q='amdgpu ';fi;fised \
 -i 's/#Co/Co/' ${G}conf;sed -i \
 "0,/()/s//(${Q}btrfs)/" $J
