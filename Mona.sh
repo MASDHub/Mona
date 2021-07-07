@@ -36,7 +36,7 @@ reflector -p https -c "$($I/country)
 " -a 8 -f 2 --sort rate --save ${G}d\
 /mirrorlist||reflector --score 5 -p \
 https -a 12 --sort rate --save ${G}d\
-/mirrorlist ; pacstrap -i /mnt \
+/mirrorlist ; pacstrap -i /mnt base \
 base base-devel xorg linux xorg vim \
 efibootmgr xorg-xinit linux-headers \
 linux-headers arandr linux-firmware \
