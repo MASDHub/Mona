@@ -13,12 +13,12 @@ set -euo pipefail
 #d88%            %%%8--'-.
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A=' \e[0m';Z='             localhost
-'; C='/Fira Sans Condensed Book/';B='
-\e[1;31m' ;D='/Adwaita/Oranchelo';E='
+Z='       localhost #~~~~~~~~~~~~~~~#
+';C='/Fira Sans Condensed Book/';B='
+A=' \e[0m';D='/Adwaita/Oranchelo';E='
+\e[1;31m'
 /usr/share';F='en_US.U';G='/Cantarell
-';H='openbox-session' ; S='.1       '
+';H='openbox-session' ; S='       '
 I='"$(xrandr|egrep -' ; head -15 $0 |
 tail -13 ; J='systemctl enable '
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -29,14 +29,14 @@ U="${R,,}"&& [[ "$U" =~ ^[a-z]*$ ]]&&
 [[ ${#U} -gt 4 ]];do :;done;useradd \
 -m -G wheel ${U}; until echo -e "${B}
 Enter User's Password${A}"&&passwd $U
-do : ; done ; P="${U}pc" ; echo -e "
-127.0.0${S}localhost\n::1${Z}127.0.1\
-${S}${P}.localdomain $P" > /etc/hosts
+do :;done;P="${U}pc";echo -e "127.0.\
+0.1${S}localhost\n::1      ${Z}127.0\
+.1.1${S}$P.localdomain $P">/etc/hosts
 ln -sf ${E}/$(cat /etc/TZ) /etc/loca\
-ltime;echo LANG=${F}TF-8 > /etc/loca\
-le.conf;echo "/home/$U/" > /etc/U
+ltime;echo "LANG=${F}TF-8">/etc/loca\
+le.conf;echo "/home/$U/m.">/etc/U
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
-ers;locale-gen;echo "$P" > /etc/host\
+ers;locale-gen;echo "${P}">/etc/host\
 name; sed -i "s/#${F}/$F/" /etc/loca\
 le.gen;sed -i 's/auto/1920x1080,auto/
 ' /etc/default/grub;hwclock --systohc
