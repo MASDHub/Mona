@@ -40,13 +40,13 @@ ers;locale-gen;echo "$P" > /etc/host\
 name; sed -i "s/#${G}/$G/" /etc/loca\
 le.gen;sed -i 's/auto/1920x1080,auto/
 ' /etc/default/grub;hwclock --systohc
-echo $V > /home/$U/.xinitrc; sed -i "
-s/twm/$V/" /etc/X11/xinit/xinitrc
+echo "${V}">/home/${U}/.xinitrc;sed \
+-i "s/twm/$V/" /etc/X11/xinit/xinitrc
 sed -i -e "2 s$E-Beka/" -e "3 s$E/" \
--e "s$D/$K" $C/gtk-3.0/settings.ini
-sed -i -e "2 s$E/" -e "s$D/$K" -e "
-s$E-Beka/" $C/gtk-2.0/gtkrc;echo -e
-'M="$(find /home/*/.screenlayout/*.sh)"
+-e "s$D/$K" ${C}/gtk-3.0/settings.ini
+sed -i -e "2 s$E/" -e "s${D}/$K" -e "
+s$E-Beka/" $C/gtk-2.0/gtkrc;echo -e '
+M="$(find /home/*/.screenlayout/*.sh)"
 N='"$O"'o '"'HDMI-1|HDMI1'"')" \nO='\
 "$O"'o '"'eDP1|eDP-1'"')"  \nP='"$O"\
 'c '"'HDMI|eDP'"')" \nif [ -r ${M} ]\
