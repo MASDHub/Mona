@@ -60,9 +60,10 @@ echo -e "${A}CONNECTING NETWORKS${B}
 ";${F}NetworkManager ; echo -e "${A}
 DISPLAY MANAGER ENABLED${B}";${F}sddm
 echo -e "${A}GRUB INSTALL${B}";grub-\
-install --target=x86_64-efi --efi-dire\
-ctory=/boot --bootloader-id=GRUB;grub-mkc\
-onfig>/boot/grub/grub.cfg;curl -s htt\
+install --target=x86_64-efi --efi-di\
+rectory=/boot --bootloader-id=GRUB
+grub-mkconfig > /boot/grub/grub.cfg
+curl -s htt\
 ps://raw.githubusercontent.com/djSha\
 rcode/Mona/main/installMo.sh> /home/\
 $U/installMO.sh;cd /;chown root:root\ 
