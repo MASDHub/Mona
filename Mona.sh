@@ -1,14 +1,12 @@
 #!/bin/bash
-set -euo pipefail
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #    Mozart - Moonlight Sonata    #
 #     0:35 ━❍──────── -5:32       #
-#       ↻     ⊲  Ⅱ  ⊳     ↺       #
-#    VOLUME: ▁▂▃▄▅▆▇ 100%         #
+#      ↻     ⊲  Ⅱ  ⊳     ↺        #
+#     VOLUME: ▁▂▃▄▅▆▇ 100%        #
 E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @';K='timedatectl set'
 setfont ter-124n;G='/etc/pacman.';I='
-curl -s https://ipapi.co';head -7 $0|
+curl -s https://ipapi.co';head -5 $0|
 tail -4;H=$(lscpu|egrep -o 'AMD|Intel
 '|sort -u) ; J='/etc/mkinitcpio.conf'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
