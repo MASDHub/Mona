@@ -32,14 +32,14 @@ do :;done;P="${U}pc";echo -e "127.0.\
 1.1${S}$P.localdomain $P" >/etc/hosts
 ln -sf ${E}/$(cat /etc/TZ) /etc/loca\
 ltime;echo "LANG=${F}TF-8">/etc/loca\
-le.conf;echo "/home/${U}/">/etc/U
+le.conf;echo "/home/${U}/">/etc/U; s\
+ed -i 's/au/1920x1080,au/' /etc/defa\
+ult/grub;sed -i "s/tw/$H/" /etc/X11/\
+xinit/xinitrc;echo $H > ~$U/.xinitrc
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;sed -i "s/#${F}/${F}/" /etc/loca\
 le.gen;locale-gen;echo $P >/etc/host\
-name;echo $H >/home/$U/.xinitrc;sed \
--i "s/twm/$H/" /etc/X11/xinit/xinitrc
-sed -i 's/auto/1920x1080,auto/' /etc\
-/default/grub;hwclock --systohc;sed \
+name; hwclock --systohc ; sed \
 -i -e "2 s$D-Beka/" -e "3 s$D/" -e "
 s/${G}/${C}/" $E/gtk-3.0/settings.ini
 sed -i -e "2 s$D/" -e "s/$G/$C/" -e "
