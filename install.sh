@@ -36,7 +36,7 @@ ln -sf "${C}$(cat /etc/T)" /etc/loca\
 ltime;echo LANG=${G}TF-8 > /etc/loca\
 le.conf;echo "/home/$U/" > /etc/U
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
-ers;locale-gen;echo ${P} > /etc/host\
+ers;locale-gen;echo "$P" > /etc/host\
 name; sed -i "s/#${G}/$G/" /etc/loca\
 le.gen;sed -i 's/auto/1920x1080,auto/
 ' /etc/default/grub;hwclock --systohc
