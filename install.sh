@@ -13,18 +13,17 @@ set -euo pipefail
 #d88%            %%%8--'-.
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
-Z='       localhost #~~~~~~~~~~~~~~~#
-';B='\e[1;31m';A=' \e[0m';S='       '
-C='/Fira Sans Condensed Book/';head \
--15 $0 | tail -13;H='openbox-session'
-D='/Adwaita/Oranchelo';E='/usr/share'
-F='en_US.U';I='"$(xrandr|egrep -';G='
-/Cantarell';J='systemctl enable '
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+S='       ';Z='       localhost #~~~#
+';B='\e[1;31m';A='\e[0m';head -15 $0|
+tail -13;C='Fira Sans Condensed Book'
+E='/usr/share';D='/Adwaita/Oranchelo'
+H='openbox-session';G='Cantarell';F='
+en_US.U';J='systemctl enable ';I='"$(
+xrandr|egrep -' #~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
-:${A}"&&passwd;do :;done;until echo \
--en "${B}User Name:${A}"&&read -r R&&
-U="${R,,}"&& [[ "$U" =~ ^[a-z]*$ ]]&&
+:${A}"&&passwd;do :;done;until print\
+f "${B}User Name: ${A}"&&read -r R &&
+U="${R,,}"&&[[ "$U" =~ ^[a-z]*$ ]] &&
 [[ ${#U} -gt 4 ]];do :;done;useradd \
 -m -G wheel ${U}; until echo -e "${B}
 Enter User's Password${A}"&&passwd $U
@@ -42,8 +41,8 @@ le.gen;sed -i 's/auto/1920x1080,auto/
 echo "${H}">/home/${U}/.xinitrc;sed \
 -i "s/twm/$H/" /etc/X11/xinit/xinitrc
 sed -i -e "2 s$D-Beka/" -e "3 s$D/" \
--e "s$G/$C" ${E}/gtk-3.0/settings.ini
-sed -i -e "2 s$D/" -e "s${G}/$C" -e "
+-e "s/$G/$C" $E/gtk-3.0/settings.ini
+sed -i -e "2 s$D/" -e "s/$G/$C" -e "
 s$D-Beka/" $E/gtk-2.0/gtkrc;echo -e \
 'M=$(find /home/*/.screenlayout/*.sh)
 N='"$I"'o '"'HDMI-1|HDMI1'"')" \nO='\
