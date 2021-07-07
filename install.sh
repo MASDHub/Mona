@@ -19,7 +19,7 @@ A=' \e[0m';Z='             localhost
 \e[1;31m' ;D='/Adwaita/Oranchelo';E='
 /usr/share';F='en_US.U';G='/Cantarell
 ';H='openbox-session' ; S='.1       '
-I='"$(xrandr|egrep -' ; head -14 $0 |
+I='"$(xrandr|egrep -' ; head -15 $0 |
 tail -13 ; J='systemctl enable '
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
