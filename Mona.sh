@@ -1,8 +1,8 @@
 #!/bin/bash
-#    Mozart - Moonlight Sonata    #
-#     0:35 ━❍──────── -5:32       #
+#    Mozart - Moonlight Sonata     #
+#     0:35 ━❍──────── -5:32      #
 #      ↻     ⊲  Ⅱ  ⊳     ↺        #
-#     VOLUME: ▁▂▃▄▅▆▇ 100%        #
+#     VOLUME: ▁▂▃▄▅▆▇ 100%     #
 E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @';K='timedatectl set'
 setfont ter-124n;G='/etc/pacman.';I='
