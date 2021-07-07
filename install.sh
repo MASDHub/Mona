@@ -12,14 +12,15 @@
 #d88%            %%%8--'-.
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
-set -euo pipefail;head -14 $0|
-tail -13 ; Z='             localhost
-';A='\e[1;31m';B='\e[0m';G='en_US.U'
-K=' 11/Fira Sans Condensed Book/';E='
-/Adwaita/Oranchelo';D='/Cantarell';F='
-systemctl enable ';S='.1       ';C='
-/usr/share/' ; O='"$(xrandr|egrep -'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+set -euo pipefail
+K=' 11/Fira Sans Condensed Book/';E='
+/Adwaita/Oranchelo';S='.1       ';F=' 
+systemctl enable ';D='/Cantarell';C='
+/usr/share/';A='\e[1;31m';G='en_US.U'
+B='\e[0m' ; Z='             localhost
+';O='"$(xrandr|egrep -';head -14 $0 |
+tail -13 #~~~~~~~~~~~~~~~~~~~~~~~~~~#
 printf "${A}User Name: ${B}" ; read R
 U="${R,,}" ;until [[ ${#U} -gt 4 ]]&&
 [[ "${U}" =~ ^[a-z]*$ ]]; do printf "
