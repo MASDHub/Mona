@@ -54,7 +54,7 @@ screengrab pipewire-alsa ${M};curl -\
 s https://raw.githubusercontent.com/\
 djsharcode/Mona/main/install.sh>/mnt\
 /etc/install.sh;cp ${K} /mnt${K};cp \
-${H}conf /mnt${H}conf;echo zoneinfo/\
-$($I/timezone) > /mnt/etc/TZ;genfsta\
-b -U /mnt >> /mnt/etc/fstab ;arch-ch\
-root /mnt sh /etc/instal.sh
+${H}conf /mnt${H}conf;echo share/zon\
+einfo/$($I/timezone)>/mnt/etc/TZ;gen\
+fstab -U /mnt >> /mnt/etc/fstab;arch\
+-chroot /mnt sh /etc/instal.sh
