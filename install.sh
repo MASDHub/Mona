@@ -14,7 +14,7 @@ set -euo pipefail
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='\e[0m' ; Z='             localhost
+A=' \e[0m' ;Z='             localhost
 '; C='/Fira Sans Condensed Book/';B='
 \e[1;31m' ;D='/Adwaita/Oranchelo';E='
 /usr/share';F='en_US.U';G='/Cantarell
@@ -22,15 +22,14 @@ A='\e[0m' ; Z='             localhost
 I='"$(xrandr|egrep -' ; head -14 $0 |
 tail -13 ; J='systemctl enable '
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-printf "${B}User Name: ${A}" ; read R
-U="${R,,}" ;until [[ ${#U} -gt 4 ]]&&
-[[ "${U}" =~ ^[a-z]*$ ]]; do printf "
-${B}Retry: ${A}"&&read R&& U="${R,,}"
-done;useradd -m -G wheel $U;echo -e "
-${B}Enter User Password${A}"; until \
-passwd $U;do :;done;echo -e "Make New
-${B}Root${A}(Admin) Password";until \
-passwd;do :;done;P="${U}PC";echo -e "
+until printf "${B}Enter Root Password
+:${A}";until passwd;do :;done;untuil \
+printf "${B}User Name:${A}"&&r\
+ead R&&U="${R,,}"&&[[ ${#U} -gt 4 ]]\
+&&[[ "${U}" =~ ^[a-z]*$ ]];do :;done
+useradd -m -G wheel $U; echo -e "${B}
+Enter User Password${A}";until passwd $U;
+do :;done; P="${U}PC";echo -e "
 127.0.0${S}localhost\n::1${Z}127.0.1\
 ${S}${P}.localdomain $P" > /etc/hosts
 ln -sf ${E}/$(cat /etc/TZ) /etc/loca\
