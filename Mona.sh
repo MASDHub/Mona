@@ -31,8 +31,8 @@ Q='i915 ';elif [[ $H == AMD ]];then \
 Q='amdgpu '&&S='amd-ucode';fi; sed -\
 i "0,/()/s//(${Q}btrfs)/" $J;sed -i ' 
 s/#Co/Co/' ${G}conf ; ${K}-timezone "
-$(${I}/timezone)"&&${K}-ntp true;ref\
-lector -p https -a 6 -c "$($I/country)
+$($I/timezone)"&&${K}-ntp true;refle\
+ctor -p https -a 12 -c "$($I/country)
 " --sort rate --save ${G}d/mirrorlist||reflector --score \
 5 -p https -a 12 --sort rate --save \
 ${G}d/mirrorlist ; pacstrap -i /mnt \
