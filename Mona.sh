@@ -30,10 +30,10 @@ $H == Intel ]];then S='intel-ucode'&&
 Q='i915 ';elif [[ $H == AMD ]];then \
 Q='amdgpu '&&S='amd-ucode';fi; sed -\
 i "0,/()/s//(${Q}btrfs)/" $J;sed -i ' 
-s/#Co/Co/' ${G}conf;${K}-timezone "
-$(${I}timezone)"&&${K}-ntp true
-reflector -p https -a 6 -c \
-"$(${I}country)" --sort rate --save \
+s/#Co/Co/' ${G}conf ; ${K}-timezone "
+$($I/timezone)"&&${K}-ntp true;reflec\
+tor -p https -a 6 -c "$($I/country)
+" --sort rate --save \
 ${G}d/mirrorlist||reflector --score \
 5 -p https -a 12 --sort rate --save \
 ${G}d/mirrorlist ; pacstrap -i /mnt \
@@ -57,7 +57,7 @@ cp ${G}conf /mnt${G}conf;curl -s htt\
 ps://raw.githubusercontent.com/djsha\
 rcode/Mona/main/install.sh -o /mnt/e\
 tc/install.sh;cp ${J} /mnt${J};echo \
-"zoneinfo/$(${I}timezone)">/mnt/etc/T
+"zoneinfo/$($I/timezone)">/mnt/etc/T
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/instal.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
