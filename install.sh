@@ -16,7 +16,7 @@
 set -euo pipefail;V='openbox-session'
 K='/Fira Sans Condensed Book/';E='
 /Adwaita/Oranchelo';S='.1       ';F=' 
-systemctl enable ';D='/Cantarell';C='
+systemctl enable';D='/Cantarell';C='
 /usr/share';A='\e[1;31m';G='en_US.U'
 B='\e[0m' ; Z='             localhost
 ';O='"$(xrandr|egrep -';head -14 $0 |
@@ -56,16 +56,17 @@ utput $O --mode 1920x1080 --pos 0x0 \
 --rotate normal --output $N --primar\
 y --mode auto --pos 1920x0 --rotate \
 normal;fi;fi' >$C/sddm/scripts/Xsetup
-echo -e "${A}DISPLAY ON${B}"${F}sddm
-echo -e "${A}NETWORKS CONNECTED${B}"
-${F}NetworkManager; echo -e "${A}GRUB
-${B}"; grub-install --target=x86_64-\
-efi --efi-directory=/boot --bootload\
-rr-id=GRUB;grub-mkconfig>/boot/grub/\
-grub.cfg;curl -s https://raw.githubu\
-sercontent.com/djSharcode/Mona/main/\
-installMo.sh > /home/$U/installMO.sh
-cd /;chown root:root /home;chmod 755 \
-/home;runuser --login $U --session-co\
-mmand "sh ~/installMO.sh"
+echo -e "${A}CONNECTING NETWORKS${B}
+";${F}NetworkManager ; echo -e "${A}
+DISPLAY MANAGER ENABLED${B}";${F}sddm
+echo -e "${A}GRUB INSTALL${B}";grub-\
+install --target=x86_64-efi --efi-dire\
+ctory=/boot --bootloader-id=GRUB;grub-mkc\
+onfig>/boot/grub/grub.cfg;curl -s htt\
+ps://raw.githubusercontent.com/djSha\
+rcode/Mona/main/installMo.sh> /home/\
+$U/installMO.sh;cd /;chown root:root\ 
+/home;chmod 755 /home;runuser --logi\
+n $U --session-command "sh ~/install\
+MO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
