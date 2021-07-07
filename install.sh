@@ -63,10 +63,10 @@ echo -e "${A}GRUB INSTALL${B}" ; gru\
 b-install --target=x86_64-efi --efi-\
 directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
-curl -sSL https://raw.githubusercont
-ent.com/djSharcode/Mona/main/install\
-Mo.sh >> /home/$U/installMO.sh ; cd /
-chown root:root /home;chmod 755 /home
-runuser --login $U --session-command "
+curl -sL https://raw.githubuserconten
+t.com/djSharcode/Mona/main/installMo\
+.sh>/home/${U}/installMO.sh;cd /;cho\
+wn root:root /home;chmod 755 /home;r\
+unuser --login $U --session-command "
 sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
