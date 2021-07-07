@@ -58,13 +58,12 @@ ini; sed -i -e "s$E-Beka/" -e "2 s$E/
 echo -e "${A}NETWORKS CONNECTED${B}"
 ${F}NetworkManager;echo -e "${A}GRUB
 ${B}"; grub-install --target=x86_64-\
-efi --efi-directory=/boot --bootloade\
-r-id=GRUB;grub-mkconfig>/boot/grub/gr\
-ub.cfg;curl -s https://raw.githubuse\
-rcontent.com/djSharcode/Mona/main/in\
-stallMo.sh>/home/$U/installMO.sh;cd /
-chown root:root /home;chmod 755 /home
-runuser --login $U --session-command "
-sh ~/installMO.sh"
+efi --efi-directory=/boot --bootload\
+rr-id=GRUB;grub-mkconfig>/boot/grub/\
+grub.cfg;curl -s https://raw.githubu\
+sercontent.com/djSharcode/Mona/main/\
+installMo.sh > /home/$U/installMO.sh
+cd /;chown root:root /home;chmod 755 \
+/home;runuser --login $U --session-co\
+mmand "sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-
