@@ -34,7 +34,7 @@ passwd;do :;done;P="${U}PC";echo -e "
 ${S}${P}.localdomain $P" > /etc/hosts
 ln -sf "${C}$(cat /etc/T)" /etc/loca\
 ltime;echo LANG=${G}TF-8 > /etc/loca\
-le.conf;echo /home/$U/m.sh>/etc/U ;s\
+le.conf;echo /home/$U/m.sh>/etc/U
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;locale-gen;echo ${P} > /etc/host\ 
 name; sed -i "s/#${G}/$G/" /etc/loca\
