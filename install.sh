@@ -49,12 +49,12 @@ oot/grub/grub.cfg;sed -i -e "s$G/$C/
 " "2 s/$D/" -e "s/$D-Beka/" $E-2.0/g\
 tkrc;echo -e "${B}NETWORK${A}";${G}N\
 etworkManager;echo -e "${B}SDDM${A}"
-${J}sddm; echo -e \
-'M=$(find /home/*/.screenlayout/*.sh)
-N='"$I"'o '"'HDMI-1|HDMI1'"')" \nO='\
-"$I"'o '"'eDP1|eDP-1'"')"  \nP='"$I"\
-'c '"'HDMI|eDP'"')"\nif [ -r ${M} ]&&
-$(grep -q xrandr ${M});then $M;else \
+${J}sddm;I='"$(xrandr|egrep -';echo \
+-e 'N='"$I"'o '"'HDMI-1|HDMI1'"')" 
+M=$(find /home/*/.screenlayout/*.sh)
+O='"$I"'o '"'eDP1|eDP-1'"')"\nP='"$I\
+"'c '"'HDMI|eDP'"')"\nif [ -r ${M} ]\
+&&$(grep -q xrandr $M);then $M;else \
 if [[ ${P} -ge 2 ]]; then xrandr --o\
 utput $O --mode 1920x1080 --pos 0x0 \
 --rotate normal --output $N --primar\
