@@ -51,8 +51,8 @@ galculator pkg-config rofi clipgrab \
 htop pipewire-jack volumeicon xterm \
 nemo-preview gvfs-mtp geany-plugins \
 xlockmore xpad galculator obconf-qt \
-conky-manager pipewire-alsa screengr\
-ab nitrogen pipewire vim ${S}
+vim screengrab nitrogen pipewire \
+conky-manager pipewire-alsa ${S}
 cp ${G}conf /mnt${G}conf;curl -s htt\
 ps://raw.githubusercontent.com/djsha\
 rcode/Mona/main/install.sh -o /mnt/e\
