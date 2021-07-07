@@ -24,12 +24,12 @@ tail -13 ; J='systemctl enable '
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
 :${A}"&&passwd;do :;done;until echo \
--en "${B}User Name:${A}"&&read R&&U=\
-"${R,,}"&&[[ "${U}" =~ ^[a-z]*$ ]]&&
+-en "${B}User Name:${A}"&&read -r R&&
+U="${R,,}"&& [[ "$U" =~ ^[a-z]*$ ]]&&
 [[ ${#U} -gt 4 ]];do :;done;useradd \
 -m -G wheel ${U}; until echo -e "${B}
 Enter User's Password${A}"&&passwd $U
-do : ; done ; P="${U}PC" ; echo -e "
+do : ; done ; P="${U}pc" ; echo -e "
 127.0.0${S}localhost\n::1${Z}127.0.1\
 ${S}${P}.localdomain $P" > /etc/hosts
 ln -sf ${E}/$(cat /etc/TZ) /etc/loca\
