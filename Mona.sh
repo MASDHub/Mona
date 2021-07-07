@@ -52,12 +52,12 @@ htop pipewire-jack volumeicon xterm \
 nemo-preview gvfs-mtp geany-plugins \
 xlockmore xpad galculator obconf-qt \
 vim conky-manager nitrogen pipewire \
-screengrab pipewire-alsa ${S}
-cp ${G}conf /mnt${G}conf;curl -s htt\
-ps://raw.githubusercontent.com/djsha\
-rcode/Mona/main/install.sh -o /mnt/e\
-tc/install.sh;cp ${J} /mnt${J};echo \
-"zoneinfo/$($I/timezone)">/mnt/etc/T
+screengrab pipewire-alsa ${S};curl -\
+s https://raw.githubusercontent.com/\
+djsharcode/Mona/main/install.sh>/mnt\
+/etc/install.sh;cp ${J} /mnt${J};cp \
+${G}conf /mnt${G}conf;echo zoneinfo/\
+$($I/timezone)>/mnt/etc/T
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh /etc/instal.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
