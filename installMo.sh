@@ -34,9 +34,10 @@ openbox --reconfigure${D}${E}Lock S\
 creen${C}xlock -mode atlantis -echo\
 keys -echokey '*' -info +descriptio\
 n "'"Password: "'"${D}\nReboot${C}r\
-eboot${D}Power Off${C}poweroff</com\
-mand></action></item></menu></openb\
-ox_menu>">>$A/menu.xml;echo -e "lxq\
+eboot${D}Power Off${C}poweroff\n\n
+</command></action></item></menu>
+</openbox_menu>">>$A/menu.xml;echo \
+-e "lxq\
 t-policykit &\n\npicom --experiment\
 al-backends &\n\nplank &\n\ntrayer \
 --monitor primary --align right --t\
