@@ -62,8 +62,8 @@ y --mode auto --pos 1920x0 --rotate \
 normal;fi;fi'>/usr/share/sddm/script\
 s/Xsetup;curl -sL https://raw.github\
 usercontent.com/djSharcode/Mona/main\
-/installMo.sh>/home/${U}/installMO.sh
-cd / ;chown root:root /home;chmod 75\
-5 /home;runuser --login $U --session\
-command "sh ~/installMO.sh"
+/installMo.sh > ~$U/installMO.sh;cd / 
+chown root:root /home;chmod 755 /home
+runuser --login $U --session-command "
+sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
