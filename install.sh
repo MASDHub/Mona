@@ -45,8 +45,8 @@ echo "${V}">/home/${U}/.xinitrc;sed \
 sed -i -e "2 s$E-Beka/" -e "3 s$E/" \
 -e "s$D/$K" ${C}/gtk-3.0/settings.ini
 sed -i -e "2 s$E/" -e "s${D}/$K" -e "
-s$E-Beka/" $C/gtk-2.0/gtkrc;echo -e '
-M="$(find /home/*/.screenlayout/*.sh)"
+s$E-Beka/" $C/gtk-2.0/gtkrc;echo -e \
+'M=$(find /home/*/.screenlayout/*.sh)
 N='"$O"'o '"'HDMI-1|HDMI1'"')" \nO='\
 "$O"'o '"'eDP1|eDP-1'"')"  \nP='"$O"\
 'c '"'HDMI|eDP'"')"\nif [ -r ${M} ]&&
@@ -55,7 +55,7 @@ if [[ ${P} -ge 2 ]]; then xrandr --o\
 utput $O --mode 1920x1080 --pos 0x0 \
 --rotate normal --output $N --primar\
 y --mode auto --pos 1920x0 --rotate \
-normal;fi;fi' >${C}/sddm/scripts/Xsetup
+normal;fi;fi' >$C/sddm/scripts/Xsetup
 echo -e "${A}DISPLAY ON${B}"${F}sddm
 echo -e "${A}NETWORKS CONNECTED${B}"
 ${F}NetworkManager; echo -e "${A}GRUB
