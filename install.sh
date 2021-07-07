@@ -59,9 +59,9 @@ normal;fi;fi' >$C/sddm/scripts/Xsetup
 echo -e "${A}CONNECTING NETWORKS${B}
 ";${F}NetworkManager ; echo -e "${A}
 DISPLAY MANAGER ENABLED${B}";${F}sddm
-echo -e "${A}GRUB INSTALL${B}"; grub\
--install --target=x86_64-efi --efi-d\
-irectory=/boot --bootloader-id=GRUB
+echo -e "${A}GRUB INSTALL${B}" ; gru\
+b-install --target=x86_64-efi --efi-\
+directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 curl -sSL https://raw.githubusercont
 ent.com/djSharcode/Mona/main/install\
