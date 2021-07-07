@@ -53,9 +53,8 @@ N='"$O"'o '"'HDMI-1|HDMI1'"')" \nO='\
 &&$(grep -q xrandr ${M});then ${M}
 else if [[ "${P}" -ge "2" ]];then xr\
 andr --output $O --off --output $N -\
--auto;fi;fi' >$C/sddm/scripts/Xsetup
-;echo \
--e "${A}DISPLAY ENABLED${B}";${F}sddm
+-auto;fi;fi' >${C}/sddm/scripts/Xsetup
+echo -e "${A}DISPLAY ON${B}"${F}sddm
 echo -e "${A}NETWORKS CONNECTED${B}"
 ${F}NetworkManager; echo -e "${A}GRUB
 ${B}"; grub-install --target=x86_64-\
