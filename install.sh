@@ -64,7 +64,7 @@ ub.cfg;curl -s https://raw.githubuse\
 rcontent.com/djSharcode/Mona/main/in\
 stallMo.sh>/home/$U/installMO.sh;cd /
 chown root:root /home;chmod 755 /home
-runuser --login $U --session-command \
-"sh ~/installMO.sh"
+runuser --login $U --session-command "
+sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
