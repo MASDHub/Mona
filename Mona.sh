@@ -26,9 +26,9 @@ mount ${C} /mnt;cd /mnt;${F}home;${F}
 cd; umount /mnt;mount ${E} ${C} /mnt
 mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount ${E}home $C/mnt/home;if [[
--n $H ]];then if [ $H == AMD ];then \
-S='amd-ucode'&&Q='amdgpu ';else Q='
-i915 '&&S='intel-ucode';fi;fi;sed -i \
+$H == AMD ]];then S='amd-ucode'&&Q='
+amdgpu ';elif [[ $H == Intel ]];then \
+Q='i915 '&&S='intel-ucode';fi;sed -i "
 "0,/()/s//(${Q}btrfs)/"; sed -i '0s/#Co/Co/' ${G}conf  $J; sed -\
 i ;
 ${K}-timezone $(${I}timezone)&&${K}-\
