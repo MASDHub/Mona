@@ -51,9 +51,9 @@ r-id=GRUB;grub-mkconfig > /boot/grub\
 ${A}";${J}sddm;echo -e "${B}NETWORKS
 ${A}";${G}NetworkManager ; echo -e \
 'M=$(find /home/*/.screenlayout/*.sh)
-N='"I"'o '"'HDMI-1|HDMI1'"')"\nP='"$\
-I"'c '"'HDMI|eDP'"')"\nO='"$I"'o '"\
-'eDP1|eDP-1'"')"if [ -r ${M} ]&&
+N='"$I"'o '"'HDMI-1|HDMI1'"')" \nO='\
+"$I"'o '"'eDP1|eDP-1'"')"  \nP='"$I"\
+'c '"'HDMI|eDP'"')"\nif [ -r ${M} ]&&
 $(grep -q xrandr ${M});then $M;else \
 if [[ ${P} -ge 2 ]]; then xrandr --o\
 utput $O --mode 1920x1080 --pos 0x0 \
