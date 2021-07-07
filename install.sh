@@ -29,7 +29,7 @@ U="${R,,}"&&[[ "$U" =~ ^[a-z]*$ ]] &&
 Enter User's Password${A}"&&passwd $U
 do :;done;P="${U}pc";echo -e "127.0.\
 0.1${S}localhost\n::1${Z}127.0.1.1$S\
-${P}.localdomain  ${P}" >> /etc/hosts
+${P}.localdomain ${P}" >>  /etc/hosts
 ln -sf ${E}/$(cat /etc/TZ) /etc/loca\
 ltime;echo "LANG=${F}TF-8">/etc/loca\
 le.conf;echo "/home/${U}/">/etc/U;hw\
