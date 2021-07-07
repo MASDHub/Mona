@@ -43,24 +43,23 @@ name;hwclock --systohc;sed -i -e "s/\
 $G/$C/" -e "3 s$D/" -e "2 s${D}-Beka/
 " $E/gtk-3.0/settings.ini;sed -i -e "
 2 s$D/" -e "s/$G/$C/" -e "s${D}-Beka/
-" $E/gtk-2.0/gtkrc;echo -e \
+" $E/gtk-2.0/gtkrc;echo -e "${B}GRUB
+${A}";grub-install --target=x86_64-e\
+fi --efi-directory=/boot --bootloade\
+r-id=GRUB;grub-mkconfig > /boot/grub\
+/grub.cfg;echo -e "{A}ENABLE DISPLAY
+${A}";${J}sddm;echo -e "${B}NETWORKS
+${A}";${G}NetworkManager ; echo -e \
 'M=$(find /home/*/.screenlayout/*.sh)
-N='"$I"'o '"'HDMI-1|HDMI1'"')" \nO='\
-"$I"'o '"'eDP1|eDP-1'"')"  \nP='"$I"\
-'c '"'HDMI|eDP'"')"\nif [ -r ${M} ]&&
+N='"I"'o '"'HDMI-1|HDMI1'"')"\nP='"$\
+I"'c '"'HDMI|eDP'"')"\nO='"$I"'o '"\
+'eDP1|eDP-1'"')"if [ -r ${M} ]&&
 $(grep -q xrandr ${M});then $M;else \
 if [[ ${P} -ge 2 ]]; then xrandr --o\
 utput $O --mode 1920x1080 --pos 0x0 \
 --rotate normal --output $N --primar\
 y --mode auto --pos 1920x0 --rotate \
 normal;fi;fi' >$E/sddm/scripts/Xsetup
-echo -e "${B}CONNECTING NETWORKS${A}
-";${J}NetworkManager ; echo -e "${B}
-DISPLAY MANAGER ENABLED${A}";${J}sddm
-echo -e "${A}GRUB INSTALL${A}" ; gru\
-b-install --target=x86_64-efi --efi-\
-directory=/boot --bootloader-id=GRUB
-grub-mkconfig -o /boot/grub/grub.cfg
 curl -sL https://raw.githubuserconten
 t.com/djSharcode/Mona/main/installMo\
 .sh>/home/${U}/installMO.sh;cd /;cho\
