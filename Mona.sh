@@ -27,12 +27,12 @@ cd; umount /mnt;mount ${E} ${C} /mnt
 mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount ${E}home $C/mnt/home;if [[
 $H == Intel ]];then S='intel-ucode'&&
-Q='i915 ';fi;if [[ $H == AMD ]];then \
+Q='i915 ';elif [[ $H == AMD ]];then \
 S='amd-ucode'&&Q='amdgpu ';fi;sed -i "
 0,/()/s//(${Q}btrfs)/" ${J}; sed -i '
-0s/#Co/Co/' ${G}conf  
-${K}-timezone $(${I}timezone)&&${K}-\
-ntp true;reflector -p https -a 6 -c \
+s/#Co/Co/' ${G}conf;${K}-timezone "
+$(${I}timezone)"&&${K}-ntp true
+reflector -p https -a 6 -c \
 "$(${I}country)" --sort rate --save \
 ${G}d/mirrorlist||reflector --score \
 5 -p https -a 12 --sort rate --save \
