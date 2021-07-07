@@ -34,9 +34,9 @@ ln -sf ${E}/$(cat /etc/TZ) /etc/loca\
 ltime;echo "LANG=${F}TF-8">/etc/loca\
 le.conf;echo "/home/${U}/">/etc/U
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
-ers;locale-gen;echo "${P}">/etc/host\
-name; sed -i "s/#${F}/$F/" /etc/loca\
-le.gen;sed -i 's/auto/1920x1080,auto/
+ers;sed -i "s/#${F}/${F}/" /etc/loca\
+le.gen;locale-gen;echo $P >/etc/host\
+name; sed -i 's/auto/1920x1080,auto/
 ' /etc/default/grub;hwclock --systohc
 echo "${H}">/home/${U}/.xinitrc;sed \
 -i "s/twm/$H/" /etc/X11/xinit/xinitrc
