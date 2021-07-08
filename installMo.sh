@@ -5,7 +5,7 @@ C='"><actionname="Execute"><command>'
 I=' docks.ini';D='</command></action>
 ';G='/net/launchpad/plank/docks/';H='
 sleep 2&&';E='<separator></separator>
-';F='.config/plank/dock1/launchers/'
+';F=' .config/plank/dock1/launchers/'
 Z='</item><item label="'
 A='.config/openbox'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
