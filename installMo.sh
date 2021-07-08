@@ -1,14 +1,13 @@
 #!/usr/bin/bash
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-A='.config/openbox'; H='sleep 2&& 
-'; I=' docks.ini'; D='
+A='.config/openbox' ;H='sleep 2 && '
+G=' /net/launchpad/plank/docks/';D='
 command></action></item><item label=
-"';E='
-<separator></separator>';C='"><ac
-tionname="Execute"><command>';F='
-.config/plank/dock1/launchers/'
-G='/net/launchpad/plank/docks/'
+"';E='<separator></separator>'
+C='"><actionname="Execute"><command>
+';F='.config/plank/dock1/launchers/'
+I=' docks.ini';
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 mkdir .config;cp -a /etc/xdg/openbox\
 / .config/ ; git clone \
@@ -45,11 +44,11 @@ al-backends &\n\nplank &\n\ntrayer \
 int 0x716966 --height 40 --transpar\
 ent true &\n\nxpad &\n\n(sleep 2&&n\
 m-applet) &\n\n(sleep 3&&volumeicon\
-) &\n\n(sleep 4&&sh m.sh) &">$A/aut\
-ostart ; echo -e 'dconf dump '"
-$G"'>'"$I"';'"$H"'sed -i '"'s/botto\
-m/right/'"''"$I"' ;'"$H"'cat'"$I"' |
-dconf load '"$G"' ; '"$H"'echo -e "'
+) &\n\n(sleep 4&&sh m.sh) &" >${A}/\
+autostart ; echo -e 'dconf dump'"$G"
+'>'"$I"';'"$H"'sed -i '"'s/bottom/r\
+ight/'"''"$I"' ; '"$H"'cat'"$I"' |
+dconf load'"$G"' ; '"$H"'echo -e "'
 "[PlankDockItemPreferences]\nLaunch\
 er=file:///usr/share/applications/n\
 emo.desktop"'">> '"$F"'nemo.dockitem
