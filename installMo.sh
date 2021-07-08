@@ -22,16 +22,16 @@ r.conf;sed -i -e 's/Clearlooks/Bear2/
 -e 's/sans/Fira Sans Condensed Book/
 ' -e '131 s/4/2/' $A/rc.xml;echo -e "
 <menu id="'"root-menu"'" label="'"Op\
-enbox 3"'"><item label="Files${C}nemo
-<${D}Search${C}rofi -show drun<${D}W\
+enbox 3"'"><item label='"'Files${C}ne
+mo${D}Search${C}rofi -show drun${D}W\
 eb${C}Firefox${D}Terminal${C}alacrit\
 ty${D}Text${C}geany${D}Calculator${C}
 galculator${D}${E}Refresh${C}openbox\
  --reconfigure${D}${E}Lock Screen${C}
 xlock -mode atlantis -echokeys -echo\
 key '*' -info +description "'"Passwo\
-rd: "'"${D}Reboot${C}reboot${D}Power\
--Off${C}poweroff</command></action>\
+rd: "'"${D}Re-boot${C}reboot${D}Powe\
+r-Off${C}poweroff</command></action>\
 </item></menu></openbox_menu>">>${A}\
 /menu.xml;echo -e "lxqt-policykit &\n
 picom --experimental-backends &\n\np\
@@ -41,8 +41,8 @@ lank &\n\nxpad &\n\ntrayer --height \
 (sleep 2 && nm-applet) &\n\n(sleep 2\
 && volumeicon) &\n\n(sleep 2 && sh m\
 .sh) &">$A/autostart;echo -e 'dconf \
-dump '"$G"' >'"$I"' '"$H"'sed -i '"'
-s/bottom/right/'"''"$I"''"$H"'cat '"
+dump '"$G"' > '"$I"' '"$H"'sed -i '"'
+s/bottom/right/'"''"$I"' '"$H"'cat '"
 $I"'|dconf load '"$G"''"$H"'echo -e "
 '"[PlankDockItemPreferences]\nLaunch\
 er=file:///usr/share/applications/ne\
