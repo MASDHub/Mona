@@ -8,7 +8,7 @@ sleep 2&&'G='net/launchpad/plank/docks
 </action></item><item label="' #~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 mkdir .config;cp -a /etc/xdg/openbox\
-/ .config/; sed -i '5,$d' $A/menu.xml
+/ .config/; 
 git clone https://aur.archlinux.org/\
 pikaur.git;cd pikaur/ ; makepkg -fsri
 pikaur -S oranchelo-icon-theme-git t\
@@ -21,12 +21,12 @@ r.conf;sed -i -e 's/Clearlooks/Bear2/
 ' -e '131 s/4/2/' -e 's/fileman/show/
 ' -e 's/gnagement/ drun/' -e 's/sans\
 /Fira Sans Condensed Book/' $A/rc.xml
-echo -e "
+sed -i '5,$d' $A/menu.xml ; echo -e "
 <menu id="'"root-menu"'" label="'"Op\
-enbox 3"'"><item label="'Files${C}ne
-mo${D}Search${C}rofi -show drun${D}W\
-eb${C}Firefox${D}Terminal${C}alacrit\
-ty${D}Text${C}geany${D}Calculator${C}
+enbox 3"'"><item label="'Files${C}nem
+o${D}Search${C}rofi -show drun${D}We\
+b${C}Firefox${D}Terminal${C}alacritt\
+y${D}Text${C}geany${D}Calculator${C}\
 galculator${D}${E}Refresh${C}openbox\
  --reconfigure${D}${E}Lock Screen${C}
 xlock -mode atlantis -echokeys -echo\
