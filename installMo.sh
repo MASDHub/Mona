@@ -36,13 +36,13 @@ r-Off${C}poweroff</command></action>\
 </item></menu></openbox_menu>">>${A}\
 /menu.xml;echo -e "lxqt-policykit &\n
 picom --experimental-backends &\n\np\
-lank &\n\nxpad &\n\ntrayer --height \
-40 --align right --monitor primary -\
--transparent true --tint 0x716966 &\n
-(sleep 2 && nm-applet) &\n\n(sleep 2\
-&& volumeicon) &\n\n(sleep 2 && sh m\
-.sh) &">$A/autostart;echo -e 'dconf \
-dump '"$G"' > '"$I"' '"$H"'sed -i '"'
+lank &\n\ntrayer --transparent true \
+--align right --height 40 --monitor \
+primary --tint 0x716966 &\n\nxpad &\n
+(sleep 2 && volumeicon) &\n\n(sleep \
+2 && nm-applet) &\n\n(sleep 2 && sh \
+m.sh) &">$A/autostart;echo -e 'dconf\
+ dump '"$G"'> '"$I"' '"$H"'sed -i '"'
 s/bottom/right/'"''"$I"' '"$H"'cat '"
 $I"'|dconf load '"$G"''"$H"'echo -e "
 '"[PlankDockItemPreferences]\nLaunch\
