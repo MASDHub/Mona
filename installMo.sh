@@ -3,10 +3,11 @@ set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 C='"><actionname="Execute"><command>'
 I=' docks.ini';D='</command></action>
+';G='/net/launchpad/plank/docks/';H='
+sleep 2&&';E='<separator></separator>
 ';F='.config/plank/dock1/launchers/'
-Z='</item><item label="';H='sleep 2&&
-';G='/net/launchpad/plank/docks/';E='
-<separator></separator>';A='.config/openbox
+Z='</item><item label="'
+A='.config/openbox'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 mkdir .config;cp -a /etc/xdg/openbox\
 / .config/; sed -i '5,$d' $A/menu.xml 
