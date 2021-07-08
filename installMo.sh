@@ -1,12 +1,12 @@
 #!/usr/bin/bash
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-I=' docks.ini';A='.config/openbox';H='sleep 2&& '
-G=' /net/launchpad/plank/docks/';D='
+I='docks.ini';A='.config/openbox';H='
+sleep 2&&';E='<separator></separator>
+';G='/net/launchpad/plank/docks/';D='
 /command></action></item><item label=
 "';F='.config/plank/dock1/launchers/'
 C='"><actionname="Execute"><command>'
-E='<separator></separator>'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 mkdir .config;cp -a /etc/xdg/openbox\
 / .config/ ; git clone \
