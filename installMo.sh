@@ -11,8 +11,8 @@ mkdir .config;cp -a /etc/xdg/openbox\
 / .config/; sed -i '5,$d' $A/menu.xml 
 git clone https://aur.archlinux.org/\
 pikaur.git;cd pikaur/ ; makepkg -fsri
-pikaur -S timeshift picom-git ttf-ms\
--fonts oranchelo-icon-theme-git;sed \
+pikaur -Sy oranchelo-icon-theme-git \
+timeshift picom-git ttf-ms-fonts;sed \
 -i 's/g = no/g = yes/' .config/pikau\
 r.conf;sed -i -e 's/Clearlooks/Bear2/
 ' -e 's/W-e/0x85/' -e '10,100 s/9/13/
