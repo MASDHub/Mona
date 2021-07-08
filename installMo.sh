@@ -37,14 +37,13 @@ description "'"Password: "'"</${D}R\
 eboot${C}reboot</${D}Power Off${C}p\
 oweroff</command></action></item></\
 menu></openbox_menu>">>${A}/menu.xml
-echo -e "lxq\
-t-policykit &\n\npicom --experiment\
-al-backends &\n\nplank &\n\ntrayer \
---monitor primary --align right --t\
-int 0x716966 --height 40 --transpar\
-ent true &\n\nxpad &\n\n(sleep 2&&n\
-m-applet) &\n\n(sleep 3&&volumeicon\
-) &\n\n(sleep 4&&sh m.sh) &" >${A}/\
+echo -e "lxqt-policykit &\n\npicom \
+--experimental-backends &\n\nplank &
+\nxpad &\n\ntrayer --monitor primar\
+y --align right --transparent true \
+--height 40 --tint 0x716966 &\n\n('\
+"$H"'nm-applet) &\n\n('"$H"'volumei\
+con) &\n\n('"$H"'sh m.sh) &" >${A}/\
 autostart ; echo -e 'dconf dump'"$G"
 '>'"$I"';'"$H"'sed -i '"'s/bottom/r\
 ight/'"''"$I"' ; '"$H"'cat'"$I"' |
