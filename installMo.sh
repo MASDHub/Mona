@@ -29,7 +29,7 @@ ty${D}Text${C}geany${D}Calculator${C}
 galculator${D}${E}Refresh${C}openbox\
  --reconfigure${D}${E}Lock Screen${C}
 xlock -mode atlantis -echokeys -echo\
-key '*' -info +description "'"Passwo\
+key "'*'" -info +description "'"Passwo\
 rd: "'"${D}Re-boot${C}reboot${D}Powe\
 r-Off${C}poweroff</command></action>\
 </item></menu></openbox_menu>">>${A}\
