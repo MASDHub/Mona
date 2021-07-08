@@ -22,7 +22,7 @@ r.conf;sed -i -e 's/Clearlooks/Bear2/
 e 's/sans/Fira Sans Condensed Book/
 ' -e '131 s/4/2/' $A/rc.xml;echo -e "
 <menu id="'"root-menu"'" label="'"Op\
-enbox 3"'"><item label='"'Files${C}ne
+enbox 3"'"><item label="'"Files${C}ne
 mo${D}Search${C}rofi -show drun${D}W\
 eb${C}Firefox${D}Terminal${C}alacrit\
 ty${D}Text${C}geany${D}Calculator${C}
