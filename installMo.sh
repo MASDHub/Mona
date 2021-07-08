@@ -11,7 +11,7 @@ C='"><actionname="Execute"><command>'
 mkdir .config;cp -a /etc/xdg/openbox\
 / .config/ ; git clone \
 https://aur.archlinux.org/pikaur.git
-cd pikaur/; makepkg -fsri; pikaur -\
+cd pikaur/;makepkg -fsri;pikaur -S \
 S picom-git timeshift ttf-ms-fonts \
 oranchelo-icon-theme-git;sed -i 's/\
 g = no/g = yes/' .config/pikaur.conf
@@ -43,9 +43,9 @@ y --align right --transparent true \
 --height 40 --tint 0x716966 &\n\n('"
 $H"'nm-applet) &\n\n('"$H"'volumeic\
 on) &\n\n('"$H"'sh m.sh) &">$A/auto\
-start;echo -e 'dconf dump'"$G"'>'"$I
+start;echo -e 'dconf dump '"$G"'>'"$I
 "';'"$H"'sed -i '"'s/bottom/right/'"
-''"$I"';'"$H"'cat'"$I"'| dconf load'
+' '"$I"';'"$H"'cat '"$I"'|dconf load '
 "$G"';'"$H"'echo -e "'"[PlankDockIt\
 emPreferences]\nLauncher=file:///us\
 r/share/applications/nemo.desktop"'\
