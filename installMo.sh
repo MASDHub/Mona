@@ -20,7 +20,7 @@ r.conf;sed -i -e 's/Clearlooks/Bear2/
 ' -e '/kfmclient openProfile /rofi -/
 ' -e 's/filemanagement/ show drun/' \
 -e 's/sans/Fira Sans Condensed Book/
--e '131 s/4/2/' ~/$A/rc.xml;echo -e "
+' -e '131 s/4/2/' $A/rc.xml;echo -e "
 <menu id="'"root-menu"'" label="'"Op\
 enbox 3"'"><item label="Files${C}nemo
 <${D}Search${C}rofi -show drun<${D}W\
