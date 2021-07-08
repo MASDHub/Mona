@@ -11,8 +11,8 @@ C='"><actionname="Execute"><command>'
 mkdir .config;cp -a /etc/xdg/openbox\
 / .config/ ; git clone \
 https://aur.archlinux.org/pikaur.git
-cd pikaur/;makepkg -fsri;pikaur -S \
-S picom-git timeshift ttf-ms-fonts \
+cd pikaur/;makepkg -fsri; pikaur -S \
+picom-git timeshift ttf-ms-fonts \
 oranchelo-icon-theme-git;sed -i 's/\
 g = no/g = yes/' .config/pikaur.conf
 sed -i '5,$d' $A/menu.xml ; sed -i \
