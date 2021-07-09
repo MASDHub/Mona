@@ -15,10 +15,10 @@ set -euo pipefail
  #  '''::===..-'   =  --.  `
 S='       ';Z='             localhost
 ';B='\e[1;31m';A='\e[0m';head -15 $0|
-tail -13;C='/Fira Sans Condensed Book
-';E=' /usr/share/gtk';G='/Cantarell/'
-D='Adwaita/Oranchelo';F='en_US.U';H='
-openbox-session';J='systemctl enable
+tail -13;C='/Fira Sans Condensed Book/
+';E=' /usr/share/gtk-';G='/Cantarell/
+';D='/Adwaita/Oranchelo';F='en_US.U'
+H='openbox-sessio';J='systemctl enable
 ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
 :${A}"&&passwd;do :;done;until print\
@@ -32,27 +32,26 @@ do :;done;P="${U}pc";echo -e "127.0.\
 ${P}.localdomain ${P}" >>  /etc/hosts
 ln -sf /usr/$(cat /etc/TZ) /etc/loca\
 ltime;echo "LANG=${F}TF-8">/etc/loca\
-le.conf;echo "/home/${U}/">/etc/U;
+le.conf;echo "/home/${U}/">/etc/U
 sed -i 's/auto/1920x1080/' /etc/defa\
 ult/grub;echo -e "${P}" >> /etc/host\
-name; sed -i "s/twm/${H}/" /etc/X11/\
-xinit/xinitrc;echo "$H">~$U/.xinitrc
+name;sed -i "s/twm/${H}n/" /etc/X11/\
+init/xinitrc;echo ${H}n>~$U/.xinitrc
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;sed -i "s/#${F}/${F}/" /etc/loca\
-le.gen;locale-gen;hwclock --systohc
-sed -i -e "2 s/$D/" -e "s/$D-Beka/" \
--e "s${G}$C/"$E-2.0/gtkrc;sed -i -e "
-3 s/$D/" -e "$G$C/" -e "2 s/$D-Beka/"
-$E3.0/settings.ini;echo -e "${B}GRUB
+le.gen;locale-gen;sed -i -e "s${G}$C
+" -e "2 s$D/" -e "s$D-Beka/"$E2.0/gtkrc;
+sed -i -e "3 s$D/" -e "s$G$C" -e "2 s$D-Beka/
+"$E3.0/settings.ini;echo -e "${B}GRUB
 ${A}";grub-install --target=x86_64-e\
 fi --efi-directory=/boot --bootloade\
 r-id=GRUB;grub-mkconfig >/boot/grub/\
-grub.cfg;echo -e "${B}DISPLAY ENABLE
+grub.cfg;echo -e "${B}DISPLAY ENABLED
 ${A}";$Jsddm;echo -e "${B}NETWORK${A}
 ";$JNetworkManager;I='$(xrandr|egrep'
 echo -e 'P="'"$I"'-c '"'HDMI|eDP'"')"
-N="'"$I"'-o '"'HDMI-1|HDMI1'"')"\nM=\
-"$(find /home/*/.screenlayout/*.sh)"
+N="'"$I"'-o '"'HDMI-1|HDMI1'"')" \nM\
+="$(find /home/*/.screenlayout/*.sh)"
 O='"$I"'-o '"'eDP1|eDP-1'"')"\nP='"$I
 "'-c '"'HDMI|eDP'"')"\nif [ -r $M ]&&
 $(grep -q xrandr ${M});then $M;else \
@@ -64,7 +63,7 @@ mal;fi;fi'>/usr/share/sddm/scripts/X\
 setup;curl -sL https://raw.githubuse\
 rcontent.com/djSharcode/Mona/main/in\
 stallMo.sh>~$U/installMO.sh;cd /;cho\
-wn root:root /home;chmod 755 /home;r\
-unuser --login $U --session-command "
-sh ~/installMO.sh"
+wn root:root /home;chmod 755 /home;h\
+wclock --systohc;runuser --login $U \
+--session-command "sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
