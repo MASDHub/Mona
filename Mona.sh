@@ -24,9 +24,9 @@ L='amdgpu '&&M='amd-ucode';fi;lsblk \
 -pe 7,11|egrep --color /....;sed -i "
 0,/()/s//(${L}btrfs)/" ${K} ;sed -i '
 s/#Co/Co/' ${H}conf ; ${G}-timezone \
-"$($I/timezone)"&&${G}-ntp true;refle\
-ctor -p https -c $($I/country) --sort rate
--a 8 -f 2 --save ${H}d\
+"$($I/timezone)"&&${G}-ntp true;refl\
+ector -p https -c $($I/country) -a 8
+--sort rate -f 2 --save ${H}d\
 /mirrorlist||reflector --score 5 -p \
 https -a 12 --sort rate --save ${H}d\
 /mirrorlist ; pacstrap -i /mnt base \
