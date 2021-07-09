@@ -42,9 +42,9 @@ nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 htop pipewire-jack volumeicon xterm \
 nemo-preview gvfs-mtp geany-plugins \
-conky-manager screengrab arandr gvfs\
--afc nitrogen  \
--pulse obconf-qt ${M};curl -sL https\
+conky-manager screengrab obconf-qt \
+gvfs-afc arandr nitrogen pipewire-pulse
+${M};curl -sL https\
 ://raw.githubusercontent.com/djsharc\
 ode/Mona/main/install.sh>/mnt/etc/in\
 stall.sh;cp $K /mnt$K;echo share/zon\
