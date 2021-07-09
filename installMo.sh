@@ -3,13 +3,12 @@ set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 C='"><actionname="Execute"><command>'
-G=' /net/launchpad/plank/docks/'; A='
-config/openbox';D='</command></action
-></item><item label="';E='<separator>
-</separator>' ; I=' docks.ini' ; H='
-sleep 2 && ';
-F='.config/plank/docks1/launcher/'
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+A='config/openbox';I=' docks.ini';D='
+</command></action></item><item label=
+"';F=' .config/plank/docks1/launcher/
+';G='/net/launchpad/plank/docks/';H='
+sleep 2&&';E='<separator></separator>
+' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 mkdir .config;cp -a /etc/xdg/openbox\
 / .config/; 
 git clone https://aur.archlinux.org/\
