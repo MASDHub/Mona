@@ -1,11 +1,14 @@
 #!/usr/bin/bash
 set -euo pipefail
-A='.config/openbox';I=' docks.ini';H='
-sleep 2&&';E='<separator></separator>'
-F='.config/plank/docks1/launcher/';D='
-</command></action></item><item label=
-"';G=' /net/launchpad/plank/docks/;C='
-"><actionname="Execute"><command>'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+C='"><actionname="Execute"><command>'
+G=' /net/launchpad/plank/docks/'; A='
+config/openbox';D='</command></action
+></item><item label="';E='<separator>
+</separator>' ; I=' docks.ini' ; H='
+sleep 2 && ';
+F='.config/plank/docks1/launcher/'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 mkdir .config;cp -a /etc/xdg/openbox\
 / .config/; 
@@ -21,7 +24,7 @@ r.conf;sed -i -e 's/Clearlooks/Bear2/
 ' -e '131 s/4/2/' -e 's/fileman/show/
 ' -e 's/gnagement/ drun/' -e 's/sans\
 /Fira Sans Condensed Book/' $A/rc.xml
-sed -i '5,$d' $A/menu.xml ; echo -e "
+sed -i '5,$d' .$A/menu.xml ;echo -e "
 <menu id="'"root-menu"'" label="'"Op\
 enbox 3"'"><item label="'Files${C}nem
 o${D}Search${C}rofi -show drun${D}We\
@@ -33,16 +36,16 @@ xlock -mode atlantis -echokeys -echo\
 key '*' -info +description "'"Passwo\
 rd: "'"${D}Re-boot${C}reboot${D}Powe\
 r-Off${C}poweroff</command></action>\
-</item></menu></openbox_menu>">>${A}\
-/menu.xml;echo -e "lxqt-policykit &\n
+</item></menu></openbox_menu>">>.$A/\
+menu.xml; echo -e "lxqt-policykit &\n
 picom --experimental-backends &\n\np\
 lank &\n\ntrayer --transparent true \
 --align right --height 40 --monitor \
 primary --tint 0x716966 &\n\nxpad &\n
 (sleep 2 && volumeicon) &\n\n(sleep \
 2 && nm-applet) &\n\n(sleep 2 && sh \
-m.sh) &">$A/autostart;echo -e 'dconf\
- dump '"$G"'> '"$I"' '"$H"'sed -i '"'
+m.sh) &">.$A/autostart;echo -e 'dcon\
+f dump '"$G"'>'"$I"' '"$H"'sed -i '"'
 s/bottom/right/'"''"$I"' '"$H"'cat '"
 $I"'|dconf load '"$G"''"$H"'echo -e "
 '"[PlankDockItemPreferences]\nLaunch\
