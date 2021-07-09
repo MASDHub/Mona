@@ -35,7 +35,7 @@ reflector -p https -a 8 --sort rate \
 /mirrorlist||reflector --score 5 -p \
 https -a 12 --sort rate --save ${H}d\
 /mirrorlist ; pacstrap -i /mnt base \
-base-devel xorg linux xorg pipewire \
+base-devel xorg linux pipewire grub \
 efibootmgr xorg-xinit linux-headers \
 plank linux-firmware lxqt-policykit \
 pipewire-alsa trayer alsa-utils vlc \
@@ -43,13 +43,13 @@ firefox network-manager-applet gufw \
 geeqie gst-plugin-pipewire libpulse \
 firefox-ublock-origin otf-fira-mono \
 otf-fira-sans libreoffice-still git \
-alacritty grub nemo-fileroller sddm \
+alacritty nemo-fileroller sddm xpad \
 galculator pkg-config rofi clipgrab \
 htop pipewire-jack volumeicon xterm \
 nemo-preview gvfs-mtp geany-plugins \
-xlockmore xpad galculator obconf-qt \
-vim conky-manager nitrogen gvfs-afc \
-pipewire-pulse arandr screengrab ${M}
+galculator conky-manager screengrab \
+pipewire-pulse arandr obconf-qt vim \
+nitrogen gvfs-afc xlockmore ${M}
 curl -s https://raw.githubusercontent.com/\
 djsharcode/Mona/main/install.sh>/mnt\
 /etc/install.sh;cp ${K} /mnt${K};cp \
