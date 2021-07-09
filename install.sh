@@ -32,21 +32,22 @@ do :;done;P="${U}pc";echo -e "127.0.\
 ${P}.localdomain ${P}" >>  /etc/hosts
 ln -sf /usr/$(cat /etc/TZ) /etc/loca\
 ltime;echo "LANG=${F}TF-8">/etc/loca\
-le.conf;echo "/home/${U}/">/etc/U;hw\
-clock --systohcs;echo "$P">/etc/host\
+le.conf;echo "/home/${U}/">/etc/U;
+sed -i 's/auto/1920x1080/' /etc/defa\
+ult/grub;echo -e "${P}" >> /etc/host\
 name; sed -i "s/twm/${H}/" /etc/X11/\
 xinit/xinitrc;echo "$H">~$U/.xinitrc
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;sed -i "s/#${F}/${F}/" /etc/loca\
-le.gen;locale-gen;sed -i 's/au/1920x\
-1080,au/' /etc/default/grub;echo -e "
-${B}GRUB${A}";grub-install --target=\
-x86_64-efi --efi-directory=/boot --b\
-ootloader-id=GRUB;grub-mkconfig > /b\
-oot/grub/grub.cfg; sed -i -e "s$G/$C/
-" -e "2 s$D-Beka/" -e "3 s$D/" $E-3.\
-0/settings.ini;sed -i -e "s$G/$C/" "
-2 s/$D/" -e "s$D-Beka/" $E-2.0/gtkrc
+le.gen;locale-gen;hwclock --systohc
+echo -e "${B}GRUB${A}";grub-install \
+--target=x86_64-efi --efi-directory=\
+/boot --bootloader-id=GRUB;grub-mkco\
+nfig >/boot/grub/grub.cfg;sed -i -e "
+s$G/$C/" -e "2 s$D-Beka/" -e "3 s$D/
+" $E-3.0/settings.ini ; sed -i -e "
+s$G/$C/" "2 s/$D/" -e "s$D-Beka/" $E\
+-2.0/gtkrc
 echo -e "${B}NETWORK${A}";${G}Networ\
 kManager;echo -e "${B}DISPLAY ON${A}"
 ${J}sddm;I='"$(xrandr|egrep -';echo \
