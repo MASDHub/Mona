@@ -19,8 +19,8 @@ $Z -Z -n 1::+512M -t 1:EF00 -n 2;do :
 done;B="$(ls /dev/*|egrep "^${D}p?1$"
 ) "; C="$(ls /dev/*|egrep "^${D}p?2$"
 ) ";mkfs.vfat -c $B;mkfs.btrfs -fq $C
-mount ${C} /mnt ; cd /mnt;${F}home;$F
-cd; umount /mnt ; mount ${E} ${C}/mnt
+mount ${C} /mnt;cd /mnt;${F}home;${F}
+cd; umount /mnt;mount ${E} ${C} /mnt
 mkdir /mnt/{boot,home};mount $B/mnt/\
 boot;mount ${E}home $C/mnt/home;if [[
 $J == Intel ]];then M='intel-ucode'&&
