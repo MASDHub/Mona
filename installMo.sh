@@ -1,22 +1,20 @@
 #!/usr/bin/bash
 set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 C='"><actionname="Execute"><command>'
-A='config/openbox';I=' docks.ini';D='
-</command></action></item><item label=
-"';F=' .config/plank/docks1/launcher/
+A='.config/openbox';I='docks.ini';D='
+</command></action></item><item label
+="';F='.config/plank/docks1/launcher/
 ';G='/net/launchpad/plank/docks/';H='
 sleep 2&&';E='<separator></separator>
 ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-mkdir .config;cp -a /etc/xdg/openbox\
-/ .config/; 
-git clone https://aur.archlinux.org/\
-pikaur.git;cd pikaur/ ; makepkg -fsri
-pikaur -S oranchelo-icon-theme-git t\
-imeshift picom-git ttf-ms-fonts;sed \
--i 's/g = no/g = yes/' .config/pikau\
-r.conf;sed -i -e 's/Clearlooks/Bear2/
+cp -ari /etc/xdg/openbox/ .config/;g\
+it clone https://aur.archlinux.org/p\
+ikaur.git;cd pikaur/;makepkg -fsri;p\
+ikaur -S --needed timeshift picom-git
+oranchelo-icon-theme-git ttf-ms-fonts
+sed -i 's/g = no/g = yes/' .config/p\
+ikaur.conf;sed -i -e 's/Clearlooks/Bear2/
 ' -e 's/W-e/0x85/' -e '10,100 s/9/13/
 ' -e 's/A-space/0x85/' '5,120 s/8/12/
 ' -e '/kfmclient openProfile /rofi -/
