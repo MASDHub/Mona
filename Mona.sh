@@ -29,8 +29,8 @@ ector -p https -a 12 --sort rate -c \
 $($I/country) --save ${H}d/mirrorlis\
 t|| reflector --score 5 -p https -a \
 8 --sort rate --save ${H}d/mirrorlist
-pacstrap -i /mnt base base-devel vim \
-xorg linux pipewire grub \
+pacstrap -i /mnt base vim xorg linux \
+base-devel pipewire grub \
 efibootmgr xorg-xinit linux-headers \
 plank linux-firmware lxqt-policykit \
 pipewire-alsa trayer alsa-utils vlc \
