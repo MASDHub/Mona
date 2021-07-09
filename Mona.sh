@@ -14,15 +14,15 @@ gpg -k|pacman-key --populate;printf '
 %46s\n'|tr ' ' -;until lsblk -do NAM\
 E,SIZE -e 7,11|grep --color '[A-Z]'&&
 read -p$'\e[1;31mEnter Installation -
-Disk\e[0m: ' A&&D="/dev/$A"&&sgdisk \
-$D -Z -n 1::+512M -t 1:EF00 -n 2;do :
-done;B="$(ls /dev/*|egrep "^${D}p?1$"
-) "; C="$(ls /dev/*|egrep "^${D}p?2$"
-) ";mkfs.vfat -c $B;mkfs.btrfs -fq $C
-mount ${C} /mnt;cd /mnt;${F}home;${F}
-cd; umount /mnt;mount ${E} ${C} /mnt
-mkdir /mnt/{boot,home};mount $B/mnt/\
-boot;mount ${E}home $C/mnt/home;if [[
+Disk\e[0m: ' A&&B="/dev/$A"&&sgdisk \
+$B -Z -n 1::+512M -t 1:EF00 -n 2;do :
+done;C="$(ls /dev/*|egrep "^${B}p?1$"
+) "; D="$(ls /dev/*|egrep "^${B}p?2$"
+) ";mkfs.vfat -c $C;mkfs.btrfs -fq $D
+mount ${D} /mnt;cd /mnt;${F}home;${F}
+cd; umount /mnt;mount ${E} ${D} /mnt
+mkdir /mnt/{boot,home};mount $C/mnt/\
+boot;mount ${E}home $D/mnt/home;if [[
 $J == Intel ]];then M='intel-ucode'&&
 L='i915 ';elif [[ $J == AMD ]];then \
 L='amdgpu '&&M='amd-ucode';fi;lsblk \
