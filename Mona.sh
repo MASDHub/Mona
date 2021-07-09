@@ -50,7 +50,7 @@ htop pipewire-jack volumeicon xterm \
 nemo-preview gvfs-mtp geany-plugins \
 xlockmore xpad galculator obconf-qt \
 vim conky-manager nitrogen gvfs-afc \
-screengrab pipewire-alsa ${M};curl -\
+screengrab ${M};curl -\
 s https://raw.githubusercontent.com/\
 djsharcode/Mona/main/install.sh>/mnt\
 /etc/install.sh;cp ${K} /mnt${K};cp \
