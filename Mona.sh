@@ -47,7 +47,8 @@ gvfs-afc nitrogen conky-manager \
 arandr ${M};curl -sL https://raw.git\
 hubusercontent.com/djsharcode/Mona/m\
 ain/install.sh>/mnt/etc/install.sh
-cp $K /mnt$K; echo share/zoneinfo/$\
-($I/timezone)>/mnt/etc/TZ;cp ${H}conf /mnt${H}conf;genfstab -U /m\
+cp $K /mnt$K; echo share/zoneinfo/$(
+$I/timezone)>/mnt/etc/TZ;cp ${H}conf \
+/mnt${H}conf;genfstab -U /m\
 nt>>/mnt/etc/fstab;arch-chroot /mnt \
 sh /etc/install.sh
