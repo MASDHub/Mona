@@ -17,8 +17,8 @@ S='       ';Z='             localhost
 ';B='\e[1;31m';A='\e[0m';head -15 $0|
 tail -13;C='Fira Sans Condensed Book'
 E='/usr/share/gtk';G='/Cantarell';H='
-openbox-session';J='systemctl enable'
-F='en_US.U';D='/Adwaita/Oranchelo'
+openbox-session';J='systemctl enable
+';F='en_US.U';D='/Adwaita/Oranchelo'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
 :${A}"&&passwd;do :;done;until print\
@@ -40,14 +40,13 @@ xinit/xinitrc;echo "$H">~$U/.xinitrc
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;sed -i "s/#${F}/${F}/" /etc/loca\
 le.gen;locale-gen;hwclock --systohc
-echo -e "${B}GRUB${A}";grub-install \
+sed -i -e "s$G/$C/" -e "2 s/$D/" -e "
+s$D-Beka/" $E-2.0/gtkrc;sed -i -e "s\
+$G/$C/" -e "2 s$D-Beka/" -e "3 s$D/"\
+ $E-3.0/settings.ini;echo -e "${B}GRUB${A}";grub-install \
 --target=x86_64-efi --efi-directory=\
 /boot --bootloader-id=GRUB;grub-mkco\
-nfig >/boot/grub/grub.cfg;sed -i -e "
-s$G/$C/" -e "2 s$D-Beka/" -e "3 s$D/
-" $E-3.0/settings.ini ; sed -i -e "
-s$G/$C/" "2 s/$D/" -e "s$D-Beka/" $E\
--2.0/gtkrc
+nfig >/boot/grub/grub.cfg; 
 echo -e "${B}NETWORK${A}";${G}Networ\
 kManager;echo -e "${B}DISPLAY ON${A}"
 ${J}sddm;I='"$(xrandr|egrep -';echo \
