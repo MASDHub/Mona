@@ -6,7 +6,7 @@
 E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @';G='timedatectl set'
 setfont ter-124n;H='/etc/pacman.';I='
-curl -s https://ipapi.co';head -5 $0|
+curl -s https://ipapi.co';head -5 sh|
 tail -4;J=$(lscpu|egrep -o 'AMD|Intel
 '|sort -u) ; K='/etc/mkinitcpio.conf'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
