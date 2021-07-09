@@ -49,12 +49,12 @@ echo -e "${B}GRUB${A}";grub-install \
 nfig -o /boot/grub/grub.cfg;echo -e "
 "${B}NETWORKS${A}";$J NetworkManager
 echo -e ${B}SDDM ENABLED${A}";$J sddm
-echo -e 'P="'"$I"'-c '"'HDMI|eDP'"')"
-I='$(xrandr|egrep'
-N="'"$I"'-o '"'HDMI-1|HDMI1'"')" \nM\
+I='$(xrandr|egrep';echo -e 'M\
 ="$(find /home/*/.screenlayout/*.sh)"
-O='"$I"'-o '"'eDP1|eDP-1'"')"\nP='"$I
-"'-c '"'HDMI|eDP'"')"\nif [ -r $M ]&&
+P="'"$I"'-c '"'HDMI|eDP'"')"\nN="'"$\
+I"'-o '"'HDMI-1|HDMI1'"')"\nO='"$I"'\
+-o '"'eDP1|eDP-1'"')"\nP='"$I"'-c '"\
+'HDMI|eDP'"')"\nif [[ -r ${M} ]] &&
 $(grep -q xrandr ${M});then $M;else \
 if [[ $P -ge 2 ]];then xrandr --outp\
 ut $O --mode 1920x1080 --pos 0x0 --r\
