@@ -15,7 +15,7 @@ done;C="$(ls /dev/*|egrep "^${B}p?1$"
 ) "; D="$(ls /dev/*|egrep "^${B}p?2$"
 ) ";mkfs.vfat -c $C;mkfs.btrfs -fq $D
 mount ${D} /mnt;cd /mnt;${F}home;${F}
-cd; umount /mnt;mount ${E} ${D} /mnt
+cd ; umount /mnt;mount ${E} ${D}/mnt
 mkdir /mnt/{boot,home};mount $C/mnt/\
 boot;mount ${E}home $D/mnt/home;if [[
 $J == Intel ]];then M='intel-ucode'&&
