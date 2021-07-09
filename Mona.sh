@@ -27,8 +27,8 @@ s/#Co/Co/' ${H}conf ; ${G}-timezone \
 "$($I/timezone)"&&${G}-ntp true;refl\
 ector -p https -a 12 --sort rate -c \
 $($I/country) --save ${H}d/mirrorlis\
-t||reflector --score 5 -p https -a 12 \
---sort rate --save ${H}d/mirrorlist ; 
+t|| reflector --score 5 -p https -a \
+12 --sort rate --save ${H}d/mirrorlist
 pacstrap -i /mnt base \
 base-devel xorg linux pipewire grub \
 efibootmgr xorg-xinit linux-headers \
