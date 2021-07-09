@@ -36,7 +36,7 @@ le.conf;echo "/home/${U}/">/etc/U
 sed -i 's/auto/1920x1080/' /etc/defa\
 ult/grub;echo -e "${P}" >> /etc/host\
 name;sed -i "s/twm/${H}n/" /etc/X11/\
-init/xinitrc; echo ${H}n>~$U/.xinitrc
+xinit/xinitrc;echo ${H}n>~$U/.xinitrc
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;sed -i "s/#${F}/${F}/" /etc/loca\
 le.gen;locale-gen;sed -i -e "s${G}$C/
