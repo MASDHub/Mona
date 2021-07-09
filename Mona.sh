@@ -56,4 +56,4 @@ stall.sh;cp $K /mnt$K;echo share/zon\
 einfo/$($I/timezone)>/mnt/etc/TZ;cp \
 ${H}conf /mnt${H}conf;genfstab -U /m\
 nt>>/mnt/etc/fstab;arch-chroot /mnt \
-sh /etc/instal.sh
+sh /etc/install.sh
