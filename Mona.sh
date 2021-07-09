@@ -46,7 +46,7 @@ pipewire-pulse screengrab obconf-qt \
 gvfs-afc nitrogen conky-manager aran\
 dr ${M};curl -sL https://raw.githubu\
 sercontent.com/djsharcode/Mona/main/\
-install.sh>/mnt/etc/install.sh;echo \
+install.sh>/mnt/etc/instal.sh;echo /\
 share/zoneinfo/$($I/timezone)>>/mnt/\
 etc/TZ;cp $K /mnt${K}; cp ${H}conf /\
 mnt${H}conf;genfstab -U /mnt >>/mnt/\
