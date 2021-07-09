@@ -14,13 +14,13 @@ ikaur.git;cd pikaur/;makepkg -fsri;p\
 ikaur -S --needed timeshift picom-git
 oranchelo-icon-theme-git ttf-ms-fonts
 sed -i 's/g = no/g = yes/' .config/p\
-ikaur.conf;sed -i -e 's/Clearlooks/Bear2/
+ikaur.conf; sed -i -e '100,131 s/4/2/
 ' -e 's/W-e/0x85/' -e '10,100 s/9/13/
 ' -e 's/A-space/0x85/' '5,120 s/8/12/
-' -e '/kfmclient openProfile /rofi -/
-' -e '131 s/4/2/' -e 's/fileman/show/
-' -e 's/gnagement/ drun/' -e 's/sans\
-/Fira Sans Condensed Book/' $A/rc.xml
+' -e 's/kfmclient openProfile/rofi -/
+' -e 's/ filemangnagement/show drun/'
+-e 's/sans/Fira Sans Condensed Book/'
+-e 's/Clearlooks/Bear2/' ~/$A/rc.xml
 sed -i '5,$d' .$A/menu.xml ;echo -e "
 <menu id="'"root-menu"'" label="'"Op\
 enbox 3"'"><item label="'Files${C}nem
@@ -41,9 +41,9 @@ lank &\n\ntrayer --transparent true \
 primary --tint 0x716966 &\n\nxpad &\n
 (sleep 2 && volumeicon) &\n\n(sleep \
 2 && nm-applet) &\n\n(sleep 2 && sh \
-m.sh) &">.$A/autostart;echo -e 'dcon\
-f dump '"$G"'>'"$I"' '"$H"'sed -i '"'
-s/bottom/right/'"''"$I"' '"$H"'cat '"
+m.sh) &">~/$A/autostart;echo -e 'dco\
+nf dump '"$G"'>'"$I"''"$H"'sed -i '"'
+s/bottom/right/'"' '"$I"''"$H"'cat '"
 $I"'|dconf load '"$G"''"$H"'echo -e "
 '"[PlankDockItemPreferences]\nLaunch\
 er=file:///usr/share/applications/ne\
@@ -54,7 +54,7 @@ ckitem}'"$H"'sed -i '"'15,"'$d'"'"' '
 '"$H"'sed -i -e '"'13,16 s/fals/tru/'
 "' .config/volumeicon/volumeicon'"$H"
 'volumeicon'"$H"'sleep 19&&rm'"$I"'&&
-rm $0'>m.sh;su root -c "chmod 755 $(\
-cat /etc/U)m.sh";rm {/etc/U,$0};echo\
- -e '\e[1;31mDone\nType: reboot\e[0m'
+rm $0'>m.sh ; su root -c "chmod 755 \
+$(cat /etc/U)m.sh"; echo -e '\e[1;31m
+Done,Type: reboot\e[0m';rm {/etc/U,$0}
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
