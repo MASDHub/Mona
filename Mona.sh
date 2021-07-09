@@ -42,8 +42,8 @@ nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 htop pipewire-jack volumeicon xterm \
 nemo-preview gvfs-mtp geany-plugins \
-conky-manager screengrab obconf-qt \
-gvfs-afc arandr nitrogen pipewire-pulse
+pipewire-pulse screengrab obconf-qt \
+gvfs-afc arandr nitrogen conky-manager  
 ${M};curl -sL https\
 ://raw.githubusercontent.com/djsharc\
 ode/Mona/main/install.sh>/mnt/etc/in\
