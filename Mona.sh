@@ -48,7 +48,7 @@ dr ${M};curl -sL https://raw.githubu\
 sercontent.com/djsharcode/Mona/main/\
 install.sh>/mnt/etc/instal.sh;echo /\
 share/zoneinfo/$($I/timezone)>>/mnt/\
-etc/TZ;cp $K /mnt${K}; cp ${H}conf /\
+etc/TMZ;cp $K /mnt${K};cp ${H}conf /\
 mnt${H}conf;genfstab -U /mnt >>/mnt/\
 etc/fstab; arch-chroot /mnt sh /etc/\
 install.sh
