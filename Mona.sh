@@ -14,7 +14,7 @@ gpg -k|pacman-key --populate;printf '
 %46s\n'|tr ' ' -;until lsblk -do NAM\
 E,SIZE -e 7,11|grep --color '[A-Z]'&&
 read -p$'\e[1;31mEnter Installation -
-Disk\e[0m: ' D&&Z="/dev/$A"&&sgdisk \
+Disk\e[0m: ' A&&D="/dev/$A"&&sgdisk \
 $Z -Z -n 1::+512M -t 1:EF00 -n 2;do :
 done;B="$(ls /dev/*|egrep "^${D}p?1$"
 ) "; C="$(ls /dev/*|egrep "^${D}p?2$"
