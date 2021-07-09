@@ -15,11 +15,11 @@ set -euo pipefail
  #  '''::===..-'   =  --.  `
 S='       ';Z='             localhost
 ';B='\e[1;31m';A='\e[0m';head -15 $0|
-tail -13;C='/Fira Sans Condensed Book/
-';E=' /usr/share/gtk-';G='/Cantarell/
-';D='/Adwaita/Oranchelo';F='en_US.U'
-H='openbox-sessio';J='systemctl enable
-' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+tail -13;C='/Fira Sans Condensed Book
+';E=' /usr/share/gtk';F='en_US.U';H='
+openbox-sessio';D='/Adwaita/Oranchelo
+';G='/Cantarell';J='systemctl enable'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
 :${A}"&&passwd;do :;done;until print\
 f "${B}User Name: ${A}"&&read -r R &&
@@ -36,20 +36,21 @@ le.conf;echo "/home/${U}/">/etc/U
 sed -i 's/auto/1920x1080/' /etc/defa\
 ult/grub;echo -e "${P}" >> /etc/host\
 name;sed -i "s/twm/${H}n/" /etc/X11/\
-init/xinitrc;echo ${H}n>~$U/.xinitrc
+init/xinitrc; echo ${H}n>~$U/.xinitrc
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;sed -i "s/#${F}/${F}/" /etc/loca\
-le.gen;locale-gen;sed -i -e "s${G}$C
-" -e "2 s$D/" -e "s$D-Beka/"$E2.0/gtkrc;
-sed -i -e "3 s$D/" -e "s$G$C" -e "2 s$D-Beka/
-"$E3.0/settings.ini;echo -e "${B}GRUB
-${A}";grub-install --target=x86_64-e\
-fi --efi-directory=/boot --bootloade\
-r-id=GRUB;grub-mkconfig >/boot/grub/\
-grub.cfg;echo -e "${B}DISPLAY ENABLED
-${A}";$Jsddm;echo -e "${B}NETWORK${A}
-";$JNetworkManager;I='$(xrandr|egrep'
+le.gen;locale-gen;sed -i -e "s${G}$C/
+" -e "3 s$D/" -e "2 s$D-Beka/"$E-3.0\
+/settings.ini;sed -i -e "2 s$D/" -e "
+s${G}$C/" -e "s$D-Beka/"$E2.0/gtkrc
+echo -e "${B}GRUB${A}";grub-install \
+--target=x86_64-efi --efi-directory=\
+/boot --bootloader-id=GRUB;grub-mkco\
+nfig -o /boot/grub/grub.cfg;echo -e "
+"${B}NETWORKS${A}";$J NetworkManager
+echo -e ${B}SDDM ENABLED${A}";$J sddm
 echo -e 'P="'"$I"'-c '"'HDMI|eDP'"')"
+I='$(xrandr|egrep'
 N="'"$I"'-o '"'HDMI-1|HDMI1'"')" \nM\
 ="$(find /home/*/.screenlayout/*.sh)"
 O='"$I"'-o '"'eDP1|eDP-1'"')"\nP='"$I
