@@ -37,10 +37,9 @@ https -a 12 --sort rate --save ${H}d\
 /mirrorlist ; pacstrap -i /mnt base \
 base-devel xorg linux xorg pipewire \
 efibootmgr xorg-xinit linux-headers \
-linux-headers arandr linux-firmware \
+plank linux-firmware lxqt-policykit \
 pipewire-alsa trayer alsa-utils vlc \
 firefox network-manager-applet gufw \
-pipewire-pulse lxqt-policykit plank \
 geeqie gst-plugin-pipewire libpulse \
 firefox-ublock-origin otf-fira-mono \
 otf-fira-sans libreoffice-still git \
@@ -50,8 +49,8 @@ htop pipewire-jack volumeicon xterm \
 nemo-preview gvfs-mtp geany-plugins \
 xlockmore xpad galculator obconf-qt \
 vim conky-manager nitrogen gvfs-afc \
-screengrab ${M};curl -\
-s https://raw.githubusercontent.com/\
+pipewire-pulse arandr screengrab ${M}
+curl -s https://raw.githubusercontent.com/\
 djsharcode/Mona/main/install.sh>/mnt\
 /etc/install.sh;cp ${K} /mnt${K};cp \
 ${H}conf /mnt${H}conf;echo share/zon\
