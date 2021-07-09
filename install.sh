@@ -30,7 +30,7 @@ Enter User's Password${A}"&&passwd $U
 do :;done;P="${U}pc";echo -e "127.0.\
 0.1${S}localhost\n::1${Z}127.0.1.1$S\
 ${P}.localdomain ${P}" >>  /etc/hosts
-ln -sf /usr/$(cat /etc/TZ) /etc/loca\
+ln -sf /usr$(cat /etc/TMZ) /etc/loca\
 ltime;echo "LANG=${F}TF-8">/etc/loca\
 le.conf;echo "/home/${U}/">/etc/U
 sed -i 's/auto/1920x1080/' /etc/defa\
