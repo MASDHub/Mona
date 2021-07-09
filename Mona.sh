@@ -47,13 +47,13 @@ alacritty nemo-fileroller sddm xpad \
 galculator pkg-config rofi clipgrab \
 htop pipewire-jack volumeicon xterm \
 nemo-preview gvfs-mtp geany-plugins \
-galculator conky-manager screengrab \
-pipewire-pulse arandr obconf-qt vim \
-nitrogen gvfs-afc xlockmore ${M}
-curl -s https://raw.githubusercontent.com/\
-djsharcode/Mona/main/install.sh>/mnt\
-/etc/install.sh;cp ${K} /mnt${K};cp \
-${H}conf /mnt${H}conf;echo share/zon\
-einfo/$($I/timezone)>/mnt/etc/TZ;gen\
-fstab -U /mnt >> /mnt/etc/fstab;arch\
--chroot /mnt sh /etc/instal.sh
+conky-manager screengrab arandr vim \
+gvfs-afc nitrogen xlockmore pipewire\
+-pulse obconf-qt ${M};curl -sL https\
+://raw.githubusercontent.com/djsharc\
+ode/Mona/main/install.sh>/mnt/etc/in\
+stall.sh;cp $K /mnt$K;echo share/zon\
+einfo/$($I/timezone)>/mnt/etc/TZ;cp \
+${H}conf /mnt${H}conf;genfstab -U /m\
+nt>>/mnt/etc/fstab;arch-chroot /mnt \
+sh /etc/instal.sh
