@@ -49,6 +49,6 @@ hubusercontent.com/djsharcode/Mona/m\
 ain/install.sh>/mnt/etc/install.sh
 cp $K /mnt$K;cp ${H}conf /mnt${H}conf
 echo share/zoneinfo/$($I/timezone)>/\
-mnt/etc/TZ;;genfstab -U /mnt >>/mnt/\
-etc/fstab;arch-chroot /mnt sh /etc/\
+mnt/etc/TZ;genfstab -U /mnt >> /mnt/\
+etc/fstab; arch-chroot /mnt sh /etc/\
 install.sh
