@@ -3,8 +3,8 @@ E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr @';G='timedatectl set'
 setfont ter-124n;H='/etc/pacman.';I='
 curl -s https://ipapi.co';J="$(lscpu|
-egrep -o 'AMD|Intel' | sort -u )";K='
-/etc/mkinitcpio.conf' #~~~~~~~~~~~~~#
+egrep -o 'AMD|Intel' | sort -u )"
+K='/etc/mkinitcpio.conf' #~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %46s\n'|tr ' ' -;until lsblk -do NAM\
 E,SIZE -e 7,11|grep --color '[A-Z]'&&
