@@ -40,8 +40,8 @@ nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 conky-manager volumeicon screengrab \
 gvfs-afc obconf-qt pavucontrol htop \
-nitrogen pipewire-jack gvfs-mtp pipe\
-wire-pulse geany-plugins ${M};curl -\
+geany-plugins pipewire-pulse gvfs-mt\
+p nitrogen pipewire-jack ${M};curl -\
 sL https://raw.githubusercontent.com\
 /djsharcode/Mona/main/install.sh>/mn\
 n/etc/install.sh;cp $H.conf /mnt$H.c\
