@@ -24,10 +24,10 @@ L='amdgpu '&&M='amd-ucode';fi;lsblk \
 -pe 7,11|egrep --color /....;sed -i "
 0,/()/s//(${L}btrfs)/" ${K} ;sed -i '
 s/#Co/Co/' ${H}conf ; ${G}timezone \
-$(o$I/timezone) &&${G}ntp true;refl\
+$(o$I/timezone) && ${G}ntp true;refl\
 ector -p https -a 12 --sort rate -c \
-$(o$I/country) --save ${H}d/mirrorlis\
-t|| reflector --score 5 -p https -a \
+$(o$I/country) --save ${H}d/mirrorli\
+st||reflector --score 5 -p https -a \
 8 --sort rate --save ${H}d/mirrorlist
 pacstrap -i /mnt base vim grub xorg \
 base-devel linux pipewire alacritty \
