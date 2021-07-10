@@ -24,12 +24,10 @@ M='amd-ucode';fi;lsblk -e 7,11|grep \
 --color /....;sed -i 's/#Co/Co/' $H.\
 conf;sed -i "0,/(/s//(${L}btrfs/" $K
 $G-timezone $($I/timezone)&&$G-ntp t\
-rue;reflector -p https -c $($I/country
-) --sort rate --save $H.d/mirrorlist||
-reflector -p https -a 5 --score 5 --\
-sort rate --save $H.d/mirrorlist
-pacstrap -i /\
-mnt base linux vim grub xorg arandr \
+rue;reflector -p https score 5 -a 5 \
+--sort rate --save $H.d/mirrorlist;p\
+acstrap -i /mnt base linux vim grub \
+xorg arandr
 base-devel xterm pipewire alacritty \
 efibootmgr xorg-xinit linux-headers \
 plank linux-firmware lxqt-policykit \
