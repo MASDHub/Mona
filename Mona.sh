@@ -40,8 +40,9 @@ nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 conky-manager volumeicon screengrab \
 gvfs-afc obconf-qt pipewire-pulse \
-nitrogen pipewire-jack geany-plugins \
-gvfs-mtp htop ${M};curl \
+nitrogen pipewire-jack gvfs-mtp htop \
+geany-plugins \
+ ${M};curl \
 -sSL https://raw.githubusercontent.c\
 om/djsharcode/Mona/main/install.sh>/\
 mnt/etc/install.sh;cp $K /mnt$K;cp $\
