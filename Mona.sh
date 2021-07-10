@@ -26,11 +26,11 @@ conf;sed -i "0,/(/s//(${L}btrfs/" $K
 $G-timezone $($I/timezone)&&$G-ntp t\
 rue;reflector -p https score 5 -a 5 \
 --sort rate --save $H.d/mirrorlist;p\
-acstrap -i /mnt base linux vim grub \
-xorg arandr
+acstrap -i /mnt base base-devel vim \
+linux linux-firmware lxqt-policykit \
 base-devel xterm pipewire alacritty \
 efibootmgr xorg-xinit linux-headers \
-plank linux-firmware lxqt-policykit \
+xorg arandr plank grub nemo-preview \
 pipewire-alsa trayer alsa-utils vlc \
 firefox network-manager-applet gufw \
 geeqie gst-plugin-pipewire libpulse \
@@ -39,9 +39,8 @@ otf-fira-sans libreoffice-still git \
 nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 conky-manager volumeicon screengrab \
-pipewire-jack gvfs-afc nemo-preview \
-geany-plugins nitrogen pipewire-puls\
-e obconf-qt gvfs-mtp htop ${M};curl \
+htop pipewire-pulse geany-plugins \
+nitrogen gvfs-afc obconf-qt pipewire-jack gvfs-mtp  ${M};curl \
 -sSL https://raw.githubusercontent.c\
 om/djsharcode/Mona/main/install.sh>/\
 mnt/etc/install.sh;cp $K /mnt$K;cp $\
