@@ -39,8 +39,9 @@ otf-fira-sans libreoffice-still git \
 nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 conky-manager volumeicon screengrab \
-htop pipewire-pulse geany-plugins \
-nitrogen gvfs-afc obconf-qt pipewire-jack gvfs-mtp  ${M};curl \
+obconf-qt pipewire-jack geany-plugins \
+nitrogen gvfs-afc htop pipewire-pulse \
+gvfs-mtp  ${M};curl \
 -sSL https://raw.githubusercontent.c\
 om/djsharcode/Mona/main/install.sh>/\
 mnt/etc/install.sh;cp $K /mnt$K;cp $\
