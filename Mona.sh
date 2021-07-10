@@ -25,12 +25,12 @@ L='amdgpu '&&M='amd-ucode';fi;lsblk \
 0,/()/s//(${L}btrfs)/" $K;sed -i 's/\
 #Co/Co/' $H.conf;$G-timezone $($I/ti\
 mezone)&&$G-ntp true;reflector -a 8 \
--p https -c $($I/country) --sort ra\
-te --save $H.d/mirrorlist ||
-reflector -p https --score 5 --sort \
-rate --save $H.d/mirrorlist;pacstrap\
- -i /mnt base vim grub xorg arandr \
-base-devel linux pipewire alacritty \
+-p https -c $($I/country) --sort rat\
+e --save $H.d/mirrorlist||reflector \
+-p https -a 5 --score 5 --sort rate \
+--save $H.d/mirrorlist;pacstrap -i /\
+mnt base linux vim grub xorg arandr \
+base-devel xterm pipewire alacritty \
 efibootmgr xorg-xinit linux-headers \
 plank linux-firmware lxqt-policykit \
 pipewire-alsa trayer alsa-utils vlc \
@@ -40,14 +40,14 @@ firefox-ublock-origin otf-fira-mono \
 otf-fira-sans libreoffice-still git \
 nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
-htop pipewire-jack volumeicon xterm \
-nemo-preview gvfs-mtp geany-plugins \
-pipewire-pulse screengrab obconf-qt \
-nitrogen gvfs-afc conky-manager ${M}
-curl -sSL https://raw.githubusercont\
-ent.com/djsharcode/Mona/main/install\
-.sh>/mnt/etc/instal.sh;cp $K /mnt${K}
-echo share/zoneinfo/$(${I}timezone)>\
-/mnt/etc/TM;cp $H.conf /mnt$H.conf
-genfstab -U /mnt>>/mnt/etc/fstab;arc\
-h-chroot /mnt sh /etc/install.sh
+conky-manager volumeicon screengrab \
+pipewire-jack gvfs-afc nemo-preview \
+geany-plugins nitrogen pipewire-puls\
+e obconf-qt gvfs-mtp htop ${M};curl \
+-sSL https://raw.githubusercontent.c\
+om/djsharcode/Mona/main/install.sh>/\
+mnt/etc/install.sh;cp $K /mnt$K;cp $\
+H.conf /mnt$H.conf;echo share/zonein\
+fo/$($I/timezone)>/mnt/etc/TM;genfst\
+ab -U /mnt>>/mnt/etc/fstab;arch-chro\
+ot /mnt sh /etc/install.sh
