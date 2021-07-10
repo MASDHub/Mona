@@ -18,10 +18,10 @@ mount $D/mnt;cd /mnt;$F@home;$F@;cd
 mount /mnt;mount$E $D/mnt;mkdir /mnt\
 /{boot,home};mount $C/mnt/boot;mount\
 $E@home $D/mnt/home;if [[ $J == Intel
-]];then M='intel-ucode'&&L='i915 ';e\
-lif [[ $J == AMD ]];then L='amdgpu '&&
-M='amd-ucode';fi
-lsblk -pe 7,11|egrep --color /....;sed -i "
+]];then M='intel-ucode'&&L='i915 ';fi
+if [[ $J == AMD ]];then L='amdgpu '&&
+M='amd-ucode';fi;lsblk -e 7,11|egrep \
+--color /....;sed -i "
 0,/()/s//(${L}btrfs)/" $K;sed -i 's/\
 #Co/Co/' $H.conf;$G-timezone $($I/ti\
 mezone)&&$G-ntp true;reflector -a 8 \
