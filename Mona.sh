@@ -25,7 +25,7 @@ M='amd-ucode';fi;lsblk -e 7,11|grep \
 conf;sed -i "0,/(/s//(${L}btrfs/" $K
 $G-timezone $($I/timezone)&&$G-ntp t\
 rue;reflector -p https --score 5 -a \
-5 --sort rate --save $H.d/mirrorlist
+12 --sort rate --save $H.d/mirrorlist
 pacstrap -i /mnt base linux-headers \
 linux linux-firmware lxqt-policykit \
 base-devel xterm pipewire alacritty \
