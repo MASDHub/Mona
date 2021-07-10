@@ -3,7 +3,7 @@ E='-o noatime,compress=zstd,subvol=@'
 F='btrfs su cr';H='/etc/pacman.';J=$(
 lscpu |egrep -o 'AMD|Intel' |sort -u)
 K='/etc/mkinitcpio.conf';setfont ter\
--124n;I='curl -sSL https://ipapi.co'
+-124n;I='curl -sSL https://ipapi.co/'
 G='timedatectl set' #~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %46s\n'|tr ' ' -;until lsblk -do NAM\
