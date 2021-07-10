@@ -40,9 +40,8 @@ nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 conky-manager volumeicon screengrab \
 gvfs-afc obconf-qt pavucontrol htop \
-pipewire-jack pipewire-pulse geany-\
-plugins nitrogen gvfs-mtp ${M};
-curl -sSL https://\
+nitrogen pipewire-jack gvfs-mtp pipe\
+wire-pulse geany-plugins${M};curl -sSL https://\
 raw.githubusercontent.com/djsharcode\
 /Mona/main/install.sh>/mnt/etc/insta\
 ll.sh;cp $K /mnt$K;cp $H.conf /mnt$H\
