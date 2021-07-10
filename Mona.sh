@@ -21,9 +21,9 @@ $E@home $D/mnt/home;if [[ $J == Intel
 ]];then M='intel-ucode'&&L='i915 ';fi
 if [[ $J == AMD ]];then L='amdgpu '&&
 M='amd-ucode';fi;lsblk -e 7,11|grep \
---color /....;sed -i 's/#Co/Co/' $H\
-.conf;sed -i "0,/()/s//(${L}btrfs)/
-" $K;$G-timezone $($I/timezone)&&
+--color /....;sed -i 's/#Co/Co/' $H.\
+conf;sed -i "0,/(/s//(${L}btrfs/" $K
+$G-timezone $($I/timezone)&&
 $G-ntp true;reflector -a 8 \
 -p https -c $($I/country) --sort rat\
 e --save $H.d/mirrorlist||reflector \
