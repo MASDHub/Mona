@@ -23,12 +23,12 @@ if [[ $J == AMD ]];then L='amdgpu '&&
 M='amd-ucode';fi;lsblk -e 7,11|grep \
 --color /....;sed -i 's/#Co/Co/' $H.\
 conf;sed -i "0,/(/s//(${L}btrfs/" $K
-$G-timezone $($I/timezone)&&
-$G-ntp true;reflector -a 8 \
--p https -c $($I/country) --sort rat\
-e --save $H.d/mirrorlist||reflector \
--p https -a 5 --score 5 --sort rate \
---save $H.d/mirrorlist;pacstrap -i /\
+$G-timezone $($I/timezone)&&$G-ntp t\
+rue;reflector -p https -c $($I/country
+) --sort rate --save $H.d/mirrorlist||
+reflector -p https -a 5 --score 5 --\
+sort rate --save $H.d/mirrorlist
+pacstrap -i /\
 mnt base linux vim grub xorg arandr \
 base-devel xterm pipewire alacritty \
 efibootmgr xorg-xinit linux-headers \
