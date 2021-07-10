@@ -20,11 +20,11 @@ mount /mnt;mount$E $D/mnt;mkdir /mnt\
 $E@home $D/mnt/home;if [[ $J == Intel
 ]];then M='intel-ucode'&&L='i915 ';fi
 if [[ $J == AMD ]];then L='amdgpu '&&
-M='amd-ucode';fi;lsblk -e 7,11|egrep \
- --color /....;sed -i "
-0,/()/s//(${L}btrfs)/" $K;sed -i 's/\
-#Co/Co/' $H.conf;$G-timezone $($I/ti\
-mezone)&&$G-ntp true;reflector -a 8 \
+M='amd-ucode';fi;lsblk -e 7,11|grep \
+--color /....;sed -i 's/#Co/Co/' $H.conf
+sed -i "0,/()/s//(${L}btrfs)/" $K
+$G-timezone $($I/timezone)&&
+$G-ntp true;reflector -a 8 \
 -p https -c $($I/country) --sort rat\
 e --save $H.d/mirrorlist||reflector \
 -p https -a 5 --score 5 --sort rate \
