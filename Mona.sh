@@ -41,11 +41,11 @@ galculator pkg-config rofi clipgrab \
 conky-manager volumeicon screengrab \
 gvfs-afc obconf-qt pavucontrol htop \
 nitrogen pipewire-jack gvfs-mtp pipe\
-wire-pulse geany-plugins${M};curl -sSL https://\
-raw.githubusercontent.com/djsharcode\
-/Mona/main/install.sh>/mnt/etc/insta\
-ll.sh;cp $K /mnt$K;cp $H.conf /mnt$H\
-.conf;echo share/zoneinfo/$($I/timez\
-one)>/mnt/etc/TM;genfstab -U /mnt >>\
-/mnt/etc/fstab;arch-chroot /mnt sh /\
-etc/install.sh
+wire-pulse geany-plugins ${M};curl -\
+sL https://raw.githubusercontent.com\
+/djsharcode/Mona/main/install.sh>/mn\
+n/etc/install.sh;cp $H.conf /mnt$H.c\
+onf;echo share/zoneinfo/$($I/timezone
+)>/mnt/etc/TM;cp $K /mnt$K;genfstab \
+-U /mnt>>/mnt/etc/fstab;arch-chroot \
+/mnt sh /etc/install.sh
