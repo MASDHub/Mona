@@ -40,12 +40,12 @@ nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 conky-manager volumeicon screengrab \
 gvfs-afc obconf-qt pipewire-pulse gv\
-fs-mtp pipewire-jack geany-plugins ht\
-op nitrogen ${M};curl \
--sSL https://raw.githubusercontent.c\
-om/djsharcode/Mona/main/install.sh>/\
-mnt/etc/install.sh;cp $K /mnt$K;cp $\
-H.conf /mnt$H.conf;echo share/zonein\
-fo/$($I/timezone)>/mnt/etc/TM;genfst\
-ab -U /mnt>>/mnt/etc/fstab;arch-chro\
-ot /mnt sh /etc/install.sh
+fs-mtp pipewire-jack geany-plugins h\
+top nitrogen ${M};curl -sSL https://\
+raw.githubusercontent.com/djsharcode\
+/Mona/main/install.sh>/mnt/etc/insta\
+ll.sh;cp $K /mnt$K;cp $H.conf /mnt$H\
+.conf;echo share/zoneinfo/$($I/timez\
+one)>/mnt/etc/TM;genfstab -U /mnt >>\
+/mnt/etc/fstab;arch-chroot /mnt sh /\
+etc/install.sh
