@@ -43,8 +43,8 @@ galculator pkg-config rofi clipgrab \
 htop pipewire-jack volumeicon xterm \
 nemo-preview gvfs-mtp geany-plugins \
 pipewire-pulse screengrab obconf-qt \
-gvfs-afc nitrogen conky-manager aran\
-dr ${M};curl -sL https://raw.githubu\
+nitrogen arandr conky-manager gvfs-a\
+fc ${M};curl -sL https://raw.githubu\
 sercontent.com/djsharcode/Mona/main/\
 install.sh>/mnt/etc/instal.sh;echo /\
 share/zoneinfo/$($I/timezone)>>/mnt/\
