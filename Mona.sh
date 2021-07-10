@@ -27,8 +27,8 @@ L='amdgpu '&&M='amd-ucode';fi;lsblk \
 }timezone)&&${G}ntp true;reflector -\
 p https -a 12 --sort rate -c $(${I}c\
 ountry) -f 2 --save ${H}d/mirrorlist||
-st||reflector --score 5 -p https -a \
-8 --sort rate --save ${H}d/mirrorlist
+reflector --score 5 -p https -a 8 -f 2 \
+--sort rate --save ${H}d/mirrorlist
 pacstrap -i /mnt base vim grub xorg \
 base-devel linux pipewire alacritty \
 efibootmgr xorg-xinit linux-headers \
