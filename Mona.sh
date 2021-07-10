@@ -1,10 +1,10 @@
 #!/bin/bash
 E='-o noatime,compress=zstd,subvol=@'
-F='btrfs su cr @';G='timedatectl set'
-setfont ter-124n;H='/etc/pacman.';J="
-$(lscpu|egrep -o 'AMD|Intel'|sort -u)
-";I='curl -sSL https://ipapi.co'
-K='/etc/mkinitcpio.conf' #~~~~~~~~~~#
+F='btrfs su cr';H='/etc/pacman.';J=$(
+lscpu |egrep -o 'AMD|Intel' |sort -u)
+I='curl -s https://ipapi.c';setfont \
+ter-124n;K='/etc/mkinitcpio.conf';G='
+timedatectl set'#~~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %46s\n'|tr ' ' -;until lsblk -do NAM\
 E,SIZE -e 7,11|grep --color '[A-Z]'&&
@@ -14,7 +14,7 @@ $B -Z -n 1::+512M -t 1:EF00 -n 2;do :
 done;C="$(ls /dev/*|egrep "^${B}p?1$"
 ) "; D="$(ls /dev/*|egrep "^${B}p?2$"
 ) ";mkfs.vfat -c $C;mkfs.btrfs -fq $D
-mount ${D} /mnt;cd /mnt;${F}home;${F}
+mount ${D} /mnt;cd /mnt;$F @home;$F @
 cd ; umount /mnt;mount ${E} ${D}/mnt
 mkdir /mnt/{boot,home};mount $C/mnt/\
 boot;mount ${E}home $D/mnt/home;if [[
