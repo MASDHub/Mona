@@ -4,7 +4,7 @@ F='btrfs su cr ';H='/etc/pacman';J=$(
 lscpu |egrep -o 'AMD|Intel' |sort -u)
 K='/etc/mkinitcpio.conf';setfont ter\
 -124n;I='curl -sSL https://ipapi.co/'
-G='timedatectl set-' #~~~~~~~~~~~~~~#
+G='timedatectl set' #~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %46s\n'|tr ' ' -;until lsblk -do NAM\
 E,SIZE -e 7,11|grep --color '[A-Z]'&&
@@ -23,9 +23,9 @@ L='i915 ';elif [[ $J == AMD ]];then \
 L='amdgpu '&&M='amd-ucode';fi;lsblk \
 -pe 7,11|egrep --color /....;sed -i "
 0,/()/s//(${L}btrfs)/" $K;sed -i 's/\
-#Co/Co/' $H.conf;${G}timezone $(${I}\
-timezone) &&${G}ntp true;reflector -\
-p https -a 8 --sort rate -c $(${I}co\
+#Co/Co/' $H.conf;$G-timezone $(${I}t\
+imezone)&&$G-ntp true;reflector - p \
+https -a 8 --sort rate -c $(${I}co\
 untry) -f 2 --save $H.d/mirrorlist ||
 reflector -p https --score 5 --sort \
 rate --save $H.d/mirrorlist;pacstrap\
