@@ -20,8 +20,8 @@ mount /mnt;mount$E $D/mnt;mkdir /mnt\
 $E@home $D/mnt/home;if [[ $J == Intel
 ]];then M='intel-ucode'&&L='i915 ';fi
 if [[ $J == AMD ]];then M='amd-ucode
-';L='amdgpu '&&;fi;lsblk -e 7,11|egrep \
---color /....;sed -i "
+'&&L='amdgpu ';fi;lsblk -e 7,11|egrep\
+ --color /....;sed -i "
 0,/()/s//(${L}btrfs)/" $K;sed -i 's/\
 #Co/Co/' $H.conf;$G-timezone $($I/ti\
 mezone)&&$G-ntp true;reflector -a 8 \
