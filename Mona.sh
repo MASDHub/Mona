@@ -23,10 +23,10 @@ L='i915 ';elif [[ $J == AMD ]];then \
 L='amdgpu '&&M='amd-ucode';fi;lsblk \
 -pe 7,11|egrep --color /....;sed -i "
 0,/()/s//(${L}btrfs)/" $K;sed -i 's/\
-#Co/Co/' $H.conf;$G-timezone $($I/tim\
-ezone)&&$G-ntp true;reflector - p \
-https --sort rate -c $($I/country) \
--f 2 --save $H.d/mirrorlist ||
+#Co/Co/' $H.conf;$G-timezone $($I/ti\
+mezone)&&$G-ntp true;reflector - p h\
+ttps --sort rate -c $($I/country) -\
+f 2 --save $H.d/mirrorlist ||
 reflector -p https --score 5 --sort \
 rate --save $H.d/mirrorlist;pacstrap\
  -i /mnt base vim grub xorg arandr \
