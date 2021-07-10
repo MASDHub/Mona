@@ -24,12 +24,12 @@ M='amd-ucode';fi;lsblk -e 7,11|grep \
 --color /....;sed -i 's/#Co/Co/' $H.\
 conf;sed -i "0,/(/s//(${L}btrfs/" $K
 $G-timezone $($I/timezone)&&$G-ntp t\
-rue;reflector -p https score 5 -a 5 \
---sort rate --save $H.d/mirrorlist;p\
-acstrap -i /mnt base base-devel vim \
+rue;reflector -p https --score 5 -a \
+5 --sort rate --save $H.d/mirrorlist
+pacstrap -i /mnt base linux-headers \
 linux linux-firmware lxqt-policykit \
 base-devel xterm pipewire alacritty \
-efibootmgr xorg-xinit linux-headers \
+efibootmgr xorg-xinit pipewire-jack \
 xorg arandr plank grub nemo-preview \
 pipewire-alsa trayer alsa-utils vlc \
 firefox network-manager-applet gufw \
@@ -40,12 +40,11 @@ nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 conky-manager volumeicon screengrab \
 gvfs-afc obconf-qt pavucontrol htop \
-geany-plugins pipewire-pulse gvfs-mt\
-p nitrogen pipewire-jack ${M};curl -\
-sL https://raw.githubusercontent.com\
-/djsharcode/Mona/main/install.sh>/mn\
-n/etc/install.sh;cp $H.conf /mnt$H.c\
-onf;echo share/zoneinfo/$($I/timezone
-)>/mnt/etc/TM;cp $K /mnt$K;genfstab \
--U /mnt>>/mnt/etc/fstab;arch-chroot \
-/mnt sh /etc/install.sh
+geany-plugins nitrogen gvfs-mtp vim \
+pipewire-pulse ${M};curl -sSL https:\
+//raw.githubusercontent.com/djsharco\
+de/Mona/main/install.sh>/mnt/etc/i.sh
+cp $H.conf /mnt$H.conf;cp $K /mnt$K
+echo share/zoneinfo/$($I/timezone)>/\
+mnt/etc/TM;genfstab -U /mnt>>/mnt/et\
+c/fstab;arch-chroot /mnt sh /etc/i.sh
