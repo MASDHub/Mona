@@ -39,10 +39,9 @@ otf-fira-sans libreoffice-still git \
 nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 conky-manager volumeicon screengrab \
-pasystray gvfs-afc gvfs-mtp nitrogen \
-htop \
-pipewire-pulse obconf-qt  \
-pipewire-jack geany-plugins ${M}
+gvfs-afc gvfs-mtp nitrogen pipewire-\
+pulse pasystray obconf-qt pipewire-\
+jack htop  geany-plugins ${M}
 curl -sSL https://\
 raw.githubusercontent.com/djsharcode\
 /Mona/main/install.sh>/mnt/etc/insta\
