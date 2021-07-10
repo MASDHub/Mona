@@ -25,8 +25,8 @@ L='amdgpu '&&M='amd-ucode';fi;lsblk \
 0,/()/s//(${L}btrfs)/" $K;sed -i 's/\
 #Co/Co/' ${H}conf;${G}timezone $(${I\
 }timezone)&&${G}ntp true;reflector -\
-p https -a 12 --sort rate -c $(${I}\
-country) --save ${H}d/mirrorli\
+p https -a 12 --sort rate -c $(${I}c\
+ountry) --save ${H}d/mirrorlist||
 st||reflector --score 5 -p https -a \
 8 --sort rate --save ${H}d/mirrorlist
 pacstrap -i /mnt base vim grub xorg \
