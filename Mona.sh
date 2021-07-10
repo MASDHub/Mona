@@ -1,5 +1,5 @@
 #!/bin/bash
-E='-o noatime,compress=zstd,subvol=@'
+E=' -o noatime,compress=zstd,subvol='
 F='btrfs su cr ';H='/etc/pacman';J=$(
 lscpu |egrep -o 'AMD|Intel' |sort -u)
 K='/etc/mkinitcpio.conf';setfont ter\
@@ -14,14 +14,14 @@ n 1::+512M -t 1:EF00 -n -i -v -p;do :
 done;C="$(ls /dev/*|egrep "^${B}p?1$"
 ) "; D="$(ls /dev/*|egrep "^${B}p?2$"
 ) ";mkfs.vfat -c $C;mkfs.btrfs -fq $D
-mount $D /mnt;cd /mnt;${F}@home;${F}@
-cd;umount /mnt;mount ${E} ${D} /mnt
-mkdir /mnt/{boot,home};mount $C/mnt/\
-boot;mount ${E}home $D/mnt/home;if [[
-$J == Intel ]];then M='intel-ucode'&&
-L='i915 ';elif [[ $J == AMD ]];then \
-L='amdgpu '&&M='amd-ucode';fi;lsblk \
--pe 7,11|egrep --color /....;sed -i "
+mount $D/mnt;cd /mnt;$F@home;$F@;cd
+mount /mnt;mount$E $D/mnt;mkdir /mnt\
+/{boot,home};mount $C/mnt/boot;mount\
+$E@home $D/mnt/home;if [[ $J == Intel
+]];then M='intel-ucode'&&L='i915 ';e\
+lif [[ $J == AMD ]];then L='amdgpu '&&
+M='amd-ucode';fi
+lsblk -pe 7,11|egrep --color /....;sed -i "
 0,/()/s//(${L}btrfs)/" $K;sed -i 's/\
 #Co/Co/' $H.conf;$G-timezone $($I/ti\
 mezone)&&$G-ntp true;reflector -a 8 \
