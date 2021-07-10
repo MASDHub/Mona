@@ -39,8 +39,9 @@ otf-fira-sans libreoffice-still git \
 nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 conky-manager volumeicon screengrab \
-pasystray gvfs-afc obconf-qt htop \
-pipewire-pulse gvfs-mtp nitrogen \
+pasystray gvfs-afc gvfs-mtp nitrogen \
+htop \
+pipewire-pulse obconf-qt  \
 pipewire-jack geany-plugins ${M}
 curl -sSL https://\
 raw.githubusercontent.com/djsharcode\
