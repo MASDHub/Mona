@@ -4,7 +4,7 @@ F='btrfs su cr';H='/etc/pacman.';J=$(
 lscpu |egrep -o 'AMD|Intel' |sort -u)
 I='curl -s https://ipapi.c';setfont \
 ter-124n;K='/etc/mkinitcpio.conf';G='
-timedatectl set'#~~~~~~~~~~~~~~~~~~~#
+timedatectl set-'#~~~~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %46s\n'|tr ' ' -;until lsblk -do NAM\
 E,SIZE -e 7,11|grep --color '[A-Z]'&&
@@ -23,10 +23,10 @@ L='i915 ';elif [[ $J == AMD ]];then \
 L='amdgpu '&&M='amd-ucode';fi;lsblk \
 -pe 7,11|egrep --color /....;sed -i "
 0,/()/s//(${L}btrfs)/" ${K} ;sed -i '
-s/#Co/Co/' ${H}conf ; ${G}-timezone \
-"$($I/timezone)"&&${G}-ntp true;refl\
+s/#Co/Co/' ${H}conf ; ${G}timezone \
+$(o$I/timezone) &&${G}ntp true;refl\
 ector -p https -a 12 --sort rate -c \
-$($I/country) --save ${H}d/mirrorlis\
+$(o$I/country) --save ${H}d/mirrorlis\
 t|| reflector --score 5 -p https -a \
 8 --sort rate --save ${H}d/mirrorlist
 pacstrap -i /mnt base vim grub xorg \
@@ -47,7 +47,7 @@ nitrogen arandr gvfs-afc conky-manag\
 er ${M};curl -sL https://raw.githubu\
 sercontent.com/djsharcode/Mona/main/\
 install.sh>/mnt/etc/instal.sh;echo /\
-share/zoneinfo/$($I/timezone)>>/mnt/\
+share/zoneinfo/$(o$I/timezone)>/mnt/\
 etc/TMZ;cp $K /mnt${K};cp ${H}conf /\
 mnt${H}conf;genfstab -U /mnt >>/mnt/\
 etc/fstab; arch-chroot /mnt sh /etc/\
