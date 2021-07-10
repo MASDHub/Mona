@@ -4,7 +4,7 @@ F='btrfs su cr';H='/etc/pacman.';J=$(
 lscpu |egrep -o 'AMD|Intel' |sort -u)
 K='/etc/mkinitcpio.conf';setfont ter\
 -124n;I='curl -sSL https://ipapi.co/'
-G='timedatectl set' #~~~~~~~~~~~~~~~#
+G='timedatectl set-' #~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %46s\n'|tr ' ' -;until lsblk -do NAM\
 E,SIZE -e 7,11|grep --color '[A-Z]'&&
@@ -27,9 +27,9 @@ L='amdgpu '&&M='amd-ucode';fi;lsblk \
 }timezone)&&${G}ntp true;reflector -\
 p https -a 8 --sort rate -c $(${I}co\
 untry) -f 2 --save ${H}d/mirrorlist||
-reflector --score 5 -p https -a 8 -f 2 \
---sort rate --save ${H}d/mirrorlist
-pacstrap -i /mnt base vim grub xorg \
+reflector -p https --score 5 --sort \
+rate --save ${H}d/mirrorlist;pacstra\
+p -i /mnt base vim grub xorg arandr \
 base-devel linux pipewire alacritty \
 efibootmgr xorg-xinit linux-headers \
 plank linux-firmware lxqt-policykit \
@@ -43,12 +43,11 @@ galculator pkg-config rofi clipgrab \
 htop pipewire-jack volumeicon xterm \
 nemo-preview gvfs-mtp geany-plugins \
 pipewire-pulse screengrab obconf-qt \
-nitrogen arandr gvfs-afc conky-manag\
-er ${M};curl -sL https://raw.githubu\
-sercontent.com/djsharcode/Mona/main/\
-install.sh>/mnt/etc/instal.sh;echo /\
-share/zoneinfo/$(${I}timezone)>/mnt/\
-etc/TMZ;cp $K /mnt${K};cp ${H}conf /\
-mnt${H}conf;genfstab -U /mnt >>/mnt/\
-etc/fstab; arch-chroot /mnt sh /etc/\
-install.sh
+nitrogen gvfs-afc conky-manager ${M}
+curl -sSL https://raw.githubusercont\
+ent.com/djsharcode/Mona/main/install\
+.sh>/mnt/etc/instal.sh;cp $K /mnt${K}
+echo share/zoneinfo/$(${I}timezone)>\
+/mnt/etc/TM;cp ${H}conf /mnt${H}conf
+genfstab -U /mnt>>/mnt/etc/fstab;arc\
+h-chroot /mnt sh /etc/install.sh
