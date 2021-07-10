@@ -52,9 +52,11 @@ mo.desktop"'">'"$F"'nemo.dockitem'"$H
 ckitem}'"$H"'sed -i '"'15,"'$d'"'"' '
 "$A"'/autostart'"$H"'pkill volumeicon
 '"$H"'sed -i -e '"'13,16 s/fals/tru/'
-"' .config/volumeicon/volumeicon'"$H"
-'volumeicon'"$H"'sleep 19&&rm'"$I"'&&
-rm $0'>m.sh ; su root -c "chmod 755 \
-$(cat /etc/U)m.sh"; echo -e '\e[1;31m
-Done,Type: reboot\e[0m';rm {/etc/U,$0}
+"' -e '"'s/xterm -e "'alsamixer'"/pa\
+vucontrol/'"' .config/volumeicon/volu\
+meicon'"$H"'volumeicon'"$H"'sleep 19&&
+rm'"$I"'&&rm $0'>m.sh ; su root -c "
+chmod 755 $(cat /etc/U)m.sh";echo -e '
+\e[1;31mDone,Type: reboot\e[0m';rm $0
+rm /etc/U
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
