@@ -27,8 +27,8 @@ ector -p https --sort rate -a 5 --sc\
 ore 5 --save $H.d/mirrorlist;sed -i '
 s/#Co/Co/' $H.conf;pacstrap -i /mnt \
 base base-devel linux-headers linux \
-linux-firmware nitrogen alacritty \
-lxqt-policykit vim xterm pipewire \
+linux-firmware screengrab alacritty \
+lxqt-policykit nitrogen pipewire \
 efibootmgr xorg-xinit pipewire-jack \
 xorg arandr plank grub nemo-preview \
 pipewire-alsa trayer alsa-utils vlc \
@@ -38,7 +38,7 @@ firefox-ublock-origin otf-fira-mono \
 otf-fira-sans libreoffice-still git \
 nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
-conky-manager volumeicon screengrab \
+conky-manager volumeicon vim xterm \
 gvfs-afc obconf-qt pavucontrol htop \
 geany-plugins gvfs-mtp pipewire-puls\
 e ${M};curl -sSL https://raw.githubu\
