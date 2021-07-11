@@ -17,8 +17,8 @@ S='       ';Z='             localhost
 ';B='\e[1;31m';A='\e[0m';head -15 $0|
 tail -13;C='/Fira Sans Condensed Book
 ';E=' /usr/share/gtk';F='en_US.U';H='
-openbox-sessio';D='/Adwaita/Oranchelo
-';G='/Cantarell';J='systemctl enable'
+openbox-session';J='systemctl enable'
+D='/Adwaita/Oranchelo';G='/Cantarell'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
 :${A}"&&passwd;do :;done;until print\
