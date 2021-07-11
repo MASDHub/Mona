@@ -28,7 +28,7 @@ ore 5 --save $H.d/mirrorlist;sed -i '
 s/#Co/Co/' $H.conf;pacstrap -i /mnt \
 base base-devel linux-headers linux \
 linux-firmware screengrab alacritty \
-lxqt-policykit nitrogen pipewire \
+lxqt-policykit conky-manager \
 efibootmgr xorg-xinit pipewire-jack \
 xorg arandr plank grub nemo-preview \
 pipewire-alsa trayer alsa-utils vlc \
@@ -38,10 +38,10 @@ firefox-ublock-origin otf-fira-mono \
 otf-fira-sans libreoffice-still git \
 nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
-conky-manager volumeicon vim xterm \
+nitrogen pipewire volumeicon vim \
 gvfs-afc obconf-qt pavucontrol htop \
 geany-plugins gvfs-mtp pipewire-puls\
-e ${M};curl -sSL https://raw.githubu\
+e xterm ${M};curl -sSL https://raw.githubu\
 sercontent.com/djsharcode/Mona/main/\
 install.sh>/mnt/etc/i.sh;cp $K /mnt$K
 echo share/zoneinfo/$($I)>/mnt/etc/TM
