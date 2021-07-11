@@ -46,5 +46,5 @@ pipewire-pulse ${M};curl -sSL https:\
 de/Mona/main/install.sh>/mnt/etc/i.sh
 echo share/zoneinfo/$($I)>/mnt/etc/TM
 cp $H.conf /mnt$H.conf;cp $K /mnt$K
-genfstab -U /mnt>>/mnt/etc/fstab;ar\
+genfstab -U /mnt >>/mnt/etc/fstab;ar\
 ch-chroot /mnt sh /etc/i.sh
