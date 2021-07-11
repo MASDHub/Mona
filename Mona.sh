@@ -20,10 +20,10 @@ boot,home};mount $C/mnt/boot;mount$E\
 @home$D/mnt/home;if [[ $J == Intel ]]
 then M='intel-ucode'&&L='i915 ';fi;if
 [[ $J == AMD ]];then L='amdgpu '&&M='
-amd-ucode';fi;$G-timezone $I&&$G-ntp \
-true;sed -i "0,/(/s//(${L}btrfs/" $K
-lsblk -pe 7,11|egrep -\
--color /?;s;$G-timezone $I&&$G-ntp true
+amd-ucode';fi;lsblk -pe 7,11|egrep -\
+-color /?;$G-timezone $I&&$G-ntp true
+sed -i "0,/(/s//(${L}btrfs/" $K
+s;$G-timezone $I&&$G-ntp true
 ed -i 's/#Co/Co/' $H.conf;reflector \
 -p https --score 5 -a 5 --sort rate \
 --save $H.d/mirrorlist;pacstrap -i /\
