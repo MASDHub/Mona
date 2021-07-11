@@ -47,15 +47,15 @@ echo -e "${B}GRUB${A}";grub-install \
 --target=x86_64-efi --efi-directory=\
 /boot --bootloader-id=GRUB;grub-mkco\
 nfig -o /boot/grub/grub.cfg;echo -e "
-${B}NETWORKS${A}";$J NetworkManager
-echo -e ${B}SDDM ENABLED${A}";$J sddm
+${B}NETWORK${A}";$J NetworkManager;e\
+cho -e "${B}SDDM ENABLED${A}";$J sddm
 I='$(xrandr|egrep';echo -e 'M="$(fin\
 d /home/*/.screenlayout/*.sh)"\nP="'\
 "$I"'-c '"'HDMI|eDP'"')"\nN="'"$I"'-\
 o '"'HDMI-1|HDMI1'"')"\nO='"$I"'-o '\
 "'eDP1|eDP-1'"')"\nP='"$I"'-c '"'eDP|
 HDMI'"')"\nif [[ -r ${M} ]]&&$(grep \
--q xrandr ${M});then $M;else if [[ 
+-q xrandr ${M});then ${M};else if [[ 
 $P -ge 2 ]];then xrandr --output $O \
 --mode 1920x1080 --pos 0x0 --rotate \
 normal --output $N --primary --mode \
