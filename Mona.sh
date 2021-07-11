@@ -25,7 +25,7 @@ conf;lsblk -pe 7,11|egrep --color /?
 $G-timezone $($I/timezone)&&$G-ntp t\
 rue;sed -i "0,/()/s//(${L}btrfs)/" $K
 reflector -p https --score 5 -a 4 --\
-sort -f 2 rate --save $H.d/mirrorlist
+sort rate -f 2 --save $H.d/mirrorlist
 pacstrap -i /mnt base linux-headers \
 linux linux-firmware lxqt-policykit \
 base-devel xterm pipewire alacritty \
