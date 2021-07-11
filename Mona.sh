@@ -20,11 +20,14 @@ boot,home};mount $C/mnt/boot;mount$E\
 @home$D/mnt/home;if [[ $J == Intel ]]
 then M='intel-ucode'&&L='i915 ';fi;if
 [[ $J == AMD ]];then L='amdgpu '&&M='
-amd-ucode';fi;reflector -p https --s\
+amd-ucode';fi;G-timezone $($I)&&$G-nt\
+p true;lsblk -e 7,11|egrep --color /?
+
+reflector -p https --s\
 core 5 --sort rate --save $H.d/mirro\
 rlist;sed -i "0,/(/s//(${L}btrfs/" $K
-G-timezone $($I)&&$G-ntp true;sed -i '
-s/#Co/Co/' $H.conf;lsblk -pe 7,11|egrep --color /?;
+;sed -i '
+s/#Co/Co/' $H.conf;;
 pacstrap -i /mnt base linux-headers \
 linux linux-firmware lxqt-policykit \
 base-devel xterm pipewire alacritty \
