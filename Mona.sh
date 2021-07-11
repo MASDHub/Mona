@@ -25,8 +25,8 @@ amd-ucode';fi;lsblk -pe 7,11|egrep -\
 " $K;G-timezone $($I)&&$G-ntp true;s/
 ed -i 's/#Co/Co/' $H.conf;reflector \
 -p https --score 5 -a 5 --sort rate \
---save $H.d/mirrorlist
-pacstrap -i /mnt base linux-headers \
+--save $H.d/mirrorlist;pacstrap -i \
+/mnt base linux-headers \
 linux linux-firmware lxqt-policykit \
 base-devel xterm pipewire alacritty \
 efibootmgr xorg-xinit pipewire-jack \
