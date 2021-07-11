@@ -19,13 +19,15 @@ unt /mnt;mount$E@$D/mnt;mkdir /mnt/{\
 boot,home};mount $C/mnt/boot;mount$E\
 @home$D/mnt/home;if [[ $J == Intel ]]
 then M='intel-ucode'&&L='i915 ';fi;if
-[[ $J == AMD ]];then M='amd-ucode'&&L='amdgpu '&&M='
-amd-ucode';fi;G-timezone $($I)&&$G-nt\
-p true;lsblk -e 7,11|egrep --color /?
+[[ $J == AMD ]];then L='amdgpu '&&M='
+amd-ucode';fi;G-timezone $($I)&&$G-n\
+tp true;sed -i "0,/(/s//(${L}btrfs/
+" $K
+lsblk -pe 7,11|egrep --color /?
 
 reflector -p https --s\
 core 5 --sort rate --save $H.d/mirro\
-rlist;sed -i "0,/(/s//(${L}btrfs/" $K
+rlist;
 ;sed -i '
 s/#Co/Co/' $H.conf;;
 pacstrap -i /mnt base linux-headers \
