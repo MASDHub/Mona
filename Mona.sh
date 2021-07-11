@@ -11,16 +11,17 @@ gpg -k|pacman-key --populate;printf '
 ad -p$'\e[1;31mEnter Installion CD\e[
 0m> ' A&&B="/dev/$A"&&sgdisk $B -Z -\
 n 1::+512M -t 1:EF00 -n -i -v -p;do :
-done;C=" $(ls /dev/*|egrep "^${B}p?1$
-") ";D=" $(ls /dev/*|egrep "^${B}p?2$
-") ";mkfs.vfat$C;mkfs.btrfs -fq$D;mo\
+done;C="$(ls /dev/*|egrep "^${B}p?1$"
+) ";D=" $(ls /dev/*|egrep "^${B}p?2$"
+) ";mkfs.vfat $C;mkfs.btrfs -fq$D;mo\
 unt$D/mnt;cd /mnt;$F@home;$F@;cd;umo\
 unt /mnt;mount$E@$D/mnt;mkdir /mnt/{\
-boot,home};mount$C/mnt/boot;mount$E@\
-home$D/mnt/home;if [[ $J == AMD ]];t\
-hen L='amdgpu '&&M='amd-ucode';elif \
-[[ $J == Intel ]];then M='intel-ucode
-'&&L='i915 ';fi;lsblk -e 7,11|egrep \
+boot,home};mount $C/mnt/boot;mount$E\
+@home$D/mnt/home;if [[ $J == Intel ]]
+then M='intel-ucode'&&L='i915 ';fi;if\ 
+[[ $J == AMD ]];then L='amdgpu '&&M='
+amd-ucode'
+lsblk -e 7,11|egrep \
 --color /?;sed -i 's/#Co/Co/' $H.conf
 $G-timezone $($I/timezone)&&$G-ntp t\
 rue;sed -i "0,/()/s//(${L}btrfs)/" $K
