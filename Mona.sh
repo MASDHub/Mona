@@ -40,8 +40,8 @@ nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 nitrogen pipewire conky-manager vim \
 gvfs-afc obconf-qt pavucontrol htop \
-geany-plugins gvfs-mtp volumeicon \
-${M};curl -sSL https://raw.githubu\
+geany-plugins gvfs-mtp volumeicon ${M}
+curl -sSL https://raw.githubu\
 sercontent.com/djsharcode/Mona/main/\
 install.sh>/mnt/etc/i.sh;cp $K /mnt$K
 echo share/zoneinfo/$($I)>/mnt/etc/TM
