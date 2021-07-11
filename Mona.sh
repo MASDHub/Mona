@@ -1,7 +1,7 @@
 #!/bin/bash
 E=' -o noatime,compress=zstd,subvol='
 F='btrfs su cr ';H='/etc/pacman';J=$(
-lscpu | egrep -o 'AMD|Intel'|sort -u)
+lscpu| egrep -o 'AMD|Intel' |sort -u)
 I='curl -s https://ipapi.co/timezone'
 K='/etc/mkinitcpio.conf';setfont ter\
 -124n;G='timedatectl set' #~~~~~~~~~#
