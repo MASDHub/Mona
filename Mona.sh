@@ -24,8 +24,8 @@ hen L='amdgpu '&&M='amd-ucode';elif \
 .conf;sed -i "0,/(/s//(${L}btrfs/" $K
 lsblk -pe 7,11|egrep --color ?/*;$G-\
 timezone $($I/timezone)&&$G-ntp true
-reflector -p https --score 5 -a 4 -f \
-2 --sort rate --save $H.d/mirrorlist
+reflector -p https --score 5 -a 4 --\
+sort -f 2 rate --save $H.d/mirrorlist
 pacstrap -i /mnt base linux-headers \
 linux linux-firmware lxqt-policykit \
 base-devel xterm pipewire alacritty \
