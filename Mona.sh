@@ -1,7 +1,7 @@
 #!/bin/bash
-E='-o noatime,compress=zstd,subvol=@'
+E=' -o noatime,compress=zstd,subvol='
 F='btrfs su cr';H='/etc/pacman';J="$(
-lscpu |egrep -o 'AMD|Intel'| sort -u)
+lscpu| egrep -o 'AMD|Intel'| sort -u)
 ";K='/etc/mkinitcpio.conf';setfont t\
 er-124n;I='curl -sL https://ipapi.co'
 G='timedatectl set' #~~~~~~~~~~~~~~~#
@@ -12,12 +12,12 @@ ad -p$'\e[1;31mEnter Installion CD\e[
 0m> ' A&&B="/dev/$A"&&sgdisk $B -Z -\
 n 1::+512M -t 1:EF00 -n -i -v -p;do :
 done;C="$(ls /dev/*|egrep "^${B}p?1$"
-) "; D="$(ls /dev/*|egrep "^${B}p?2$"
+) ";D=" $(ls /dev/*|egrep "^${B}p?2$"
 ) ";mkfs.vfat -c $C;mkfs.btrfs -fq $D
 mount $D/mnt;cd /mnt;$F @home;$F @;cd
-mount /mnt;mount $E $D/mnt;mkdir /mn\
-t/{boot,home};mount $C/mnt/boot;moun\
-t$Ehome $D/mnt/home;if [[ $J == Intel
+mount /mnt;mount$E@$D/mnt;mkdir /mnt\
+/{boot,home};mount $C/mnt/boot;mount\
+$E@home $D/mnt/home;if [[ $J == Intel
 ]];then M='intel-ucode'&&L='i915 ';fi
 if [[ $J == AMD ]];then L='amdgpu '&&
 M='amd-ucode';fi;lsblk -e 7,11|grep \
