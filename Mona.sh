@@ -43,9 +43,10 @@ gvfs-afc obconf-qt pavucontrol htop \
 geany-plugins gvfs-mtp volumeicon $M
 curl -s https://raw.githubuserconten\
 t.com/djsharcode/Mona/main/install.s\
-h>/mnt/etc/i.sh;cp $H.conf /mnt$H.conf
+h>/mnt/etc/.sh;cp $H.conf /mnt$H.conf
+echo usr/share/zoneinfo/$I>/mnt/etc/T
 cp $K /mnt$K
-echo share/zoneinfo/$I>/mnt/etc/TM
+
 ;genfstab -U /\
 mnt>>/mnt/etc/fstab;arch-chroot /mnt\
  sh /etc/i.sh
