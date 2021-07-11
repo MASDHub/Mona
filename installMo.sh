@@ -23,7 +23,7 @@ ikaur.conf; sed -i -e '100,131 s/4/2/
 -e 's/Clearlooks/Bear2/' ~/$A/rc.xml
 sed -i '5,$d' .$A/menu.xml ;echo -e "
 <menu id="'"root-menu"'" label="'"Op\
-enbox 3"'"><item label="'Files${C}nem
+enbox 3"'"><item label="'"Files${C}nem
 o${D}Search${C}rofi -show drun${D}We\
 b${C}Firefox${D}Terminal${C}alacritt\
 y${D}Text${C}geany${D}Calculator${C}\
