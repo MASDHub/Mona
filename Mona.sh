@@ -24,8 +24,9 @@ amd-ucode';fi;lsblk -pe 7,11|egrep -\
 -color /?;sed -i "0,/(/s//(${L}btrfs/
 " $K;reflector -p https --sort rate \
 --score 5 -a 5 --save $H.d/mirrorlist
-sed -i 's/#Co/Co/' $H.conf;$G-\
-timezone $($I/timezone)&&$G-ntp true
+$G-timezone $($I/timezone)&&$G-ntp true
+sed -i 's/#Co/Co/' $H.conf;
+
 
 pacstrap -i /mnt base linux-headers \
 linux linux-firmware lxqt-policykit \
