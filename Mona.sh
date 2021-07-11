@@ -20,8 +20,8 @@ boot,home};mount$C/mnt/boot;mount$E@\
 home$D/mnt/home;if [[ $J == AMD ]];t\
 hen L='amdgpu '&&M='amd-ucode';elif \
 [[ $J == Intel ]];then M='intel-ucode
-'&&L='i915 ';fi;lsblk -e 7,11|egrep -\
--color ?/*;sed -i 's/#Co/Co/' $H.conf
+'&&L='i915 ';fi;lsblk -e 7,11|egrep \
+--color /?;sed -i 's/#Co/Co/' $H.conf
 $G-timezone $($I/timezone)&&$G-ntp t\
 rue;sed -i "0,/()/s//(${L}btrfs)/" $K
 reflector -p https --score 5 -a 4 --\
