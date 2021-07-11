@@ -20,8 +20,9 @@ boot,home};mount $C/mnt/boot;mount$E\
 @home$D/mnt/home;if [[ $J == Intel ]]
 then M='intel-ucode'&&L='i915 ';fi;if
 [[ $J == AMD ]];then L='amdgpu '&&M='
-amd-ucode';fi;reflector -p https --sc\
-ore 5 --sort rate --save $H.d/mirrorlist
+amd-ucode';fi;reflector -p https --s\
+core 5 --sort rate --save $H.d/mirr\
+orlist
 
 lsblk -pe 7,11|egrep -\
 -color /?;
