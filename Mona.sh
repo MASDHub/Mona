@@ -21,9 +21,9 @@ boot,home};mount $C/mnt/boot;mount$E\
 then M='intel-ucode'&&L='i915 ';fi;if
 [[ $J == AMD ]];then L='amdgpu '&&M='
 amd-ucode';fi;sed -i 's/#Co/Co/' $H.\
-conf;lsblk -pe 7,11|egrep --color /?
-$G-timezone $($I/timezone)&&$G-ntp t\
-rue;sed -i "0,/()/s//(${L}btrfs)/" $K
+conf;sed -i "0,/(/s//(${L}btrfs/" $K
+lsblk -pe 7,11|egrep --color /?;$G-\
+timezone $($I/timezone)&&$G-ntp true
 reflector -p https --score 5 -a 4 --\
 sort rate -f 2 --save $H.d/mirrorlist
 pacstrap -i /mnt base linux-headers \
