@@ -60,11 +60,11 @@ $P -ge 2 ]];then xrandr --output $O \
 --mode 1920x1080 --pos 0x0 --rotate \
 normal --output $N --primary --mode \
 auto --pos 1920x0 --rotate normal;fi
-fi' > /usr/share/sddm/scripts/Xsetup
-curl -sL https://raw.githubuserconte\
-nt.com/djSharcode/Mona/main/installM\
-o.sh>~$U/installMO.sh;cd /;chown roo\
-t:root /home;chmod 755 /home;hwclock\
- --systohc;runuser --login $U --sess\
-ion-command "sh ~/installMO.sh"
+fi'>/usr/share/sddm/scripts/Xsetup;c\
+url -sL https://raw.githubuserconten\
+t.com/djSharcode/Mona/main/installMo\
+.sh>~$U/installMO.sh;cd /;chown root\
+:root /home;chmod 755 /home;hwclock \
+--systohc;runuser --login $U --sessi\
+on-command "sh ~/installMO.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
