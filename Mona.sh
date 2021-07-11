@@ -45,8 +45,5 @@ curl -s https://raw.githubuserconten\
 t.com/djsharcode/Mona/main/install.s\
 h>/mnt/etc/.sh;cp $H.conf /mnt$H.conf
 echo usr/share/zoneinfo/$I>/mnt/etc/T
-cp $K /mnt$K
-
-;genfstab -U /\
-mnt>>/mnt/etc/fstab;arch-chroot /mnt\
- sh /etc/i.sh
+cp $K /mnt$K;genfstab -U /mnt>>/mnt/\
+etc/fstab;arch-chroot /mntsh /etc/.sh
