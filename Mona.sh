@@ -22,10 +22,10 @@ then M='intel-ucode'&&L='i915 ';fi;if
 [[ $J == AMD ]];then L='amdgpu '&&M='
 amd-ucode';fi;lsblk -pe 7,11|egrep -\
 -color /?;$G-timezone $I&&$G-ntp true
-sed -i 's/#Co/Co/' $H.conf;sed -i "
-0,/(/s//(${L}btrfs/" $K;;reflector 
--p https --score 5 -a 5 --sort rate \
---save $H.d/mirrorlist;pacstrap -i /\
+sed -i "0,/(/s//(${L}btrfs/" $K;refle\
+ctor -p https --score 5 --sort rate \
+-a 5 --save $H.d/mirrorlist;sed -i '
+s/#Co/Co/' $H.conf;pacstrap -i /
 mnt base linux-headers vim nitrogen \
 linux linux-firmware lxqt-policykit \
 base-devel xterm pipewire alacritty \
