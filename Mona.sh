@@ -26,8 +26,8 @@ sed -i "0,/(/s//(${L}btrfs/" $K;refl\
 ector -p https --sort rate -a 5 --sc\
 ore 5 --save $H.d/mirrorlist;sed -i '
 s/#Co/Co/' $H.conf;pacstrap -i /mnt \
-base base-devel linux-headers vim \
-linux-firmware linux nitrogen alacritty \
+base base-devel linux-headers linux \
+linux-firmware vim nitrogen alacritty \
 lxqt-policykit vim xterm pipewire \
 efibootmgr xorg-xinit pipewire-jack \
 xorg arandr plank grub nemo-preview \
