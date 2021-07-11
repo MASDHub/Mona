@@ -56,7 +56,7 @@ ckitem}'"$H"'sed -i '"'15,"'$d'"'"' '
 vucontrol/'"' .config/volumeicon/volu\
 meicon'"$H"'volumeicon'"$H"'sleep 19&&
 rm'"$I"'&&rm $0'>m.sh ; su root -c "
-chmod 755 $(cat /etc/U)m.sh";echo -e '
-\e[1;31mDone,Type: reboot\e[0m';rm $0
+chmod 755 $(cat /etc/U)m.sh";echo -e \
+'\e[1;31mDone,Type: reboot\e[0m';rm $0
 rm /etc/U
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
