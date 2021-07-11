@@ -1,10 +1,10 @@
 #!/bin/bash
 E=' -o noatime,compress=zstd,subvol='
 F='btrfs su cr ';H='/etc/pacman';J=$(
-lscpu | egrep -o 'AMD|Intel'| sort -u
-);K='/etc/mkinitcpio.conf';setfont t\
-er-124n;I='curl -sL https://ipapi.co'
-G='timedatectl set' #~~~~~~~~~~~~~~~#
+lscpu | egrep -o 'AMD|Intel'|sort -u)
+I='curl -s https://ipapi.co/timezone'
+K='/etc/mkinitcpio.conf'setfont ter-\
+124n;G='timedatectl set' #~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %9s\n'|tr ' ' -;until lsblk -do NAME\
 ,SIZE -e 7,11|grep --color [A-Z]&&re\
@@ -22,9 +22,9 @@ then M='intel-ucode'&&L='i915 ';fi;if
 [[ $J == AMD ]];then L='amdgpu '&&M='
 amd-ucode';fi;lsblk -pe 7,11|egrep -\
 -color /?;sed -i "0,/(/s//(${L}btrfs/
-" $K;reflector -p https --sort rate \
+" $K;$G-timezone $($I)&&$G-ntp true reflector -p https --sort rate \
 --score 5 -a 5 --save $H.d/mirrorlist
-$G-timezone $($I/timezone)&&$G-ntp true
+$G-timezone $($I)&&$G-ntp true
 sed -i 's/#Co/Co/' $H.conf;
 
 
