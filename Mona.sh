@@ -44,7 +44,7 @@ geany-plugins nitrogen gvfs-mtp vim \
 pipewire-pulse ${M};curl -sSL https:\
 //raw.githubusercontent.com/djsharco\
 de/Mona/main/install.sh>/mnt/etc/i.sh
+echo share/zoneinfo/$($I)>/mnt/etc/TM
 cp $H.conf /mnt$H.conf;cp $K /mnt$K
-echo share/zoneinfo/$($I/timezone)>/\
-mnt/etc/TM;genfstab -U /mnt>>/mnt/et\
-c/fstab;arch-chroot /mnt sh /etc/i.sh
+genfstab -U /mnt>>/mnt/etc/fstab;ar\
+ch-chroot /mnt sh /etc/i.sh
