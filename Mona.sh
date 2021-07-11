@@ -26,7 +26,7 @@ amd-ucode';fi;lsblk -pe 7,11|egrep -\
 ed -i 's/#Co/Co/' $H.conf;reflector \
 -p https --score 5 -a 5 --sort rate \
 --save $H.d/mirrorlist;pacstrap -i /\
-mnt base linux-headers \
+mnt base linux-headers vim nitrogen \
 linux linux-firmware lxqt-policykit \
 base-devel xterm pipewire alacritty \
 efibootmgr xorg-xinit pipewire-jack \
@@ -40,11 +40,11 @@ nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 conky-manager volumeicon screengrab \
 gvfs-afc obconf-qt pavucontrol htop \
-geany-plugins nitrogen gvfs-mtp vim \
-pipewire-pulse ${M};curl -sSL https:\
-//raw.githubusercontent.com/djsharco\
-de/Mona/main/install.sh>/mnt/etc/i.sh
+geany-plugins gvfs-mtp pipewire-puls\
+e ${M};curl -sSL https://raw.githubu\
+sercontent.com/djsharcode/Mona/main/\
+install.sh>/mnt/etc/i.sh;cp $K /mnt$K
 echo share/zoneinfo/$($I)>/mnt/etc/TM
-cp $H.conf /mnt$H.conf;cp $K /mnt$K
-genfstab -U /mnt >>/mnt/etc/fstab;ar\
-ch-chroot /mnt sh /etc/i.sh
+cp $H.conf /mnt$H.conf;genfstab -U /\
+mnt>>/mnt/etc/fstab;arch-chroot /mnt\
+ sh /etc/i.sh
