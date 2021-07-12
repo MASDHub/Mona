@@ -33,7 +33,7 @@ S}${P}.localdomain ${P}" >>/etc/hosts
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;ln -sf /$(cat /etc/T ) /etc/loca\
 ltime;sed -i "s/#${F}/$F/" /etc/loca\
-le.gen;echo "LANG=${U}-8" >/etc/loca\
+le.gen;echo LANG=${U}F-8 > /etc/loca\
 le.conf;locale-gen;echo $P>/etc/host\
 name;echo "/home/$U/m.sh" >/etc/U;hw\
 clock --systohc;echo "$H" >/home/$U/\
