@@ -43,29 +43,27 @@ clock --systohc;echo "$H" >/home/$U/\
 s$G/$C" -e "3 s$D/" -e "2 s$D-Beka/
 " $E-3.0/settings.ini;sed -i -e "s$D\
 -Beka/" -e "2 s$D/" -e "s$G/$C" -e $\
-E-2.0/gtkrc
-echo -e "${B}GRUB${A}";grub-install \
---target=x86_64-efi --efi-directory=\
-/boot --bootloader-id=GRUB;grub-mkco\
-nfig -o /boot/grub/grub.cfg;echo -e "
-${B}NETWORK${A}";$J NetworkManager;e\
-cho -e "${B}SDDM ENABLED${A}";$J sddm
-I='$(xrandr|egrep';echo -e 'M="$(fin\
-d /home/*/.screenlayout/*.sh)"\nP="'\
-"$I"'-c '"'HDMI|eDP'"')"\nN="'"$I"'-\
-o '"'HDMI-1|HDMI1'"')"\nO='"$I"'-o '\
-"'eDP1|eDP-1'"')"\nP='"$I"'-c '"'eDP|
-HDMI'"')"\nif [[ -r ${M} ]]&&$(grep \
--q xrandr ${M});then ${M};else if [[ 
-$P -ge 2 ]];then xrandr --output $O \
---mode 1920x1080 --pos 0x0 --rotate \
-normal --output $N --primary --mode \
-auto --pos 1920x0 --rotate normal;fi
-fi'>/usr/share/sddm/scripts/Xsetup;c\
-url -sL https://raw.githubuserconten\
+E-2.0/gtkrc;echo -e "${B}GRUB${A}";g\
+rub-install --target=x86_64-efi --efi-\
+directory=/boot --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+echo -e "${B}NETWORK${A}";$J Network\
+Manager;echo -e "${B}DISPLAY ENABLED
+${A}";$J sddm;I='$(xrandr|egrep';ech\
+o -e 'M="$(find /home/*/.screenlayout\
+/*.sh)"\nP="'"$I"'-c '"'HDMI|eDP'"')"
+N="'"$I"'-o '"'HDMI-1|HDMI1'"')"\nO='
+"$I"'-o '"'eDP1|eDP-1'"')"\nP='"$I"'\
+-c '"'eDP|HDMI'"')"\nif [[ -r ${M} ]]
+&&$(grep -q xrandr ${M});then ${M};e\
+lif [[ $P -ge 2 ]];then xrandr --out\
+put $O --mode 1920x1080 --pos 0x0 --\
+rotate normal --output $N --primary \
+--mode auto --pos 1920x0 --rotate no\
+rmal;fi'>/usr/share/sddm/scripts/Xsetup
+curl -s https://raw.githubuserconten\
 t.com/djSharcode/Mona/main/installMo\
-.sh>~$U/installMO.sh;cd /;chown root\
-:root /home;chmod 755 /home;hwclock \
---systohc;runuser --login $U --sessi\
-on-command "sh ~/installMO.sh"
+.sh>~$U/.sh;cd /;chown root:root /ho\
+me;chmod 755 /home;runuser --login $\
+U --session-command "sh ~/.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
