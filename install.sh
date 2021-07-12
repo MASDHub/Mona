@@ -50,8 +50,8 @@ UB;grub-mkconfig >/boot/grub/grub.cfg
 echo -e "${B}NETWORK${A}";$J Network\
 Manager;echo -e "${B}DISPLAY ENABLED
 ${A}";$J sddm;I='$(xrandr|egrep';ech\
-o -e 'M="$(find /home/*/.screenlayout\
-/*.sh)"\nP="'"$I"'-c '"'HDMI|eDP'"')"
+o -e 'M=$(find /home/*/.screenlayout\
+/*.sh) \nP="'"$I"'-c '"'HDMI|eDP'"')"
 N="'"$I"'-o '"'HDMI-1|HDMI1'"')"\nO='
 "$I"'-o '"'eDP1|eDP-1'"')"\nP='"$I"'\
 -c '"'eDP|HDMI'"')"\nif [[ -r ${M} ]]
