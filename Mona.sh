@@ -22,16 +22,15 @@ then M='intel-ucode'&&L='i915 ';fi;if
 [[ $J == AMD ]];then L='amdgpu '&&M='
 amd-ucode';fi;lsblk -pe 7,11|egrep -\
 -color /?;$G-timezone $I&&$G-ntp true
-sed -i "0,/()/s//(${L}btrfs)/" $K;re\
-flector -p https --score 5 --sort ra\
-te -a 2 --save $H.d/mirrorlist;sed -i \
-'s/#Co/Co/' $H.conf;pacstrap -i /mnt \
-base base-devel linux-headers linux \
-linux-firmware screengrab alacritty \
-lxqt-policykit pipewire-pulse xterm \
+sed -i 's/#Co/Co/' $H.conf;sed -i "
+0,/()/s//(${L}btrfs)/" $K;reflector \
+-p https --score 5 --sort rate -a 2 \
+--save $H.d/mirrorlist;pacstrap -i /\
+mnt base base-devel linux alacritty \
+linux-firmware lxqt-policykit xterm \
+pipewire-pulse trayer linux-headers \
 efibootmgr xorg-xinit pipewire-jack \
 xorg arandr plank grub nemo-preview \
-pipewire-alsa trayer alsa-utils vlc \
 firefox network-manager-applet gufw \
 geeqie gst-plugin-pipewire libpulse \
 firefox-ublock-origin otf-fira-mono \
@@ -40,10 +39,11 @@ nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 nitrogen pipewire conky-manager vim \
 gvfs-afc obconf-qt pavucontrol htop \
-geany-plugins gvfs-mtp volumeicon $M
-curl -s https://raw.githubuserconten\
-t.com/djsharcode/Mona/main/install.s\
-h>/mnt/etc/.sh;cp $H.conf /mnt$H.conf
-echo usr/share/zoneinfo/$I>/mnt/etc/T
+pipewire-alsa alsa-utils volumeicon \
+geany-plugins gvfs-mtp vlc ${M};curl\
+ -sSL https://raw.githubusercontent.\
+com/djsharcode/Mona/main/install.sh>\
+/mnt/etc/.sh;echo usr/share/zoneinfo\
+/$I>/mnt/etc/T;cp $H.conf /mnt$H.conf
 cp $K /mnt$K;genfstab -U /mnt>>/mnt/\
 etc/fstab;arch-chroot /mntsh /etc/.sh
