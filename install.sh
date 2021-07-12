@@ -48,20 +48,19 @@ rub-install --target=x86_64-efi --ef\
 i-directory=/boot --bootloader-id=GR\
 UB;grub-mkconfig >/boot/grub/grub.cfg
 echo -e "${B}NETWORK${A}";$J Network\
-Manager;echo -e "${B}DISPLAY ENABLED
-${A}";$J sddm;I='$(xrandr|egrep';ech\
-o -e 'M=$(find /home/*/.screenlayout\
-/*.sh) \nP="'"$I"'-c '"'HDMI|eDP'"')"
-N="'"$I"'-o '"'HDMI-1|HDMI1'"')"\nO='
-"$I"'-o '"'eDP1|eDP-1'"')"\nP='"$I"'\
--c '"'eDP|HDMI'"')"\nif [[ -r ${M} ]]
-&&$(grep -q xrandr ${M});then ${M};e\
-lif [[ $P -ge 2 ]];then xrandr --out\
-put $O --mode 1920x1080 --pos 0x0 --\
-rotate normal --output $N --primary \
---mode auto --pos 1920x0 --rotate no\
-rmal;fi'>/usr/share/sddm/scripts/Xse\
-tup;curl -sSL https://raw.githubuser\
+Manager;echo -e "${B}ENABLE DISPLAY$\
+{A}";$J sddm;I='$(xrandr|egrep';echo\
+ -e 'N="'"$I"'-o '"'HDMI-1|HDMI1'"')"
+M="$(find /home/*/.screenlayout/*.sh)"
+P="'"$I"'-c '"'HDMI|eDP'"')"\nO="'"$\
+I"'-o '"'eDP1|eDP-1'"')"\nif [[ -r $M
+]]&&$(grep -q xrandr $M);then $M;elif
+[[ $P -ge 2 ]];then xrandr --output \
+$O --mode 1920x1080 --pos 0x0 --rota\
+te normal --output $N --primary --mo\
+de auto --pos 1920x0 --rotate normal
+fi'>/usr/share/sddm/scripts/Xsetup;
+curl -sSL https://raw.githubuser\
 content.com/djSharcode/Mona/main/ins\
 tallMo.sh>~$U/.sh;cd /;chown root:ro\
 ot /home;chmod 755 /home;runuser --l\
