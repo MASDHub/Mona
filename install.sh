@@ -46,7 +46,7 @@ s$G/$C" -e "3 s$D/" -e "2 s$D-Beka/
 E-2.0/gtkrc;echo -e "${B}GRUB${A}";g\
 rub-install --target=x86_64-efi --ef\
 i-directory=/boot --bootloader-id=GR\
-UB;grub-mkconfig -o /boot/grub/grub.cfg
+UB;grub-mkconfig >/boot/grub/grub.cfg
 echo -e "${B}NETWORK${A}";$J Network\
 Manager;echo -e "${B}DISPLAY ENABLED
 ${A}";$J sddm;I='$(xrandr|egrep';ech\
