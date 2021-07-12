@@ -21,8 +21,8 @@ tail -13;C='Fira Sans Condensed Book/
 H='openbox-session';E='/usr/share/gtk
 ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
-${A}>"&&passwd;do :;done;until print\
-f "${B}User Name: ${A}"&&read -r R &&
+$A"&&passwd;do :;done;until printf "
+${B}User Name: ${A}"&&read -r R &&
 U="${R,,}"&&[[ "$U" =~ ^[a-z]*$ ]] &&
 [[ ${#U} -gt 4 ]];do :;done;useradd \
 -m -G wheel ${U}; until echo -e "${B}
@@ -33,7 +33,7 @@ S}${P}.localdomain ${P}" >>/etc/hosts
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;ln -sf /$(cat /etc/T ) /etc/loca\
 ltime;sed -i "s/#${F}/$F/" /etc/loca\
-le.gen;echo LANG=${U}F-8 > /etc/loca\
+le.gen;echo LANG=${F}F-8 > /etc/loca\
 le.conf;locale-gen;echo $P>/etc/host\
 name;echo "/home/$U/m.sh" >/etc/U;hw\
 clock --systohc;echo "$H" >/home/$U/\
