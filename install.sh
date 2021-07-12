@@ -38,7 +38,7 @@ le.conf;locale-gen;echo $P>/etc/host\
 name;echo "/home/$U/m.sh" >/etc/U;hw\
 clock --systohc;echo "$H" >/home/$U/\
 .xinitrc;sed -i 's/aut/1920x1080,aut/
-'/etc/default/grub;sed -i "s/tw/${H}/
+' /etc/default/grub;sed -i "s/twm/$H/
 " /etc/X11/xinit/xinitrc;sed -i -e "
 s$G/$C" -e "3 s$D/" -e "2 s$D-Beka/
 " $E-3.0/settings.ini;sed -i -e "s$D\
