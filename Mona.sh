@@ -23,8 +23,8 @@ then M='intel-ucode'&&L='i915 ';fi;if
 amd-ucode';fi;lsblk -pe 7,11|egrep -\
 -color /?;$G-timezone $I&&$G-ntp true
 sed -i "0,/()/s//(${L}btrfs)/" $K;re\
-flector -p https --sort rate --score \
-5 --save $H.d/mirrorlist;sed -i '
+flector -p https --score 5 --sort ra\
+te --save $H.d/mirrorlist;sed -i '
 s/#Co/Co/' $H.conf;pacstrap -i /mnt \
 base base-devel linux-headers linux \
 linux-firmware screengrab alacritty \
