@@ -20,37 +20,36 @@ tail -13;C='Fira Sans Condensed Book/
 ';J='systemctl enable';G='/Cantarell'
 H='openbox-session';E='usr/share/gtk' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-until printf "${B}Enter Root Password
-$A"&&passwd;do :;done;until printf "
-${B}User Name: ${A}"&&read -r R &&
-U="${R,,}"&&[[ "$U" =~ ^[a-z]*$ ]] &&
-[[ ${#U} -gt 4 ]];do :;done;useradd \
--m -G wheel ${U}; until echo -e "${B}
-Enter User's Password${A}"&&passwd $U
-do :;done;P="${U}pc";echo -e "127.0.\
-0.1${S}localhost\n::1${Z}127.0.1.1${\
-S}${P}.localdomain ${P}" >>/etc/hosts
+until printf "${B}Enter User Name$A -
+"&&read R&&U="${R,,}"&&[[ ${#U} -gt 4 
+]]&&[[ "$U" =~ ^[a-z]*$ ]];do :;done
+useradd -m -G wheel $U;until printf "
+${B}Enter User Password$A"&&passwd $U
+do :;done;until printf "Enter${B}Root
+${A}Password: $A"&&passwd;do :;done
+P="${U}pc";echo -e "127.0.0.1${S}loc\
+alhost\n::1${Z}127.0.1.1${S}$P.local\
+domain $P">/etc/hosts;echo $P>/etc/h\
+ostname;ln -sf /$(cat /etc/T) /etc/l\
+ocaltime;sed -i "s/#${F}/$F/" /etc/l\
+ocale.gen;echo LANG=${F}F-8 > /etc/l\
+ocale.conf;echo /home/$U/m.sh>/etc/U
+sed -i 's/aut/1920x1080,aut/' /etc/d\
+efault/grub;sed -i "s/tw/$H/" /etc/X\
+11/xinit/xinitrc;echo $H>/home/$U/.x\
+initrc;hwclock --systohc;locale-gen
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
-ers;ln -sf /$(cat /etc/T ) /etc/loca\
-ltime;sed -i "s/#${F}/$F/" /etc/loca\
-le.gen;echo LANG=${F}F-8 > /etc/loca\
-le.conf;locale-gen;echo $P>/etc/host\
-name;echo "/home/$U/m.sh" >/etc/U;hw\
-clock --systohc;echo "$H" >/home/$U/\
-.xinitrc;sed -i 's/aut/1920x1080,aut/
-' /etc/default/grub;sed -i "s/twm/$H/
-" /etc/X11/xinit/xinitrc; sed -i -e "
-s$G/$C" -e "2 s$D-Beka/" -e "3 s$D/"\
- /$E-3.0/settings.ini;sed -i -e "s$D\
--Beka/" -e "2 s$D/" -e "s$G/$C" /$E-\
-2.0/gtkrc;echo -e "${B}ENABLE GRUB$A"
-grub-install --target=x86_64-efi --e\
-fi-directory=/boot --bootloader-id=G\
-RUB;grub-mkconfig>/boot/grub/grub.cfg
-echo -e "${B}NETWORK${A}";$J Network\
-Manager;echo -e "${B}ENABLE DISPLAY$\
-{A}";$J sddm;I='$(xrandr|egrep';echo\
- -e 'N="'"$I"'-o '"'HDMI-1|HDMI1'"')"
+ers;sed -i -e "s$D-Beka/" -e "s$G/$C
+" -e "2 s$D/" /$E-2.0/gtkrc;sed -i -\
+e "3 s$D/" -e "2 s$D-Beka/" -e "s$G/\
+$C" /$E-3.0/settings.ini;echo -e "${\
+B}NETWORK$A";$J NetworkManager;echo \
+-e "${B}DISPLAY$A";$J sddm;echo -e "
+${B}GRUB$A";grub-install --target=x8\
+6_64-efi --efi-directory=/boot --bootl\
+oader-id=GRUB;grub-mkconfig>/boot/gru\
+b/grub.cfg;I='$(xrandr|egrep';echo -\
+e 'N="'"$I"'-o '"'HDMI-1|HDMI1'"')"
 M=$(find /home/*/.screenlayout/*.sh )
 P="'"$I"'-c '"'HDMI|eDP'"')"\nO="'"$\
 I"'-o '"'eDP1|eDP-1'"')"\nif [[ -r $M
