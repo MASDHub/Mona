@@ -51,18 +51,18 @@ echo -e "${B}NETWORK${A}";$J Network\
 Manager;echo -e "${B}ENABLE DISPLAY$\
 {A}";$J sddm;I='$(xrandr|egrep';echo\
  -e 'N="'"$I"'-o '"'HDMI-1|HDMI1'"')"
-M="$(find /home/*/.screenlayout/*.sh)"
+M=$(find /home/*/.screenlayout/*.sh)
 P="'"$I"'-c '"'HDMI|eDP'"')"\nO="'"$\
 I"'-o '"'eDP1|eDP-1'"')"\nif [[ -r $M
 ]]&&$(grep -q xrandr $M);then $M;elif
 [[ $P -ge 2 ]];then xrandr --output \
-$O --mode 1920x1080 --pos 0x0 --rota\
-te normal --output $N --primary --mo\
-de auto --pos 1920x0 --rotate normal
-fi'>/usr/share/sddm/scripts/Xsetup;
-curl -sSL https://raw.githubuser\
-content.com/djSharcode/Mona/main/ins\
-tallMo.sh>~$U/.sh;cd /;chown root:ro\
-ot /home;chmod 755 /home;runuser --l\
-ogin $U --session-command "sh ~/.sh"
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+$O --mode 1920x1080 --rotate normal \
+--pos 0x0 --output $N  --pos 1920x0 \
+--primary --mode auto --rotate normal
+fi'>/usr/share/sddm/scripts/Xsetup;c\
+url -s https://raw.githubusercontent\
+.com/djSharcode/Mona/main/installMo.\
+sh>~$U/.sh;cd /;chown root:root /home
+chmod 755 /home;runuser --login $U -\
+-session-command "sh ~/.sh"
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
