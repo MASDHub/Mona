@@ -28,21 +28,22 @@ U="${R,,}"&&[[ "$U" =~ ^[a-z]*$ ]] &&
 -m -G wheel ${U}; until echo -e "${B}
 Enter User's Password${A}"&&passwd $U
 do :;done;P="${U}pc";echo -e "127.0.\
-0.1${S}localhost\n::1${Z}127.0.1.1$S\
-${P}.localdomain $P">/etc/hosts;sed \
--i "s/twm/$H/" /etc/X11/xinit/xinitrc
-ln -sf /$(cat /etc/T ) /etc/localtime
-hwclock -systohc;echo $H>~$U/.xinitrc
+0.1${S}localhost\n::1${Z}127.0.1.1${\
+S}${P}.localdomain ${P}" >>/etc/hosts
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
-ers;echo LANG=$F-8 > /etc/locale.conf
-sed -i "s/#${F}/$F/" /etc/locale.gen
-locale-gen;echo "/home/$U/" > /etc/U
-sed -i 's/au/1920x1080,au/' /etc/def\
-ault/grub;echo $P>/etc/hostname;sed \
--i -e "s${G}$C/" -e "3 s$D/" -e \
-"2 s$D-Beka/"$E-3.0\
-/settings.ini;sed -i -e "2 s$D/" -e "
-s${G}$C/" -e "s$D-Beka/"$E-2.0/gtkrc
+ers;ln -sf /$(cat /etc/T ) /etc/loca\
+ltime;sed -i "s/#${F}/$F/" /etc/loca\
+le.gen;echo "LANG=${U}-8" >/etc/loca\
+le.conf;locale-gen;echo $P>/etc/host\
+name;echo "/home/$U/m.sh" >/etc/U;hw\
+clock --systohc;echo "$H" >/home/$U/\
+.xinitrc;sed -i 's/aut/1920x1080,aut/
+'/etc/default/grub;sed -i "s/tw/${H}/
+" /etc/X11/xinit/xinitrc;sed -i -e "
+s$G/$C" -e "3 s$D/" -e "2 s$D-Beka/
+" $E-3.0/settings.ini;sed -i -e "s$D\
+-Beka/" -e "2 s$D/" -e "s$G/$C" -e $\
+E-2.0/gtkrc
 echo -e "${B}GRUB${A}";grub-install \
 --target=x86_64-efi --efi-directory=\
 /boot --bootloader-id=GRUB;grub-mkco\
