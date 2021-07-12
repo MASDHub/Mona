@@ -42,8 +42,8 @@ clock --systohc;echo "$H" >/home/$U/\
 " /etc/X11/xinit/xinitrc; sed -i -e "
 s$G/$C" -e "2 s$D-Beka/" -e "3 s$D/"\
  /$E-3.0/settings.ini;sed -i -e "s$D\
--Beka/" -e "2 s$D/" -e "s$G/$C" -e /\
-$E-2.0/gtkrc;echo -e "${B}GRUB${A}"
+-Beka/" -e "2 s$D/" -e "s$G/$C" /$E-\
+2.0/gtkrc;echo -e "${B}GRUB${A}"
 grub-install --target=x86_64-efi --e\
 fi-directory=/boot --bootloader-id=G\
 RUB;grub-mkconfig>/boot/grub/grub.cfg
