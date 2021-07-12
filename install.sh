@@ -46,10 +46,10 @@ $C" /$E-3.0/settings.ini;echo -e "${\
 B}NETWORK$A";$J NetworkManager;echo \
 -e "${B}DISPLAY$A";$J sddm;echo -e "
 ${B}GRUB$A";grub-install --target=x8\
-6_64-efi --efi-directory=/boot --bootl\
-oader-id=GRUB;grub-mkconfig>/boot/gru\
-b/grub.cfg;I='$(xrandr|egrep';echo -\
-e 'N="'"$I"'-o '"'HDMI-1|HDMI1'"')"
+6_64-efi --efi-directory=/boot --boo\
+tloader-id=GRUB;grub-mkconfig>/boot/g\
+rub/grub.cfg;I='$(xrandr|egrep';echo\
+ -e 'N="'"$I"'-o '"'HDMI-1|HDMI1'"')"
 M=$(find /home/*/.screenlayout/*.sh )
 P="'"$I"'-c '"'HDMI|eDP'"')"\nO="'"$\
 I"'-o '"'eDP1|eDP-1'"')"\nif [[ -r $M
