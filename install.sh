@@ -61,9 +61,9 @@ put $O --mode 1920x1080 --pos 0x0 --\
 rotate normal --output $N --primary \
 --mode auto --pos 1920x0 --rotate no\
 rmal;fi'>/usr/share/sddm/scripts/Xse\
-tup;curl -s https://raw.githubuserco\
-ntent.com/djSharcode/Mona/main/insta\
-llMo.sh>~$U/.sh;cd /;chown root:root /ho\
-me;chmod 755 /home;runuser --login $\
-U --session-command "sh ~/.sh"
+tup;curl -sSL https://raw.githubuser\
+content.com/djSharcode/Mona/main/ins\
+tallMo.sh>~$U/.sh;cd /;chown root:ro\
+ot /home;chmod 755 /home;runuser --l\
+ogin $U --session-command "sh ~/.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
