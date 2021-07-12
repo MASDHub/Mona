@@ -40,10 +40,10 @@ galculator pkg-config rofi clipgrab \
 nitrogen pipewire conky-manager vim \
 gvfs-afc obconf-qt pavucontrol htop \
 pipewire-alsa alsa-utils volumeicon \
-geany-plugins gvfs-mtp vlc ${M};curl\
- -sSL https://raw.githubusercontent.\
-com/djsharcode/Mona/main/install.sh>\
-/mnt/etc/.sh;echo usr/share/zoneinfo\
-/$I>/mnt/etc/T;cp $H.conf /mnt$H.conf
-cp $K /mnt$K;genfstab -U /mnt>>/mnt/\
-etc/fstab;arch-chroot /mntsh /etc/.sh
+geany-plugins gvfs-mtp vlc $M;curl -\
+s https://raw.githubusercontent.com/\
+djsharcode/Mona/main/install.sh>/mnt\
+/etc/.sh;cp $H.conf /mnt$H.conf;cp $\
+K /mnt$K;echo usr/share/zoneinfo/$I>\
+/mnt/etc/T;genfstab -U /mnt >>/mnt/e\
+tc/fstab;arch-chroot /mnt sh /etc/.sh
