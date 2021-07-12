@@ -34,13 +34,13 @@ ostname;ln -sf /$(cat /etc/T) /etc/l\
 ocaltime;sed -i "s/#${F}/$F/" /etc/l\
 ocale.gen;echo LANG=${F}F-8 > /etc/l\
 ocale.conf;echo /home/$U/m.sh>/etc/U
+sed -i '0,/# %w/ s/# %w/ %w/' /etc/s\
+udoers;hwclock --systohc;locale-gen
 sed -i 's/aut/1920x1080,aut/' /etc/d\
 efault/grub;sed -i "s/tw/$H/" /etc/X\
 11/xinit/xinitrc;echo $H>/home/$U/.x\
-initrc;hwclock --systohc;locale-gen
-sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
-ers;sed -i -e "s$D-Beka/" -e "s$G/$C
-" -e "2 s$D/" /$E-2.0/gtkrc;sed -i -\
+initrc;sed -i -e "s$G/$C" -e "2 s$D/
+" "s$D-Beka/" /$E-2.0/gtkrc;sed -i -\
 e "3 s$D/" -e "2 s$D-Beka/" -e "s$G/\
 $C" /$E-3.0/settings.ini;echo -e "${\
 B}NETWORK$A";$J NetworkManager;echo \
