@@ -60,10 +60,10 @@ lif [[ $P -ge 2 ]];then xrandr --out\
 put $O --mode 1920x1080 --pos 0x0 --\
 rotate normal --output $N --primary \
 --mode auto --pos 1920x0 --rotate no\
-rmal;fi'>/usr/share/sddm/scripts/Xsetup
-curl -s https://raw.githubuserconten\
-t.com/djSharcode/Mona/main/installMo\
-.sh>~$U/.sh;cd /;chown root:root /ho\
+rmal;fi'>/usr/share/sddm/scripts/Xse\
+tup;curl -s https://raw.githubuserco\
+ntent.com/djSharcode/Mona/main/insta\
+llMo.sh>~$U/.sh;cd /;chown root:root /ho\
 me;chmod 755 /home;runuser --login $\
 U --session-command "sh ~/.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
