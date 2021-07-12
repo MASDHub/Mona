@@ -21,7 +21,7 @@ tail -13;C='Fira Sans Condensed Book/
 H='openbox-session';E='/usr/share/gtk
 ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
-:${A}"&&passwd;do :;done;until print\
+${A}>"&&passwd;do :;done;until print\
 f "${B}User Name: ${A}"&&read -r R &&
 U="${R,,}"&&[[ "$U" =~ ^[a-z]*$ ]] &&
 [[ ${#U} -gt 4 ]];do :;done;useradd \
