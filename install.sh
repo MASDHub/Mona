@@ -14,8 +14,8 @@ set -euo pipefail
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
 S='       ';Z='             localhost
-';B='\e[1;31m';A='\e[0m';F='en_US.UTF
-';D='/Adwaita/Oranchelo';head -15 $0|
+';B='\e[1;31m';A='\e[0m';F='en_US.UT'
+D='/Adwaita/Oranchelo';head -15 "$0"|
 tail -13;C='Fira Sans Condensed Book/
 ';J='systemctl enable';G='/Cantarell'
 H='openbox-session';E='/usr/share/gtk
