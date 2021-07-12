@@ -18,8 +18,8 @@ S='       ';Z='             localhost
 D='/Adwaita/Oranchelo';head -15 "$0"|
 tail -13;C='Fira Sans Condensed Book/
 ';J='systemctl enable';G='/Cantarell'
-H='openbox-session';E='/usr/share/gtk
-' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+H='openbox-session';E='usr/share/gtk' 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
 $A"&&passwd;do :;done;until printf "
 ${B}User Name: ${A}"&&read -r R &&
@@ -39,14 +39,14 @@ name;echo "/home/$U/m.sh" >/etc/U;hw\
 clock --systohc;echo "$H" >/home/$U/\
 .xinitrc;sed -i 's/aut/1920x1080,aut/
 ' /etc/default/grub;sed -i "s/twm/$H/
-" /etc/X11/xinit/xinitrc;sed -i -e "
-s$G/$C" -e "3 s$D/" -e "2 s$D-Beka/
-" $E-3.0/settings.ini;sed -i -e "s$D\
--Beka/" -e "2 s$D/" -e "s$G/$C" -e $\
-E-2.0/gtkrc;echo -e "${B}GRUB${A}";g\
-rub-install --target=x86_64-efi --ef\
-i-directory=/boot --bootloader-id=GR\
-UB;grub-mkconfig >/boot/grub/grub.cfg
+" /etc/X11/xinit/xinitrc; sed -i -e "
+s$G/$C" -e "2 s$D-Beka/" -e "3 s$D/"\
+ /$E-3.0/settings.ini;sed -i -e "s$D\
+-Beka/" -e "2 s$D/" -e "s$G/$C" -e /\
+$E-2.0/gtkrc;echo -e "${B}GRUB${A}"
+grub-install --target=x86_64-efi --e\
+fi-directory=/boot --bootloader-id=G\
+RUB;grub-mkconfig >/boot/grub/grub.cfg
 echo -e "${B}NETWORK${A}";$J Network\
 Manager;echo -e "${B}ENABLE DISPLAY$\
 {A}";$J sddm;I='$(xrandr|egrep';echo\
