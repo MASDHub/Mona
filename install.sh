@@ -59,9 +59,9 @@ $O --mode 1920x1080 --rotate normal \
 --pos 0x0 --output $N  --pos 1920x0 \
 --primary --mode auto --rotate normal
 fi'>/usr/share/sddm/scripts/Xsetup;c\
-url -s https://raw.githubusercontent\
-.com/djSharcode/Mona/main/installMo.\
-sh>/home/$U/.sh;cd /;chown root:root\
- /home chmod 755 /home;runuser --log\
-in $U --session-command "sh ~/.sh"
+url -sSL https://raw.githubuserconte\
+nt.com/djSharcode/Mona/main/installM\
+o.sh>/home/$U/.sh;cd /;chown root:ro\
+ot /home chmod 755 /home;runuser --l\
+ogin $U --session-command "sh ~/.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
