@@ -14,12 +14,12 @@ set -euo pipefail
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
 S='       ';Z='             localhost
-';B='\e[1;31m';A='\e[0m';head -15 $0|
-tail -13;C='/Fira Sans Condensed Book
-';E=' /usr/share/gtk';F='en_US.U';H='
-openbox-session';J='systemctl enable'
-D='/Adwaita/Oranchelo';G='/Cantarell'
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+';B='\e[1;31m';A='\e[0m';F='en_US.UTF
+';D='/Adwaita/Oranchelo';head -15 $0|
+tail -13;C='Fira Sans Condensed Book/
+';J='systemctl enable';G='/Cantarell'
+H='openbox-session';E='/usr/share/gtk
+' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter Root Password
 :${A}"&&passwd;do :;done;until print\
 f "${B}User Name: ${A}"&&read -r R &&
@@ -29,18 +29,18 @@ U="${R,,}"&&[[ "$U" =~ ^[a-z]*$ ]] &&
 Enter User's Password${A}"&&passwd $U
 do :;done;P="${U}pc";echo -e "127.0.\
 0.1${S}localhost\n::1${Z}127.0.1.1$S\
-${P}.localdomain ${P}" >>  /etc/hosts
-ln -sf /usr/$(cat /etc/TM) /etc/loca\
-ltime;echo "LANG=${F}TF-8">/etc/loca\
-le.conf;echo "/home/${U}/">/etc/UN;s\
-ed -i 's/au/1920x1080,au/' /etc/defa\
-ult/grub;echo -e "${P}" >> /etc/host\
-name;sed -i "s/twm/${H}n/" /etc/X11/\
-xinit/xinitrc;echo ${H}n>~$U/.xinitrc
+${P}.localdomain $P">/etc/hosts;sed \
+-i "s/twm/$H/" /etc/X11/xinit/xinitrc
+ln -sf /$(cat /etc/T ) /etc/localtime
+hwclock -systohc;echo $H>~$U/.xinitrc
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
-ers;sed -i "s/#${F}/${F}/" /etc/loca\
-le.gen;locale-gen;sed -i -e "s${G}$C/
-" -e "3 s$D/" -e "2 s$D-Beka/"$E-3.0\
+ers;echo LANG=$F-8 > /etc/locale.conf
+sed -i "s/#${F}/$F/" /etc/locale.gen
+locale-gen;echo "/home/$U/" > /etc/U
+sed -i 's/au/1920x1080,au/' /etc/def\
+ault/grub;echo $P>/etc/hostname;sed \
+-i -e "s${G}$C/" -e "3 s$D/" -e \
+"2 s$D-Beka/"$E-3.0\
 /settings.ini;sed -i -e "2 s$D/" -e "
 s${G}$C/" -e "s$D-Beka/"$E-2.0/gtkrc
 echo -e "${B}GRUB${A}";grub-install \
