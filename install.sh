@@ -18,7 +18,7 @@ S='       ';Z='             localhost
 ';D='/Adwaita/Oranchelo';head -15 $0|
 tail -13;C='Fira Sans Condensed Book/
 ';J='systemctl enable';G='/Cantarell'
-H='openbox-session';E='usr/share/gtk' 
+H='openbox-session';E='usr/share/gtk'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "$B Enter User Name$A"&&
 read R&&U="${R,,}"&&[ ${#U} -gt 4 ]&&
@@ -53,7 +53,7 @@ ub-mkconfig > /boot/grub/grub.cfg;I=\
 '/home/*/\.screenlayout/*.sh)"\nO='"\
 $I"'o '"'eDP1|eDP-1'"')\nP='"$I"'c '\
 "'HDMI|eDP'"')\nif [[ -r ${M} ]] && \
-$(grep -q xrandr $M);then $M;fi;if [[ 
+$(grep -q xrandr $M);then $M;fi;if [[
 $P -ge 2 ]];then xrandr --output $O \
 --mode 1920x1080 --pos 0x0 --rotate \
 normal --output $N --primary --mode \
