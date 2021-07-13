@@ -9,7 +9,7 @@ E='separator>';A=.config/openbox;F=.\
 git clone https://aur.archlinux.org/\
 pikaur.git;cd pikaur/;makepkg -fsri
 pikaur -S --needed timeshift ttf-ms-\
-fonts oranchelo-icon-theme-git picom\
+fonts picom-git oranchelo-icon-theme\
 -git;cp -r /etc/xdg/openbox $A;sed -\
 i 's/g = no/g = yes/' .config/pikaur\
 .conf;sed -i -e 's/Clearlooks/Bear2/
