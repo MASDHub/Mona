@@ -32,9 +32,8 @@ sed -i '5,$d' $A/menu.xml;echo -e '
 'Password:"'$D'Reboot'$C'reboot'$D''\
 'Power-Off'$C'poweroff</command></a'\
 'ction></item></menu></openbox_menu>
-'>>$A/menu.xml
-echo -e "lxqt-policykit &\n\npicom -\
--experimental-backends &\n\nplank &\n
+'>>$A/menu.xml;echo -e "lxqt-policyk\
+it &\n\npicom --experimental-backends &\n\nplank &\n
 trayer --transparent true --monitor \
 primary --height 40 --tint 0x716966 \
 --align right &\n\nxpad &\n\n(sleep \
