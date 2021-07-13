@@ -23,8 +23,8 @@ sed -i '5,$d' $A/menu.xml;echo -e ''\
 '<menu id="root-menu" label="Openbo'\
 'x 3"><item label="File'$C'nemo'$D''\
 'Search'$C'rofi -show drun'$D'Web'$C\
-'firefox'$D'Terminal'$C'alacritty'$D'
-Text'$C'geany'$D'Calculator'$C'gal'\
+'firefox'$D'Terminal'$C'alacritty'$D\
+'Text'$C'geany'$D'Calculator'$C'gal'\
 'culator'$D'Refresh'$C'openbox --re'\
 'configure'$D'Lock Screen'$C'xlock '\
 '+description -mode atlantis -echok'\
