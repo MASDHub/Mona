@@ -43,8 +43,8 @@ initrc;sed -i -e "s$G/$C" -e "2 s$D/
 " -e "s$D-Beka/" /$E-2.0/gtkrc;sed -\
 i -e "2 s$D-Beka/" -e "s$G/$C" -e "
 3 s$D/"/$E-3.0/settings.ini;echo -e "
-${B}NETWORK$A";$J NetworkManager;echo \
--e "${B}DISPLAY$A";$J sddm;echo -e "
+${B}NETWORK$A";$J NetworkManager;ech\
+o -e "${B}DISPLAY$A";$J sddm;echo -e "
 ${B}GRUB$A";grub-install --target=x8\
 6_64-efi --efi-directory=/boot --boo\
 tloader-id=GRUB;grub-mkconfig>/boot/\
