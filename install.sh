@@ -48,12 +48,12 @@ rkManager;echo -e "$B*GRUB$A";grub-i\
 nstall --target=x86_64-efi --efi-dir\
 ectory=/boot --bootloader-id=GRUB;gr\
 ub-mkconfig > /boot/grub/grub.cfg;I=\
-'$(xrandr|egrep';echo -e 'N="'"$I"'-\
-o '"'HDMI-1|HDMI1'"')"\nO='"$I"'-o '\
+'$(xrandr|egrep';echo -e '\nN='"$I"\
+'-o '"'HDMI-1|HDMI1'"')\nO='"$I"'-o '\
 "'eDP1|eDP-1'"')\nP='"$I"'-c '"'HDMI\
 |eDP'"')\n
-M=$(find /home/*/.screenlayout/*.sh )
-\n\nif [[ -r $M
+M=$(find /home/*/\.screenlayout/*.sh )
+if [[ -r $M
 ]]&&$(grep -q xrandr $M);then $M;elif
 [[ $P -ge 2 ]];then xrandr --output \
 $O --mode 1920x1080 --rotate normal \
