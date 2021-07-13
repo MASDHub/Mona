@@ -28,8 +28,8 @@ geany'$D'Calculator'$C'galculator'$D'
 Re-fresh'$C'openbox --reconfigure'$D'
 Lock Screen'$C'xlock -mode atlantis \
 -echokeys -echokey '"'*'"' -info +de\
-scription "'Password: '"'$D'Re-boot'\
-$C'reboot'$D'Power-Off'$C'poweroff
+scription "'Password: '"'$D'Re-boot
+'$C'reboot'$D'Power-Off'$C'poweroff
 </command></action></item></menu>
 </openbox_menu>'>>.$A/menu.xml 
 echo -e "lxqt-policykit &\n
