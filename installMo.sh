@@ -8,17 +8,17 @@ E='separator>';A=.config/openbox:F=.\
 'config/plank/docks1/launcher/' #~~~#
 cp -r /etc/xdg/openbox $A;git clone \
 https://aur.archlinux.org/pikaur.git
-cd pikaur/;makepkg -fsri;pikaur -S -\
--needed oranchelo-icon-theme-git tim\
-eshift picom-git ttf-ms-fonts;sed -i\  
- 's/g = no/g = yes/' .config/pikaur.\
-conf ; sed -i -e 's/Clearlooks/Bear2/
-' -e 's/W-e/0x85/' -e '10,100 s/9/13/
-' -e 's/A-space/0x85/' '5,120 s/8/12/
+cd pikaur/;makepkg -sri;pikaur -S --\
+needed oranchelo-icon-theme-git time\
+shift picom-git ttf-ms-fonts;sed -i '
+s/g = no/g = yes/' .config/pikaur.co\
+nf;sed -i -e 's/Clearlooks/Bear2/' -\
+e '100,131 s/4/2/' -e '10,100 s/9/13/
+' -e '10,120 s/8/12/ -e 's/W-e/0x85/
 ' -e 's/kfmclient openProfile/rofi -/
 ' -e 's/ filemangnagement/show drun/'
 -e 's/sans/Fira Sans Condensed Book/'
--e '100,131 s/4/2/' ~/$A/rc.xml;sed \
+-e 's/A-space/0x85/' ~/$A/rc.xml;sed \
 -i '5,$d' ~/$A/menu.xml;echo -e '<me\
 nu id="root-menu" label="Openbox 3">
 <item label="File'$C'nemo'$D'Search'\
