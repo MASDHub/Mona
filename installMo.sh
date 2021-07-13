@@ -13,25 +13,26 @@ fonts picom-git oranchelo-icon-theme\
 -git;cp -a /etc/xdg/openbox/ .config/
 sed -i 's/g = no/g = yes/' .config/p\
 ikaur.conf;sed -i -e 's/A-space/0x85/
- ' -e '99,131 s/4/2/' -e '9,99 s/9/13/
+' -e '99,131 s/4/2/' -e '9,99 s/9/13/
 ' -e '10,120 s/8/12/' -e 's/W-e/0x85/
 ' -e 's/kfmclient openProfile/rofi -/
 ' -e 's/ filemanagement/show drun/' \
 -e 's/sans/Fira Sans Condensed Book/
 ' -e 's/Clearlooks/Bear2/' $A/rc.xml
-sed -i '5,$d' $A/menu.xml;echo -e '<me'\
-'nu id="root-menu" label="Openbox 3">
-<item label="File'$C'nemo'$D'Search'\
-$C'rofi -show drun'$D'Web'$C'firefox
-'$D'Terminal'$C'alacritty'$D'Text'$C'
-geany'$D'Calculator'$C'galculator'$D\
-'Refresh'$C'openbox --reconfigure'$D\
-'Lock Screen'$C'xlock +description '\
-'-mode atlantis -echokeys -echokey '\
-"'*'"' -info "Enter Log-In Password:"
-'$D'Reboot'$C'reboot'$D'Power-Off'$C\
-'poweroff</command></action></item>'\
-'</menu></openbox_menu>'>>$A/menu.xml
+sed -i '5,$d' $A/menu.xml;echo -e '
+<menu id="root-menu" label="Openbo'\
+'x 3"><item label="Files'$C'nemo'$D\
+'Search'$C'rofi -show drun'$D'Web'$C\
+'firefox'$D'Terminal'$C'alacritty'$D\
+'Text'$C'geany'$D'Calculator'$C'ga'\
+'lculator'$D'Refresh'$C'openbox --'\
+'reconfigure'$D'Lock Screen'$C'xloc'\
+'k +description -mode atlantis -ec'\
+'hokeys -echokey '"'*'"' -info "En'\
+'ter Log-In Password:"'$D'Reboot'$C\
+'reboot'$D'Power-Off'$C'poweroff</co'\
+'mmand></action></item></menu></op'\
+'enbox_menu>'>>$A/menu.xml
 echo -e "lxqt-policykit &\n\npicom -\
 -experimental-backends &\n\nplank &\n
 trayer --transparent true --monitor \
