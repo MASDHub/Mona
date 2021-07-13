@@ -26,9 +26,9 @@ i '5,$d' $A/menu.xml;echo -e '<menu'\
 '$D'Terminal'$C'alacritty'$D'Text'$C'
 geany'$D'Calculator'$C'galculator'\
 ''$D'Re-fresh'$C'openbox --reconfigure
-'$D'Lock Screen'$C'xlock -mode atlantis \
- +description -echokeys -echokey '"'*'\
- "' -info "Password: "$D'Re-boot
+'$D'Lock Screen'$C'xlock +description \
+-mode atlantis -echokeys -echokey '"'*'\
+"' -info "Password: "$D'Re-boot
 '$C'reboot'$D'Power-Off'$C'poweroff
 </command></action></item></menu>
 </openbox_menu>'>>.$A/menu.xml 
