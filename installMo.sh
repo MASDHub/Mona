@@ -6,13 +6,13 @@ sleep 2 && ';D='</command></action>'\
 '</item><item label="';I=' docks.ini'
 E='separator>';A=.config/openbox:F=.\
 'config/plank/docks1/launcher/' #~~~#
-cp -r /etc/xdg/openbox/ $A;git clone\
- https://aur.archlinux.org/pikaur.gi\
-t;cd pikaur/;makepkg -fsri;pikaur -S\
- --needed oranchelo-icon-theme-git t\
-imeshift picom-git ttf-ms-fonts;sed \  
--i 's/g = no/g = yes/' .config/pikau\
-r.conf;sed -i -e 's/Clearlooks/Bear2/
+cp -r /etc/xdg/openbox $A;git clone \
+https://aur.archlinux.org/pikaur.git
+cd pikaur/;makepkg -fsri;pikaur -S -\
+-needed oranchelo-icon-theme-git tim\
+eshift picom-git ttf-ms-fonts;sed -i\  
+ 's/g = no/g = yes/' .config/pikaur.\
+conf ; sed -i -e 's/Clearlooks/Bear2/
 ' -e 's/W-e/0x85/' -e '10,100 s/9/13/
 ' -e 's/A-space/0x85/' '5,120 s/8/12/
 ' -e 's/kfmclient openProfile/rofi -/
