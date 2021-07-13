@@ -6,13 +6,13 @@ G=' /net/launchpad/plank/docks/ ';H='
 </item><item label="';I=' docks.ini '
 E='separator>';A=.config/openbox;F=.\
 'config/plank/docks1/launcher/' #~~~#
-cp -r /etc/xdg/openbox $A;git clone \
-https://aur.archlinux.org/pikaur.git
-cd pikaur/;makepkg -sri;pikaur -S --\
-needed oranchelo-icon-theme-git time\
-shift picom-git ttf-ms-fonts;sed -i '
-s/g = no/g = yes/' .config/pikaur.co\
-nf;sed -i -e 's/Clearlooks/Bear2/' -\
+git clone https://aur.archlinux.org\
+/pikaur.git;cd pikaur/;makepkg -fsri
+pikaur -S --needed timeshift ttf-ms\
+-fonts oranchelo-icon-theme-git pic\
+om-git;cp -r /etc/xdg/openbox $A;se\
+d -i 's/g = no/g = yes/' .config/pik\
+aur.conf;sed -i -e 's/Clearlooks/Bear2/' -\
 e '100,131 s/4/2/' -e '10,100 s/9/13/
 ' -e '10,120 s/8/12/' -e 's/W-e/0x85/
 ' -e 's/kfmclient openProfile/rofi -/
