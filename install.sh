@@ -17,7 +17,7 @@ S='       ';Z='             localhost
 ';B='\e[1;31m';A='\e[0m';F='en_US.UT'
 D='/Adwaita/Oranchelo';head -15 "$0"|
 tail -13;C='Fira Sans Condensed Book/
-';J='systemctl enable';G='/Cantarell'
+';J='systemctl enable ';G='Cantarell'
 H='openbox-session';E='usr/share/gtk' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf "${B}Enter User Name$A:\
@@ -39,12 +39,12 @@ udoers;hwclock --systohc;locale-gen
 sed -i 's/aut/1920x1080,aut/' /etc/d\
 efault/grub;sed -i "s/tw/$H/" /etc/X\
 11/xinit/xinitrc;echo $H>/home/$U/.x\
-initrc;sed -i -e "s$G/$C" -e "2 s$D/
+initrc;sed -i -e "s/$G/$C" -e "2 s$D/
 " -e "s$D-Beka/" /$E-2.0/gtkrc;sed -\
-i -e "2 s$D-Beka/" -e "s$G/$C" -e "
+i -e "2 s$D-Beka/" -e "s/$G/$C" -e "
 3 s$D/"/$E-3.0/settings.ini;echo -e "
-${B}NETWORK$A";$J NetworkManager;ech\
-o -e "${B}DISPLAY$A";$J sddm;echo -e "
+${B}NETWORKS$A";$JNetworkManager;ech\
+o -e "${B}DISPLAY$A";$Jsddm;echo -e "
 ${B}GRUB$A";grub-install --target=x8\
 6_64-efi --efi-directory=/boot --boo\
 tloader-id=GRUB;grub-mkconfig>/boot/\
