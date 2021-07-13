@@ -29,10 +29,10 @@ sed -i '5,$d' $A/menu.xml;echo -e '
 'configure'$D'Lock Screen'$C'xlock '\
 '+description -mode atlantis -echok'\
 'eys -echokey '"'*'"' -info "Enter '\
-'Log-In Password:"'$D'Reboot'$C'reboot
-'$D'Power-Off'$C'poweroff</co'\
-'mmand></action></item></menu></op'\
-'enbox_menu>'>>$A/menu.xml
+'Password:"'$D'Reboot'$C'reboot'$D''\
+'Power-Off'$C'poweroff</command></act'\
+ion></item></menu></openbox_menu>'>>\
+$A/menu.xml
 echo -e "lxqt-policykit &\n\npicom -\
 -experimental-backends &\n\nplank &\n
 trayer --transparent true --monitor \
