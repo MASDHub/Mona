@@ -24,7 +24,7 @@ until printf "${B}Enter User Name$A:\
 "&&read R&&U="${R,,}"&&[[ ${#U} -gt 4 
 ]]&&[[ "$U" =~ ^[a-z]*$ ]];do :;done
 useradd -m -G wheel $U;until printf "
-"${B}User Password$A"&&passwd $U;do :
+${B}Users Password$A"&&passwd $U;do :
 done;until echo -e "$Enter {B}Root$A 
 (Admin) Password:"&&passwd;do :;done
 P="${U}pc";echo -e "127.0.0.1${S}loc\
