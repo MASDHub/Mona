@@ -30,9 +30,9 @@ sed -i '5,$d' $A/menu.xml;echo -e '
 '+description -mode atlantis -echok'\
 'eys -echokey '"'*'"' -info "Enter '\
 'Password:"'$D'Reboot'$C'reboot'$D''\
-'Power-Off'$C'poweroff</command></act'\
-ion></item></menu></openbox_menu>'>>\
-$A/menu.xml
+'Power-Off'$C'poweroff</command></ac'\
+'tion></item></menu></openbox_menu>
+'>>$A/menu.xml
 echo -e "lxqt-policykit &\n\npicom -\
 -experimental-backends &\n\nplank &\n
 trayer --transparent true --monitor \
