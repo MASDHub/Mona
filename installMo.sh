@@ -8,11 +8,11 @@ A='.config/openbox';I='docks.ini';D='
 ';G='/net/launchpad/plank/docks/';H='
 sleep 2&&';E='<separator></separator>
 ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-cp -ari /etc/xdg/openbox/ .config/;g\
-it clone https://aur.archlinux.org/p\
-ikaur.git;cd pikaur/;makepkg -fsri;p\
-ikaur -S --needed timeshift picom-git
-oranchelo-icon-theme-git ttf-ms-fonts
+cp -ari /etc/xdg/openbox/ $A;git clo\
+ne https://aur.archlinux.org/pikaur.\
+git;cd pikaur/;makepkg -fsri;pikaur \
+-S --needed timeshift ttf-ms-fonts \
+picom-git oranchelo-icon-theme-git 
 sed -i 's/g = no/g = yes/' .config/p\
 ikaur.conf; sed -i -e '100,131 s/4/2/
 ' -e 's/W-e/0x85/' -e '10,100 s/9/13/
