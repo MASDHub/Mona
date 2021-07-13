@@ -19,9 +19,9 @@ ikaur.conf;sed -i -e 's/A-space/0x85/
 ' -e 's/ filemanagement/show drun/' \
 -e 's/sans/Fira Sans Condensed Book/
 ' -e 's/Clearlooks/Bear2/' $A/rc.xml
-sed -i '5,$d' $A/menu.xml;echo -e '
-<menu id="root-menu" label="Openbox'\
-' 3"><item label="Files'$C'nemo'$D''\
+sed -i '5,$d' $A/menu.xml;echo -e ''\
+'<menu id="root-menu" label="Openbo'\
+'x 3"><item label="Files'$C'nemo'$D\
 'Search'$C'rofi -show drun'$D'Web'$C\
 'firefox'$D'Terminal'$C'alacritty'$D\
 'Text'$C'geany'$D'Calculator'$C'gal'\
