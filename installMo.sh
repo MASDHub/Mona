@@ -24,9 +24,9 @@ sed -i '5,$d' $A/menu.xml;echo -e '
 ' 3"><item label="Files'$C'nemo'$D''\
 'Search'$C'rofi -show drun'$D'Web'$C\
 'firefox'$D'Terminal'$C'alacritty'$D\
-'Text'$C'geany'$D'Calculator'$C'ga'\
-'lculator'$D'Refresh'$C'openbox --'\
-'reconfigure'$D'Lock Screen'$C'xloc'\
+'Text'$C'geany'$D'Calculator'$C'gal'\
+'culator'$D'Refresh'$C'openbox --re'\
+'configure'$D'Lock Screen'$C'xloc'\
 'k +description -mode atlantis -ec'\
 'hokeys -echokey '"'*'"' -info "En'\
 'ter Log-In Password:"'$D'Reboot'$C\
