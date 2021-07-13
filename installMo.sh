@@ -4,7 +4,7 @@ C='"><actionname="Execute"><command>'
 G=' /net/launchpad/plank/docks/ ';H='
 sleep 2 && ';D='</command></action>'\
 '</item><item label="';I=' docks.ini'
-E=separator>;A='.config/openbox':F=.\
+E='separator>';A=.config/openbox:F=.\
 'config/plank/docks1/launcher/' #~~~#
 cp -r /etc/xdg/openbox/ $A;git clone\
  https://aur.archlinux.org/pikaur.gi\
