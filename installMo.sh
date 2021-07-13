@@ -29,9 +29,9 @@ geany'$D'Calculator'$C'galculator'$D\
 'Lock Screen'$C'xlock +description '\
 '-mode atlantis -echokeys -echokey '\
 "'*'"' -info "Enter Log-In Password:"
-'$D'Re-Boot'$C'reboot'$D'Power-Off'$C\
-'poweroff</command></action></item><'\
-'/menu></openbox_menu>'>>$A/menu.xml 
+'$D'Re-Boot'$C'reboot'$D'Power-Off'$\
+C'poweroff</command></action></item>'\
+'</menu></openbox_menu>'>>$A/menu.xml 
 echo -e "lxqt-policykit &\n
 picom --experimental-backends &\n\np\
 lank &\n\ntrayer --transparent true \
