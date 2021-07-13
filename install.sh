@@ -49,7 +49,8 @@ nstall --target=x86_64-efi --efi-dir\
 ectory=/boot --bootloader-id=GRUB;gr\
 ub-mkconfig>/boot/grub/grub.cfg;I=$'\
 '(xrandr|egrep -';echo -e 'M="$(fin'\
-'d/home/*/\.screenlayout/*.sh)"\nN="'"$I"\
+'d/home/*/\.screenlayout/*.sh)"\nN="\
+'"$I"\
 'o '"'HDMI-1|HDMI1'"')"\n\nO='"\
 $I"'o '"'eDP1|eDP-1'"')\nP='"$I"'c '\
 "'HDMI|eDP'"')\nif [[ -r ${M} ]] && \
