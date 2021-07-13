@@ -21,20 +21,20 @@ r.conf;sed -i -e 's/Clearlooks/Bear2/
 ' -e 's/ filemangnagement/show drun/'
 -e 's/sans/Fira Sans Condensed Book/'
 -e '100,131 s/4/2/' ~/$A/rc.xml
-sed -i '5,$d' ~/$A/menu.xml;echo -e "
-<menu id="'"root-menu"'" label="'"Op\
-enbox 3"'"><item label='"'Files${C}nem
-o${D}Search${C}rofi -show drun${D}We\
-b${C}Firefox${D}Terminal${C}alacritt\
-y${D}Text${C}geany${D}Calculator${C}\
-galculator${D}${E}Refresh${C}openbox\
- --reconfigure${D}${E}Lock Screen${C}
-xlock -mode atlantis -echokeys -echo\
-key '*' -info +description "'"Passwo\
-rd: "'"${D}Re-boot${C}reboot${D}Powe\
-r-Off${C}poweroff</command></action>\
-</item></menu></openbox_menu>">>.$A/\
-menu.xml; echo -e "lxqt-policykit &\n
+sed -i '5,$d' ~/$A/menu.xml;echo -e '
+<menu id="root-menu" label="Openbox 3
+"><item label="Files'$C'nemo'$D'Sear\
+ch'$C'rofi -show drun'$D'Web'$C'firef\
+ox'$D'Terminal$'C'alacritty'$D'Text'
+$C'geany'$D'Calculator'$C'galculator
+'$D''$E'Refresh'$C'openbox --reconfig\
+ure'$D''$E'Lock Screen'$C'xlock -mod\
+e atlantis -echokeys -echokey '"'*'"\
+' -info +description "'Password: '"'\
+$D'Re-boot'$C'reboot'$D'Power-Off'$C'
+poweroff</command></action></item></m\
+enu></openbox_menu>'>>.$A/menu.xml 
+echo -e "lxqt-policykit &\n
 picom --experimental-backends &\n\np\
 lank &\n\ntrayer --transparent true \
 --align right --height 40 --monitor \
