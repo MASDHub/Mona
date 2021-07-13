@@ -5,8 +5,8 @@ C='"><actionname="Execute"><command>'
 G=' /net/launchpad/plank/docks/ ';D='
 </command></action></item><item lab'\
 'el="';E=<separator></separator>;F=.\
-'config/plank/docks1/launcher/';A=.co\
-'nfig/openbox';I='docks.ini';H='sleep 2
+'config/plank/docks1/launcher/';A=.c\
+'onfig/openbox';I=docks.ini;H='sleep 2
 &&'
 ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 cp -r /etc/xdg/openbox/ $A;git clone\
