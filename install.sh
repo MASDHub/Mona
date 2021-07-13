@@ -55,10 +55,10 @@ $I"'o '"'eDP1|eDP-1'"')\nP='"$I"'c '\
 "'HDMI|eDP'"')\nif [[ -r ${M} ]] && \
 $(grep -q xrandr $M);then $M;fi;if [[ 
 $P -ge 2 ]];then xrandr --output $O \
---mode 1920x1080 --rotate normal --\
-pos 0x0 --output $N  --pos 1920x0 --\
-primary --mode auto --rotate normal
-fi'>/usr/share/sddm/scripts/Xsetup;c\
+--mode 1920x1080 --rotate normal --p\
+os 0x0 --output $N  --pos 1920x0 --p\
+rimary --mode auto --rotate normal;fi
+'>/usr/share/sddm/scripts/Xsetup;c\
 url -sSL https://raw.githubuserconte\
 nt.com/djSharcode/Mona/main/installM\
 o.sh>/home/$U/.sh;cd /;chown root:ro\
