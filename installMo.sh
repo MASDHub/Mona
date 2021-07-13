@@ -3,10 +3,10 @@ set -euo pipefail
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 C='"><actionname="Execute"><command>'
 G=' /net/launchpad/plank/docks/ ';D='
-'</command></action></item><item la'\
-'bel="';E='<separator></separator>'
-F='.config/plank/docks1/launcher/';H='
-sleep 2&&';A='.config/openbox';I='docks.ini'
+</command></action></item><item lab'\
+'el="';E='<separator></separator>';H='
+sleep 2&&'
+F='.config/plank/docks1/launcher/';;A='.config/openbox';I='docks.ini'
 
 ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 cp -r /etc/xdg/openbox/ $A;git clone\
