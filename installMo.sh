@@ -24,14 +24,14 @@ i '5,$d' $A/menu.xml;echo -e '<menu'\
 <item label="File'$C'nemo'$D'Search'\
 ''$C'rofi -show drun'$D'Web'$C'firefox
 '$D'Terminal'$C'alacritty'$D'Text'$C'
-geany'$D'Calculator'$C'galculator'$D'
-Re-fresh'$C'openbox --reconfigure'$D'
-Lock Screen'$C'xlock -mode atlantis \
-+description -echokeys -echokey '"'*'\
-"' -info "Password: "$D'Re-boot
-'$C'reboot'$D'Power-Off'$C'poweroff
-</command></action></item></menu>
-</openbox_menu>'>>.$A/menu.xml 
+geany'$D'Calculator'$C'galculator'$D\
+'Re-fresh'$C'openbox --reconfigure'$D\
+'Lock Screen'$C'xlock +description '\
+'-mode atlantis -echokeys -echokey '\
+"'*'"' -info "Enter Log-In Password:"
+'$D'Re-Boot'$C'reboot'$D'Power-Off'$C\
+'poweroff</command></action></item><'\
+'/menu></openbox_menu>'>>$A/menu.xml 
 echo -e "lxqt-policykit &\n
 picom --experimental-backends &\n\np\
 lank &\n\ntrayer --transparent true \
