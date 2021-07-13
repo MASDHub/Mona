@@ -4,7 +4,7 @@ set -euo pipefail
 C='"><actionname="Execute"><command>'
 G=' /net/launchpad/plank/docks/ ';D='
 </command></action></item><item lab'\
-'el="';E='<separator></separator>';F\
+'el="';E='separator>';F\
 =' .config/plank/docks1/launcher/';A\
 ='.config/openbox';I=' docks.ini';H='
 sleep 2&&' #~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -23,17 +23,17 @@ r.conf;sed -i -e 's/Clearlooks/Bear2/
 -e '100,131 s/4/2/' ~/$A/rc.xml
 sed -i '5,$d' ~/$A/menu.xml;echo -e '
 <menu id="root-menu" label="Openbox 3
-"><item label="Files'$C'nemo'$D'Sear\
-ch'$C'rofi -show drun'$D'Web'$C'firef\
-ox'$D'Terminal$'C'alacritty'$D'Text'$C'
-geany'$D'Calculator'$C'galculator
-'$D''$E'Refresh'$C'openbox --reconfig\
-ure'$D''$E'Lock Screen'$C'xlock -mod\
-e atlantis -echokeys -echokey '"'*'"\
-' -info +description "'Password: '"'\
-$D'Re-boot'$C'reboot'$D'Power-Off'$C'
-poweroff</command></action></item></m\
-enu></openbox_menu>'>>.$A/menu.xml 
+"><item label="File'$C'nemo'$D'Search
+'$C'rofi -show drun'$D'Web'$C'firefox
+'$D'Terminal'$C'alacritty'$D'Text'$C'
+geany'$D'Calculator'$C'galculator'$D'
+Refresh'$C'openbox --reconfigure'$D'
+Lock Screen'$C'xlock -mode atlantis \
+-echokeys -echokey '"'*'"' -info +de\
+scription "'Password: '"'$D'Re-boot
+'$C'reboot'$D'Power-Off'$C'poweroff
+</command></action></item></menu>
+</openbox_menu>'>>.$A/menu.xml 
 echo -e "lxqt-policykit &\n
 picom --experimental-backends &\n\np\
 lank &\n\ntrayer --transparent true \
