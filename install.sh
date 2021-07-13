@@ -49,7 +49,7 @@ ${B}GRUB$A";grub-install --target=x8\
 6_64-efi --efi-directory=/boot --boo\
 tloader-id=GRUB;grub-mkconfig>/boot/\
 grub/grub.cfg;I='$(xrandr|egrep';ech\
-o -e 'N='"$I"'-o '"'HDMI-1|HDMI1'"')
+o -e 'N='"$I"'-o '"'HDMI-1|HDMI1'"' )
 M=$(find /home/*/.screenlayout/*.sh )
 P="'"$I"'-c '"'HDMI|eDP'"')"\nO="'"$\
 I"'-o '"'eDP1|eDP-1'"')"\nif [[ -r $M
