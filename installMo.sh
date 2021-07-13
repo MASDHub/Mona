@@ -33,13 +33,14 @@ sed -i '5,$d' $A/menu.xml;echo -e '
 'Power-Off'$C'poweroff</command></a'\
 'ction></item></menu></openbox_menu>
 '>>$A/menu.xml;echo -e "lxqt-policyk\
-it &\n\npicom --experimental-backends &\n\nplank &\n
-trayer --transparent true --monitor \
-primary --height 40 --tint 0x716966 \
---align right &\n\nxpad &\n\n(sleep \
-2 && volumeicon) &\n\n(sleep 2 && nm\
--applet) &\n\n(sleep 2 && sh na.sh) &
-">$A/autostart;echo -e 'dconf dump'$\
+it &\n\npicom --experimental-backend\
+s &\n\ntrayer --monitor primary --tr\
+ansparent true --tint 0x716966 --hei\
+ght 40 --align right &\n\nplank &\n
+xpad &\n\n(sleep 2 && volumeicon) &\n
+(sleep 2 && nnm-applet) &\n\n(sleep \
+2 && sh na.sh) &">$A/autostart;
+echo -e 'dconf dump'$\
 G'>'$I''$H'sed -i "s/bottom/right/"'\
 $I''$H'cat'$I'|dconf load'$G''$H'ec'\
 'ho "[PlankDockItemPreferences]\nLa'\
