@@ -47,7 +47,7 @@ sddm;echo -e "$B*NETWORK$A";$J Netwo\
 rkManager;echo -e "$B*GRUB$A";grub-i\
 nstall --target=x86_64-efi --efi-dir\
 ectory=/boot --bootloader-id=GRUB;gr\
-ub-mkconfig>/boot/grub/grub.cfg;I='$
+ub-mkconfig>/boot/grub/grub.cfg;I=$('
 (xrandr|egrep -';echo -e 'M="$(fin'\
 'd/home/*/\.screenlayout/*.sh)"\nN="\
 '"$I"'o '"'HDMI-1|HDMI1'"')"\nO="'"$\
