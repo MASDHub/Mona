@@ -14,41 +14,41 @@ set -euo pipefail
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
 S='       ';Z='             localhost
-';B='\e[1;31m';A='\e[0m';F='en_US.UT'
-D='/Adwaita/Oranchelo';head -15 "$0"|
+';F='en_US.UTF';B='\e[1;31m';A='\e[0m
+';D='/Adwaita/Oranchelo';head -15 $0|
 tail -13;C='Fira Sans Condensed Book/
-';J='systemctl enable ';G='Cantarell'
+';J='systemctl enable';G='/Cantarell'
 H='openbox-session';E='usr/share/gtk' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-until printf "${B}Enter User Name$A:\
-"&&read R&&U="${R,,}"&&[[ ${#U} -gt 4 
-]]&&[[ "$U" =~ ^[a-z]*$ ]];do :;done
-useradd -m -G wheel $U;until printf "
-${B}Users Password$A"&&passwd $U;do :
-done;until echo -e "$Enter ${B}Root$A 
-(Admin) Password:"&&passwd;do :;done
-P="${U}pc";echo -e "127.0.0.1${S}loc\
-alhost\n::1${Z}127.0.1.1${S}$P.local\
-domain $P">/etc/hosts;echo $P>/etc/h\
-ostname;ln -sf /$(cat /etc/T) /etc/l\
-ocaltime;sed -i "s/#${F}/$F/" /etc/l\
-ocale.gen;echo LANG=${F}F-8 > /etc/l\
-ocale.conf;echo /home/$U/m.sh>/etc/U
-sed -i '0,/# %w/ s/# %w/ %w/' /etc/s\
-udoers;hwclock --systohc;locale-gen
-sed -i 's/aut/1920x1080,aut/' /etc/d\
-efault/grub;sed -i "s/tw/$H/" /etc/X\
-11/xinit/xinitrc;echo $H>/home/$U/.x\
-initrc;sed -i -e "s/$G/$C" -e "2 s$D/
-" -e "s$D-Beka/" /$E-2.0/gtkrc;sed -\
-i -e "2 s$D-Beka/" -e "s/$G/$C" -e "
-3 s$D/"/$E-3.0/settings.ini;echo -e "
-"$B*NETWORK$A";$J NetworkManager;eco\
-o -e "$B*DISPLAY$A";$J sddm;echo -e "
-$B*GRUB2*$A";grub-install --target=x\
-86_64-efi --efi-directory=/boot --bo\
-otloader-id=GRUB;grub-mkconfig>/boot\
-/grub/grub.cfg;I='$(xrandr|egrep';ec\
+until printf "$B Enter User Name$A"&&
+read R&&U="${R,,}"&&[ ${#U} -gt 4 ]&&
+[[ "$U" =~ ^[a-z]*$ ]];do :;done;use\
+radd -m -G wheel $U;until echo -e "$B
+User Password$A"&&passwd $U;do :;done
+until printf "${B}Enter Root Password
+$A"&&passwd;do :;done;echo -e "127.0\
+.0.1${S}localhost\n::1${Z}127.0.1.1$\
+S${U}c.localdomain ${U}c"> /etc/hosts
+sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
+ers;ln -sf "$(cat /etc/T)" /etc/loca\
+ltime;echo "LANG=${F}-8" > /etc/loca\
+le.conf;sed -i "s/#$F/$F/" /etc/loca\
+le.gen;echo "/home/$U/m" > /etc/U;s\
+ed -i 's/au/1920x1080,au/' /etc/defa\
+ult/grub;sed -i "s/tw/$H/" /etc/X11/\
+xinit/xinitrc;echo ${U}c > /etc/host\
+name;echo $H>/home/${U}/.xinitrc;hwc\
+lock --systohc;locale-gen;sed -i -e "
+s$G/$C" -e "2 s$D/" -e "s$D-Beka/" /\
+$E-2.0/gtkrc;sed -i -e "s$G/$C" -e "
+3 s$D/" -e "2 s$D-Beka/" /$E-3.0/set\
+tings.ini;echo -e "$B*NETWORK$A";$J \
+NetworkManager;ecoo -e "$B*DISPLAY$A"
+$J sddm;echo -e "$B*GRUB$A";grub-ins\
+tall --target=x86_64-efi --efi-directo\
+ry=/boot --bootloader-id=GRUB;grub-m\
+kconfig>/boot/grub/grub.cfg;
+I='$(xrandr|egrep';ec\
 ho -e 'N='"$I"'-o '"'HDMI-1|HDMI1'"')
 M=$(find /home/*/.screenlayout/*.sh )
 P="'"$I"'-c '"'HDMI|eDP'"')"\nO="'"$\
