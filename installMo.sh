@@ -18,9 +18,9 @@ e '100,131 s/4/2/' -e '10,100 s/9/13/
 ' -e 's/kfmclient openProfile/rofi -/
 ' -e 's/ filemanagement/show drun/' \
 -e 's/sans/Fira Sans Condensed Book/
-' -e 's/A-space/0x85/' $A/rc.xml;sed \
--i '5,$d' $A/menu.xml;echo -e '<men'\
-'n id="root-menu" label="Openbox 3">
+' -e 's/A-space/0x85/' $A/rc.xml;sed\
+ -i '5,$d' $A/menu.xml;echo -e '<me'\
+'nu id="root-menu" label="Openbox 3">
 <item label="File'$C'nemo'$D'Search'\
 $C'rofi -show drun'$D'Web'$C'firefox
 '$D'Terminal'$C'alacritty'$D'Text'$C'
