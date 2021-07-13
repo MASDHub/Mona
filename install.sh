@@ -43,13 +43,13 @@ initrc;sed -i -e "s/$G/$C" -e "2 s$D/
 " -e "s$D-Beka/" /$E-2.0/gtkrc;sed -\
 i -e "2 s$D-Beka/" -e "s/$G/$C" -e "
 3 s$D/"/$E-3.0/settings.ini;echo -e "
-${B}NETWORKS$A";$JNetworkManager;ech\
-o -e "${B}DISPLAY$A";$Jsddm;echo -e "
-${B}GRUB$A";grub-install --target=x8\
-6_64-efi --efi-directory=/boot --boo\
-tloader-id=GRUB;grub-mkconfig>/boot/\
-grub/grub.cfg;I='$(xrandr|egrep';ech\
-o -e 'N='"$I"'-o '"'HDMI-1|HDMI1'"' )
+"${B}DISPLAY$A";$J sddm;echo -e "${B}
+NETWORK$A";$J NetworkManager;echo -e\
+ "${B}GRUB$A";grub-install --target=x\
+86_64-efi --efi-directory=/boot --bo\
+otloader-id=GRUB;grub-mkconfig>/boot\
+/grub/grub.cfg;I='$(xrandr|egrep';ec\
+ho -e 'N='"$I"'-o '"'HDMI-1|HDMI1'"')
 M=$(find /home/*/.screenlayout/*.sh )
 P="'"$I"'-c '"'HDMI|eDP'"')"\nO="'"$\
 I"'-o '"'eDP1|eDP-1'"')"\nif [[ -r $M
