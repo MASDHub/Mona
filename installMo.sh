@@ -27,10 +27,10 @@ sed -i '5,$d' $A/menu.xml;echo -e '
 'Text'$C'geany'$D'Calculator'$C'gal'\
 'culator'$D'Refresh'$C'openbox --re'\
 'configure'$D'Lock Screen'$C'xlock '\
-'+description -mode atlantis -echo'\
-'keys -echokey '"'*'"' -info "En'\
-'ter Log-In Password:"'$D'Reboot'$C\
-'reboot'$D'Power-Off'$C'poweroff</co'\
+'+description -mode atlantis -echok'\
+'eys -echokey '"'*'"' -info "Enter '\
+'Log-In Password:"'$D'Reboot'$C'reboot
+'$D'Power-Off'$C'poweroff</co'\
 'mmand></action></item></menu></op'\
 'enbox_menu>'>>$A/menu.xml
 echo -e "lxqt-policykit &\n\npicom -\
