@@ -14,9 +14,9 @@ shift picom-git ttf-ms-fonts;sed -i '
 s/g = no/g = yes/' .config/pikaur.co\
 nf;sed -i -e 's/Clearlooks/Bear2/' -\
 e '100,131 s/4/2/' -e '10,100 s/9/13/
-' -e '10,120 s/8/12/ -e 's/W-e/0x85/
 ' -e 's/kfmclient openProfile/rofi -/
-' -e 's/filemangnagement/show drun/' \
+' -e 's/ filemangnagement/show drun/ 
+' -e '10,120 s/8/12/ -e 's/W-e/0x85/
 -e 's/sans/Fira Sans Condensed Book/'
 -e 's/A-space/0x85/' $A/rc.xml;sed -\
 i '5,$d' $A/menu.xml;echo -e '<menu'\
