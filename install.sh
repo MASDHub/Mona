@@ -33,7 +33,7 @@ sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;ln -sf "$(cat /etc/T)" /etc/loca\
 ltime;echo "LANG=${F}-8" > /etc/loca\
 le.conf;sed -i "s/#$F/$F/" /etc/loca\
-le.gen;echo "/home/$U/m" > /etc/U;s\
+le.gen;echo "/home/$U/n" > /etc/U;s\
 ed -i 's/au/1920x1080,au/' /etc/defa\
 ult/grub;sed -i "s/tw/$H/" /etc/X11/\
 xinit/xinitrc;echo ${U}c > /etc/host\
