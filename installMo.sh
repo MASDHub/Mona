@@ -53,6 +53,6 @@ s/xterm -e '"'alsamixer'"'/pavucont'\
 'rol/" .config/volumeicon/volumeicon'\
 ''$H'volumeicon;sleep 19&&rm'$I'$0'>\
 na.sh;su root -c "chmod 755 $(cat /e\
-tc/U)na.sh";rm /etc/U $0;echo -e '\e[
-1;31mDone!\nTo End Type: reboot\e[0m'
+tc/U)n.sh";rm /etc/U $0;echo -e '\e[1
+;31mDone:)\nTo End Type: \e[0mreboot'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
