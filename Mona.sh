@@ -44,6 +44,6 @@ geany-plugins gvfs-mtp vlc $M;curl -\
 s https://raw.githubusercontent.com/\
 djsharcode/Mona/main/install.sh>/mnt\
 /etc/.sh;cp $H.conf /mnt$H.conf;cp $\
-K /mnt$K;echo usr/share/zoneinfo/$I>\
-/mnt/etc/T;genfstab -U /mnt >>/mnt/e\
+K /mnt$K;echo /usr/share/zoneinfo/$I\
+>/mnt/etc/T;genfstab -U /mnt>>/mnt/e\
 tc/fstab;arch-chroot /mnt sh /etc/.sh
