@@ -58,10 +58,10 @@ $P -ge 2 ]];then xrandr --output $O \
 --mode 1920x1080 --pos 0x0 --rotate \
 normal --output $N --primary --mode \
 auto --pos 1920x0 --rotate normal;fi
-'>/usr/share/sddm/scripts/Xsetup;c\
-url -sSL https://raw.githubuserconte\
-nt.com/djSharcode/Mona/main/installM\
-o.sh>/home/$U/.sh;cd /;chown root:ro\
-ot /home chmod 755 /home;runuser --l\
-ogin $U --session-command "sh ~/.sh"
+'>/usr/share/sddm/scripts/Xsetup;cur\
+l -sL https://raw.githubusercontent.\
+com/djSharcode/Mona/main/installMo.s\
+h>/home/$U/.sh;cd /;chown root:root \
+/home chmod 755 /home;runuser --logi\
+n $U --session-command "sh ~/.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
