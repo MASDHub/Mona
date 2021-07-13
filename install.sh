@@ -44,12 +44,11 @@ $E-2.0/gtkrc;sed -i -e "s$G/$C" -e "
 3 s$D/" -e "2 s$D-Beka/" /$E-3.0/set\
 tings.ini;echo -e "$B*DISPLAY$A";$J \
 sddm;echo -e "$B*NETWORK$A";$J Netwo\
-rkManager;echo -e "$B*GRUB$A";grub-ins\
-tall --target=x86_64-efi --efi-direc\
-tory=/boot --bootloader-id=GRUB;grub\
--mkconfig>/boot/grub/grub.cfg;
-I='$(xrandr|egrep';ec\
-ho -e 'N='"$I"'-o '"'HDMI-1|HDMI1'"')
+rkManager;echo -e "$B*GRUB$A";grub-i\
+nstall --target=x86_64-efi --efi-dir\
+ectory=/boot --bootloader-id=GRUB;gr\
+ub-mkconfig>/boot/grub/grub.cfg;I='\
+$(xrandr|egrep';echo -e 'N='"$I"'-o '"'HDMI-1|HDMI1'"')
 M=$(find /home/*/.screenlayout/*.sh )
 P="'"$I"'-c '"'HDMI|eDP'"')"\nO="'"$\
 I"'-o '"'eDP1|eDP-1'"')"\nif [[ -r $M
