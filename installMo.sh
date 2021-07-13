@@ -26,9 +26,9 @@ sed -i '5,$d' $A/menu.xml;echo -e '
 'firefox'$D'Terminal'$C'alacritty'$D\
 'Text'$C'geany'$D'Calculator'$C'gal'\
 'culator'$D'Refresh'$C'openbox --re'\
-'configure'$D'Lock Screen'$C'xloc'\
-'k +description -mode atlantis -ec'\
-'hokeys -echokey '"'*'"' -info "En'\
+'configure'$D'Lock Screen'$C'xlock '\
+'+description -mode atlantis -echo'\
+'keys -echokey '"'*'"' -info "En'\
 'ter Log-In Password:"'$D'Reboot'$C\
 'reboot'$D'Power-Off'$C'poweroff</co'\
 'mmand></action></item></menu></op'\
