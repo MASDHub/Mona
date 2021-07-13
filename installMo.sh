@@ -8,13 +8,13 @@ A='.config/openbox';I='docks.ini';D='
 ';G='/net/launchpad/plank/docks/';H='
 sleep 2&&';E='<separator></separator>
 ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-cp -ar /etc/xdg/openbox/ $A;git clon\
-e https://aur.archlinux.org/pikaur.g\
-it;cd pikaur/;makepkg -fsri;pikaur -\
-S --needed oranchelo-icon-theme-git \
-timeshift ttf-ms-fonts picom-git;sed\  
- -i 's/g = no/g = yes/' .config/pikau\
-r.conf;sed -i -e 's/Clearlooks/Bear2/
+cp -r /etc/xdg/openbox/ $A;git clone\
+ https://aur.archlinux.org/pikaur.gi\
+t;cd pikaur/;makepkg -fsri;pikaur -S\
+ --needed oranchelo-icon-theme-git t\
+imeshift picom-git ttf-ms-fonts;sed \  
+-i 's/g = no/g = yes/' .config/pikaur\
+.conf;sed -i -e 's/Clearlooks/Bear2/
 ' -e 's/W-e/0x85/' -e '10,100 s/9/13/
 ' -e 's/A-space/0x85/' '5,120 s/8/12/
 ' -e 's/kfmclient openProfile/rofi -/
