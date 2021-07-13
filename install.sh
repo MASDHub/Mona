@@ -42,9 +42,9 @@ lock --systohc;locale-gen;sed -i -e "
 s$G/$C" -e "2 s$D/" -e "s$D-Beka/" /\
 $E-2.0/gtkrc;sed -i -e "s$G/$C" -e "
 3 s$D/" -e "2 s$D-Beka/" /$E-3.0/set\
-tings.ini;echo -e "$B*NETWORK$A";$J \
-NetworkManager;ecoo -e "$B*DISPLAY$A"
-$J sddm;echo -e "$B*GRUB$A";grub-ins\
+tings.ini;echo -e "$B*DISPLAY$A";$J \
+sddm;echo -e "$B*NETWORK$A";$J Netwo\
+rkManager;echo -e "$B*GRUB$A";grub-ins\
 tall --target=x86_64-efi --efi-direc\
 tory=/boot --bootloader-id=GRUB;grub\
 -mkconfig>/boot/grub/grub.cfg;
