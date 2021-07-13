@@ -25,7 +25,7 @@ i '5,$d' $A/menu.xml;echo -e '<menu'\
 $C'rofi -show drun'$D'Web'$C'firefox
 '$D'Terminal'$C'alacritty'$D'Text'$C'
 geany'$D'Calculator'$C'galculator'$D\
-'Re-fresh'$C'openbox --reconfigure'$D\
+'Refresh'$C'openbox --reconfigure'$D\
 'Lock Screen'$C'xlock +description '\
 '-mode atlantis -echokeys -echokey '\
 "'*'"' -info "Enter Log-In Password:"
