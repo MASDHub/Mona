@@ -25,7 +25,7 @@ until printf "${B}Enter User Name$A:\
 ]]&&[[ "$U" =~ ^[a-z]*$ ]];do :;done
 useradd -m -G wheel $U;until printf "
 ${B}Users Password$A"&&passwd $U;do :
-done;until echo -e "$Enter {B}Root$A 
+done;until echo -e "$Enter ${B}Root$A 
 (Admin) Password:"&&passwd;do :;done
 P="${U}pc";echo -e "127.0.0.1${S}loc\
 alhost\n::1${Z}127.0.1.1${S}$P.local\
@@ -43,9 +43,9 @@ initrc;sed -i -e "s/$G/$C" -e "2 s$D/
 " -e "s$D-Beka/" /$E-2.0/gtkrc;sed -\
 i -e "2 s$D-Beka/" -e "s/$G/$C" -e "
 3 s$D/"/$E-3.0/settings.ini;echo -e "
-"${B}DISPLAY$A";$J sddm;echo -e "${B}
-NETWORK$A";$J NetworkManager;echo -e\
- "${B}GRUB$A";grub-install --target=x\
+"$B*NETWORK$A";$J NetworkManager;eco\
+o -e "$B*DISPLAY$A";$J sddm;echo -e "
+$B*GRUB*$A";grub-install --target=x\
 86_64-efi --efi-directory=/boot --bo\
 otloader-id=GRUB;grub-mkconfig>/boot\
 /grub/grub.cfg;I='$(xrandr|egrep';ec\
