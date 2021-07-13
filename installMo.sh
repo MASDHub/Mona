@@ -8,19 +8,19 @@ A='.config/openbox';I='docks.ini';D='
 ';G='/net/launchpad/plank/docks/';H='
 sleep 2&&';E='<separator></separator>
 ' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-cp -ari /etc/xdg/openbox/ $A;git clo\
-ne https://aur.archlinux.org/pikaur.\
-git;cd pikaur/;makepkg -fsri;pikaur \
--S --needed timeshift ttf-ms-fonts \
-picom-git oranchelo-icon-theme-git 
-sed -i 's/g = no/g = yes/' .config/p\
-ikaur.conf; sed -i -e '100,131 s/4/2/
+cp -ar /etc/xdg/openbox/ $A;git clon\
+e https://aur.archlinux.org/pikaur.g\
+it;cd pikaur/;makepkg -fsri;pikaur -\
+S --needed oranchelo-icon-theme-git \
+timeshift ttf-ms-fonts picom-git;sed\  
+ -i 's/g = no/g = yes/' .config/pikau\
+r.conf;sed -i -e 's/Clearlooks/Bear2/
 ' -e 's/W-e/0x85/' -e '10,100 s/9/13/
 ' -e 's/A-space/0x85/' '5,120 s/8/12/
 ' -e 's/kfmclient openProfile/rofi -/
 ' -e 's/ filemangnagement/show drun/'
 -e 's/sans/Fira Sans Condensed Book/'
--e 's/Clearlooks/Bear2/' ~/$A/rc.xml
+-e '100,131 s/4/2/' ~/$A/rc.xml
 sed -i '5,$d' ~/$A/menu.xml;echo -e "
 <menu id="'"root-menu"'" label="'"Op\
 enbox 3"'"><item label='"'Files${C}nem
