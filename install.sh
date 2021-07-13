@@ -45,7 +45,7 @@ i -e "2 s$D-Beka/" -e "s/$G/$C" -e "
 3 s$D/"/$E-3.0/settings.ini;echo -e "
 "$B*NETWORK$A";$J NetworkManager;eco\
 o -e "$B*DISPLAY$A";$J sddm;echo -e "
-$B*GRUB*$A";grub-install --target=x\
+$B*GRUB2*$A";grub-install --target=x\
 86_64-efi --efi-directory=/boot --bo\
 otloader-id=GRUB;grub-mkconfig>/boot\
 /grub/grub.cfg;I='$(xrandr|egrep';ec\
