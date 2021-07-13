@@ -30,8 +30,8 @@ Lock Screen'$C'xlock -mode atlantis \
 -echokeys -echokey '"'*'"' -info +de\
 scription "'Password: '"'$D'Re-boot
 '$C'reboot'$D'Power-Off'$C'poweroff
-</command></action></item></menu>
-</openbox_menu>'>>.$A/menu.xml 
+'</command></action></item></menu>'
+'</openbox_menu>''>>.$A/menu.xml 
 echo -e "lxqt-policykit &\n
 picom --experimental-backends &\n\np\
 lank &\n\ntrayer --transparent true \
