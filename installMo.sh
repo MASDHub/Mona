@@ -1,13 +1,11 @@
 #!/usr/bin/bash
 set -euo pipefail
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 C='"><actionname="Execute"><command>'
-G=' /net/launchpad/plank/docks/ ';D='
-</command></action></item><item lab'\
-'el="';E='separator>';F\
-=' .config/plank/docks1/launcher/';A\
-='.config/openbox';I=' docks.ini';H='
-sleep 2&&' #~~~~~~~~~~~~~~~~~~~~~~~~#
+G=' /net/launchpad/plank/docks/ ';H='
+sleep 2 && ';D='</command></action>'\
+'</item><item label="';I=' docks.ini'
+E=separator>;A='.config/openbox':F=.\
+'config/plank/docks1/launcher/' #~~~#
 cp -r /etc/xdg/openbox/ $A;git clone\
  https://aur.archlinux.org/pikaur.gi\
 t;cd pikaur/;makepkg -fsri;pikaur -S\
@@ -20,18 +18,18 @@ r.conf;sed -i -e 's/Clearlooks/Bear2/
 ' -e 's/kfmclient openProfile/rofi -/
 ' -e 's/ filemangnagement/show drun/'
 -e 's/sans/Fira Sans Condensed Book/'
--e '100,131 s/4/2/' ~/$A/rc.xml
-sed -i '5,$d' ~/$A/menu.xml;echo -e '
-<menu id="root-menu" label="Openbox 3
-"><item label="File'$C'nemo'$D'Search
-'$C'rofi -show drun'$D'Web'$C'firefox
+-e '100,131 s/4/2/' ~/$A/rc.xml;sed \
+-i '5,$d' ~/$A/menu.xml;echo -e '<me\
+nu id="root-menu" label="Openbox 3">
+<item label="File'$C'nemo'$D'Search'\
+$C'rofi -show drun'$D'Web'$C'firefox\
 '$D'Terminal'$C'alacritty'$D'Text'$C'
 geany'$D'Calculator'$C'galculator'$D'
-Refresh'$C'openbox --reconfigure'$D'
+Re-fresh'$C'openbox --reconfigure'$D'
 Lock Screen'$C'xlock -mode atlantis \
 -echokeys -echokey '"'*'"' -info +de\
-scription "'Password: '"'$D'Re-boot
-'$C'reboot'$D'Power-Off'$C'poweroff
+scription "'Password: '"'$D'Re-boot'\
+$C'reboot'$D'Power-Off'$C'poweroff
 </command></action></item></menu>
 </openbox_menu>'>>.$A/menu.xml 
 echo -e "lxqt-policykit &\n
