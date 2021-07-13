@@ -25,8 +25,8 @@ sed -i '5,$d' ~/$A/menu.xml;echo -e '
 <menu id="root-menu" label="Openbox 3
 "><item label="Files'$C'nemo'$D'Sear\
 ch'$C'rofi -show drun'$D'Web'$C'firef\
-ox'$D'Terminal$'C'alacritty'$D'Text'
-$C'geany'$D'Calculator'$C'galculator
+ox'$D'Terminal$'C'alacritty'$D'Text'$C'
+geany'$D'Calculator'$C'galculator
 '$D''$E'Refresh'$C'openbox --reconfig\
 ure'$D''$E'Lock Screen'$C'xlock -mod\
 e atlantis -echokeys -echokey '"'*'"\
