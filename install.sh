@@ -20,13 +20,13 @@ tail -13;C='Fira Sans Condensed Book/
 ';J='systemctl enable';G='/Cantarell'
 H='openbox-session';E='usr/share/gtk' 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-until printf "${B}Enter User Name$A -
+until printf "${B}Enter User Name$A:\
 "&&read R&&U="${R,,}"&&[[ ${#U} -gt 4 
 ]]&&[[ "$U" =~ ^[a-z]*$ ]];do :;done
 useradd -m -G wheel $U;until printf "
-${B}Enter User Password$A"&&passwd $U
-do :;done;until echo -e "$B(Admin)$A
-Enter Root Password"&&passwd;do :;done
+"${B}User Password$A"&&passwd $U;do :
+done;until echo -e "$Enter {B}Root$A 
+(Admin) Password:"&&passwd;do :;done
 P="${U}pc";echo -e "127.0.0.1${S}loc\
 alhost\n::1${Z}127.0.1.1${S}$P.local\
 domain $P">/etc/hosts;echo $P>/etc/h\
