@@ -26,7 +26,7 @@ until printf "${B}Enter User Name$A -
 useradd -m -G wheel $U;until printf "
 ${B}Enter User Password$A"&&passwd $U
 do :;done;until printf "Enter${B}Root
-${A}Password: $A"&&passwd;do :;done
+${A}Password: "&&passwd;do :;done
 P="${U}pc";echo -e "127.0.0.1${S}loc\
 alhost\n::1${Z}127.0.1.1${S}$P.local\
 domain $P">/etc/hosts;echo $P>/etc/h\
