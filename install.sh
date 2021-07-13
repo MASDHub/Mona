@@ -50,8 +50,8 @@ ectory=/boot --bootloader-id=GRUB;gr\
 ub-mkconfig>/boot/grub/grub.cfg;I=$'(
 xrandr|egrep -';echo -e 'M="$(find/'\
 'home/*/\.screenlayout/*.sh)"\nN="'\
-"$I"'o '"'HDMI-1|HDMI1'"')"\nO="'"$\
-I"'o '"'eDP1|eDP-1'"')"\nP='"$I"'c '\
+"$I"'o '"'HDMI-1|HDMI1'"')"\nO="'"$I\
+"'o '"'eDP1|eDP-1'"')"\nP='"$I"'c '\
 "'HDMI|eDP'"')\nif [[ -r ${M} ]] &&
 $(grep -q xrandr $M);then $M;fi;if [[
 $P -ge 2 ]];then xrandr --output $O \
