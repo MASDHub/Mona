@@ -57,11 +57,11 @@ hen $M;elif [ $P -ge 2 ];then xrandr\
  --output $N --pos 1920x0 --primary \
 --rotate normal --pos 1920x0 --mode \
 auto --output $O --pos 0x0 --rotate \
-normal --mode 1920x1080;fi'>/usr/shar\
-e/sddm/scripts/Xsetup;curl -sSL http\
-s://raw.githubusercontent.com/djShar\
-code/Mona/main/installMo.sh>/home/$U\
-/Mo.sh;cd /;chown root:root /home;ch\
-mod 755 /home;runuser --login $U --s\
-ession-command "sh ~/Mo.sh"
+normal --mode 1920x1080;fi'>/usr/sha\
+re/sddm/scripts/Xsetup;curl -sSL htt\
+ps://raw.githubusercontent.com/djSha\
+rcode/Mona/main/installMo.sh>/home/$\
+U/Mo.sh;cd /;chown root:root /home;c\
+hmod 755 /home;runuser --login $U --\
+session-command "sh ~/Mo.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
