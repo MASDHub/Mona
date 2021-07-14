@@ -58,10 +58,9 @@ en $M;elif [ $P -ge 2 ];then xrandr \
 rotate normal --pos 1920x0 --output \
 $O --mode 1920x1080 --rotate normal \
 --pos 0x0;fi'>/usr/share/sddm/script\
-s/Xsetup;curl -sSL https://raw.githu\
-busercontent.com/djSharcode/Mona/mai\
-n/installMo.sh>$P.sh;cd /;chown root\
-:root /home;chmod 755 /home;runuser \
---login $U --session-command "sh ~/.sh
-"
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+s/Xsetup;curl -sL https://raw.github\
+usercontent.com/djSharcode/Mona/main\
+/installMo.sh>$P.sh;cd /;chown root:\
+root /home;chmod 755 /home;runuser -\
+-login $U --session-command "sh ~/.sh
+" #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
