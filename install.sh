@@ -54,14 +54,14 @@ nfig>/boot/grub/grub.cfg;I='"$(xrandr
 eDP-1'"')"\nP='$I'c '"'HDMI|eDP'"')"
 if $(grep -q xrandr $M)&&[ -r $M ];t\
 hen $M;elif [ $P -ge 2 ];then xrandr\
- --output $N --pos 1920x0 --rotate \
-normal --mode auto --primary --pos 1\
-920x0 --output $O --pos 0x0 --mode 1\
-920x1080 --rotate normal;fi'>/usr/sh\
-are/sddm/scripts/Xsetup;curl -sSL ht\
-tps://raw.githubusercontent.com/djSh\
-arcode/Mona/main/installMo.sh>/home/\
-$U/Mo.sh;cd /;chown root:root /home
-chmod 755 /home;runuser --login $U -\
--session-command "sh ~/Mo.sh"
+ --output $N --pos 1920x0 --primary \
+--rotate normal --pos 1920x0 --mode \
+auto --output $O --pos 0x0 --rotate \
+normal --mode 1920x1080;fi'>/usr/shar\
+e/sddm/scripts/Xsetup;curl -sSL http\
+s://raw.githubusercontent.com/djShar\
+code/Mona/main/installMo.sh>/home/$U\
+/Mo.sh;cd /;chown root:root /home;ch\
+mod 755 /home;runuser --login $U --s\
+ession-command "sh ~/Mo.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
