@@ -53,8 +53,8 @@ nfig>/boot/grub/grub.cfg;I='"$(xrandr
 ''HDMI-1|HDMI1'"')"\nO='$I'o '"'eDP1|
 eDP-1'"')"\nP='$I'c '"'HDMI|eDP'"')"
 if $(grep -q xrandr $M)&&[ -r $M ];t\
-hen $M;fi;if [ $P -ge 2 ];then xrand\
-r --output $N --pos 1920x0 --rotate \
+hen $M;elif [ $P -ge 2 ];then xrandr\
+ --output $N --pos 1920x0 --rotate \
 normal --mode auto --primary --pos 1\
 920x0 --output $O --pos 0x0 --mode 1\
 920x1080 --rotate normal;fi'>/usr/sh\
