@@ -39,15 +39,15 @@ xinit/xinitrc;echo $H>$P.xinitrc;sed\
  -i 's/au/1024x768x24,au/' /etc/defa\
 ult/grub;echo "${U}-pc" >> /etc/host\
 name;locale-gen;hwclock --systohc;se\
-d -i -e "2 s$D-Beka/"  -e "s$F/$E" -\
-e "3 s$D/"/$I-3.0/settings.ini;sed -\
-i -e "s$D-Beka/" -e "2 s$D/" -e "s$F\
-/$E" /$I-2.0/gtkrc;echo -e $A"SDDM"$B
-$G sddm;echo -e $A"NETWORKS$B"
-$G NetworkManager;echo -e $A"GRUB2$B"
-grub-install --target=x86_64-efi --e\
-fi-directory=/boot --bootloader-id=G\
-RUB;grub-mkconfig>/boot/grub/grub.cfg
+d -i -e "s$F/$E" -e "2 s$D/" -e "s$D\
+-Beka/" /$I-2.0/gtkrc;sed -i -e "s$F\
+/$E" -e "3 s$D/" -e "2 s$D-Beka/" /$\
+I-3.0/settings.ini;echo -e $A"SDDM"$B
+$G sddm;echo -e $A"NETWORK$B";$G Net\
+workManager;echo -e $A"GRUB2$B";grub\
+-install --target=x86_64-efi --efi-dir\
+ectory=/boot --bootloader-id=GRUB;
+grub-mkconfig>/boot/grub/grub.cfg
 I='"$(xrandr|egrep -';echo -e 'N='$I\
 'o '"'HDMI-1|HDMI1'"')"\nO='$I'o '"'\
 eDP1|eDP-1'"')"\nP='$I'c '"'HD|eD'"')
