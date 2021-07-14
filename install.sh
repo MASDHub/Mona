@@ -54,11 +54,11 @@ nfig>/boot/grub/grub.cfg;I='"$(xrandr
 eDP-1'"')"\nP='$I'c '"'HDMI|eDP'"')"
 if $(grep -q xrandr $M)&&[ -r $M ];t\
 hen $M;fi;if [ $P -ge 2 ];then xrand\
-r --output $O --pos 0x0 --rotate \
-normal --mode 1920x1080 --output $N \
---pos 1920x0 --rotate normal --mode \
-auto --pos 1920x0 --rotate normal --\
-primary;fi'>/usr/share/sddm/scripts/\
+r --output $N --pos 1920x0 --rotate \
+normal --pos 1920x0 --rotate normal \
+--mode auto --primary --output $O --\
+pos 0x0 --mode 1920x1080 --rotate normal
+fi'>/usr/share/sddm/scripts/\
 Xsetup;curl -sSL https://raw.githubu\
 sercontent.com/djSharcode/Mona/main/\
 installMo.sh>/home/$U/Mo.sh;cd /;cho\
