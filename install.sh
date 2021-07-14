@@ -25,8 +25,8 @@ read R&&U=${R,,}&&[ ${#U} -gt 4 ]&&[[
 "$U" =~ ^[a-z]*$ ]];do :;done;userad\
 d -m -G wheel $U;P="`eval echo ~$U`/"
 until printf $A"Enter User's Password
-"$B&&passwd $U;do :;done;until print\
-f "Enter Root $A(Admin)${B}Password"\
+"$B&&passwd $U;do :;done;until echo \
+-e "Enter Root $A(Admin)${B}Password"
 &&passwd;do :;done;echo -e "127.0.0.\
 1${S}localhost\n::1${Z}127.0.1.1${S}\
 $U-pc.localdomain $U-pc" > /etc/hosts
