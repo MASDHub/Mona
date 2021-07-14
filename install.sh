@@ -53,13 +53,12 @@ HDMI1'"')";O='$I'o '"'eDP1|eDP-1'"')"
 M="$(find /home/*/.screenlayout/*.sh)
 ";P='$I'c '"'HD|eD'"')";if [ -r $M ]\
 &&$(grep -q xrandr $M);then $M;elif [
-$P -ge 2 ];then xrandr --output $N \
---primary --pos 1920x0 --mode auto \
---rotate normal --pos 1920x0 --outpu\
-t $O --mode 1920x1080 --rotate norma\
-l --pos 0x0;fi'>/usr/sha\
-re/sddm/scripts/Xsetup;curl -sSL htt\
-ps://raw.githubusercontent.com/djSha\
+$P -ge 2 ];then xrandr --output $N -\
+-primary --pos 1920x0 --mode auto --\
+rotate normal --pos 1920x0 --output \
+$O --pos 0x0 --rotate normal --mode \
+1920x1080;fi'>/usr/share/sddm/scripts\
+/Xsetup;curl -sSL https://raw.githubusercontent.com/djSha\
 rcode/Mona/main/installMo.sh>/home/$\
 U/Mo.sh;cd /;chown root:root /home;c\
 hmod 755 /home;runuser --login $U --\
