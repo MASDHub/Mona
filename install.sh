@@ -14,11 +14,11 @@ set -euo pipefail
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
 S='       ';Z='             localhost
-';A='\e[1;31m';B='\e[0m ';F='en_US.U'
+';A='\e[1;31m';B='\e[0m ';C='en_US.U'
 D='/Adwaita/Oranchelo';head -15 "$0"|
-tail -13;C='Fira Sans Condensed Book/
-';J='systemctl enable';G='/Cantarell'
-H='openbox-session';E='usr/share/gtk'
+tail -13;E='Fira Sans Condensed Book/
+';F='/Cantarell';G='systemctl enable'
+H='openbox-session';I='usr/share/gtk'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf $A"Enter User Name:$B"&&
 read R&&U="${R,,}"&&[ ${#U} -gt 4 ]&&
@@ -31,23 +31,23 @@ until printf $A"Enter Root Password \
 S${U}c.localdomain ${U}c"> /etc/hosts
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;ln -sf "$(cat /etc/T)" /etc/loca\
-ltime;echo LANG=${F}TF-8 > /etc/loca\
-le.conf;sed -i "s/#$F/$F/" /etc/loca\
+ltime;echo LANG=${C}TF-8 > /etc/loca\
+le.conf;sed -i "s/#$C/$C/" /etc/loca\
 le.gen;echo "/home/$U/n" > /etc/U;s\
 ed -i 's/au/1920x1080,au/' /etc/defa\
 ult/grub;sed -i "s/tw/$H/" /etc/X11/\
 xinit/xinitrc;echo ${U}c > /etc/host\
 name;echo $H>/home/${U}/.xinitrc;hwc\
 lock --systohc;locale-gen;sed -i -e "
-s$G/$C" -e "2 s$D/" -e "s$D-Beka/" /\
-$E-2.0/gtkrc;sed -i -e "s$G/$C" -e "
-3 s$D/" -e "2 s$D-Beka/" /$E-3.0/set\
-tings.ini;echo -e "$A►DISPLAY$B";$J \
-sddm;echo -e "$A►NETWORK$B";$J Netwo\
-rkManager;echo -e "$A►GRUB$B";grub-i\
-nstall --target=x86_64-efi --efi-dir\
-ectory=/boot --bootloader-id=GRUB;gr\
-ub-mkconfig > /boot/grub/grub.cfg;I=\
+s$F/$E" -e "2 s$D/" -e "s$D-Beka/" /\
+$I-2.0/gtkrc;sed -i -e "s$F/$E" -e "
+3 s$D/" -e "2 s$D-Beka/" /$I-3.0/set\
+tings.ini;echo -e $A"DISPLAY"$B;$G s\
+ddm;echo -e $A"NETWORK"$B;$G Networ\
+kManager;echo -e $A"GRUB"$B;grub-in\
+stall --target=x86_64-efi --efi-dire\
+ctory=/boot --bootloader-id=GRUB;gru\
+b-mkconfig > /boot/grub/grub.cfg;I=''\
 '"$(xrandr|egrep -';echo -e 'M=$(fi'\
 'nd/home/*/\.screenlayout/*.sh)\nN='\
 $I'o '"'HDMI-1|HDMI1'"')"\nO='$I'o '\
