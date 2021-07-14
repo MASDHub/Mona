@@ -45,10 +45,10 @@ $I-2.0/gtkrc;sed -i -e "s$F/$E" -e "
 tings.ini;echo -e $A"SDDM"$B;$G sddm
 echo -e $A"NETWORK"$B;$G NetworkMana\
 ger;echo -e $A"GRUB"$B;grub-install \
---target=x86_64-efi --efi-directory-\
+--target=x86_64-efi --efi-directory=\
 /boot --bootloader-id=GRUB;grub-mkco\
-nfig > /boot/grub/grub.cfg;I='"$(
-xrandr|egrep -';echo -e 'M="$(find/'\
+nfig>/boot/grub/grub.cfg;I='"$(xrandr
+|egrep -';echo -e 'M="$(find/'\
 'home/*/\.screenlayout/*.sh)"\nN='$I\
 'o '"'HDMI-1|HDMI1'"')" \nO='$I'o '"\
 'eDP1|eDP-1'"')"\nP='$I'c '"'HDMI |'\
