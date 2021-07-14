@@ -32,11 +32,11 @@ sed -i '5,$d' ~/$A/menu.xml;echo -e '
 'Password:"'$D'Reboot'$C'reboot'$D''\
 'Power-Off'$C'poweroff</command></a'\
 'ction></item></menu></openbox_menu>
-'>>~/$A/menu.xml;echo -e "lxqt-policyk\
-it &\n\npicom --experimental-backend\
-s &\n\ntrayer --monitor primary --tr\
-ansparent true --tint 0x716966 --hei\
-ght 40 --align right &\n\nplank &\n
+'>>~/$A/menu.xml;echo -e "lxqt-polic\
+ykit &\n\npicom --experimental-backe\
+nds &\n\ntrayer --monitor primary --\
+transparent true --tint 0x716966 --h\
+eight 40 --align right &\n\nplank &\n
 xpad &\n\n(sleep 2 && volumeicon) &\n
 (sleep 2 && nnm-applet) &\n\n(sleep \
 2 && sh na.sh) &">$A/autostart;
