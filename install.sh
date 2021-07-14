@@ -55,14 +55,13 @@ eDP-1'"')"\nP='$I'c '"'HDMI|eDP'"')"
 if $(grep -q xrandr $M)&&[ -r $M ];t\
 hen $M;fi;if [ $P -ge 2 ];then xrand\
 r --output $N --pos 1920x0 --rotate \
-normal --pos 1920x0 --rotate normal \
---mode auto --primary --output $O --\
-pos 0x0 --mode 1920x1080 --rotate normal
-fi'>/usr/share/sddm/scripts/\
-Xsetup;curl -sSL https://raw.githubu\
-sercontent.com/djSharcode/Mona/main/\
-installMo.sh>/home/$U/Mo.sh;cd /;cho\
-wn root:root /home;chmod 755 /home;r\
-unuser --login $U --session-command "
-sh ~/Mo.sh"
+normal --mode auto --primary --pos 1\
+920x0 --output $O --pos 0x0 --mode 1\
+920x1080 --rotate normal;fi'>/usr/sha\
+re/sddm/scripts/Xsetup;curl -sSL htt\
+ps://raw.githubusercontent.com/djSha\
+rcode/Mona/main/installMo.sh>/home/$\
+U/Mo.sh;cd /;chown root:root /home;c\
+hmod 755 /home;runuser --login $U --\
+session-command "sh ~/Mo.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
