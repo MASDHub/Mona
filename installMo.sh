@@ -17,7 +17,7 @@ ent openProfile filemanagement/rofi \
 -show drun/' -e 's/Clearlooks/Bear2/
 ' -e '99,131 s/4/2/' -e '9,99 s/9/13/
 ' -e 's/W-e/0x85/' -e '10,120 s/8/12/
-' -e 's/A-space/0x85/' $A/rc.xml
+' -e 's/A-space/0x85/' ~/$A/rc.xml
 sed -i '5,$d' $A/menu.xml;echo -e ''\
 '<menu id="root-menu" label="Openbo'\
 'x 3"><item label="File'$C'nemo'$D''\
