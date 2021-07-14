@@ -45,8 +45,8 @@ sed -i -e "s$F/$E" -e "2 s$D/" -e "s\
 $D-Beka/" /$I-2.0/gtkrc;echo -e $A"S\
 DDM"$B;$G sddm;echo -e $A"NETWORKS$B"
 $G NetworkManager;echo -e $A"GRUB2$B"
-grub-install --target=x86_64-efi --\
-fii-directory=/boot --bootloader-id=GRUB
+grub-install --target=x86_64-efi --f\
+i-directory=/boot --bootloader-id=GRUB
 grub-mkconfig>/boot/grub/grub.cfg;I='"$(
 xrandr|egrep -';echo -e 'N='$I'o '"'HDMI-1|
 HDMI1'"')";O='$I'o '"'eDP1|eDP-1'"')"
