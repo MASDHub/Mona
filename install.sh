@@ -26,10 +26,10 @@ read R&&U=${R,,}&&[ ${#U} -gt 4 ]&&[[
 d -m -G wheel $U;P="`eval echo ~$U`/"
 until printf $A"Enter User's Password
 "$B&&passwd $U;do :;done;until echo \
--e "Enter Root $A(Admin)${B}Password"
-&&passwd;do :;done;echo -e "127.0.0.\
-1${S}localhost\n::1${Z}127.0.1.1${S}\
-$U-pc.localdomain $U-pc" > /etc/hosts
+-e "Enter Root $A(Admin)${B}Password↓
+"&&passwd;do :;done;echo -e "127.0.0\
+.1${S}localhost\n::1${Z}127.0.1.1$S$\
+{U}-pc.localdomain $U-pc" >/etc/hosts
 echo $H>$P.xinitrc;echo $P>/etc/U;s\
 ed -i 's/au/1920x1080,au/' /etc/defa\
 ult/grub;sed -i "s/tw/$H/" /etc/X11/\
