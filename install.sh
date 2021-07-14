@@ -50,8 +50,8 @@ ger;echo -e $A"GRUB"$B;grub-install \
 nfig>/boot/grub/grub.cfg;I='"$(xrandr
 |egrep -';echo -e 'N='$I'o '"'HDMI-1|
 HDMI1'"')"\nO='$I'o '"'eDP1|eDP-1'"')
-"\nM="$(find /home/*/.screenlayout/*'\
-'.sh)"\nP='$I'c '"'HDMI|eDP'"')";if
+"\nM="$(find /home/*/.screenlayout/'\
+'*.sh)"\nP='$I'c '"'HDMI|eDP'"')";if
 $(grep -q xrandr $M)&&[ -r $M ];t\
 hen $M;elif [ $P -ge 2 ];then xrandr\
  --output $N --pos 1920x0 --primary \
