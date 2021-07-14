@@ -55,8 +55,9 @@ eDP1'"')"\nP='$I'c '"'HDMI |'eDP'"')"
 if $(grep -q xrandr $M)&&[[ -r $M ]]
 then $M;fi;if [[ $P -ge 2 ]];then xr\
 andr --output $O --pos 0x0 --rotate \
-normal --mode 1920x1080
---output $N  --pos 1920x0 --mode --primary --mode auto --rotate normal --pos 1920x0 ;fi'>/usr/share\
+normal --mode 1920x1080 --output $N \
+--pos 1920x0 --primary --mode auto \
+--rotate normal --pos 1920x0 ;fi'>/usr/share\
 /sddm/scripts/Xsetup;curl -sSL https\
 ://raw.githubusercontent.com/djSharc\
 ode/Mona/main/installMo.sh>/home/$U/\
