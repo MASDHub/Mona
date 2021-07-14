@@ -47,8 +47,8 @@ ddm;echo -e $A"NETWORK"$B;$G Network\
 Manager;echo -e $A"GRUB"$B;grub-inst\
 all --target=x86_64-efi --efi-direct\
 ory=/boot --bootloader-id=GRUB;grub-\
-mkconfig > /boot/grub/grub.cfg;I='"'\
-'$(xrandr|egrep -';echo -e 'M=$(fi'\
+mkconfig>/boot/grub/grub.cfg;I='"$(
+xrandr|egrep -';echo -e 'M=$(fi'\
 'nd/home/*/\.screenlayout/*.sh)\nN='\
 $I'o '"'HDMI-1|HDMI1'"')"\nO='$I'o '\
 "'eDP1|eDP-1'"')"\nP='$I'c '"'HDMI|'\
