@@ -48,8 +48,8 @@ na.sh) &">~/$A/autostart;echo -e 'd'\
 'nemo.dockitem'$H'rm '$F'{geeqie.do'\
 'ckitem,vlc-1.dockitem}'$H'sed -i '"\
 '13,"'$d'"'"' '$A'/autostart'$H'pki'\
-'ll volumeicon'$H'sed -i -e "13,16 s'\
-'/fals/tru/" -e "s/xterm -e '"'alsa\
+'ll volumeicon'$H'sed -i -e "13,16 '\
+'s/fals/tru/" -e "s/xterm -e '"'alsa\
 mixer'"'/pavucontrol/" .config/volu'\
 'meicon/volumeicon'$H'volumeicon;sl'\
 'eep 19&&rm'$I'$0'>na.sh;su root -c "
