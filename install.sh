@@ -49,7 +49,7 @@ grub-install --target=x86_64-efi --e\
 fi-directory=/boot --bootloader-id=G\
 RUB;grub-mkconfig>/boot/grub/grub.cfg
 I='"$(xrandr|egrep -';echo -e 'N='$I\
-'o '"'HDMI-1|HDMI1'"')";O='$I'o '"'
+'o '"'HDMI-1|HDMI1'"')"\nO='$I'o '"'\
 eDP1|eDP-1'"')"
 M="$(find /home/*/.screenlayout/*.sh)
 ";P='$I'c '"'HD|eD'"')";if [ -r $M ]\
