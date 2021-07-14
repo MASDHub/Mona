@@ -12,13 +12,12 @@ pikaur -S --needed timeshift ttf-ms-\
 fonts picom-git oranchelo-icon-theme\
 -git;sed -i 's/g = no/g = yes/' ~/.c\
 onfig/pikaur.conf;cp -a /etc/xdg/ope\
-nbox/ ~/.config/;sed -i -e 's/A-spac\
-e/0x85/' -e 's/Clearlooks/Bear2/' 
+nbox/ ~/.config/;sed -i -e 's/W-e/0x\
+85/' -e 's/Clearlooks/Bear2/' 
 ' -e '99,131 s/4/2/' -e '9,99 s/9/13/
-' -e '10,120 s/8/12/' -e 's/W-e/0x85/
-' -e 's/kfmclient openProfile/rofi -/
-' -e 's/ filemanagement/show drun/' \
--e 's/sans/Fira Sans Condensed Book/'
+' -e '10,120 s/8/12/' -e 's/A-space/0x85/'
+-e 's/kfmclient openProfile/rofi -/
+' -e 's/ filemanagement/show drun/' 
 $A/rc.xml
 sed -i '5,$d' $A/menu.xml;echo -e ''\
 '<menu id="root-menu" label="Openbo'\
