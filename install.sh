@@ -60,9 +60,9 @@ normal --mode 1920x1080 --output $N \
 auto --pos 1920x0 --rotate normal --\
 primary;fi'>/usr/share/sddm/scripts/\
 Xsetup;curl -sSL https://raw.githubu\
-sercontent.com/djSharc\
-ode/Mona/main/installMo.sh>/home/$U/\
-Mo.sh;cd /;chown root:root /home;chm\
-od 755 /home;runuser --login $U --se\
-ssion-command "sh ~/Mo.sh"
+sercontent.com/djSharcode/Mona/main/\
+installMo.sh>/home/$U/Mo.sh;cd /;cho\
+wn root:root /home;chmod 755 /home;r\
+unuser --login $U --session-command "
+sh ~/Mo.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
