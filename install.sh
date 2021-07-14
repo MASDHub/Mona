@@ -14,19 +14,19 @@ set -euo pipefail
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
 S='       ';Z='             localhost
-';F='en_US.U';A='\e[1;31m';B='\e[0m►'
+';A='\e[1;31m';B='\e[0m ';F='en_US.U'
 D='/Adwaita/Oranchelo';head -15 "$0"|
 tail -13;C='Fira Sans Condensed Book/
 ';J='systemctl enable';G='/Cantarell'
 H='openbox-session';E='usr/share/gtk'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-until printf "$A Enter User Name$B"&&
+until printf $A"Enter User Name:$B"&&
 read R&&U="${R,,}"&&[ ${#U} -gt 4 ]&&
 [[ "$U" =~ ^[a-z]*$ ]];do :;done;use\
-radd -m -G wheel $U;until echo -e "$A
-User Password$B"&&passwd $U;do :;done
-until printf "${A}Enter Root Password
-$B"&&passwd;do :;done;echo -e "127.0\
+radd -m -G wheel $U;until printf $A"\
+User Password"$B&&passwd $U;do :;done
+until printf $A"Enter Root Password \
+"$B&&passwd;do :;done;echo -e "127.0\
 .0.1${S}localhost\n::1${Z}127.0.1.1$\
 S${U}c.localdomain ${U}c"> /etc/hosts
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
