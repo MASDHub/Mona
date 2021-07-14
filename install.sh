@@ -14,8 +14,8 @@ set -euo pipefail
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
 S='       ';Z='             localhost
-';F='en_US.UTF';B='\e[1;31m';A='\e[0m
-';D='/Adwaita/Oranchelo';head -15 $0|
+';F='en_US.U';B='\e[1;31m';A='\e[0m►'
+D='/Adwaita/Oranchelo';head -15 "$0"|
 tail -13;C='Fira Sans Condensed Book/
 ';J='systemctl enable';G='/Cantarell'
 H='openbox-session';E='usr/share/gtk'
@@ -31,7 +31,7 @@ $A"&&passwd;do :;done;echo -e "127.0\
 S${U}c.localdomain ${U}c"> /etc/hosts
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;ln -sf "$(cat /etc/T)" /etc/loca\
-ltime;echo "LANG=${F}-8" > /etc/loca\
+ltime;echo LANG=${F}TF-8 > /etc/loca\
 le.conf;sed -i "s/#$F/$F/" /etc/loca\
 le.gen;echo "/home/$U/n" > /etc/U;s\
 ed -i 's/au/1920x1080,au/' /etc/defa\
@@ -42,9 +42,9 @@ lock --systohc;locale-gen;sed -i -e "
 s$G/$C" -e "2 s$D/" -e "s$D-Beka/" /\
 $E-2.0/gtkrc;sed -i -e "s$G/$C" -e "
 3 s$D/" -e "2 s$D-Beka/" /$E-3.0/set\
-tings.ini;echo -e "$B*DISPLAY$A";$J \
-sddm;echo -e "$B*NETWORK$A";$J Netwo\
-rkManager;echo -e "$B*GRUB$A";grub-i\
+tings.ini;echo -e "$B DISPLAY$A";$J \
+sddm;echo -e "$B NETWORK$A";$J Netwo\
+rkManager;echo -e "$B GRUB$A";grub-i\
 nstall --target=x86_64-efi --efi-dir\
 ectory=/boot --bootloader-id=GRUB;gr\
 ub-mkconfig > /boot/grub/grub.cfg;I=\
