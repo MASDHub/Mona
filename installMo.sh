@@ -37,23 +37,23 @@ ykit &\n\npicom --experimental-backe\
 nds &\n\ntrayer --monitor primary --\
 transparent true --tint 0x716966 --h\
 eight 40 --align right &\n\nplank &\n
-xpad &\n\n(sleep 2 && volumeicon) &\n
-(sleep 2 && nnm-applet) &\n\n(sleep \
-2 && sh na.sh) &">$A/autostart;
-echo -e 'dconf dump'$\
-G'>'$I''$H'sed -i "s/bottom/right/"'\
-$I''$H'cat'$I'|dconf load'$G''$H'ec'\
-'ho "[PlankDockItemPreferences]\nLa'\
-'uncher=file:///usr/share/applicatio'\
-'ns/nemo.desktop">'$F'nemo.dockitem'\
-$H'rm '$F'{geeqie.dockitem,vlc-1.do'\
-'ckitem}'$H'sed -i '"'15,"'$d'"'"' '\
-$A'/autostart'$H'pkill volumeicon'$H\
-'sed -i -e "13,16 s/fals/tru/" -e "
-s/xterm -e '"'alsamixer'"'/pavucont'\
-'rol/" .config/volumeicon/volumeicon'\
-''$H'volumeicon;sleep 19&&rm'$I'$0'>\
-na.sh;su root -c "chmod 755 $(cat /e\
-tc/U)a.sh";rm /etc/U $0;echo -e '\e[1
-;31mDone:)\nTo End Type: \e[0mreboot'
+(sleep 2 && volumeicon) &\n\n(sleep \
+2 && nm-applet) &\n\n(sleep 2 && sh \
+na.sh) &">~/$A/autostart;echo -e 'd'\
+'conf dump'$G'>'$I''$H'sed -i "s/bo'\
+'ttom/right/"'$I''$H'cat'$I'|dconf '\
+'load'$G''$H'echo "[PlankDockItemPr'\
+'eferences]\nLauncher=file:///usr/sh'\
+'are/applications/nemo.desktop"> '$F\
+'nemo.dockitem'$H'rm '$F'{geeqie.do'\
+'ckitem,vlc-1.dockitem}'$H'sed -i '"'\
+13,"'$d'"'"' '$A'/autostart'$H'pki'\
+'ll volumeicon'$H'sed -i -e "13,16 s'\
+'/fals/tru/" -e "s/xterm -e '"'alsa\
+mixer'"'/pavucontrol/" .config/volu'\
+'meicon/volumeicon'$H'volumeicon;sl'\
+'eep 19&&rm'$I'$0'>na.sh;su root -c "
+chmod 755 $(cat /etc/U)a.sh";rm /etc\
+/U $0;echo -e '\e[1;31mDone :) To End 
+Type: \e[0mreboot'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
