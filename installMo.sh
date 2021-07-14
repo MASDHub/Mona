@@ -46,8 +46,8 @@ na.sh) &">~/$A/autostart;echo -e 'd'\
 'eferences]\nLauncher=file:///usr/s'\
 'hare/applications/nemo.desktop">'$F\
 'nemo.dockitem'$H'rm '$F'{geeqie.do'\
-'ckitem,vlc-1.dockitem}'$H'sed -i '"'\
-13,"'$d'"'"' '$A'/autostart'$H'pki'\
+'ckitem,vlc-1.dockitem}'$H'sed -i '"\
+'13,"'$d'"'"' '$A'/autostart'$H'pki'\
 'll volumeicon'$H'sed -i -e "13,16 s'\
 '/fals/tru/" -e "s/xterm -e '"'alsa\
 mixer'"'/pavucontrol/" .config/volu'\
