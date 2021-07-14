@@ -48,8 +48,9 @@ $G NetworkManager;echo -e $A"GRUB2$B"
 grub-install --target=x86_64-efi --e\
 fi-directory=/boot --bootloader-id=G\
 RUB;grub-mkconfig>/boot/grub/grub.cfg
-I='"$(xrandr|egrep -';echo -e 'N='$I'o '"'HDMI-1|
-HDMI1'"')";O='$I'o '"'eDP1|eDP-1'"')"
+I='"$(xrandr|egrep -';echo -e 'N='$I\
+'o '"'HDMI-1|HDMI1'"')";O='$I'o '"'
+eDP1|eDP-1'"')"
 M="$(find /home/*/.screenlayout/*.sh)
 ";P='$I'c '"'HD|eD'"')";if [ -r $M ]\
 &&$(grep -q xrandr $M);then $M;elif [
