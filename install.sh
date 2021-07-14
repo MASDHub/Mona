@@ -48,11 +48,11 @@ ger;echo -e $A"GRUB"$B;grub-install \
 --target=x86_64-efi --efi-directory=\
 /boot --bootloader-id=GRUB;grub-mkco\
 nfig>/boot/grub/grub.cfg;I='"$(xrandr
-|egrep -';echo -e 'M="$(find /home/'\
-'*/.screenlayout/*.sh)"\nP='$I'c '"\
-'HDMI|eDP'"')"\nO='$I'o '"'eDP1|eDP-1
-'"')"\nN='$I'o '"'HDMI-1|HDMI1'"')"
-if $(grep -q xrandr $M)&&[ -r $M ];t\
+|egrep -';echo -e 'N='$I'o '"'HDMI-1|
+HDMI1'"')"\nO='$I'o '"'eDP1|eDP-1'"')
+"\nM="$(find /home/*/.screenlayout/*'\
+'.sh)"\nP='$I'c '"'HDMI|eDP'"')";if
+$(grep -q xrandr $M)&&[ -r $M ];t\
 hen $M;elif [ $P -ge 2 ];then xrandr\
  --output $N --pos 1920x0 --primary \
 --rotate normal --pos 1920x0 --mode \
