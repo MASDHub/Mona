@@ -42,10 +42,10 @@ lock --systohc;locale-gen;sed -i -e "
 s$F/$E" -e "2 s$D/" -e "s$D-Beka/" /\
 $I-2.0/gtkrc;sed -i -e "s$F/$E" -e "
 3 s$D/" -e "2 s$D-Beka/" /$I-3.0/set\
-tings.ini;echo -e $A"DISPLAY"$B;$G s\
-ddm;echo -e $A"NETWORK"$B;$G Network\
-Manager;echo -e $A"GRUB"$B;grub-inst\
-all --target=x86_64-efi --efi-direct\
+tings.ini;echo -e $A"SDDM"$B;$G sddm
+echo -e $A"NETWORK"$B;$G NetworkMana\
+ger;echo -e $A"GRUB"$B;grub-install \
+--target=x86_64-efi --efi-direct\
 ory=/boot --bootloader-id=GRUB;grub-\
 mkconfig > /boot/grub/grub.cfg;I='"$(
 xrandr|egrep -';echo -e 'M="$(find/'\
