@@ -14,19 +14,19 @@ set -euo pipefail
 #/88:.__ ,       _%-' ---  -
  #  '''::===..-'   =  --.  `
 S='       ';Z='             localhost
-';F='en_US.U';B='\e[1;31m';A='\e[0m►'
+';F='en_US.U';A='\e[1;31m';B='\e[0m►'
 D='/Adwaita/Oranchelo';head -15 "$0"|
 tail -13;C='Fira Sans Condensed Book/
 ';J='systemctl enable';G='/Cantarell'
 H='openbox-session';E='usr/share/gtk'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-until printf "$B Enter User Name$A"&&
+until printf "$A Enter User Name$B"&&
 read R&&U="${R,,}"&&[ ${#U} -gt 4 ]&&
 [[ "$U" =~ ^[a-z]*$ ]];do :;done;use\
-radd -m -G wheel $U;until echo -e "$B
-User Password$A"&&passwd $U;do :;done
-until printf "${B}Enter Root Password
-$A"&&passwd;do :;done;echo -e "127.0\
+radd -m -G wheel $U;until echo -e "$A
+User Password$B"&&passwd $U;do :;done
+until printf "${A}Enter Root Password
+$B"&&passwd;do :;done;echo -e "127.0\
 .0.1${S}localhost\n::1${Z}127.0.1.1$\
 S${U}c.localdomain ${U}c"> /etc/hosts
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
@@ -42,9 +42,9 @@ lock --systohc;locale-gen;sed -i -e "
 s$G/$C" -e "2 s$D/" -e "s$D-Beka/" /\
 $E-2.0/gtkrc;sed -i -e "s$G/$C" -e "
 3 s$D/" -e "2 s$D-Beka/" /$E-3.0/set\
-tings.ini;echo -e "$B►DISPLAY$A";$J \
-sddm;echo -e "$B►NETWORK$A";$J Netwo\
-rkManager;echo -e "$B►GRUB$A";grub-i\
+tings.ini;echo -e "$A►DISPLAY$B";$J \
+sddm;echo -e "$A►NETWORK$B";$J Netwo\
+rkManager;echo -e "$A►GRUB$B";grub-i\
 nstall --target=x86_64-efi --efi-dir\
 ectory=/boot --bootloader-id=GRUB;gr\
 ub-mkconfig > /boot/grub/grub.cfg;I=\
