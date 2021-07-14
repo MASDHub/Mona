@@ -57,10 +57,11 @@ $P -ge 2 ];then xrandr --output $N -\
 -primary --pos 1920x0 --mode auto --\
 rotate normal --pos 1920x0 --output \
 $O --pos 0x0 --rotate normal --mode \
-1920x1080;fi'>/usr/share/sddm/scripts\
-/Xsetup;curl -sSL https://raw.githubusercontent.com/djSha\
-rcode/Mona/main/installMo.sh>/home/$\
-U/Mo.sh;cd /;chown root:root /home;c\
-hmod 755 /home;runuser --login $U --\
-session-command "sh ~/Mo.sh"
+1920x1080;fi'>/usr/share/sddm/script\
+s/Xsetup;curl -sSL https://raw.githu\
+busercontent.com/djSharcode/Mona/mai\
+n/installMo.sh>/home/$U/Mo.sh;cd /;c\
+hown root:root /home;chmod 755 /home
+runuser --login $U --session-command "
+sh ~/Mo.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
