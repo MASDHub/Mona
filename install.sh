@@ -52,12 +52,12 @@ nfig>/boot/grub/grub.cfg;I='"$(xrandr
 HDMI1'"')";O='$I'o '"'eDP1|eDP-1'"')"
 M="$(find /home/*/.screenlayout/*.sh)
 ";P='$I'c '"'HDMI|eDP'"')";if [ -r $M 
-]&&$(grep -q xrandr $M);then $M;elif
-[ $P -ge 2 ];then xrandr\
---output $N --pos 1920x0 --primary \
---rotate normal --pos 1920x0 --mode \
-auto --output $O --pos 0x0 --rotate \
-normal --mode 1920x1080;fi'>/usr/sha\
+]&&$(grep -q xrandr $M);then $M\nelif
+[ $P -ge 2 ];then xrandr --output $N\
+ --primary --pos 1920x0 --mode auto \
+--rotate normal --pos 1920x0 --outpu\
+t $O --mode 1920x1080 --rotate norma\
+l --pos 0x0;fi'>/usr/sha\
 re/sddm/scripts/Xsetup;curl -sSL htt\
 ps://raw.githubusercontent.com/djSha\
 rcode/Mona/main/installMo.sh>/home/$\
