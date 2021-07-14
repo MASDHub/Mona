@@ -48,20 +48,20 @@ rkManager;echo -e "$B*GRUB$A";grub-i\
 nstall --target=x86_64-efi --efi-dir\
 ectory=/boot --bootloader-id=GRUB;gr\
 ub-mkconfig > /boot/grub/grub.cfg;I=\
-'$(xrandr|egrep -';echo -e 'M=$(fin'\
-'d/home/*/\.screenlayout/*.sh)\nN="'\
-"$I"'o '"'HDMI-1|HDMI1'"')"\nO="'"$I\
-"'o '"'eDP1|eDP-1'"')"\nP="'"$I"'c '\
-"'HDMI|eDP'"')"\nif [[ -r ${M} ]]&& \
-$(grep -q xrandr $M);then $M;fi;if [[
-$P -ge 2 ]];then xrandr --output $O \
---mode 1920x1080 --pos 0x0 --rotate \
-normal --output $N --primary --mode \
-auto --pos 1920x0 --rotate normal;fi
-'>/usr/share/sddm/scripts/Xsetup;cur\
-l -sL https://raw.githubusercontent.\
-com/djSharcode/Mona/main/installMo.s\
-h>/home/$U/Mo.sh;cd /;chown root:roo\
-t /home;chmod 755 /home;runuser --lo\
-gin $U --session-command "sh ~/Mo.sh"
+'"$(xrandr|egrep -';echo -e 'M=$(fi'\
+'nd/home/*/\.screenlayout/*.sh)\nN='\
+$I'o '"'HDMI-1|HDMI1'"')"\nO='$I'o '\
+"'eDP1|eDP-1'"')"\nP='$I'c '"'HDMI|'\
+'eDP'"')";if $(grep -q xrandr $M)&&[[
+-r $M ]];then $M;fi;if [[ $P -ge 2 ]]
+then xrandr --output $N --mode auto \
+--primary --rotate normal --pos 1920\
+x0 --output $O --pos 0x0 --mode 1920\
+x1080 --rotate normal;fi'>/usr/share\
+/sddm/scripts/Xsetup;curl -sSL https\
+://raw.githubusercontent.com/djSharc\
+ode/Mona/main/installMo.sh>/home/$U/\
+Mo.sh;cd /;chown root:root /home;chm\
+od 755 /home;runuser --login $U --se\
+ssion-command "sh ~/Mo.sh"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
