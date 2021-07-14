@@ -56,9 +56,10 @@ if $(grep -q xrandr $M)&&[[ -r $M ]]
 then $M;fi;if [[ $P -ge 2 ]];then xr\
 andr --output $O --pos 0x0 --rotate \
 normal --mode 1920x1080 --output $N \
---pos 1920x0 --primary --mode auto \
---rotate normal --pos 1920x0 ;fi'>/usr/share\
-/sddm/scripts/Xsetup;curl -sSL https\
+--pos 1920x0 --rotate normal --mode \
+auto --pos 1920x0 --rotate normal --\
+primary;fi'>/usr/share/sddm/scripts/X\
+setup;curl -sSL https\
 ://raw.githubusercontent.com/djSharc\
 ode/Mona/main/installMo.sh>/home/$U/\
 Mo.sh;cd /;chown root:root /home;chm\
