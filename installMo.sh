@@ -10,9 +10,10 @@ git clone https://aur.archlinux.org/\
 pikaur.git;cd pikaur/;makepkg -fsri
 pikaur -S --needed timeshift ttf-ms-\
 fonts picom-git oranchelo-icon-theme\
--git;cp -a /etc/xdg/openbox/ ~/.conf\
-ig/;sed -i 's/g = no/g = yes/' ~/.co\
-nfig/pikaur.conf;sed -i -e 's/A-space/0x85/
+-git;sed -i 's/g = no/g = yes/' ~/.c\
+onfig/pikaur.conf;cp -a /etc/xdg/openbox/
+~/.conf\
+ig/;;sed -i -e 's/A-space/0x85/
 ' -e '99,131 s/4/2/' -e '9,99 s/9/13/
 ' -e '10,120 s/8/12/' -e 's/W-e/0x85/
 ' -e 's/kfmclient openProfile/rofi -/
