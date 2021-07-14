@@ -19,9 +19,9 @@ ent openProfile filemanagement/rofi \
 ' -e 's/W-e/0x85/' -e '10,120 s/8/12/
 ' -e 's/sans/Fira Sans Condensed Boo\
 k/' -e 's/A-space/0x85/' ~/$A/rc.xml
-sed -i '5,$d' $A/menu.xml;echo -e ''\
-'<menu id="root-menu" label="Openbo'\
-'x 3"><item label="File'$C'nemo'$D''\
+sed -i '5,$d' ~/$A/menu.xml;echo -e '
+<menu id="root-menu" label="Openbox'\
+' 3"><item label="File'$C'nemo'$D''\
 'Search'$C'rofi -show drun'$D'Web'$C\
 'firefox'$D'Terminal'$C'alacritty'$D\
 'Text'$C'geany'$D'Calculator'$C'gal'\
@@ -32,7 +32,7 @@ sed -i '5,$d' $A/menu.xml;echo -e ''\
 'Password:"'$D'Reboot'$C'reboot'$D''\
 'Power-Off'$C'poweroff</command></a'\
 'ction></item></menu></openbox_menu>
-'>>$A/menu.xml;echo -e "lxqt-policyk\
+'>>~/$A/menu.xml;echo -e "lxqt-policyk\
 it &\n\npicom --experimental-backend\
 s &\n\ntrayer --monitor primary --tr\
 ansparent true --tint 0x716966 --hei\
