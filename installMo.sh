@@ -13,8 +13,8 @@ fonts picom-git oranchelo-icon-theme\
 -git;sed -i 's/g = no/g = yes/' ~/.c\
 onfig/pikaur.conf;cp -a /etc/xdg/ope\
 nbox/ ~/.config/;sed -i -e 's/kfmcli\
-ent openProfile filemanagement/rofi -s\
-show drun/' -e 's/Clearlooks/Bear2/
+ent openProfile filemanagement/rofi \
+-show drun/' -e 's/Clearlooks/Bear2/
 ' -e '99,131 s/4/2/' -e '9,99 s/9/13/
 ' -e 's/W-e/0x85/' -e '10,120 s/8/12/
 ' -e 's/A-space/0x85/' $A/rc.xml
