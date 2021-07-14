@@ -24,7 +24,7 @@ amd-ucode';fi;lsblk -pe 7,11|egrep -\
 -color /?;sed -i 's/#Co/Co/' $H.conf
 sed -i "0,/()/s//(${L}btrfs)/" $K;$G\
 -timezone $I&&$G-ntp true;reflector \
--p https --score 5 --sort rate -a 2 \
+-p https --score 5 --sort rate -a 8 \
 --save $H.d/mirrorlist;pacstrap -i /\
 mnt base base-devel linux alacritty \
 linux-firmware lxqt-policykit xterm \
