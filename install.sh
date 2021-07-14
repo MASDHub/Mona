@@ -49,12 +49,12 @@ ger;echo -e $A"GRUB"$B;grub-install \
 /boot --bootloader-id=GRUB;grub-mkco\
 nfig>/boot/grub/grub.cfg;I='"$(xrandr
 |egrep -';echo -e 'N='$I'o '"'HDMI-1|
-HDMI1'"')"\nO='$I'o '"'eDP1|eDP-1'"')
-"\nM="$(find /home/*/.screenlayout/'\
-'*.sh)"\nP='$I'c '"'HDMI|eDP'"')";if
-$(grep -q xrandr $M)&&[ -r $M ];t\
-hen $M;elif [ $P -ge 2 ];then xrandr\
- --output $N --pos 1920x0 --primary \
+HDMI1'"')";O='$I'o '"'eDP1|eDP-1'"')"
+M="$(find /home/*/.screenlayout/*.sh)"
+P='$I'c '"'HDMI|eDP'"')";if [ -r $M ]\
+&&$(grep -q xrandr $M)&&;then $M;fi
+if [ $P -ge 2 ];then xrandr\
+--output $N --pos 1920x0 --primary \
 --rotate normal --pos 1920x0 --mode \
 auto --output $O --pos 0x0 --rotate \
 normal --mode 1920x1080;fi'>/usr/sha\
