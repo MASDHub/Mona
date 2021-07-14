@@ -53,12 +53,11 @@ I='"$(xrandr|egrep -';echo -e 'N='$I\
 eDP1|eDP-1'"')"\nP='$I'c '"'HD|eD'"')
 ";M=`find /home/*/.screenlayout/*.sh`
 if [ -r $M ]&&$(grep -q xrandr $M);t\
-hen $M;elif [
-$P -ge 2 ];then xrandr --output $N -\
--primary --pos 1920x0 --mode auto --\
-rotate normal --pos 1920x0 --output \
-$O --pos 0x0 --rotate normal --mode \
-1920x1080;fi'>/usr/share/sddm/script\
+hen $M;elif [ $P -ge 2 ];then xrandr\
+ --output $N --pos 1920x0 --primary \
+--rotate normal --mode auto --output\
+ $O --mode 1920x1080 --rotate normal\
+ --pos 0x0;fi'>/usr/share/sddm/script\
 s/Xsetup;curl -sSL https://raw.githu\
 busercontent.com/djSharcode/Mona/mai\
 n/installMo.sh>/home/$U/Mo.sh;cd /;c\
