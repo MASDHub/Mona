@@ -51,10 +51,10 @@ nfig>/boot/grub/grub.cfg;I='"$(xrandr
 |egrep -';echo -e 'M="$(find/home/*'\
 '/\.screenlayout/*.sh)" \nN='$I'o '"\
 'HDMI-1|HDMI1'"')"\nO='$I'o '"'eDP-1|
-eDP1'"')"\nP='$I'c '"'HDMI |'eDP'"\
-')";if $(grep -q xrandr $M)&&[[ -r $M 
-]];then $M;fi;if [[ $P -ge 2 ]]
-then xrandr --output $N --mode auto \
+eDP1'"')"\nP='$I'c '"'HDMI |'eDP'"')"
+if $(grep -q xrandr $M)&&[[ -r $M ]]
+then $M;fi;if [[ $P -ge 2 ]];then xr\
+andr --output $N --mode auto \
 --primary --rotate normal --pos 1920\
 x0 --output $O --pos 0x0 --mode 1920\
 x1080 --rotate normal;fi'>/usr/share\
