@@ -43,8 +43,8 @@ na.sh) &">~/$A/autostart;echo -e 'd'\
 'conf dump'$G'>'$I''$H'sed -i "s/bo'\
 'ttom/right/"'$I''$H'cat'$I'|dconf '\
 'load'$G''$H'echo "[PlankDockItemPr'\
-'eferences]\nLauncher=file:///usr/sh'\
-'are/applications/nemo.desktop"> '$F\
+'eferences]\nLauncher=file:///usr/s'\
+'hare/applications/nemo.desktop">'$F\
 'nemo.dockitem'$H'rm '$F'{geeqie.do'\
 'ckitem,vlc-1.dockitem}'$H'sed -i '"'\
 13,"'$d'"'"' '$A'/autostart'$H'pki'\
