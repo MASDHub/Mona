@@ -2,8 +2,8 @@
 set -euo pipefail
 C='"><actionname="Execute"><command>'
 G=' /net/launchpad/plank/docks/ ';H='
-; sleep 2 && ';D='</command></action>
-</item><item label="';I=' docks.ini '
+;sleep 2&& ';D='</command></action>'\
+'</item><item label="';I=' docks.ini'
 E='separator>';A=.config/openbox;F=.\
 'config/plank/docks1/launcher/' #~~~#
 git clone https://aur.archlinux.org/\
