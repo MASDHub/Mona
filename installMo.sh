@@ -42,10 +42,10 @@ nds &\n\nplank &\n\ntrayer --height \
 volumeicon) &\n\n(sleep 2&&sh .sh) &\
 ">~/$A/autostart;echo -e 'echo "[Pl'\
 'ankDockItemPreferences]\nLauncher='\
-'file:///usr/share/applications/nemo'\
-'.desktop">'$F'nemo.dockitem'$H'rm'$\
-F'{geeqie.dockitem,vlc-1.dockitem}'$H
-'sed -i '"'13,"'$d'"'"' '$A'/autost'\
+'file:///usr/share/applications/nem'\
+'o.desktop">'$F'nemo.dockitem'$H'rm'\
+$F'{geeqie.dockitem,vlc-1.dockitem}'$
+H'sed -i '"'13,"'$d'"'"' '$A'/autost'\
 'art'$H'pkill volumeicon'H'sed -i -e "
 s/xterm -e '"'alsamixer'"'/pavucontrol/
 " -e "13,16 s/fals/tru/" .config/volu\
