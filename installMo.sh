@@ -34,25 +34,25 @@ o "Enter Password:"'$D''$Z'Reboot'$C\
 'reboot'$D''$Z'Power-Off'$C'powerof'\
 'f'$D'</menu></openbox_menu>'>>~/$A/\
 menu.xml;echo -e "lxqt-policykit &\n
-picom --experimental-backends &\n\nt\
-rayer --height 40 --monitor \
-primary --align right --transparent \
-true --tint 0x716966 &\nplank &\n\n(\
-sleep 2 && volumeicon) &\n\n(sleep 2\
-&& nm-applet) &\n\n(sleep 2 && sh .sh
-) &">~/$A/autostart;echo -e 'd'\
-'conf dump'$G'>'$I''$H'sed -i "s/bo'\
-'ttom/right/"'$I''$H'cat'$I'|dconf '\
-'load'$G''$H'echo "[PlankDockItemPr'\
-'eferences]\nLauncher=file:///usr/s'\
-'hare/applications/nemo.desktop">'$F\
-'nemo.dockitem'$H'rm '$F'{geeqie.do'\
-'ckitem,vlc-1.dockitem}'$H'sed -i '"\
-'13,"'$d'"'"' '$A'/autostart'$H'pki'\
-'ll volumeicon'$H'sed -i -e "13,16 '\
-'s/fals/tru/" -e "s/xterm -e '"'alsa\
-mixer'"'/pavucontrol/" .config/volu'\
-'meicon/volumeicon'$H'volumeicon;sl'\
-'eep 19&&rm'$I' $0'>~/.sh;echo -e '\e
-[1;31mDone!\nTo End Type:\e[0mreboot'
+picom --experimental-backends &\n\np\
+lank &\n\ntrayer --height 40 --tint \
+0x716966 --transparent true --align \
+right --monitor primary &\n\n(sleep \
+2 && volumeicon) &\n\n(sleep 2&&nm-a\
+pplet) &\n\n(sleep 2&&sh .sh) &">~/$\
+A/autostart;echo -e 'dconf dump'$G'>'
+$I''$H'sed -i "s/bottom/right/"'$I''$
+H'cat'$I'|dconf load'$G''$H'echo "['\
+'PlankDockItemPreferences]\nLaunche'\
+r=file:///usr/share/applications/ne'\
+mo.desktop">'$F'nemo.dockitem'$H'rm'\
+$F'{geeqie.dockitem,vlc-1.dockitem}'\
+$H'sed -i '"'13,"'$d'"'"' '$A'/auto'\
+start'$H'pkill volumeicon'$H'sed -i \
+-e "13,16 s/fals/tru/" -e "s/xterm -\
+e '"'alsamixer'"'/pavucontrol/" .co'\
+nfig/volumeicon/volumeicon'$H'volum'\
+eicon;sleep 19&&rm'$I' $0'>~/.sh;ec'\
+ho -e '\e[1;31mDone!\nTo End Type: \e
+[0mreboot'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
