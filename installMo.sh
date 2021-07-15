@@ -52,9 +52,8 @@ na.sh) &">~/$A/autostart;echo -e 'd'\
 's/fals/tru/" -e "s/xterm -e '"'alsa\
 mixer'"'/pavucontrol/" .config/volu'\
 'meicon/volumeicon'$H'volumeicon;sl'\
-'eep 19&&rm'$I' $0'>~/.sh;echo -e '\
-e[1;31mDone\nTo End Type:\e[0mreboot
-'
+'eep 19&&rm'$I' $0'>~/.sh;echo -e '\e
+[1;31mDone\nTo End Type:\e[0mreboot'
 #&& rm $0
 #su root -c "chmod 755 $(cat /etc/U).
 #sh &&rm /etc/U 
