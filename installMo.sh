@@ -33,15 +33,14 @@ Z'Lock Screen'$C'xlock -mode atlant'\
 " +description -echokey "*"'$D''$Z''\
 'Reboot'$C'reboot'$D''$Z'Power-Off'$\
 C'poweroff'$D'</menu></openbox_menu>
-'>>~/$A/\
-menu.xml;echo -e "lxqt-policykit &\n
-picom --experimental-backends &\n\np\
-lank &\n\ntrayer --height 40 --tint \
-0x716966 --transparent true --align \
-right --monitor primary &\n\n(sleep \
-2 && volumeicon) &\n\n(sleep 2&&nm-a\
-pplet) &\n\n(sleep 2&&sh .sh) &">~/$\
-A/autostart;echo -e 'dconf dump'$G'>'
+'>>~/$A/menu.xml;echo -e "lxqt-polic\
+ykit &\n\npicom --experimental-backe\
+nds &\n\nplank &\n\ntrayer --height \
+40 --transparent true --align right \
+--tint 0x716966 --monitor primary &\n
+(sleep 2&&nm-applet) &\n\n(sleep 2&&\
+volumeicon) &\n\n(sleep 2&&sh .sh) &\
+">~/$A/autostart;echo -e 'dconf dump'$G'>'
 $I''$H'sed -i "s/bottom/right/"'$I''$
 H'cat'$I'|dconf load'$G''$H'echo "['\
 'PlankDockItemPreferences]\nLaunche'\
