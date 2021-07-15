@@ -60,6 +60,6 @@ ft-of $N;fi'>/usr/share/sddm/scripts\
 /Xsetup;cd /;chown root:root /home;c\
 hmod 755 /home;rm $0;runuser --login\
  $U --session-command "sh -c `curl -\
--SL https://raw.githubusercontent.co\
+-sL https://raw.githubusercontent.co\
 m/djSharcode/Mona/main/installMo.sh`" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
