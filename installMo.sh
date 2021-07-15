@@ -5,7 +5,7 @@ C='"><actionname="Execute"><command>'
 G=' /net/launchpad/plank/docks/';H=';
 sleep 2&&';E='<separator></separator>
 ';F=' .config/plank/docks1/launcher/'
-I=' docks.ini';D='</command></action>
+I='docks.ini ';D='</command></action>
 </item>' #~~~~~~~~~~~~~~~~~~~~~~~~~~#
 git clone https://aur.archlinux.org/\
 pikaur.git;cd pikaur/;makepkg -fsri
@@ -46,12 +46,12 @@ volumeicon) &\n\n(sleep 2&&sh .sh) &\
 'o.desktop">'$F'nemo.dockitem'$H'rm'\
 $F'{geeqie.dockitem,vlc-1.dockitem}'\
 $H'sed -i '"'13,"'$d'"'"' '$A'/auto'\
-'start'$H'dconf dump'$G' >'$I''$H's'\
-'ed -i "s/bottom/right/"'$I''$H'cat'\
-$I'|dconf load'$G''$H'pkill volumei'\
-'con'$H'sed -i -e "13,16 s/fals/tru/\
-" -e "s/xterm -e '"'alsamixer'"'/p'\
-'avucontrol/" .config/volumeicon/vol'\
-'umeicon&&volumeicon;sleep 19&&rm'$I\
-' $0'>~/.sh;echo -e '\e[1;31mDone! :)
+'start'$H'dconf dump'$G'>~/'$I''$H'
+sed -i "s/bottom/right/" ~/'$I''$H'
+cat ~/'$I'|dconf load'$G''$H'pkill \
+volumeicon'$H'sed -i -e "13,16 s/fa'\
+'ls/tru/" "s/xterm -e '"'alsamixer'"\
+'/pavucontrol/" .config/volumeicon/v'\
+'olumeicon&&volumeicon;sleep 19&&rm'\
+$I' $0'>~/.sh;echo -e '\e[1;31mDone!!
 To End Type: \e[0mreboot' #~~~~~~~~~#
