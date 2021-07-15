@@ -15,9 +15,9 @@ set -euo pipefail
  #  '''::===..-'   =  --.  `
 S='       ';Z='             localhost
 ';A='\e[1;31m';B='\e[0m ';C='en_US.U'
-D='/Adwaita/Oranchelo';head -15 "$0"|
-tail -13;E='Fira Sans Condensed Book/
-';F='/Cantarell';G='systemctl enable'
+D='/Adwaita/Oranchelo';F='/Cantarell'
+E='Fira Sans Condensed Book/';head -\
+15 "$0"|tail -13;G='systemctl enable'
 H='openbox-session';I='usr/share/gtk'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 until printf $A"Enter User Name:$B"&&
