@@ -47,8 +47,8 @@ I-3.0/settings.ini;echo -e $A"NETWORK
 "$B;$G sddm;echo -e $A"GRUB$B";grub-\
 install --target=x86_64-efi --efi-di\
 rectory=/boot --bootloader-id=GRUB;g\
-rub-mkconfig>/boot/grub/grub.cfg;I='"
-$(xrandr|egrep -';echo -e 'M=`find '\
+rub-mkconfig>/boot/grub/grub.cfg;I='`
+xrandr|egrep -';echo -e 'M=`find '\
 '/home/*/.screenlayout/*.sh"\nN='$I\
 'o '"'HDMI-1|HDMI1'"')"\nP='$I'c '"\
 'HD|eD'"')";O='$I'o '"'eDP1|eDP-1'"\
