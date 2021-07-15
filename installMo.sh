@@ -31,8 +31,8 @@ $D''$Z'Text'$C'geany'$D''$Z'Calcula'\
 'Screen'$C'xlock +description -mode \
 atlantis -echokeys -echokey "*" -inf\
 o "Enter Password:"'$D''$Z'Reboot'$C\
-'reboot'$D''$Z'Power-Off'$C'poweroff'$\
-D'</menu></openbox_menu>'>>~/$A/menu\
+'reboot'$D''$Z'Power-Off'$C'poweroff
+'$D'</menu></openbox_menu>'>>~/$A/menu\
 .xml;echo -e "lxqt-policyk\
 it &\n\npicom --experimental-backend\
 s &\n\ntrayer --height 40 --monitor \
