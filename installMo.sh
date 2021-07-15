@@ -51,7 +51,7 @@ $H'sed -i '"'13,"'$d'"'"' '$A'/auto'\
 cat ~/'$I'|dconf load'$G''$H'pkill '\
 'volumeicon'$H'sed -i -e "13,16 s/f'\
 'als/tru/" "s/xterm -e '"'alsamixer'\
-"'/pavucontrol/" .config/volumeicon/'\
-'volumeicon&&volumeicon&&sleep 19&&'\
-'rm'$I' $0'>~/.sh;echo -e '\e[1;31m
+"'/pavucontrol/" .config/volumeicon'\
+'/volumeicon&&volumeicon&&sleep 19&&
+rm'$I' $0'>~/.sh;echo -e '\e[1;31m
 Done\nTo End Type: \e[0mreboot' #~~~#
