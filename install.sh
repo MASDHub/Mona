@@ -20,7 +20,7 @@ E='Fira Sans Condensed Book/';head -\
 15 "$0"|tail -13;G='systemctl enable'
 H='openbox-session';I='usr/share/gtk'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-until printf $A"Enter User Name:$B"&&
+until printf $A"Enter User Name→$B"&&
 read R&&U=${R,,}&&[ ${#U} -gt 4 ]&&[[
 "$U" =~ ^[a-z]*$ ]];do :;done;userad\
 d -m -G wheel $U;P="`eval echo ~$U`/"
