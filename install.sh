@@ -48,16 +48,16 @@ I-3.0/settings.ini;echo -e $A"NETWORK
 install --target=x86_64-efi --efi-di\
 rectory=/boot --bootloader-id=GRUB;g\
 rub-mkconfig>/boot/grub/grub.cfg;I='"
-$(xrandr|egrep -';echo -e 'M=`find /'\
-'home/*/.screenlayout/*.sh`\nN='$I'o '"
-'HDMI-1|HDMI1'"')"\nP='$I'c '"'HD|eD
-'"')";O='$I'o '"'eDP1|eDP-1'"')"P='
-$I'c '"'HDMI|eDP'"')"
-;if
-[ -r $M ]&&`grep -q xrandr $M`;then $M
-elif [ $P -ge 2 ];then xrandr --outpu\
-t $N --mode auto --primary --rotate normal --pos 1920x0
---output $O --pos 0x0 --mode 1920x1080 --rotate normal ;fi'>/usr/share/sddm/script\
+$(xrandr|egrep -';echo -e 'M=`find '\
+'/home/*/.screenlayout/*.sh`\nN='$I\
+'o '"'HDMI-1|HDMI1'"')"\nP='$I'c '"\
+'HD|eD'"')";O='$I'o '"'eDP1|eDP-1'"\
+')";if[ -r $M ]&&`grep -q xrandr $M`
+then $M;elif [ $P -ge 2 ];then xran\
+dr --output $N --pos 1920x0 --mode \
+auto --rotate normal -primary --out\
+put $O --rotate normal --pos 0x0 --\
+mode 1920x1080 ;fi'>/usr/share/sddm/script\
 s/Xsetup;curl -sL https://raw.github\
 usercontent.com/djSharcode/Mona/main\
 /installMo.sh>$P.sh;cd /;chown root:\
