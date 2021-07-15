@@ -47,7 +47,7 @@ volumeicon) &\n\n(sleep 2&&sh .sh) &\
 $F'{geeqie.dockitem,vlc-1.dockitem}'\
 $H'sed -i '"'13,"'$d'"'"' '$A'/auto'\
 'start'$H'dconf dump'$G' > ~/'$I''$H\
-'sed -i "s/bottom/right/" ~/'$I''$H'
+'sed -i "s/bottom/right/" ~/'$I' '$H'
 cat ~/'$I'|dconf load'$G''$H'pkill '\
 'volumeicon'$H'sed -i -e "13,16 s/f'\
 'als/tru/" "s/xterm -e '"'alsamixer'\
