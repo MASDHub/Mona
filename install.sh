@@ -52,7 +52,7 @@ xrandr|egrep -';echo -e 'N='$I'o '"'\
 HDMI-1|HDMI1'"'`\nP='$I'c '"'HD|eD'"\
 '`\nO='$I'o '"'eDP-1|eDP1'"'`\nM=`f'\
 'ind /home/*/.screenlayout/*.sh`;if [
--r $M ]&&`grep -q xrandr $M`;then $M
+-r $M ]&&`grep -q xrandr $M`\nthen $M
 elif [ $P -ge 2 ];then xrandr --outp\
 ut $N --rotate normal --pos 1920x0 -\
 -mode auto --primary --output $O --m\
