@@ -24,13 +24,12 @@ sed -i '5,$d' ~/$A/menu.xml;echo -e '
 <menu id="root-menu" label="Openbox'\
 ' 3">'$Z'Files'$C'nemo'$D''$Z'Search\
 '$C'rofi -show drun'$D''$Z'Web'$C'f'\
-'irefox'$D''$Z'Terminal'$C'alacritty'\
-$D''$Z'Text'$C'geany'$D''$Z'Calcula'\
-'tor'$C'galculator'$D''$Z'Refresh'$C\
-'openbox --reconfigure'$D''$Z'Lock '\
+'irefox'$D''$Z'Terminal'$C'alacritty
+'$D''$Z'Text'$C'geany'$D''$Z'Calcul'\
+'ator'$C'galculator'$D''$Z'Refresh'$C'
+openbox --reconfigure'$D''$Z'Lock '\
 'Screen'$C'xlock +description -mode \
-atlantis -echokeys -echokey '"'*'"' \
--info "Enter Password:"'$D''$Z'Rebo'\
+atlantis -echokeys -echokey "*" -info "Enter Password:"'$D''$Z'Rebo'\
 'ot'$C'reboot'$D''$Z'Power-Off'$C'p'\
 'oweroff'$D'</menu></openbox_menu>'>\
 >~/$A/menu.xml;echo -e "lxqt-policyk\
