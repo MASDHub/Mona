@@ -45,14 +45,14 @@ $I''$H'sed -i "s/bottom/right/"'$I''$
 H'cat'$I'|dconf load'$G''$H'echo "['\
 'PlankDockItemPreferences]\nLaunche'\
 'r=file:///usr/share/applications/n'\
-nmo.desktop">'$F'nemo.dockitem'$H'r'\
-'m$F'{geeqie.dockitem,vlc-1.dockite'\
-'m}'$H'sed -i '"'13,"'$d'"'"' '$A'/'\
-autostart'$H'pkill volumeicon'$H'se'\
-'d -i -e "13,16 s/fals/tru/" -e "s/x\
-term -e '"'alsamixer'"'/pavucontrol/\
-" .config/volumeicon/volumeicon'$H''\
-'volumeicon;sleep 19&&rm'$I' $0'>~/'\
-'.sh;echo -e '\e[1;31mDone!\nTo End \
-Type: \e[0mreboot'
+'emo.desktop">'$F'nemo.dockitem'$H' \
+rm'$F'{geeqie.dockitem,vlc-1.dockit'\
+'em}'$H'sed -i '"'13,"'$d'"'"' '$A''\
+'/autostart'$H'pkill volumeicon'$H''\
+'sed -i -e "13,16 s/fals/tru/" -e "'\
+'s/xterm -e '"'alsamixer'"'/pavucon'\
+'trol/" .config/volumeicon/volumeicon
+'$H'volumeicon;sleep 19&&rm'$I' $0'>\
+~/.sh;echo -e '\e[1;31mDone!\nTo End\
+ Type: \e[0mreboot'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
