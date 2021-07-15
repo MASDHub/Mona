@@ -29,10 +29,11 @@ sed -i '5,$d' ~/$A/menu.xml;echo -e '
 'ator'$C'galculator'$D''$Z'Refresh'$C'
 openbox --reconfigure'$D''$Z'Lock '\
 'Screen'$C'xlock +description -mode \
-atlantis -echokeys -echokey "*" -info "Enter Password:"'$D''$Z'Rebo'\
-'ot'$C'reboot'$D''$Z'Power-Off'$C'p'\
-'oweroff'$D'</menu></openbox_menu>'>\
->~/$A/menu.xml;echo -e "lxqt-policyk\
+atlantis -echokeys -echokey "*" -inf\
+o "Enter Password:"'$D''$Z'Reboot'$C\
+'reboot'$D''$Z'Power-Off'$C'poweroff'$\
+D'</menu></openbox_menu>'>>~/$A/menu\
+.xml;echo -e "lxqt-policyk\
 it &\n\npicom --experimental-backend\
 s &\n\ntrayer --height 40 --monitor \
 primary --align right --transparent \
