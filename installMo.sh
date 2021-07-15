@@ -45,9 +45,9 @@ volumeicon) &\n\n(sleep 2&&sh .sh) &\
 'file:///usr/share/applications/nem'\
 'o.desktop">'$F'nemo.dockitem'$H'rm'\
 $F'{geeqie.dockitem,vlc-1.dockitem}'\
-$H'sed -i '"'13,"'$d'"'"' '$A'/auto'\
-'start'$H'dconf dump'$G' > ~/'$I''$H\
-'sed -i "s/bottom/right/" ~/'$I' '$H'
+$H'sed -i '"'13,"'$d'"'"' ~/'$A'/au'\
+'tostart'$H'dconf dump'$G'> ~/'$I''$\
+H'sed -i "s/bottom/right/" ~/'$I''$H'
 cat ~/'$I'|dconf load'$G''$H'pkill '\
 'volumeicon'$H'sed -i -e "13,16 s/f'\
 'als/tru/" "s/xterm -e '"'alsamixer'\
