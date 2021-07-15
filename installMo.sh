@@ -27,8 +27,8 @@ $C'rofi -show drun'$D''$Z'Web'$C'fi'\
 'refox'$D''$Z'Terminal'$C'alacritty'\
 $D''$Z'Text'$C'geany'$D''$Z'Calcula'\
 'tor'$C'galculator'$D''$Z''E'Refres'\
-\h'$C'openbox --reconfigure'$D''E''$Z\
-'Lock Screen'$C'xlock +description -mode \
+\h'$C'openbox --reconfigure'$D''E''$\
+Z'Lock Screen'$C'xlock +description -mode \
 atlantis -echokeys -echokey "*" -inf\
 o "Enter Password:"'$D''$Z'Reboot'$C\
 'reboot'$D''$Z'Power-Off'$C'powerof'\
