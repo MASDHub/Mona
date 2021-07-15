@@ -32,10 +32,10 @@ $D''$Z'Text'$C'geany'$D''$Z'Calcula'\
 atlantis -echokeys -echokey "*" -inf\
 o "Enter Password:"'$D''$Z'Reboot'$C\
 'reboot'$D''$Z'Power-Off'$C'poweroff
-'$D'</menu></openbox_menu>'>>~/$A/menu\
-.xml;echo -e "lxqt-policyk\
-it &\n\npicom --experimental-backend\
-s &\n\ntrayer --height 40 --monitor \
+'$D'</menu></openbox_menu>'>>~/$A/m\
+enu.xml;echo -e "lxqt-policykit &\n
+picom --experimental-backends &\n\nt\
+rayer --height 40 --monitor \
 primary --align right --transparent \
 true --tint 0x716966 &\nplank &\n\n(\
 sleep 2 && volumeicon) &\n\n(sleep 2\
