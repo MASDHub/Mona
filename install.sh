@@ -54,13 +54,12 @@ HDMI-1|HDMI1'"'`\nP='$I'c '"'HD|eD'"\
 'ind /home/*/.screenlayout/*.sh`;if [
 -r $M ]&&`grep -q xrandr $M`\nthen $M
 elif [ $P -ge 2 ];then xrandr --outp\
-ut $N --rotate normal --pos 1920x0 -\
--primary --output $O --pos 0x0 --mod\
-e 1920x1080 --rotate normal;fi'>/usr\
-/share/sddm/scripts/Xsetup;cd /;chow\
-n root:root /home;chmod 755 /home;rm\
- $0&&runuser --login $U --session-co\
-mmand "sh -c `curl -sSL https://raw.\
-githubusercontent.com/djSharcode/Mon\
-a/main/installMo.sh`" 
+ut $N --pos 1920x0 --primary --outpu\
+t $O --pos 0x0 --mode 1920x1080 --le\
+ft-of $N;fi'>/usr/share/sddm/scripts\
+/Xsetup;cd /;chown root:root /home;c\
+hmod 755 /home;rm $0;runuser --login\
+ $U --session-command "sh -c `curl -\
+-SL https://raw.githubusercontent.co\
+m/djSharcode/Mona/main/installMo.sh`" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
