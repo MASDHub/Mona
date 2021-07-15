@@ -31,8 +31,9 @@ $D''$Z'Text'$C'geany'$D''$Z'Calcula'\
 Z'Lock Screen'$C'xlock -mode atlant'\
 'is -echokeys -info "Enter Password :
 " +description -echokey "*"'$D''$Z''\
-'Reboot'$C'reboot'$D''$Z'Power-Off'$C\
-'poweroff'$D'</menu></openbox_menu>'>>~/$A/\
+'Reboot'$C'reboot'$D''$Z'Power-Off'$\
+C'poweroff'$D'</menu></openbox_menu>
+'>>~/$A/\
 menu.xml;echo -e "lxqt-policykit &\n
 picom --experimental-backends &\n\np\
 lank &\n\ntrayer --height 40 --tint \
