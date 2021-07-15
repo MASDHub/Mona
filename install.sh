@@ -20,13 +20,13 @@ E='Fira Sans Condensed Book/';head -\
 15 "$0"|tail -13;G='systemctl enable'
 H='openbox-session';I='usr/share/gtk'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-until printf $A"Enter User Name⇢$B"&&
+until printf $A"Enter User Name→$B"&&
 read R&&U=${R,,}&&[ ${#U} -gt 4 ]&&[[
 "$U" =~ ^[a-z]*$ ]];do :;done;userad\
 d -m -G wheel $U;P="`eval echo ~$U`/"
 until printf $A"Enter User's Password
 "$B&&passwd $U;do :;done;until echo \
--e "Enter Root $A(Admin)${B}Password↓
+-e "Enter Root $A(Admin)${B}Password\
 "&&passwd;do :;done;echo -e "127.0.0\
 .1${S}localhost\n::1${Z}127.0.1.1$S$\
 {U}-pc.localdomain $U-pc" >/etc/hosts
@@ -60,6 +60,6 @@ ft-of $N;fi'>/usr/share/sddm/scripts\
 /Xsetup;cd /;chown root:root /home;c\
 hmod 755 /home;rm $0;runuser --login\
  $U --session-command "sh -c `curl -\
--sL https://raw.githubusercontent.co\
+sSL https://raw.githubusercontent.co\
 m/djSharcode/Mona/main/installMo.sh`" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
