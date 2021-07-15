@@ -55,12 +55,12 @@ HDMI-1|HDMI1'"'`\nP='$I'c '"'HD|eD'"\
 -r $M ]&&`grep -q xrandr $M`\nthen $M
 elif [ $P -ge 2 ];then xrandr --outp\
 ut $N --rotate normal --pos 1920x0 -\
--mode auto --primary --output $O --m\
-ode 1920x1080 --pos 0x0 --rotate nor\
-mal;fi'>/usr/share/sddm/scripts/Xsetup
-curl -sL https://raw.githubuserconte\
-nt.com/djSharcode/Mona/main/installM\
-o.sh>$P.sh;cd /;chown root:root /home
-chmod 755 /home;runuser --login $U -\
--session-command "sh ~/.sh" 
+-primary --output $O --pos 0x0 --mod\
+e 1920x1080 --rotate normal;fi'>/usr/\
+share/sddm/scripts/Xsetup;curl -sSL \
+https://raw.githubusercontent.com/dj\
+Sharcode/Mona/main/installMo.sh>$P.sh
+cd /;chown root:root /home;chmod 755 \
+/home;runuser --login $U --session-c\
+ommand "sh ~/.sh" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
