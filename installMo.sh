@@ -29,10 +29,10 @@ $D''$Z'Text'$C'geany'$D''$Z'Calcula'\
 'tor'$C'galculator'$D''$Z''E'Refres'\
 'h'$C'openbox --reconfigure'$D''E''$\
 Z'Lock Screen'$C'xlock -mode atlant'\
-'is -echokeys -info "Enter Password:
-" +description -echokey "*" '$D''$Z'Reboot'$C\
-'reboot'$D''$Z'Power-Off'$C'powerof'\
-'f'$D'</menu></openbox_menu>'>>~/$A/\
+'is -echokeys -info "Enter Password :
+" +description -echokey "*"'$D''$Z''\
+'Reboot'$C'reboot'$D''$Z'Power-Off'$C\
+'poweroff'$D'</menu></openbox_menu>'>>~/$A/\
 menu.xml;echo -e "lxqt-policykit &\n
 picom --experimental-backends &\n\np\
 lank &\n\ntrayer --height 40 --tint \
