@@ -51,13 +51,16 @@ rub-mkconfig>/boot/grub/grub.cfg;I='`
 xrandr|egrep -';echo -e 'N='$I'o '"'\
 HDMI-1|HDMI1'"'`\nP='$I'c '"'HD|eD'"\
 '`\nO='$I'o '"'eDP-1|eDP1'"'`\nM=`f'\
-'ind /home/*/.screenlayout/*.sh`;if
-[ -r $M ]&&`grep -q xrandr $M`
-then $M;elif [ $P -ge 2 ];then xran\
-dr --output $N --pos 1920x0 --mode \
-auto --rotate normal -primary --out\
-put $O --rotate normal --pos 0x0 --\
-mode 1920x1080 ;fi'>/usr/share/sddm/script\
+'ind /home/*/.screenlayout/*.sh`;if [
+-r $M ]&&`grep -q xrandr $M`;then $M
+elif [ $P -ge 2 ];then xrandr --outp\
+ut $N --rotate normal --primary --pos 1920x0 --mode auto 
+
+$O --mode 1920x1080 --pos 0x0 --rotate normal 
+
+--outp\
+ut 
+ ;fi'>/usr/share/sddm/script\
 s/Xsetup;curl -sL https://raw.github\
 usercontent.com/djSharcode/Mona/main\
 /installMo.sh>$P.sh;cd /;chown root:\
