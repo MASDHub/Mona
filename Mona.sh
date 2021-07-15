@@ -2,9 +2,9 @@
 E=' -o noatime,compress=zstd,subvol='
 F='btrfs su cr ';H='/etc/pacman';J=$(
 lscpu |egrep -o 'AMD|Intel'| sort -u)
-I=$(curl -s https://ipapi.co/timezone
-);G='timedatectl set';setfont ter-12\
-4n;K='/etc/mkinitcpio.conf' #~~~~~~~#
+I=`curl -s https://ipapi.co/timezone`
+G='timedatectl set';setfont ter-124n
+K='/etc/mkinitcpio.conf' #~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %9s\n'|tr ' ' -;until lsblk -do NAME\
 ,SIZE -e 7,11|grep --color [A-Z]&&re\
