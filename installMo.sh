@@ -46,12 +46,12 @@ volumeicon) &\n\n(sleep 2&&sh .sh) &\
 'o.desktop">'$F'nemo.dockitem'$H'rm'\
 $F'{geeqie.dockitem,vlc-1.dockitem}'\
 $H'sed -i '"'13,"'$d'"'"' '$A'/auto'\
-'start'$H'pkill volumeicon'H'sed -i -e "
-s/xterm -e '"'alsamixer'"'/pavucontrol/
-" -e "13,16 s/fals/tru/" .config/volu\
-meicon/volumeicon'H'dconf dump'$G'>'\
-$I''$H'sed -i "s/bottom/right/"'$I''\
-$H'cat'$I'|dconf load'$G'&&volumeicon
-sleep 19&&rm'$I' $0'>~/.sh;echo -e '\
-e[1;31mDone\nTo End Type: \e[0mreboot
-' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+'start'$H'dconf dump'$G' >'$I''$H's'\
+'ed -i "s/bottom/right/"'$I''$H'cat'\
+$I'|dconf load'$G''$H'pkill volumei'\
+'con'$H'sed -i -e "13,16 s/fals/tru/\
+" -e "s/xterm -e '"'alsamixer'"'/p'\
+'avucontrol/" .config/volumeicon/vol'\
+'umeicon&&volumeicon;sleep 19&&rm'$I\
+' $0'>~/.sh;echo -e '\e[1;31mDone! :)
+To End Type: \e[0mreboot' #~~~~~~~~~#
