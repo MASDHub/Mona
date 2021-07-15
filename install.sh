@@ -50,8 +50,8 @@ rectory=/boot --bootloader-id=GRUB;g\
 rub-mkconfig>/boot/grub/grub.cfg;I='"
 $(xrandr|egrep -';echo -e 'N='$I'o '\
 "'HDMI-1|HDMI1'"')"\nO='$I'o '"'eDP1|
-eDP-1'"')"\nP='$I'c '"'HD|eD'"')";M'\
-'=`find /home/*/.screenlayout/*.sh`;if
+eDP-1'"')"\nP='$I'c '"'HDMI|eDP'"')"
+M=`find /home/*/.screenlayout/*.sh`;if
 [ -r $M ]&&`grep -q xrandr $M`;then $M
 elif [ $P -ge 2 ];then xrandr --outpu\
 t $N --mode auto --primary --rotate normal --pos 1920x0
