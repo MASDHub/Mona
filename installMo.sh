@@ -26,8 +26,8 @@ sed -i '5,$d' ~/$A/menu.xml;echo -e '
 $C'rofi -show drun'$D''$Z'Web'$C'fi'\
 'refox'$D''$Z'Terminal'$C'alacritty'\
 $D''$Z'Text'$C'geany'$D''$Z'Calcula'\
-'tor'$C'galculator'$D''$Z'Refresh'$\
-C'openbox --reconfigure'$D''$Z'Lock '\
+'tor'$C'galculator'$D''$Z'Refresh'$C\
+'openbox --reconfigure'$D''$Z'Lock '\
 'Screen'$C'xlock +description -mode \
 atlantis -echokeys -echokey "*" -inf\
 o "Enter Password:"'$D''$Z'Reboot'$C\
