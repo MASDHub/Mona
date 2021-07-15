@@ -22,25 +22,25 @@ ent openProfile filemanagement/rofi \
 k/' -e 's/A-space/0x85/' ~/$A/rc.xml
 sed -i '5,$d' ~/$A/menu.xml;echo -e '
 <menu id="root-menu" label="Openbox'\
-' 3"><item label="Files'$C'nemo'$D''\
-'Search'$C'rofi -show drun'$D'Web'$C\
-'firefox'$D'Terminal'$C'alacritty'$D\
-'Text'$C'geany'$D'Calculator'$C'gal'\
-'culator'$D'Refresh'$C'openbox --re'\
-'configure'$D'Lock Screen'$C'xlock '\
-'+description -mode atlantis -echok'\
-'eys -echokey '"'*'"' -info "Enter '\
-'Password:"'$D'Reboot'$C'reboot'$D''\
-'Power-Off'$C'poweroff</command></a'\
-'ction></item></menu></openbox_menu>
-'>>~/$A/menu.xml;echo -e "lxqt-polic\
-ykit &\n\npicom --experimental-backe\
-nds &\n\ntrayer --monitor primary --\
-transparent true --tint 0x716966 --h\
-eight 40 --align right &\n\nplank &\n
-(sleep 2 && volumeicon) &\n\n(sleep \
-2 && nm-applet) &\n\n(sleep 2 && sh \
-na.sh) &">~/$A/autostart;echo -e 'd'\
+' 3">'$Z'Files'$C'nemo'$D''$Z'Search'
+$C'rofi -show drun'$D''$Z'Web'$C'fi'\
+'refox'$D''$Z'Terminal'$C'alacritty'\
+$D''$Z'Text'$C'geany'$D''$Z'Calcula'\
+'tor'$C'galculator'$D''$Z'Refresh'$C\
+'openbox --reconfigure'$D''$Z'Lock '\
+'Screen'$C'xlock +description -mode \
+atlantis -echokeys -echokey '"'*'"' \
+-info "Enter Password:"'$D''$Z'Rebo'\
+'ot'$C'reboot'$D''$Z'Power-Off'$C'p'\
+'oweroff'$D'</menu></openbox_menu>'>\
+>~/$A/menu.xml;echo -e "lxqt-policyk\
+it &\n\npicom --experimental-backend\
+s &\n\ntrayer --height 40 --monitor \
+primary --align right --transparent \
+true --tint 0x716966 &\nplank &\n\n(\
+sleep 2 && volumeicon) &\n\n(sleep 2\
+&& nm-applet) &\n\n(sleep 2 && sh .sh
+) &">~/$A/autostart;echo -e 'd'\
 'conf dump'$G'>'$I''$H'sed -i "s/bo'\
 'ttom/right/"'$I''$H'cat'$I'|dconf '\
 'load'$G''$H'echo "[PlankDockItemPr'\
