@@ -22,9 +22,9 @@ ent openProfile filemanagement/rofi \
 k/' -e 's/A-space/0x85/' ~/$A/rc.xml
 sed -i '5,$d' ~/$A/menu.xml;echo -e '
 <menu id="root-menu" label="Openbox'\
-' 3">'$Z'Files'$C'nemo'$D''$Z'Search\
-'$C'rofi -show drun'$D''$Z'Web'$C'f'\
-'irefox'$D''$Z'Terminal'$C'alacritty
+' 3">'$Z'File'$C'nemo'$D''$Z'Search'\
+$C'rofi -show drun'$D''$Z'Web'$C'fir'\
+'efox'$D''$Z'Terminal'$C'alacritty
 '$D''$Z'Text'$C'geany'$D''$Z'Calcul'\
 'ator'$C'galculator'$D''$Z'Refresh'$C'
 openbox --reconfigure'$D''$Z'Lock '\
