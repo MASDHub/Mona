@@ -2,7 +2,7 @@
 set -euo pipefail
 A='.config/openbox';Z='<item label="'
 C='"><actionname="Execute"><command>'
-G=' /net/launchpad/plank/docks/ ';H='
+G=' /net/launchpad/plank/docks/';H=';
 sleep 2&&';E='<separator></separator>
 ';F=' .config/plank/docks1/launcher/'
 I=' docks.ini';D='</command></action>
@@ -40,19 +40,18 @@ nds &\n\nplank &\n\ntrayer --height \
 --tint 0x716966 --monitor primary &\n
 (sleep 2&&nm-applet) &\n\n(sleep 2&&\
 volumeicon) &\n\n(sleep 2&&sh .sh) &\
-">~/$A/autostart;echo -e 'dconf dump'$G'>'
-$I''$H'sed -i "s/bottom/right/"'$I''$
-H'cat'$I'|dconf load'$G''$H'echo "['\
-'PlankDockItemPreferences]\nLaunche'\
-'r=file:///usr/share/applications/n'\
-'emo.desktop">'$F'nemo.dockitem'$H' \
-rm'$F'{geeqie.dockitem,vlc-1.dockit'\
-'em}'$H'sed -i '"'13,"'$d'"'"' '$A''\
-'/autostart'$H'pkill volumeicon'$H''\
-'sed -i -e "13,16 s/fals/tru/" -e "'\
-'s/xterm -e '"'alsamixer'"'/pavucon'\
-'trol/" .config/volumeicon/volumeicon
-'$H'volumeicon;sleep 19&&rm'$I' $0'>\
-~/.sh;echo -e '\e[1;31mDone!\nTo End\
- Type: \e[0mreboot'
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+">~/$A/autostart;echo -e 'echo "[Pl'\
+'ankDockItemPreferences]\nLauncher='\
+'file:///usr/share/applications/nemo'\
+'.desktop">'$F'nemo.dockitem'$H'rm'$\
+F'{geeqie.dockitem,vlc-1.dockitem}'$H
+'sed -i '"'13,"'$d'"'"' '$A'/autost'\
+'art'$H'pkill volumeicon'H'sed -i -e "
+s/xterm -e '"'alsamixer'"'/pavucontrol/
+" -e "13,16 s/fals/tru/" .config/volu\
+meicon/volumeicon'H'dconf dump'$G'>'\
+$I''$H'sed -i "s/bottom/right/"'$I''\
+$H'cat'$I'|dconf load'$G'&&volumeicon
+sleep 19&&rm'$I' $0'>~/.sh;echo -e '\
+e[1;31mDone\nTo End Type: \e[0mreboot
+' #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
