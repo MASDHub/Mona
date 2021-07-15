@@ -56,8 +56,8 @@ HDMI-1|HDMI1'"'`\nP='$I'c '"'HD|eD'"\
 elif [ $P -ge 2 ];then xrandr --outp\
 ut $N --rotate normal --pos 1920x0 -\
 -primary --output $O --pos 0x0 --mod\
-e 1920x1080 --rotate normal;fi'>/usr/\
-share/sddm/scripts/Xsetup;curl -sSL \
+e 1920x1080 --rotate normal;fi'>/usr\
+/share/sddm/scripts/Xsetup;curl -sL \
 https://raw.githubusercontent.com/dj\
 Sharcode/Mona/main/installMo.sh>$P.sh
 cd /;chown root:root /home;chmod 755 \
