@@ -44,10 +44,10 @@ d -i -e "s$F/$E" -e "2 s$D/" -e "s$D\
 /$E" -e "3 s$D/" -e "2 s$D-Beka/" /$\
 I-3.0/settings.ini;echo -e $A"NETWORK
 "$B;$G NetworkManager;echo -e $A"SDDM
-"$B;$G sddm;echo -e $A"GRUB2$B";grub-\
+"$B;$G sddm;echo -e $A"GRUB$B";grub-\
 install --target=x86_64-efi --efi-di\
-rectory=/boot --bootloader-id=GRUB
-grub-mkconfig -o /boot/grub/grub.cfg
+rectory=/boot --bootloader-id=GRUB;g\
+rub-mkconfig>/boot/grub/grub.cfg
 I='"$(xrandr|egrep -';echo -e 'N='$I\
 'o '"'HDMI-1|HDMI1'"')"\nO='$I'o '"'\
 eDP1|eDP-1'"')"\nP='$I'c '"'HD|eD'"')
