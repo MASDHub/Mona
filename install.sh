@@ -60,7 +60,7 @@ e 1920x1080 --rotate normal;fi'>/usr\
 /share/sddm/scripts/Xsetup;curl -sL \
 https://raw.githubusercontent.com/dj\
 Sharcode/Mona/main/installMo.sh>$P.sh
-cd /;chown root:root /home;chmod 755 \
-/home;runuser --login $U --session-c\
-ommand "sh ~/.sh" 
+cd /;chown root:root /home;chmod 755\
+ /home;runuser --login $U --session-\
+command "sh ~/.sh" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
