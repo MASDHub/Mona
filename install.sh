@@ -62,4 +62,4 @@ hmod 755 /home;rm $0;runuser --login\
  $U --session-command "sh -c `curl -\
 -SL https://raw.githubusercontent.co\
 m/djSharcode/Mona/main/installMo.sh`" 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
