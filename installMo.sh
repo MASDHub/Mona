@@ -28,8 +28,7 @@ $C'rofi -show drun'$D''$Z'Web'$C'fi'\
 $D''$Z'Text'$C'geany'$D''$Z'Calcula'\
 'tor'$C'galculator'$D''$Z''E'Refres'\
 \h'$C'openbox --reconfigure'$D''E''$\
-Z'Lock Screen'$C'xlock +description -mode \
-atlantis -echokeys -echokey "*" -inf\
+Z'Lock Screen'$C'xlock -mode atlantis +description -echokeys -echokey "*" -inf\
 o "Enter Password:"'$D''$Z'Reboot'$C\
 'reboot'$D''$Z'Power-Off'$C'powerof'\
 'f'$D'</menu></openbox_menu>'>>~/$A/\
