@@ -44,6 +44,6 @@ geany-plugins gvfs-mtp vlc $M;cp $H.\
 conf /mnt$H.conf;cp $K /mnt$K;echo /\
 usr/share/zoneinfo/$I>/mnt/etc/T;gen\
 fstab -U /mnt>>/mnt/etc/fstab;arch-c\
-hroot /mnt sh -c "curl -sSL https://\
-raw.githubusercontent.com/djsharcode\
-/Mona/main/install.sh"
+hroot /mnt sh -c "`curl -sSL https:/\
+/raw.githubusercontent.com/djsharcod\
+e/Mona/main/install.sh`"
