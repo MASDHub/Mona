@@ -1,11 +1,12 @@
 #!/usr/bin/bash
 set -euo pipefail
+A='.config/openbox';Z='<item label="'
 C='"><actionname="Execute"><command>'
 G=' /net/launchpad/plank/docks/ ';H='
-&&sleep 2&&';D='</command></action>'\
-'</item><item label="';I=' docks.ini'
-E='separator>';A=.config/openbox;F=.\
-'config/plank/docks1/launcher/' #~~~#
+sleep 2&&';E='<separator></separator>
+';F=' .config/plank/docks1/launcher/'
+I=' docks.ini';D='</command></action>
+</item>' #~~~~~~~~~~~~~~~~~~~~~~~~~~#
 git clone https://aur.archlinux.org/\
 pikaur.git;cd pikaur/;makepkg -fsri
 pikaur -S --needed timeshift ttf-ms-\
