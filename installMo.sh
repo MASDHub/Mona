@@ -2,10 +2,10 @@
 set -euo pipefail
 A='.config/openbox';B='<item label="'
 C='"><action name="Execute"><command>
-';G='/net/launchpad/plank/docks/';E='
+';D='/net/launchpad/plank/docks/';E='
 <separator></separator>';H='&&sleep 2
-&&';F='.config/plank/docks1/launcher/'
-I='docks.ini';D="</command></action>\
+&&';G='.config/plank/docks1/launcher/'
+H='docks.ini';I="</command></action>\
 </item>" #~~~~~~~~~~~~~~~~~~~~~~~~~~#
 git clone https://aur.archlinux.org/\
 pikaur.git;cd pikaur/;makepkg -fsri
@@ -22,17 +22,17 @@ ent openProfile filemanagement/rofi \
 k/' -e 's/A-space/0x85/' ~/$A/rc.xml
 sed -i '5,$d' ~/$A/menu.xml;echo -e '
 <menu id="root-menu" label="Openbox'\
-' 3">'$B'File'$C'nemo'$D''$B'Search'\
-$C'rofi -show drun'$D''$B'Web'$C'fi'\
-'refox'$D''$B'Terminal'$C'alacritty'\
-$D''$B'Text'$C'geany'$D''$B'Calcula'\
-'tor'$C'galculator'$D''$E''$B'Refre'\
-'sh'$C'openbox --reconfigure'$D''$E'
+' 3">'$B'File'$C'nemo'$I''$B'Search'\
+$C'rofi -show drun'$I''$B'Web'$C'fi'\
+'refox'$I''$B'Terminal'$C'alacritty'\
+$I''$B'Text'$C'geany'$I''$B'Calcula'\
+'tor'$C'galculator'$I''$E''$B'Refre'\
+'sh'$C'openbox --reconfigure'$I''$E'
 '$B'Lock Screen'$C'xlock -echokey "*\
 " +description -info "Enter Password\
-" -mode atlantis -echokeys'$D''$B'R'\
-'eboot'$C'reboot'$D''$B'Power-Off'$C'
-poweroff'$D'</menu></openbox_menu>'>\
+" -mode atlantis -echokeys'$I''$B'R'\
+'eboot'$C'reboot'$I''$B'Power-Off'$C'
+poweroff'$I'</menu></openbox_menu>'>\
 >~/$A/menu.xml;echo -e "lxqt-policyk\
 it &\n\npicom --experimental-backend\
 s &\n\ntrayer --height 40 --monitor \
@@ -43,13 +43,13 @@ volumeicon) &\n\nplank &\n\n(sleep 2\
 ">~/$A/autostart;echo -e 'echo "[Pl'\
 'ankDockItemPreferences]\nLauncher='\
 'file:///usr/share/applications/nem'\
-'o.desktop">~/'$F'nemo.dockitem'$H' \
-rm ~/'$F'{geeqie.dockitem,vlc-1.doc'\
-'kitem}'$H'sed -i '"'13,"'$d'"'"' ~'\
-'/'$A'/autostart'$H'dconf dump '$G'>\
-~/'$I''$H'sed -i "s/bottom/right/" '\
-'~/'$I''$H'cat ~/'$I' |dconf load '$\
-G''$H'pkill volumeicon'$H'sed -i -e "
+'o.desktop">~/'$G'nemo.dockitem'$F' \
+rm ~/'$G'{geeqie.dockitem,vlc-1.doc'\
+'kitem}'$F'sed -i '"'13,"'$d'"'"' ~'\
+'/'$A'/autostart'$F'dconf dump '$D'>\
+~/'$H''$F'sed -i "s/bottom/right/" '\
+'~/'$H''$F'cat ~/'$H' |dconf load '$\
+D''$F'pkill volumeicon'$F'sed -i -e "
 13,16 s/fals/tru/" -e "s/xterm -e '"\
 'alsamixer'"'/pavucontrol/" .config'\
 '/volumeicon/volumeicon&&volumeicon&&
