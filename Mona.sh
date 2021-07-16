@@ -10,25 +10,25 @@ gpg -k|pacman-key --populate;printf '
 ,SIZE -e 7,11|grep --color [A-Z]&&re\
 ad -p$"\e[1;31mInstallion Disk Name:\
 e[0m" A&&B=/dev/$A&&sgdisk $B -Z -n \
-1::+512M -t 1:EF00 -n -i -p;do :;done
-C=" $(ls /dev/*|egrep "^${B}p?1$") "
-D=" $(ls /dev/*|egrep "^${B}p?2$") "
-mkfs.vfat -c$C;mkfs.btrfs -fq$D;moun\
-t$D/mnt;cd /mnt;$F@home;$F@;cd;umoun\
-t /mnt;mount$E@$D/mnt;mkdir /mnt/{bo\
-ot,home};mount$C/mnt/boot;mount$E@ho\
-me$D/mnt/home;if [[ $J == Intel ]];t\
-then M='intel-ucode'&&L='i915 ';fi;if
-[[ $J == AMD ]];then L='amdgpu '&&M='
-amd-ucode';fi;lsblk -pe 7,11|egrep -\
--color /?;sed -i 's/#Co/Co/' $H.conf
-sed -i "0,/()/s//(${L}btrfs)/" $K;$G\
--timezone $I&&$G-ntp true;reflector \
--p https -a 8 --score 5 --sort rate \
---save $H.d/mirrorlist;pacstrap -i /\
-mnt base base-devel linux alacritty \
+1::+512M -t 1:EF00 -n 2;do :;done;C=" 
+`ls /dev/*|egrep "^${B}p?1$"` ";D="`\
+ ls /dev/*|egrep "^${B}p?2$"` ";mkfs\
+.vfat -c$C;mkfs.btrfs -fq$D;mount$D/\
+mnt;cd /mnt;$F@home;$F@;cd;umount /m\
+nt;mount$E@$D/mnt;mkdir /mnt/{boot,h\
+ome};mount$C/mnt/boot;mount$E@home$D\
+/mnt/home;if [ $J == AMD ];then M=am\
+d-ucode&&L='amdgpu ';fi;if [ $J == "I
+ntel" ];then M=intel-ucode&&L='i915 '
+fi;sed -i "0,/()/s//(${L}btrfs)/" $K
+lsblk -pe 7,11|egrep --color /?;sed \
+-i 's/#Co/Co/' $H.conf;$G-timezone $I
+$G-ntp true;reflector -p https -a 8 \
+--score 5 --sort rate --save $H.d/mi\
+rrorlist;pacstrap -i /mnt base base-\
+devel linux alacritty linux-headers \
 linux-firmware lxqt-policykit xterm \
-pipewire-pulse trayer linux-headers \
+pipewire-pulse trayer pipewire-alsa \
 efibootmgr xorg-xinit pipewire-jack \
 xorg arandr plank grub nemo-preview \
 firefox network-manager-applet gufw \
@@ -39,11 +39,11 @@ nemo-fileroller sddm xpad xlockmore \
 galculator pkg-config rofi clipgrab \
 nitrogen pipewire conky-manager vim \
 gvfs-afc obconf-qt pavucontrol htop \
-pipewire-alsa alsa-utils volumeicon \
-geany-plugins gvfs-mtp vlc $M;curl -\
-s https://raw.githubusercontent.com/\
-djsharcode/Mona/main/install.sh>/mnt\
-/etc/.sh;cp $H.conf /mnt$H.conf;cp $\
-K /mnt$K;echo /usr/share/zoneinfo/$I\
->/mnt/etc/T;genfstab -U /mnt>>/mnt/e\
-tc/fstab;arch-chroot /mnt sh /etc/.sh
+alsa-utils volumeicon geany-plugins \
+gvfs-mtp vlc $M;curl -s https://raw.\
+githubusercontent.com/djsharcode/Mon\
+a/main/install.sh>/mnt/s;cp $K /mnt$K
+echo usr/share/zoneinfo/$I>/mnt/etc/T
+cp $H.conf /mnt$H.conf;genfstab -U /\
+mnt>/mnt/etc/fstab;arch-chroot /mnt \
+sh s
