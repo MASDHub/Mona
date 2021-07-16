@@ -3,8 +3,8 @@ set -euo pipefail
 A='.config/openbox';Z='<item label="'
 C='"><action name="Execute"><command>
 ';G='/net/launchpad/plank/docks/';E='
-<separator></separator>';H='sleep 2&&
-';F=' .config/plank/docks1/launcher/'
+<separator></separator>';H='&&sleep 2
+&&';F='.config/plank/docks1/launcher/'
 I='docks.ini';D="</command></action>\
 </item>" #~~~~~~~~~~~~~~~~~~~~~~~~~~#
 git clone https://aur.archlinux.org/\
@@ -33,8 +33,9 @@ $D''$Z'Text'$C'geany'$D''$Z'Calcula'\
 " -mode atlantis -echokeys'$D''$Z'R'\
 'eboot'$C'reboot'$D''$Z'Power-Off'$C'
 poweroff'$D'</menu></openbox_menu>'>\
->~/$A/menu.xml;echo -e "lxqt-policykit &\n\npicom --experimental-backe\
-nds &\n\nplank &\n\ntrayer --height \
+>~/$A/menu.xml;echo -e "lxqt-policyk\
+it &\n\npicom --experimental-backend\
+s &\n\nplank &\n\ntrayer --height \
 40 --transparent true --align right \
 --tint 0x716966 --monitor primary &\n
 (sleep 2&&nm-applet) &\n\n(sleep 2&&\
@@ -42,10 +43,10 @@ volumeicon) &\n\n(sleep 2&&sh .sh) &\
 ">~/$A/autostart;echo -e 'echo "[Pl'\
 'ankDockItemPreferences]\nLauncher='\
 'file:///usr/share/applications/nem'\
-'o.desktop">'$F'nemo.dockitem'$H'rm'\
-$F'{geeqie.dockitem,vlc-1.dockitem}'\
-$H'sed -i '"'13,"'$d'"'"' ~/'$A'/au'\
-'tostart'$H'dconf dump'$G'> ~/'$I''$\
+'o.desktop">'$F'nemo.dockitem'$H'rm \
+'$F'{geeqie.dockitem,vlc-1.dockitem}\
+'$H'sed -i '"'13,"'$d'"'"' ~/'$A'/a'\
+'utostart'$H'dconf dump'$G'>~/'$I''$\
 H'sed -i "s/bottom/right/" ~/'$I''$H'
 cat ~/'$I'|dconf load'$G''$H'pkill '\
 'volumeicon'$H'sed -i -e "13,16 s/f'\
