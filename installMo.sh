@@ -3,7 +3,7 @@ set -euo pipefail
 A='.config/openbox';B='<item label="'
 C='"><action name="Execute"><command>
 ';D='/net/launchpad/plank/docks/';E='
-<separator></separator>';H='&&sleep 2
+<separator></separator>';F='&&sleep 2
 &&';G='.config/plank/docks1/launcher/'
 H='docks.ini';I="</command></action>\
 </item>" #~~~~~~~~~~~~~~~~~~~~~~~~~~#
