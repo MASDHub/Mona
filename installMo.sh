@@ -47,7 +47,7 @@ ktop"> ~'$G'nemo.dockitem'$F' rm ~'$\
 G'{geeqie.dockitem,vlc-1.dockitem}'$\
 F'sed -i '"'13,"'$d'"'"' ~/'$A'/auto\
 start'$F'dconf dump'$D'>'$H''$F'sed \
--i "s/bottom/right/"'$H''$F'cat'$H'|
+-i "s/bottom/right/"'$H''$F'cat'$H' |
 dconf load'$D''$F'pkill volumeicon'$\
 F'sed -i -e "13,16 s/fals/tru/" -e "
 s/xterm -e '"'alsamixer'"'/pavucontr\
