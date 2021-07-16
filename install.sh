@@ -36,7 +36,7 @@ le.conf;sed -i "s/twm/$H/" /etc/X11/\
 xinit/xinitrc;echo $U-pc > /etc/host\
 name;ln -sf /$(cat /etc/T) /etc/loca\
 ltime;sed -i "s/#${C}/$C/" /etc/loca\
-le.gen;hwclock --systohc;;locale-gen
+le.gen;hwclock --systohc;locale-gen
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
 ers;echo $H> ~/$U.xinitrc;sed -i -e "
 s$F/$E" -e "2 s$D/" -e "s$D-Beka/" /\
