@@ -20,7 +20,7 @@ E='Fira Sans Condensed Book/';head -\
 15 "$0"|tail -13;G='systemctl enable'
 H='openbox-session';I='usr/share/gtk'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-until printf $A"Enter User Name→$B"&&
+until printf $A"Enter User Name$B:"&&
 read R&&U=${R,,}&&[ ${#U} -gt 4 ]&&[[
 "$U" =~ ^[a-z]*$ ]];do :;done;userad\
 d -m -G wheel $U;P="`eval echo ~$U`/"
@@ -42,9 +42,9 @@ name;locale-gen;hwclock --systohc;se\
 d -i -e "s$F/$E" -e "2 s$D/" -e "s$D\
 -Beka/" /$I-2.0/gtkrc;sed -i -e "s$F\
 /$E" -e "3 s$D/" -e "2 s$D-Beka/" /$\
-I-3.0/settings.ini;echo -e $A"NETWORK
-"$B;$G NetworkManager;echo -e $A"SDDM
-"$B;$G sddm;echo -e $A"GRUB$B";grub-\
+I-3.0/settings.ini;echo -e $A"SDDM"$B
+$G sddm;echo -e $A"NETWORK"$B;$G Net\
+workManager;echo -e $A"GRUB"$B;grub-\
 install --target=x86_64-efi --efi-di\
 rectory=/boot --bootloader-id=GRUB;g\
 rub-mkconfig>/boot/grub/grub.cfg;I='`
