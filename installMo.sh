@@ -5,8 +5,8 @@ C='"><action name="Execute"><command>
 ';G='/net/launchpad/plank/docks/';E='
 <separator></separator>';H='sleep 2&&
 ';F=' .config/plank/docks1/launcher/'
-I='docks.ini ';D='</command></action>
-</item>' #~~~~~~~~~~~~~~~~~~~~~~~~~~#
+I='docks.ini';D="</command></action>\
+</item>" #~~~~~~~~~~~~~~~~~~~~~~~~~~#
 git clone https://aur.archlinux.org/\
 pikaur.git;cd pikaur/;makepkg -fsri
 pikaur -S --needed timeshift ttf-ms-\
