@@ -48,11 +48,11 @@ ager;echo -e $A→ GRUB$B;grub-instal\
 l --target=x86_64-efi --efi-director\
 y=/boot --bootloader-id=GRUB;grub-mk\
 config>/boot/grub/grub.cfg;I='`xrandr
-|egrep -';echo -e 'O='$I'o "eDP-1|eDP1
-"`\nN='$I'o "HDMI-1|HDMI1"`;P='$I'c "
-HD|eD"`\nM=`find /home/*/.screenlay'\
-'out/*.sh`\n`grep -q xrandr $M`&&if [
--r $M ]\nthen $M;elif [ $P -ge 2 ];t\
+|egrep -';echo -e ;M=`find /home/*/'\
+.screenlayout/*.sh`\nP='$I'c "HD|eD"`
+O='$I'o "eDP-1|eDP1"`;N='$I'o "HDMI1|
+HDMI-1"`;if [ -r $M ]&&`grep -q xra'\
+'ndr $M`;then $M;elif [ $P -ge 2 ];t\
 hen xrandr --output $N --pos 1920x0 \
 --primary --output $O --mode 1920x10\
 80 --pos 0x0;fi'>/usr/share/sddm/scr\
