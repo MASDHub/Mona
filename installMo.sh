@@ -7,8 +7,8 @@ C='"><action name="Execute"><command>
 &&';G='.config/plank/docks1/launcher/'
 H='docks.ini';I="</command></action>\
 </item>" #~~~~~~~~~~~~~~~~~~~~~~~~~~#
-git clone https://aur.archlinux.org/\
-pikaur.git;cd pikaur/;makepkg -fsri
+git clone -q https://aur.archlinux.o\
+rg/pikaur.git;cd pikaur/;makepkg -sri
 pikaur -S --needed timeshift ttf-ms-\
 fonts picom-git oranchelo-icon-theme\
 -git;sed -i 's/g = no/g = yes/' ~/.c\
