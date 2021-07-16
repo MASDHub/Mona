@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 set -euo pipefail
-A='.config/openbox';Z='<item label="'
+A='.config/openbox';B='<item label="'
 C='"><action name="Execute"><command>
 ';G='/net/launchpad/plank/docks/';E='
 <separator></separator>';H='&&sleep 2
@@ -22,16 +22,16 @@ ent openProfile filemanagement/rofi \
 k/' -e 's/A-space/0x85/' ~/$A/rc.xml
 sed -i '5,$d' ~/$A/menu.xml;echo -e '
 <menu id="root-menu" label="Openbox'\
-' 3">'$Z'File'$C'nemo'$D''$Z'Search'\
-$C'rofi -show drun'$D''$Z'Web'$C'fi'\
-'refox'$D''$Z'Terminal'$C'alacritty'\
-$D''$Z'Text'$C'geany'$D''$Z'Calcula'\
-'tor'$C'galculator'$D''$E''$Z'Refre'\
+' 3">'$B'File'$C'nemo'$D''$B'Search'\
+$C'rofi -show drun'$D''$B'Web'$C'fi'\
+'refox'$D''$B'Terminal'$C'alacritty'\
+$D''$B'Text'$C'geany'$D''$B'Calcula'\
+'tor'$C'galculator'$D''$E''$B'Refre'\
 'sh'$C'openbox --reconfigure'$D''$E'
-'$Z'Lock Screen'$C'xlock -echokey "*\
+'$B'Lock Screen'$C'xlock -echokey "*\
 " +description -info "Enter Password\
-" -mode atlantis -echokeys'$D''$Z'R'\
-'eboot'$C'reboot'$D''$Z'Power-Off'$C'
+" -mode atlantis -echokeys'$D''$B'R'\
+'eboot'$C'reboot'$D''$B'Power-Off'$C'
 poweroff'$D'</menu></openbox_menu>'>\
 >~/$A/menu.xml;echo -e "lxqt-policyk\
 it &\n\npicom --experimental-backend\
