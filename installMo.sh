@@ -30,8 +30,8 @@ $D''$Z'Text'$C'geany'$D''$Z'Calcula'\
 'sh'$C'openbox --reconfigure'$D''$E'
 '$Z'Lock Screen'$C'xlock -info "Enter
 Password"  -mode atlantis -echokey "*
-" -echokeys +description
-'$D''$Z'Reboot'$C'reboot'$D''$Z'Power-Off'$\
+" -echokeys +description'$D''$Z'Reboot
+'$C'reboot'$D''$Z'Power-Off'$\
 C'poweroff'$D'</menu></openbox_menu>
 '>>~/$A/menu.xml;echo -e "lxqt-polic\
 ykit &\n\npicom --experimental-backe\
