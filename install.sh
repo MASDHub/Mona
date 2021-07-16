@@ -31,7 +31,7 @@ until printf $A"Enter User's Password
 .1${S}localhost\n::1${Z}127.0.1.1$S$\
 {U}-pc.localdomain $U-pc" >/etc/hosts
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
-ers;ln -sf "$(cat /etc/T)" /etc/loca\
+ers;ln -sf "/`cat /etc/T`" /etc/loca\
 ltime;echo LANG=${C}TF-8 > /etc/loca\
 le.conf;sed -i "s/#$C/$C/" /etc/loca\
 le.gen ;sed -i "s/twm/$H/" /etc/X11/\
