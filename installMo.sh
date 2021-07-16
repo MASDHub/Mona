@@ -4,9 +4,9 @@ A='.config/openbox';B='<item label="'
 C='"><action name="Execute"><command>
 ';G='/.config/plank/docks1/launcher/'
 D=' /net/launchpad/plank/docks/ ';F="
-sleep 2 &&";E=<separator></separator>
-I=</command></action></item>;H=" ~/d\
-ocks.ini " #~~~~~~~~~~~~~~~~~~~~~~~~#
+sleep 2 &&";I="</command></action></\
+item>";E='<separator></separator>';H\
+=" ~/docks.ini " #~~~~~~~~~~~~~~~~~~#
 git clone -q https://aur.archlinux.o\
 rg/pikaur.git;cd pikaur/;makepkg -sri
 pikaur -S --needed timeshift ttf-ms-\
