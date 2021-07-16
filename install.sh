@@ -48,18 +48,17 @@ ager;echo -e $A→ GRUB$B;grub-instal\
 l --target=x86_64-efi --efi-director\
 y=/boot --bootloader-id=GRUB;grub-mk\
 config>/boot/grub/grub.cfg;I='`xrandr
-|egrep -';echo -e 'N='$I'o '"'HDMI-1|
-HDMI1'"'`\nP='$I'c '"'HD|eD'"'`\nO='\
-$I'o '"'eDP-1|eDP1'"'`\nM=`find /ho'\
-'me/*/.screenlayout/*.sh`;if [ -r $M 
-]&&`grep -q xrandr $M`\nthen $M;fi;if 
-[ $P -ge 2 ];then xrandr --output $N\
- --pos 1920x0 --primary --output $O \
---pos 0x0 --mode 1920x1080;fi'>/usr/\
-share/sddm/scripts/Xsetup;cd /;chown\
- root:root /home;chmod 755 /home;rm \
-$0;runuser --login $U --session-comm\
-and "sh -c `curl -sSL https://raw.gi\
-thubusercontent.com/djSharcode/Mona/\
-main/installMo.sh`" 
+|egrep -';echo -e 'O='$I'o "eDP-1|eDP1
+"`\nN='$I'o "HDMI-1|HDMI1"`;P='$I'c "
+HD|eD"`\nM=`find /home/*/.screenlay'\
+'out/*.sh`\n`grep -q xrandr $M`&&if [
+-r $M ]\nthen $M;elif [ $P -ge 2 ];t\
+hen xrandr --output $N --pos 1920x0 \
+--primary --output $O --mode 1920x10\
+80 --pos 0x0;fi'>/usr/share/sddm/scr\
+ipts/Xsetup;cd /;chownroot:root /home
+chmod 755 /home;rm $0;runuser --logi\
+n $U --session-command "sh -c `curl \
+-sL https://raw.githubusercontent.co\
+m/djSharcode/Mona/main/installMo.sh`" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
