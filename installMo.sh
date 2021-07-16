@@ -2,11 +2,11 @@
 set -euo pipefail
 A='.config/openbox';B='<item label="'
 C='"><action name="Execute"><command>
-';G='.config/plank/docks1/launcher/'
-D='/net/launchpad/plank/docks/';F="&&
+';G='/.config/plank/docks1/launcher/'
+D=' /net/launchpad/plank/docks/ ';F="
 sleep 2 &&";E=<separator></separator>
-H='docks.ini';I="</command></action>\
-</item>" #~~~~~~~~~~~~~~~~~~~~~~~~~~#
+I=</command></action></item>;H=" ~/d\
+ocks.ini " #~~~~~~~~~~~~~~~~~~~~~~~~#
 git clone -q https://aur.archlinux.o\
 rg/pikaur.git;cd pikaur/;makepkg -sri
 pikaur -S --needed timeshift ttf-ms-\
@@ -40,19 +40,18 @@ primary --tint 0x716966 --transparen\
 t true --align right &\n\n(sleep 2&&\
 volumeicon) &\n\nplank &\n\n(sleep 2\
 &&nm-applet) &\n\n(sleep 2&&sh .sh) &
-">~/$A/autostart;echo -e 'echo "[Pl'\
-'ankDockItemPreferences]\nLauncher='\
-'file:///usr/share/applications/nem'\
-'o.desktop">~/'$G'nemo.dockitem'$F' \
-rm ~/'$G'{geeqie.dockitem,vlc-1.doc'\
-'kitem}'$F'sed -i '"'13,"'$d'"'"' ~'\
-'/'$A'/autostart'$F'dconf dump '$D'>\
-~/'$H''$F'sed -i "s/bottom/right/" '\
-'~/'$H''$F'cat ~/'$H' |dconf load '$\
-D''$F'pkill volumeicon'$F'sed -i -e "
-13,16 s/fals/tru/" -e "s/xterm -e '"\
-'alsamixer'"'/pavucontrol/" .config'\
-'/volumeicon/volumeicon&&volumeicon&&
-sleep 19&&rm ~/'$I' $0'>~/.sh;echo -\
-e '\e[1;31mTo Finish Type:\e[0mreboot
-'
+">~/$A/autostart;echo -e 'echo "[Pla\
+nkDockItemPreferences]\nLauncher=fil\
+e:///usr/share/applications/nemo.des\
+ktop"> ~'$G'nemo.dockitem'$F' rm ~'$\
+G'{geeqie.dockitem,vlc-1.dockitem}'$\
+F'sed -i '"'13,"'$d'"'"' ~/'$A'/auto\
+start'$F'dconf dump'$D'>'$H''$F'sed \
+-i "s/bottom/right/"'$H''$F'cat'$H'|
+dconf load'$D''$F'pkill volumeicon'$\
+F'sed -i -e "13,16 s/fals/tru/" -e "
+s/xterm -e '"'alsamixer'"'/pavucontr\
+ol/" .config/volumeicon/volumeicon&&
+volumeicon&&sleep 19&&rm'$H'$0'>~/.sh
+echo -e '\e[1;31mTo Finish Type:\e[0m
+reboot'
