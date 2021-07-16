@@ -32,9 +32,8 @@ $D''$Z'Text'$C'geany'$D''$Z'Calcula'\
 " +description -info "Enter Password\
 " -mode atlantis -echokeys'$D''$Z'R'\
 'eboot'$C'reboot'$D''$Z'Power-Off'$C'
-poweroff'$D'</menu></openbox_menu>
-'>>~/$A/menu.xml;echo -e "lxqt-polic\
-ykit &\n\npicom --experimental-backe\
+poweroff'$D'</menu></openbox_menu>'>\
+>~/$A/menu.xml;echo -e "lxqt-policykit &\n\npicom --experimental-backe\
 nds &\n\nplank &\n\ntrayer --height \
 40 --transparent true --align right \
 --tint 0x716966 --monitor primary &\n
