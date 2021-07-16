@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 set -euo pipefail
 A='.config/openbox';Z='<item label="'
-C='"><actionname="Execute"><command>'
-G=' /net/launchpad/plank/docks/';H=';
-sleep 2&&';E='<separator></separator>
+C='"><action name="Execute"><command>
+';G='/net/launchpad/plank/docks/';E='
+<separator></separator>';H='sleep 2&&
 ';F=' .config/plank/docks1/launcher/'
 I='docks.ini ';D='</command></action>
 </item>' #~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -27,9 +27,9 @@ $C'rofi -show drun'$D''$Z'Web'$C'fi'\
 'refox'$D''$Z'Terminal'$C'alacritty'\
 $D''$Z'Text'$C'geany'$D''$Z'Calcula'\
 'tor'$C'galculator'$D''$Z''E'Refres'\
-'h'$C'openbox --reconfigure'$D''E''$\
-Z'Lock Screen'$C'xlock -mode atlant'\
-'is -echokeys -info "Enter Password :
+'h'$C'openbox --reconfigure'$D''$E''\
+$Z'Lock Screen'$C'xlock -mode atlan'\
+'tis -echokeys -info "Enter Password :
 " +description -echokey "*"'$D''$Z''\
 'Reboot'$C'reboot'$D''$Z'Power-Off'$\
 C'poweroff'$D'</menu></openbox_menu>
