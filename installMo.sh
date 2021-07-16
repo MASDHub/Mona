@@ -47,9 +47,9 @@ volumeicon) &\n\nplank &\n\n(sleep 2\
 rm ~/'$F'{geeqie.dockitem,vlc-1.doc'\
 'kitem}'$H'sed -i '"'13,"'$d'"'"' ~'\
 '/'$A'/autostart'$H'dconf dump '$G'>\
-~/'$I''$H'sed -i "s/bottom/right/" \
-~/'$I''$H'cat ~/'$I' |dconf load '$G\
-''$H'pkill volumeicon'$H'sed -i -e "
+~/'$I''$H'sed -i "s/bottom/right/" '\
+'~/'$I''$H'cat ~/'$I' |dconf load '$\
+G''$H'pkill volumeicon'$H'sed -i -e "
 13,16 s/fals/tru/" -e "s/xterm -e '"\
 'alsamixer'"'/pavucontrol/" .config'\
 '/volumeicon/volumeicon&&volumeicon&&
