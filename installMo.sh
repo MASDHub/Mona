@@ -35,11 +35,11 @@ $D''$Z'Text'$C'geany'$D''$Z'Calcula'\
 poweroff'$D'</menu></openbox_menu>'>\
 >~/$A/menu.xml;echo -e "lxqt-policyk\
 it &\n\npicom --experimental-backend\
-s &\n\nplank &\n\ntrayer --height \
-40 --transparent true --align right \
---tint 0x716966 --monitor primary &\n
-(sleep 2&&nm-applet) &\n\n(sleep 2&&\
-volumeicon) &\n\n(sleep 2&&sh .sh) &\
+s &\n\ntrayer --height 40 --monitor \
+primary --tint 0x716966 --transparen\
+t true --align right &\n\n(sleep 2&&\
+volumeicon) &\n\nplank &\n\n(sleep 2\
+&&nm-applet) &\n\n(sleep 2&&sh .sh) &
 ">~/$A/autostart;echo -e 'echo "[Pl'\
 'ankDockItemPreferences]\nLauncher='\
 'file:///usr/share/applications/nem'\
