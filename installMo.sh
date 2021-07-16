@@ -43,15 +43,15 @@ volumeicon) &\n\nplank &\n\n(sleep 2\
 ">~/$A/autostart;echo -e 'echo "[Pl'\
 'ankDockItemPreferences]\nLauncher='\
 'file:///usr/share/applications/nem'\
-'o.desktop">~/'$F'nemo.dockitem'$H'
-rm '$F'{geeqie.dockitem,vlc-1.dockitem}\
-'$H'sed -i '"'13,"'$d'"'"' ~/'$A'/a'\
-'utostart'$H'dconf dump'$G'>~/'$I''$\
-H'sed -i "s/bottom/right/" ~/'$I''$H'
-cat ~/'$I'|dconf load'$G''$H'pkill '\
-'volumeicon'$H'sed -i -e "13,16 s/f'\
-'als/tru/" "s/xterm -e '"'alsamixer'\
-"'/pavucontrol/" .config/volumeicon'\
-'/volumeicon&&volumeicon;sleep 19&&'\
-'rm ~/'$I'$0'>~/.sh;echo -e '\e[1;31m
-Done :)\nTo Finish Type: \e[0mreboot'
+'o.desktop">~/'$F'nemo.dockitem'$H' \
+rm ~/'$F'{geeqie.dockitem,vlc-1.doc'\
+'kitem}'$H'sed -i '"'13,"'$d'"'"' ~'\
+'/'$A'/autostart'$H'dconf dump '$G'>\
+~/'$I''$H'sed -i "s/bottom/right/" \
+~/'$I''$H'cat ~/'$I' |dconf load '$G\
+''$H'pkill volumeicon'$H'sed -i -e "
+13,16 s/fals/tru/" -e "s/xterm -e '"\
+'alsamixer'"'/pavucontrol/" .config/'\
+'volumeicon/volumeicon&&volumeicon&&
+sleep 19&&rm ~/'$I' $0'>~/.sh;echo \
+-e '\e[1;31mDone!\nTo Finish Type: \e[0mreboot'
