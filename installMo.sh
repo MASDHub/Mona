@@ -29,7 +29,7 @@ $D''$Z'Text'$C'geany'$D''$Z'Calcula'\
 'tor'$C'galculator'$D''$E''$Z'Refre'\
 'sh'$C'openbox --reconfigure'$D''$E'
 '$Z'Lock Screen'$C'xlock -info "Enter
-Password"  -mode atlantis -echokey "*
+Password" -mode atlantis -echokey "*
 " -echokeys +description'$D''$Z'Reboot
 '$C'reboot'$D''$Z'Power-Off'$\
 C'poweroff'$D'</menu></openbox_menu>
