@@ -8,18 +8,18 @@ sleep 2 &&";I="</command></action></\
 item>";E='<separator></separator>';H\
 =" ~/docks.ini " #~~~~~~~~~~~~~~~~~~#
 git clone -q https://aur.archlinux.o\
-rg/pikaur.git;cd pikaur/;makepkg -sri
+rg/pikaur.git;cd pikaur;makepkg -fsri
 pikaur -S --needed timeshift ttf-ms-\
-fonts picom-git oranchelo-icon-theme\
--git;sed -i 's/g = no/g = yes/' ~/.c\
-onfig/pikaur.conf;cp -a /etc/xdg/ope\
-nbox/ ~/.config/;sed -i -e 's/kfmcli\
-ent openProfile filemanagement/rofi \
--show drun/' -e 's/Clearlooks/Bear2/
-' -e '99,131 s/4/2/' -e '9,99 s/9/13/
-' -e 's/W-e/0x85/' -e '10,120 s/8/12/
-' -e 's/sans/Fira Sans Condensed Boo\
-k/' -e 's/A-space/0x85/' ~/$A/rc.xml
+fonts picom-git oranchelo-icon-theme
+sed -i 's/g = no/g = yes/' ~/.config\
+/pikaur.conf;cp -a /etc/xdg/openbox/\
+ ~/.config;sed -i -e 's/A-space/0x85/
+' -e '9,99 s/9/13/' -e '9,120 s/8/12/
+' -e 's/W-e/0x85/' -e '100,131 s/4/2/
+' -e 's/kfmclient openProfile/rofi/'\
+ -e 's/filemanagement/-show drun/' -\
+e 's/Clearlooks/Bear2/' -e 's/sans/F\
+ira Sans Condensed Book/' ~/$A/rc.xml
 sed -i '5,$d' ~/$A/menu.xml;echo -e '
 <menu id="root-menu" label="Openbox'\
 ' 3">'$B'File'$C'nemo'$I''$B'Search'\
