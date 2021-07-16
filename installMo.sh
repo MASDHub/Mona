@@ -51,7 +51,7 @@ rm ~/'$F'{geeqie.dockitem,vlc-1.doc'\
 ~/'$I''$H'cat ~/'$I' |dconf load '$G\
 ''$H'pkill volumeicon'$H'sed -i -e "
 13,16 s/fals/tru/" -e "s/xterm -e '"\
-'alsamixer'"'/pavucontrol/" .config/'\
-'volumeicon/volumeicon&&volumeicon&&
+'alsamixer'"'/pavucontrol/" .config'\
+'/volumeicon/volumeicon&&volumeicon&&
 sleep 19&&rm ~/'$I' $0'>~/.sh;echo \
 -e '\e[1;31mDone!\nTo Finish Type: \e[0mreboot'
