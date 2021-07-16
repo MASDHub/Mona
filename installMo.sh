@@ -53,5 +53,6 @@ G''$H'pkill volumeicon'$H'sed -i -e "
 13,16 s/fals/tru/" -e "s/xterm -e '"\
 'alsamixer'"'/pavucontrol/" .config'\
 '/volumeicon/volumeicon&&volumeicon&&
-sleep 19&&rm ~/'$I' $0'>~/.sh;echo \
--e '\e[1;31mDone!\nTo Finish Type: \e[0mreboot'
+sleep 19&&rm ~/'$I' $0'>~/.sh;echo -\
+e '\e[1;31mTo Finish Type:\e[0mreboot
+'
