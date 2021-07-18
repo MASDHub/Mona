@@ -11,8 +11,8 @@ gpg -k|pacman-key --populate;printf '
 ad -p$'\e[1;31mInstallion Disk Name\e
 [0m→' A&&B=/dev/$A&&sgdisk $B -Z -n \
 1::+512M -t 1:EF00 -n 2;do :;done;C=" 
-`ls /dev/*|egrep "^${B}p?1$"` ";D="`\
- ls /dev/*|egrep "^${B}p?2$"` ";mkfs\
+`ls /dev/*|egrep "^${B}p?1$"` ";D=" 
+`ls /dev/*|egrep "^${B}p?2$"` ";mkfs\
 .vfat -c$C;mkfs.btrfs -fq$D;mount$D/\
 mnt;cd /mnt;$F@home;$F@;cd;umount /m\
 nt;mount$E@$D/mnt;mkdir /mnt/{boot,h\
