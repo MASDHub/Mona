@@ -19,7 +19,7 @@ unt$E@$D/mnt;mkdir /mnt/{boot,home}m\
 ount$C/mnt/boot;mount$E@home$D/mnt/h\
 ome;if [[ $J =  AMD ]];then L='amdgpu
 '&&M=amd-ucode;elif [[ $J =  Intel ]]
-then L='i915 '&&M='intel-ucode';fi
+then L='i915 '&&M=intel-ucode;fi
 sed -i "0,/()/s//(${L}btrfs)/" $K
 lsblk -pe 7,11|egrep --color /?;sed \
 -i 's/#Co/Co/' $H.conf;$G-timezone $I
