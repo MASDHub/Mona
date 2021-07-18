@@ -14,10 +14,10 @@ ad -p$'\e[1;31mInstallion Disk Name\e
 `ls /dev/*|egrep "^${B}p?1$"` ";D=" \
 $(ls /dev/*|egrep "^${B}p?2$") ";mkf\
 s.vfat$C;mkfs.btrfs -fq$D;mount$D/mnt
-cd /mnt;$F@home;$F@;cd;umount /mntmo\
-unt$E@$D/mnt;mkdir /mnt/{boot,home}m\
-ount$C/mnt/boot;mount$E@home$D/mnt/h\
-ome;if [[ $J =  AMD ]];then L='amdgpu
+cd /mnt;$F@home;$F@;cd;umount /mnt;m\
+ount$E@$D/mnt;mkdir /mnt/{boot,home}
+mount$C/mnt/boot;mount$E@home$D/mnt/\
+home;if [[ $J =  AMD ]];then L='amdgpu
 '&&M=amd-ucode;elif [[ $J =  Intel ]]
 then L='i915 '&&M=intel-ucode;fi
 sed -i "0,/()/s//(${L}btrfs)/" $K
