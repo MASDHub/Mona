@@ -1,6 +1,6 @@
 #!/bin/bash
 E=' -o noatime,compress=zstd,subvol='
-F='btrfs su cr ';setfont ter-124n;J="
+F='btrfs su cr';setfont ter-124n;J="\
 `lscpu|egrep -o 'AMD|Intel'|sort -u`"
 K=/etc/mkinitcpio.conf;H=/etc/pacman
 I=`curl -s https://ipapi.co/timezone`
@@ -14,11 +14,11 @@ ad -p$'\e[1;31mInstallion Disk Name\e
 `ls /dev/*|egrep "^${B}p?1$"` ";D=" \
 $(ls /dev/*|egrep "^${B}p?2$") ";mkf\
 s.vfat$C;mkfs.btrfs -fq$D;mount$D/mnt
-cd /mnt;$F@home;$F@;cd;umount /mnt;m\
-ount$E@$D/mnt;mkdir /mnt/{boot,home}
+cd /mnt;$F @home;$F @;cd;umount /mnt
+mount$E@$D/mnt;mkdir /mnt/{boot,home}
 mount$C/mnt/boot;mount$E@home$D/mnt/\
-home;if [[ $J =  AMD ]];then L='amdgpu
-'&&M=amd-ucode;elif [[ $J =  Intel ]]
+home;if [[ $J = AMD ]];then L='amdgpu
+'&&M=amd-ucode;fi;if [[ $J = Intel ]]
 then L='i915 '&&M=intel-ucode;fi
 sed -i "0,/()/s//(${L}btrfs)/" $K
 lsblk -pe 7,11|egrep --color /?;sed \
