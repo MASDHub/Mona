@@ -8,8 +8,8 @@ G='timedatectl set' #~~~~~~~~~~~~~~~#
 gpg -k|pacman-key --populate;printf '
 %9s\n'|tr ' ' -;until lsblk -do NAME\
 ,SIZE -e 7,11|grep --color [A-Z]&&re\
-ad -p$"\e[1;31mInstallion Disk Name:\
-e[0m" A&&B=/dev/$A&&sgdisk $B -Z -n \
+ad -p$'\e[1;31mInstallion Disk Name\e
+[0m→' A&&B=/dev/$A&&sgdisk $B -Z -n \
 1::+512M -t 1:EF00 -n 2;do :;done;C=" 
 `ls /dev/*|egrep "^${B}p?1$"` ";D="`\
  ls /dev/*|egrep "^${B}p?2$"` ";mkfs\
