@@ -13,14 +13,14 @@ ad -p$'\e[1;31mInstallion Disk Name\e
 1::+512M -t 1:EF00 -n 2;do :;done;C=" 
 `ls /dev/*|egrep "^${B}p?1$"` ";D=" 
 `ls /dev/*|egrep "^${B}p?2$"` ";mkfs\
-.vfat -c$C;mkfs.btrfs -fq$D;mount$D/\
-mnt;cd /mnt;$F@home;$F@;cd;umount /m\
-nt;mount$E@$D/mnt;mkdir /mnt/{boot,h\
-ome};mount$C/mnt/boot;mount$E@home$D\
-/mnt/home;if [ $J == AMD ];then M=am\
-d-ucode&&L='amdgpu ';fi;if [ $J == "I
-ntel" ];then M=intel-ucode&&L='i915 '
-fi;sed -i "0,/()/s//(${L}btrfs)/" $K
+.vfat$C;mkfs.btrfs -fq$D;mount$D/mnt
+cd /mnt;$F@home;$F@;cd;umount /mntmo\
+unt$E@$D/mnt;mkdir /mnt/{boot,home}m\
+ount$C/mnt/boot;mount$E@home$D/mnt/h\
+ome;if [[ $J = Intel ]];then M\
+='intel-ucode'&&L='i915 ';fi;if [[ 
+$J = AMD ]];then M=a\
+md-ucode&&L='amdgpu ';fi;;sed -i "0,/()/s//(${L}btrfs)/" $K
 lsblk -pe 7,11|egrep --color /?;sed \
 -i 's/#Co/Co/' $H.conf;$G-timezone $I
 $G-ntp true;reflector -p https -a 8 \
