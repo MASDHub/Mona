@@ -19,31 +19,30 @@ mount$E@$D/mnt;mkdir /mnt/{boot,home}
 mount$C/mnt/boot;mount$E@home$D/mnt/\
 home;if [[ $J = AMD ]];then L='amdgpu
 '&&M=amd-ucode;fi;if [[ $J = Intel ]]
-then L='i915 '&&M=intel-ucode;fi
-sed -i "0,/()/s//(${L}btrfs)/" $K
-lsblk -pe 7,11|egrep --color /?;sed \
--i 's/#Co/Co/' $H.conf;$G-timezone $I
-$G-ntp true;reflector -p https -a 8 \
---score 5 --sort rate --save $H.d/mi\
-rrorlist;pacstrap -i /mnt base base-\
-devel linux alacritty linux-headers \
+then L='i915 '&&M=intel-ucode;fi;lsb\
+lk -pe 7,11|egrep --color /?;sed -i '
+s/#Co/Co/' $H.conf;sed -i "0,/()/s//\
+(${L}btrfs)/" $K;$G-timezone $I&&$G-\
+ntp true;reflector -p https --score \
+6 -a 12 --sort rate --save $H.d/mirr\
+orlist;pacstrap -i /mnt base arandr \
+base-devel linux linux-headers grub \
 linux-firmware lxqt-policykit xterm \
 pipewire-pulse trayer pipewire-alsa \
 efibootmgr xorg-xinit pipewire-jack \
-xorg arandr plank grub nemo-preview \
+xorg plank nemo-preview pavucontrol \
 firefox network-manager-applet gufw \
 geeqie gst-plugin-pipewire libpulse \
 firefox-ublock-origin otf-fira-mono \
 otf-fira-sans libreoffice-still git \
 nemo-fileroller sddm xpad xlockmore \
-galculator pkg-config rofi clipgrab \
-nitrogen pipewire conky-manager vim \
-gvfs-afc obconf-qt pavucontrol htop \
+galculator pkg-config vim alacritty \
+nitrogen pipewire conky-manager vlc \
 alsa-utils volumeicon geany-plugins \
-gvfs-mtp vlc $M;curl -s https://raw.\
-githubusercontent.com/djsharcode/Mon\
-a/main/install.sh>/mnt/s;cp $K /mnt$K
+obconf-qt gvfs-mtp gvfs-afc htop rof\
+i $M;curl -s https://raw.githubuserc\
+ontent.com/djsharcode/Mona/main/inst\
+all.sh>/mnt/s;cp $H.conf /mnt$H.conf
 echo usr/share/zoneinfo/$I>/mnt/etc/T
-cp $H.conf /mnt$H.conf;genfstab -U /\
-mnt>/mnt/etc/fstab;arch-chroot /mnt \
-sh s
+cp $K /mnt$K;genfstab -U /mnt>/mnt/e\
+tc/fstab;arch-chroot /mnt sh s
