@@ -20,29 +20,29 @@ mount$C/mnt/boot;mount$E@home$D/mnt/\
 home;if [[ $J = AMD ]];then L='amdgpu
 '&&M=amd-ucode;fi;if [[ $J = Intel ]]
 then L='i915 '&&M=intel-ucode;fi;lsb\
-lk -pe 7,11|egrep --color /?;sed -i '
-s/#Co/Co/' $H.conf;sed -i "0,/()/s//\
-(${L}btrfs)/" $K;$G-timezone $I&&$G-\
-ntp true;reflector -p https --score \
-6 -a 12 --sort rate --save $H.d/mirr\
-orlist;pacstrap -i /mnt base arandr \
+lk -pe 7,11|egrep --color /?;sed -i "
+0,/()/s//(${L}btrfs)/" $K;$G-ntp true
+sed -i 's/#Co/Co/' $H.conf;$G-timezo\
+ne $I;reflector -p https --score 6 -\
+a 6 --sort rate --save $H.d/mirrorlist
+pacstrap -i /mnt base arandr geeqie \
 base-devel linux linux-headers grub \
 linux-firmware lxqt-policykit xterm \
 pipewire-pulse trayer pipewire-alsa \
 efibootmgr xorg-xinit pipewire-jack \
 xorg plank nemo-preview pavucontrol \
 firefox network-manager-applet gufw \
-geeqie gst-plugin-pipewire libpulse \
+gst-plugin-pipewire nemo-fileroller \
 firefox-ublock-origin otf-fira-mono \
 otf-fira-sans libreoffice-still git \
-nemo-fileroller sddm xpad xlockmore \
-galculator pkg-config vim alacritty \
-nitrogen pipewire conky-manager vlc \
-alsa-utils volumeicon geany-plugins \
-obconf-qt gvfs-mtp gvfs-afc htop rof\
-i $M;curl -s https://raw.githubuserc\
-ontent.com/djsharcode/Mona/main/inst\
-all.sh>/mnt/s;cp $H.conf /mnt$H.conf
-echo usr/share/zoneinfo/$I>/mnt/etc/T
-cp $K /mnt$K;genfstab -U /mnt>/mnt/e\
-tc/fstab;arch-chroot /mnt sh s
+sddm xpad xlockmore galculator rofi \
+libpulse conky-manager pipewire vim \
+pkg-config alacritty volumeicon vlc \
+alsa-utils geany-plugins htop obconf\
+-qt nitrogen gvfs-mtp htop gvfs-afc $M
+curl -s https://raw.githubuserconten\
+t.com/djsharcode/Mona/main/install.s\
+h>/mnt/s;cp $H.conf /mnt$H.conf;cp $\
+K /mnt$K;echo usr/share/zoneinfo/$I>\
+/mnt/etc/T;genfstab -U /mnt>/mnt/etc\
+/fstab;arch-chroot /mnt sh s
