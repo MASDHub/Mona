@@ -44,5 +44,5 @@ rl -s https://raw.githubusercontent.\
 com/djsharcode/Mona/main/install.sh>\
 /mnt/s;cp $H.conf /mnt$H.conf;cp $K \
 /mnt$K;echo usr/share/zoneinfo/$I>/m\
-nt/etc/T;genfstab -U /mnt>/mnt/etc/f\
-stab;arch-chroot /mnt sh s
+nt/T;genfstab -U /mnt>/mnt/etc/fstab
+arch-chroot /mnt sh s
