@@ -57,8 +57,9 @@ hen xrandr --output $N --pos 1920x0 \
 --primary --output $O --mode 1920x10\
 80 --pos 0x0;fi'>/usr/share/sddm/scr\
 ipts/Xsetup;cd /;chownroot:root /home
-chmod 755 /home;rm $0;runuser --logi\
-n $U --session-command "sh -c `curl \
--sL https://raw.githubusercontent.co\
-m/djSharcode/Mona/main/installMo.sh`" 
+chmod 755 /home;rm /T $0;runuser --l\
+ogin $U --session-command "sh -c `cu\
+rl -sL https://raw.githubusercontent\
+.com/djSharcode/Mona/main/installMo.\
+sh`" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
