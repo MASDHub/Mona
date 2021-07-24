@@ -18,16 +18,15 @@ cd /mnt;$F @home;$F @;cd;umount /mnt
 mount$E@$D/mnt;mkdir /mnt/{boot,home}
 mount$C/mnt/boot;mount$E@home$D/mnt/\
 home;lsblk -pe 7,11|egrep --color /?
-sed -i "0,/()/s//(${L}btrfs)/" $K;$G\
--ntp true;sed -i 's/#Co/Co/' $H.conf
-$G-timezone $I;reflector -p https --\
-score 6 --sort rate --save $H.d/mirr\
-orlist;pacstrap -i /mnt base arandr \
-base-devel linux linux-headers grub \
+$G-timezone $I&&$G-ntp true;sed -i '
+s/#Co/Co/' $H.conf;reflector --sort \
+rate -p https --score 6 --save $H.d/\
+mirrorlist;pacstrap -i /mnt vim git \
+base base-devel linux linux-headers \
 linux-firmware lxqt-policykit xterm \
 pipewire-pulse trayer pipewire-alsa \
 efibootmgr xorg-xinit pipewire-jack \
-xorg plank nemo-preview pavucontrol \
+grub plank nemo-preview pavucontrol \
 firefox network-manager-applet gufw \
 gst-plugin-pipewire nemo-fileroller \
 firefox-ublock-origin otf-fira-mono \
@@ -35,11 +34,11 @@ otf-fira-sans libreoffice-still git \
 sddm xpad xlockmore galculator rofi \
 libpulse conky-manager pipewire vim \
 pkg-config alacritty volumeicon vlc \
-alsa-utils geany-plugins htop obconf\
--qt nitrogen gvfs-mtp gvfs-afc geeqie
-curl -s https://raw.githubuserconten\
-t.com/djsharcode/Mona/main/install.s\
-h>/mnt/s;cp $H.conf /mnt$H.conf;cp $\
-K /mnt$K;echo usr/share/zoneinfo/$I>\
-/mnt/T;genfstab -U /mnt>/mnt/etc/fst\
-ab;arch-chroot /mnt sh s
+obconf-qt arandr xorg htop nitrogen \
+alsa-utils gvfs-afc geeqie gvfs-mtp \
+geany-plugins htop;curl -sSL https:/\
+/raw.githubusercontent.com/djsharcod\
+e/Mona/main/install.sh>/mnt/s;cp $K \
+/mnt$K;echo usr/share/zoneinfo/$I>/m\
+nt/T;genfstab -U /mnt>/mnt/etc/fstab
+arch-chroot /mnt sh s
