@@ -39,10 +39,10 @@ sddm xpad xlockmore galculator rofi \
 libpulse conky-manager pipewire vim \
 pkg-config alacritty volumeicon vlc \
 alsa-utils geany-plugins htop obconf\
--qt nitrogen gvfs-mtp htop gvfs-afc \
-$M;curl -s https://raw.githubusercon\
-tent.com/djsharcode/Mona/main/instal\
-l.sh>/mnt/s;cp $H.conf /mnt$H.conf;c\
-p $K /mnt$K;echo usr/share/zoneinfo/\
-$I>/mnt/etc/T;genfstab -U /mnt>/mnt/\
-etc/fstab;arch-chroot /mnt sh s
+-qt nitrogen gvfs-mtp gvfs-afc $M;cu\
+rl -s https://raw.githubusercontent.\
+com/djsharcode/Mona/main/install.sh>\
+/mnt/s;cp $H.conf /mnt$H.conf;cp $K \
+/mnt$K;echo usr/share/zoneinfo/$I>/m\
+nt/etc/T;genfstab -U /mnt>/mnt/etc/f\
+stab;arch-chroot /mnt sh s
