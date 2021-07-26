@@ -25,7 +25,7 @@ s/Bear2/' ~/$A/rc.xml;sed -i -e '6,$d
 s/Accessories/Openbox 3/' ~/$A/menu.\
 xml;echo -e ""$B"File"$C"nemo$I"$B"
 Search"$C"rofi -show drun$I"$B"Web"$C"
-firefox$I"$B"Terminal"$C"alacritty$I"
+firefox$I"$B"Terminal"$C"alacritty$I"\
 $B"Text"$C"geany$I"$B"Calculator"$C"
 galculator$I"$E""$B"Refresh"$C"openb\
 ox --reconfigure$I"$E""$B"Lock Screen
