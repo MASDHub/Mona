@@ -34,7 +34,7 @@ sed -i 's/auto/1920x1080/' /etc/defa\
 ult/grub;echo LANG=$C-8 >> /etc/loca\
 le.conf;sed -i "s/twm/$H/" /etc/X11/\
 xinit/xinitrc;echo $U-pc > /etc/host\
-name;ln -sf "/`$(cat /T)`" /etc/loca\
+name;ln -sf /"$( cat /T )" /etc/loca\
 ltime;sed -i "s/#${C}/$C/" /etc/loca\
 le.gen;hwclock --systohc;locale-gen
 sed -i '0,/# %/ s/# %/ %/' /etc/sudo\
