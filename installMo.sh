@@ -50,8 +50,8 @@ ho -e 'echo "[PlankDockItemPreferen'\
 'conf dump'$D'>'$H''$F'sed -i "s/bo'\
 'ttom/right/"'$H''$F'cat'$H' |dconf'\
 'load'$D''$F'pkill volumeicon'$F'se'\
-d -i -e "13,16 s/fals/tru/" -e "s/x'\
-term -e '"'alsamixer'"'/pavucontrol/
+'d -i -e "13,16 s/fals/tru/" -e "s/'\
+'term -e '"'alsamixer'"'/pavucontrol/
 " .config/volumeicon/volumeicon&&vol\
 umeicon&&sleep 19&&rm'$H'$0'>~/.sh:e\
 cho -e '\e[1;31mTo Finish Type:\e[0m
