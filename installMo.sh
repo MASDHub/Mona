@@ -10,11 +10,11 @@ item>";E='<separator></separator>';H\
 git clone -q https://aur.archlinux.o\
 rg/pikaur.git;cd pikaur;makepkg -fsri
 pikaur -S --needed timeshift ttf-ms-\
-fonts picom-git  ungoogled-chromium \
-oranchelo-icon-theme;cp -a /etc/xdg/\
-openbox/ ~/.config;sed -i 's/g = no/\
-g = yes/' ~/.config/pikaur.conf;sed \
--i -e 's/A-space/0x85/
+fonts picom-git ungoogled-chromium o\
+ranchelo-icon-theme;cp -a /etc/xdg/o\
+penbox/ ~/.config;sed -i 's/g = no/g\
+ = yes/' ~/.config/pikaur.conf;sed -\
+i -e 's/A-space/0x85/
 ' -e '9,99 s/9/13/' -e '9,120 s/8/12/
 ' -e 's/W-e/0x85/' -e '100,131 s/4/2/
 ' -e 's/kfmclient openProfile/rofi/'\
