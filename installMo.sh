@@ -23,8 +23,8 @@ i -e '9,99 s/9/13/' -e '9,120 s/8/12/
 s/Bear2/' ~/$A/rc.xml;sed -i -e '6,$d
 ' -e 's/apps-accessories/root/' -e '
 s/Accessories/Openbox 3/' ~/$A/menu.\
-xml;echo -e ""$B"File"$C"nemo$I"$B"
-Search"$C"rofi -show drun$I"$B"Web"$C"
+xml;echo -e ""$B"File"$C"nemo$I"$B"S\
+earch"$C"rofi -show drun$I"$B"Web"$C"
 firefox$I"$B"Terminal"$C"alacritty$I"\
 $B"Text"$C"geany$I"$B"Calculator"$C"
 galculator$I"$E""$B"Refresh"$C"openb\
