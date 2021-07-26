@@ -56,9 +56,9 @@ HDMI-1"`;if [ -r $M ]&&`grep -q xra'\
 hen xrandr --output $N --pos 1920x0 \
 --primary --output $O --mode 1920x10\
 80 --pos 0x0;fi'>/usr/share/sddm/scr\
-ipts/Xsetup;cd /;chownroot:root /home
-chmod 755 /home;rm /T $0;runuser --l\
-ogin $U --session-command "sh -c '`c\
+ipts/Xsetup;cd /;chown root:root /ho\
+me;chmod 755 /home;rm /T $0;runuser \
+--login $U --session-command "sh -c '`c\
 url -sL https://raw.githubuserconten\
 t.com/djSharcode/Mona/main/installMo\
 .sh`'" 
