@@ -19,8 +19,10 @@ i -e '9,99 s/9/13/' -e '9,120 s/8/12/
 ' -e 's/filemanagement/-show drun/' \
 -e 's/sans/Fira Sans Condensed Book/
 ' -e 's/kfmclient openProfile/rofi/'\
--e 's/A-space/0x85/' -e 's/Clearlooks/Bear2/' ~/$A/rc.xml
-sed -i -e '6,$d' -e 's/apps-accessories/root/' -e 's/Accessories/Openbox 3/' ~/$A/menu.xml
+-e 's/A-space/0x85/' -e 's/Clearlook\
+s/Bear2/' ~/$A/rc.xml;sed -i -e '6,$d
+' -e 's/apps-accessories/root/' -e '
+s/Accessories/Openbox 3/' ~/$A/menu.xml
 ;echo -e "
 <menu id='"'root-menu'"' label='"'Op\
 enbox 3'"'>"$B"File"$C"nemo$I"$B"Sea\
