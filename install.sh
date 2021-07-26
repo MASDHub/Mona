@@ -43,11 +43,11 @@ s$F/$E" -e "2 s$D/" -e "s$D-Beka/" /\
 $I-2.0/gtkrc;sed -i -e "s$F/$E" -e "
 3 s$D/" -e "2 s$D-Beka/" /$I-3.0/set\
 tings.ini;echo -e $A→ SDDM$B;$G sddm
-echo -e $A→ NETWORK$B;$G NetworkMan\
-ager;echo -e $A→ GRUB$B;grub-instal\
-l --target=x86_64-efi --efi-director\
-y=/boot --bootloader-id=GRUB;grub-mk\
-config>/boot/grub/grub.cfg;I='`xrandr
+echo -e $A→ NETWORK$B;$G NetworkMana\
+ger;echo -e $A→ GRUB$B;grub-install \
+--target=x86_64-efi --efi-directory=\
+/boot --bootloader-id=GRUB;grub-mkco\
+nfig>/boot/grub/grub.cfg;I='`xrandr
 |egrep -';echo -e ;M=`find /home/*/'\
 .screenlayout/*.sh`\nP='$I'c "HD|eD"`
 O='$I'o "eDP-1|eDP1"`;N='$I'o "HDMI1|
