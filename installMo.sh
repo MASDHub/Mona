@@ -32,8 +32,8 @@ ox --reconfigure$I"$E""$B"Lock Screen
 "$C"xlock -echokey '*' +description \
 -info 'Enter Password' -mode atlanti\
 s -echokeys$I"$B"Reboot"$C"reboot"$I"
-"$B"Power-Off"$C"poweroff"$I"</menu>\
-</openbox_menu>">>~/$A/menu.xml;echo \
+"$B"Power-Off"$C"poweroff"$I"</menu><
+/openbox_menu>">>~/$A/menu.xml;echo \
 -e "lxqt-policykit &\n\npicom --expe\
 rimental-backends &\n\ntrayer --tint\
  0x716966 --height 40 --monitor prim\
