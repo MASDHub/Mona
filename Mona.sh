@@ -36,9 +36,9 @@ libpulse conky-manager pipewire vim \
 pkg-config alacritty volumeicon vlc \
 obconf-qt arandr xorg htop nitrogen \
 alsa-utils gvfs-afc geeqie gvfs-mtp \
-geany-plugins htop;curl -sSL https:/\
-/raw.githubusercontent.com/djsharcod\
-e/Mona/main/install.sh>/mnt/s;cp $K \
+geany-plugins htop ungoogled-chromium
+curl -sSL https://raw.githubusercont\
+ent.com/djsharcode/Mona/main/install.sh>/mnt/s;cp $K \
 /mnt$K;echo usr/share/zoneinfo/$I>/m\
 nt/T;genfstab -U /mnt>/mnt/etc/fstab
 arch-chroot /mnt sh s
