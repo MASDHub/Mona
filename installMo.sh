@@ -24,9 +24,9 @@ s/Bear2/' ~/$A/rc.xml;sed -i -e '6,$d
 ' -e 's/apps-accessories/root/' -e '
 s/Accessories/Openbox 3/' ~/$A/menu.\
 xml;echo -e ""$B"File"$C"nemo$I"$B"S\
-earch"$C"rofi -show drun$I"$B"Web"$C"
-firefox$I"$B"Terminal"$C"alacritty$I
-"$B"Text"$C"geany$I"$B"Calculator$C
+earch"$C"rofi -show drun$I"$B"Web"$C\
+"firefox$I"$B"Terminal"$C"alacritty$I
+"$B"Text"$C"geany$I"$B"Calculator"$C"
 galculator$I"$E""$B"Refresh"$C"openb\
 ox --reconfigure$I"$E""$B"Lock Screen
 "$C"xlock -echokey '*' +description \
