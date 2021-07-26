@@ -48,7 +48,7 @@ ger;echo -e $A→ GRUB$B;grub-install \
 --target=x86_64-efi --efi-directory=\
 /boot --bootloader-id=GRUB;grub-mkco\
 nfig>/boot/grub/grub.cfg;I='`xrandr |
-egrep -';echo -e ;M=`find /home/*/.'\
+egrep -';echo -e 'M=`find /home/*/.'\
 'screenlayout/*.sh`\nP='$I'c "HD|eD"`
 O='$I'o "eDP-1|eDP1"`;N='$I'o "HDMI1|
 HDMI-1"`;if [ -r $M ]&&`grep -q xra'\
