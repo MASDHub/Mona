@@ -58,8 +58,8 @@ hen xrandr --output $N --pos 1920x0 \
 80 --pos 0x0;fi'>/usr/share/sddm/scr\
 ipts/Xsetup;cd /;chown root:root /ho\
 me;chmod 755 /home;rm /T $0;runuser \
---login $U --session-command "sh -c '
+--login $U --session-command "sh -c "
 `curl -sL https://raw.githubusercont\
 ent.com/djSharcode/Mona/main/install\
-Mo.sh`'" 
+Mo.sh`"" 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
