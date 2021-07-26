@@ -21,8 +21,8 @@ i -e '9,99 s/9/13/' -e '9,120 s/8/12/
 ' -e 's/kfmclient openProfile/rofi/'\
 -e 's/A-space/0x85/' -e 's/Clearlook\
 s/Bear2/' ~/$A/rc.xml;sed -i -e '6,$d
-' -e 's/apps-accessories/root/' -e '
-s/Accessories/Openbox 3/' ~/$A/menu.\
+' -e 's/Accessories/Openbox 3/' -e ' 
+s/apps-accessories/root/' ~/$A/menu.\
 xml;echo -e ""$B"File"$C"nemo$I"$B"S\
 earch"$C"rofi -show drun$I"$B"Web"$C\
 "firefox$I"$B"Terminal"$C"alacritty$I
