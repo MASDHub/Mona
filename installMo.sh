@@ -14,14 +14,16 @@ fonts picom-git ungoogled-chromium o\
 ranchelo-icon-theme;cp -a /etc/xdg/o\
 penbox/ ~/.config;sed -i 's/g = no/g\
  = yes/' ~/.config/pikaur.conf;sed -\
-i -e 's/A-space/0x85/
+i -e 's/kfmclient openProfile/rofi/'\ 
+-e 's/A-space/0x85/'
 ' -e '9,99 s/9/13/' -e '9,120 s/8/12/
 ' -e 's/W-e/0x85/' -e '100,131 s/4/2/
 ' -e 's/kfmclient openProfile/rofi/'\
  -e 's/filemanagement/-show drun/' -\
 e 's/Clearlooks/Bear2/' -e 's/sans/F\
 ira Sans Condensed Book/' ~/$A/rc.xml
-sed -i '5,$d' ~/$A/menu.xml;echo -e "
+sed -i -e '6,$d' -e 's/apps-accessories/root/' -e 's/Accessories/Openbox 3/' ~/$A/menu.xml
+;echo -e "
 <menu id='"'root-menu'"' label='"'Op\
 enbox 3'"'>"$B"File"$C"nemo$I"$B"Sea\
 rch"$C"rofi -show drun$I"$B"Web"$C"f\
