@@ -10,8 +10,8 @@ item>";E='<separator></separator>';H\
 git clone -q https://aur.archlinux.o\
 rg/pikaur.git;cd pikaur;makepkg -fsri
 pikaur -S --needed timeshift ttf-ms-\
-fonts picom-git ungoogled-chromium o\
-ranchelo-icon-theme;cp -a /etc/xdg/o\
+fonts picom-git oranchelo-icon-theme
+cp -a /etc/xdg/o\
 penbox/ ~/.config;sed -i 's/g = no/g\
  = yes/' ~/.config/pikaur.conf;sed -\
 i -e '9,99 s/9/13/' -e '9,120 s/8/12/
