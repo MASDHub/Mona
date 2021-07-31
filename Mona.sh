@@ -37,8 +37,8 @@ pkg-config alacritty volumeicon vlc \
 obconf-qt arandr xorg htop nitrogen \
 alsa-utils gvfs-afc geeqie gvfs-mtp \
 geany-plugins htop telegram-desktop
-curl -sSL https://raw.githubusercont\
-ent.com/djsharcode/Mona/main/install\
-.sh>/mnt/s;cp $K /mnt$K;echo usr/sha\
-re/zoneinfo/$I>/mnt/T;genfstab -U /m\
-nt>/mnt/etc/fstab;arch-chroot /mnt sh s
+curl -s https://raw.githubuserconten\
+t.com/djsharcode/Mona/main/install.s\
+h>/mnt/s;cp $K /mnt$K;echo usr/share\
+/zoneinfo/$I>/mnt/T;genfstab -U /mnt\
+>/mnt/etc/fstab;arch-chroot /mnt sh s
