@@ -18,7 +18,7 @@ g = yes/' ~/.config/pikaur.conf;sed \
 ' -e 's/W-e/0x85/' -e '100,131 s/4/2/
 ' -e 's/filemanagement/-show drun/' \
 -e 's/sans/Fira Sans Condensed Book/
-' -e 's/kfmclient openProfile/rofi/'\
+' -e 's/kfmclient openProfile/rofi/' \
 -e 's/A-space/0x85/' -e 's/Clearlook\
 s/Bear2/' ~/$A/rc.xml;sed -i -e '6,$d
 ' -e 's/Accessories/Openbox 3/' -e ' 
