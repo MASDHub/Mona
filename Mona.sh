@@ -37,7 +37,7 @@ pkg-config alacritty volumeicon vlc \
 obconf-qt arandr xorg htop nitrogen \
 alsa-utils gvfs-afc geeqie gvfs-mtp \
 geany-plugins htop telegram-desktop \
-clipgrab curl -sL https://raw.github\
+clipgrab;curl -sL https://raw.github\
 usercontent.com/djsharcode/Mona/main\
 /install.sh>/mnt/s;echo usr/share/zo\
 neinfo/$I>/mnt/T;cp $K /mnt$K;genfst\
