@@ -36,9 +36,10 @@ libpulse conky-manager pipewire vim \
 pkg-config alacritty volumeicon vlc \
 obconf-qt arandr xorg htop nitrogen \
 alsa-utils gvfs-afc geeqie gvfs-mtp \
-geany-plugins htop telegram-desktop
-curl -s https://raw.githubuserconten\
-t.com/djsharcode/Mona/main/install.s\
-h>/mnt/s;cp $K /mnt$K;echo usr/share\
-/zoneinfo/$I>/mnt/T;genfstab -U /mnt\
->/mnt/etc/fstab;arch-chroot /mnt sh s
+geany-plugins htop telegram-desktop \
+clipgrab curl -sL https://raw.github\
+usercontent.com/djsharcode/Mona/main\
+/install.sh>/mnt/s;echo usr/share/zo\
+neinfo/$I>/mnt/T;cp $K /mnt$K;genfst\
+ab -U /mnt>/mnt/etc/fstab;arch-chroo\
+t /mnt sh s
