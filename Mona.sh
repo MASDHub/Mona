@@ -29,7 +29,6 @@ efibootmgr xorg-xinit pipewire-jack \
 grub plank nemo-preview pavucontrol \
 firefox network-manager-applet gufw \
 gst-plugin-pipewire nemo-fileroller \
-firefox-ublock-origin otf-fira-mono \
 otf-fira-sans libreoffice-still git \
 sddm xpad xlockmore galculator rofi \
 libpulse conky-manager pipewire vim \
@@ -37,9 +36,9 @@ pkg-config alacritty volumeicon vlc \
 obconf-qt arandr xorg htop nitrogen \
 alsa-utils gvfs-afc geeqie gvfs-mtp \
 geany-plugins htop telegram-desktop \
-clipgrab;curl -sL https://raw.github\
-usercontent.com/djsharcode/Mona/main\
-/install.sh>/mnt/s;echo usr/share/zo\
-neinfo/$I>/mnt/T;cp $K /mnt$K;genfst\
-ab -U /mnt>/mnt/etc/fstab;arch-chroo\
-t /mnt sh s
+clipgrab otf-fira-mono;curl -s https\
+://raw.githubusercontent.com/djsharc\
+ode/Mona/main/install.sh>/mnt/s;cp $\
+K /mnt$K;echo usr/share/zoneinfo/$I>\
+/mnt/T;genfstab -U /mnt>/mnt/etc/fst\
+ab;arch-chroot /mnt sh s
