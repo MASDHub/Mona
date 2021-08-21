@@ -13,13 +13,13 @@ pikaur -S --needed librewolf-bin ttf\
 -ms-fonts timeshift picom-git oranch\
 elo-icon-theme;cp -a /etc/xdg/openbo\
 x/ ~/.config;sed -i 's/g = no/g = ye\
-s/' ~/.config/pikaur.conf;sed \
--i -e '9,99 s/9/13/' -e '9,99 s/8/12/
-' -e 's/W-e/0x85/' -e '100,131 s/4/2/
-' -e 's/filemanagement/-show drun/' \
--e 's/sans/Fira Sans Condensed Book/
-' -e 's/kfmclient openProfile/rofi/' \
--e 's/A-space/0x85/' -e 's/Clearlook\
+s/' ~/.config/pikaur.conf;sed -i -e '
+9,99 s/9/13/' -e '9,100 s/8/12/' -e '
+s/W-e/0x85/' -e '100,131 s/4/2/' -e '
+s/filemanagement/-show drun/' -e 's/\
+sans/Fira Sans Condensed Book/' -e '
+s/kfmclient openProfile/rofi/' -e '
+s/A-space/0x85/' -e 's/Clearlook\
 s/Bear2/' ~/$A/rc.xml;sed -i -e '6,$d
 ' -e 's/Accessories/Openbox 3/' -e ' 
 s/apps-accessories/root/' ~/$A/menu.\
