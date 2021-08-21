@@ -15,25 +15,25 @@ elo-icon-theme;cp -a /etc/xdg/openbo\
 x/ ~/.config;sed -i 's/g = no/g = ye\
 s/' ~/.config/pikaur.conf;sed -i -e '
 9,99 s/9/13/' -e '9,100 s/8/12/' -e '
-s/W-e/0x85/' -e '100,131 s/4/2/' -e '
-s/filemanagement/-show drun/' -e 's/\
-sans/Fira Sans Condensed Book/' -e '
-s/kfmclient openProfile/rofi/' -e '
-s/A-space/0x85/' -e 's/Clearlook\
-s/Bear2/' ~/$A/rc.xml;sed -i -e '6,$d
-' -e 's/Accessories/Openbox 3/' -e ' 
-s/apps-accessories/root/' ~/$A/menu.\
-xml;echo -e ""$B"File"$C"nemo$I"$B"S\
-earch"$C"rofi -show drun$I"$B"Web"$C\
-"firefox$I"$B"Terminal"$C"alacritty$I
-"$B"Text"$C"geany$I"$B"Calculator"$C"
-galculator$I"$E""$B"Refresh"$C"openb\
-ox --reconfigure$I"$E""$B"Lock Screen
-"$C"xlock -echokey '*' +description \
--info 'Enter Password' -mode atlanti\
-s -echokeys$I"$B"Reboot"$C"reboot"$I"
-"$B"Power-Off"$C"poweroff"$I"</menu><
-/openbox_menu>">>~/$A/menu.xml;echo \
+s/W-e/0x85/' -e '100,131 s/4/2/' -e \
+'s/sans/Fira Sans Condensed Book/' -\
+e 's/kfmclient openProfile filemanag\
+ement/rofi -show drun/' -e 's/A-spac\
+e/0x85/' -e 's/Clearlooks/Bear2/' ~/\
+$A/rc.xml;sed -i -e '6,$d' -e 's/acc\
+essories/Openbox 3/' -e 's/apps-acce\
+ssories/root/' ~/$A/menu.xml;echo -e "
+"$B"File"$C"nemo$I"$B"Search"$C"rofi 
+-show drun$I"$B"Web"$C"firefox$I"$B"
+Terminal"$C"alacritty$I"$B"Text"$C"
+geany$I"$B"Calculator"$C"galculator$I
+"$E""$B"Refresh"$C"openbox --reconfi\
+gure$I"$E""$B"Lock Screen"$C"xlock -\
+echokey '*' +description -info 'Enter
+Password' -mode atlantis -echokeys$I"
+$B"Reboot"$C"reboot"$I""$B"Power-Off"
+$C"poweroff"$I"</menu></openbox_menu>
+">>~/$A/menu.xml;echo \
 -e "lxqt-policykit &\n\npicom --expe\
 rimental-backends &\n\ntrayer --tint\
  0x716966 --height 40 --monitor prim\
