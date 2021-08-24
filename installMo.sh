@@ -23,21 +23,20 @@ e/0x85/' -e 's/Clearlooks/Bear2/' ~/\
 $A/rc.xml;mkdir Games Music;sed -i -\
 e '6,$d' -e 's/accessories/Openbox 3/
 ' -e 's/apps-accessories/root/' ~/$A\
-/menu.xml;echo -e ""$B"File"$C"nemo$I
-"$B"Search"$C"rofi 
--show drun$I"$B"Web"$C"firefox$I"$B"
-Terminal"$C"alacritty$I"$B"Text"$C"
-geany$I"$B"Calculator"$C"galculator$I
-"$E""$B"Refresh"$C"openbox --reconfi\
-gure$I"$E""$B"Lock Screen"$C"xlock -\
-echokey '*' +description -info 'Enter
-Password' -mode atlantis -echokeys$I"
-$B"Reboot"$C"reboot"$I""$B"Power-Off"
-$C"poweroff"$I"</menu></openbox_menu>
-">>~/$A/menu.xml;echo \
--e "lxqt-policykit &\n\npicom --expe\
-rimental-backends &\n\ntrayer --tint\
- 0x716966 --height 40 --monitor prim\
+/menu.xml;echo -e ""$B"File"$C"nemo$\
+I"$B"Search"$C"rofi -show drun$I"$B"W\
+eb"$C"firefox$I"$B"Terminal"$C"alacri\
+tty$I"$B"Text"$C"geany$I"$B"Calculat\
+or"$C"galculator$I"$E""$B"Refresh"$C"
+openbox --reconfigure$I"$E""$B"Lock S\
+creen"$C"xlock -echokey '*' +descrip\
+tion -info 'Enter Password' -mode at\
+lantis -echokeys$I"$B"Reboot"$C"rebo\
+ot"$I""$B"Power-Off"$C"poweroff"$I"</m\
+enu></openbox_menu>" >> ~/$A/menu.xml
+echo -e "lxqt-policykit &\n\npicom -\
+-experimental-backends &\n\ntrayer -\
+-tint 0x716966 --height 40 --monitor prim\
 ary --transparent true --align right\
  &\n\n(sleep 2&&volumeicon) &\n\npla\
 nk &\n\n(sleep 2&&nm-applet) &\n\n(s\
