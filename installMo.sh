@@ -28,12 +28,12 @@ I"$B"Search"$C"rofi -show drun$I"$B"\
 Web"$C"firefox$I"$B"Terminal"$C"alac\
 ritty$I"$B"Text"$C"geany$I"$B"Calcul\
 ator"$C"galculator$I"$E""$B"Refresh"\
-$C"openbox --reconfigure$I"$E""$B"Loc\
-k Screen"$C"xlock -echokey '*' +desc\
-ription -info 'Enter Password' -mode at\
-lantis -echokeys$I"$B"Reboot"$C"rebo\
-ot"$I""$B"Power-Off"$C"poweroff"$I"</m\
-enu></openbox_menu>" >> ~/$A/menu.xml
+$C"openbox --reconfigure$I"$E""$B"Lo\
+ck Screen"$C"xlock -echokey '*' +des\
+cription -info 'Enter Password' -mod\
+e atlantis -echokeys$I"$B"Reboot"$C"\
+reboot"$I""$B"Power-Off"$C"poweroff"$I\
+"</menu></openbox_menu>">>~/$A/menu.xml
 echo -e "lxqt-policykit &\n\npicom -\
 -experimental-backends &\n\ntrayer -\
 -tint 0x716966 --height 40 --monitor prim\
