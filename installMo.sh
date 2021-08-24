@@ -20,8 +20,8 @@ s/W-e/0x85/' -e '100,131 s/4/2/' -e \
 e 's/kfmclient openProfile filemanag\
 ement/rofi -show drun/' -e 's/A-spac\
 e/0x85/' -e 's/Clearlooks/Bear2/' ~/\
-$A/rc.xml;mkdir Games Music;sed -i -\
-e '6,$d' -e 's/accessories/Openbox 3/
+$A/rc.xml;mkdir Arcade Media;sed -i \
+-e '6,$d' -e 's/accessories/Openbox 3/
 ' -e 's/apps-accessories/root/' ~/$A\
 /menu.xml;echo -e ""$B"File"$C"nemo$\
 I"$B"Search"$C"rofi -show drun$I"$B"\
