@@ -24,12 +24,12 @@ $A/rc.xml;mkdir Games Music;sed -i -\
 e '6,$d' -e 's/accessories/Openbox 3/
 ' -e 's/apps-accessories/root/' ~/$A\
 /menu.xml;echo -e ""$B"File"$C"nemo$\
-I"$B"Search"$C"rofi -show drun$I"$B"W\
-eb"$C"firefox$I"$B"Terminal"$C"alacri\
-tty$I"$B"Text"$C"geany$I"$B"Calculat\
-or"$C"galculator$I"$E""$B"Refresh"$C"
-openbox --reconfigure$I"$E""$B"Lock S\
-creen"$C"xlock -echokey '*' +descrip\
+I"$B"Search"$C"rofi -show drun$I"$B"\
+Web"$C"firefox$I"$B"Terminal"$C"alacr\
+itty$I"$B"Text"$C"geany$I"$B"Calcula\
+tor"$C"galculator$I"$E""$B"Refresh"$\
+C"openbox --reconfigure$I"$E""$B"Lock \
+Screen"$C"xlock -echokey '*' +descrip\
 tion -info 'Enter Password' -mode at\
 lantis -echokeys$I"$B"Reboot"$C"rebo\
 ot"$I""$B"Power-Off"$C"poweroff"$I"</m\
