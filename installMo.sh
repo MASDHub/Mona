@@ -25,12 +25,12 @@ e '6,$d' -e 's/accessories/Openbox 3/
 ' -e 's/apps-accessories/root/' ~/$A\
 /menu.xml;echo -e ""$B"File"$C"nemo$\
 I"$B"Search"$C"rofi -show drun$I"$B"\
-Web"$C"firefox$I"$B"Terminal"$C"alacr\
-itty$I"$B"Text"$C"geany$I"$B"Calcula\
-tor"$C"galculator$I"$E""$B"Refresh"$\
-C"openbox --reconfigure$I"$E""$B"Lock \
-Screen"$C"xlock -echokey '*' +descrip\
-tion -info 'Enter Password' -mode at\
+Web"$C"firefox$I"$B"Terminal"$C"alac\
+ritty$I"$B"Text"$C"geany$I"$B"Calcul\
+ator"$C"galculator$I"$E""$B"Refresh"\
+$C"openbox --reconfigure$I"$E""$B"Loc\
+k Screen"$C"xlock -echokey '*' +desc\
+ription -info 'Enter Password' -mode at\
 lantis -echokeys$I"$B"Reboot"$C"rebo\
 ot"$I""$B"Power-Off"$C"poweroff"$I"</m\
 enu></openbox_menu>" >> ~/$A/menu.xml
