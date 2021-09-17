@@ -9,7 +9,7 @@ item>";E='<separator></separator>';H\
 =" ~/docks.ini " #~~~~~~~~~~~~~~~~~~#
 git clone -q https://aur.archlinux.o\
 rg/pikaur.git;cd pikaur;makepkg -fsri
-pikaur -S --needed librewolf-bin ttf\
+pikaur -S --needed ttf\
 -ms-fonts timeshift picom-git oranch\
 elo-icon-theme;cp -a /etc/xdg/openbo\
 x/ ~/.config;sed -i 's/g = no/g = ye\
