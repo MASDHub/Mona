@@ -9,9 +9,10 @@ item>";E='<separator></separator>';H\
 =" ~/docks.ini " #~~~~~~~~~~~~~~~~~~#
 git clone -q https://aur.archlinux.o\
 rg/pikaur.git;cd pikaur;makepkg -fsri
-pikaur -S --needed ttf\
--ms-fonts timeshift picom-git oranch\
-elo-icon-theme;cp -a /etc/xdg/openbo\
+pikaur -S --needed ungoogled-chromiu\
+m ttf-ms-fonts timeshift picom-git o\
+ranchelo-icon-theme;cp -a /etc/xdg/o\
+penbo\
 x/ ~/.config;sed -i 's/g = no/g = ye\
 s/' ~/.config/pikaur.conf;sed -i -e '
 9,99 s/9/13/' -e '9,100 s/8/12/' -e '
