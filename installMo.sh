@@ -23,16 +23,16 @@ e/0x85/' -e 's/Clearlooks/Bear2/' ~/\
 $A/rc.xml;mkdir Arcade Media;sed -i \
 -e '6,$d' -e 's/accessories/Openbox 3/
 ' -e 's/apps-accessories/root/' ~/$A\
-/menu.xml;;echo -e ''\
-'<menu id="root-menu" label="Openbo'\
-'x 3"><item label="File'$C'nemo'$D''\
-'Search'$C'rofi -show drun'$D'Web'$C\
-'firefox'$D'Terminal'$C'alacritty'$D\
-'Text'$C'geany'$D'Calculator'$C'gal'\
-'culator'$D'Refresh'$C'openbox --re'\
-'configure'$D'Lock Screen'$C'xlock '\
-'+description -mode atlantis -echok'\
-'eys -echokey '"'*'"' -info "Enter '\
+#/menu.xml;;echo -e ''\
+#'<menu id="root-menu" label="Openbo'\
+#'x 3"><item label="File'$C'nemo'$D''\
+#'Search'$C'rofi -show drun'$D'Web'$C\
+#'firefox'$D'Terminal'$C'alacritty'$D\
+#'Text'$C'geany'$D'Calculator'$C'gal'\
+#'culator'$D'Refresh'$C'openbox --re'\
+#'configure'$D'Lock Screen'$C'xlock '\
+#'+description -mode atlantis -echok'\
+#'eys -echokey '"'*'"' -info "Enter '\
 'Password:"'$D'Reboot'$C'reboot'$D''\
 'Power-Off'$C'poweroff</command></a'\
 'ction></item></menu></openbox_menu>
