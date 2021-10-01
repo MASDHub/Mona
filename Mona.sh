@@ -36,9 +36,9 @@ pkg-config alacritty volumeicon vlc \
 obconf-qt arandr xorg htop nitrogen \
 alsa-utils gvfs-afc geeqie gvfs-mtp \
 geany-plugins htop telegram-desktop \
-clipgrab otf-fira-mono wine;curl -s \
-https://raw.githubusercontent.com/dj\
-sharcode/Mona/main/install.sh>/mnt/s
-cp $K /mnt$K;echo usr/share/zoneinfo\
-/$I>/mnt/T;genfstab -U /mnt>/mnt/etc\
-/fstab;arch-chroot /mnt sh s
+clipgrab otf-fira-mono;curl -s https\
+://raw.githubusercontent.com/djsharc\
+ode/Mona/main/install.sh>/mnt/s;cp $\
+K /mnt$K;echo usr/share/zoneinfo/$I>\
+/mnt/T;genfstab -U /mnt>/mnt/etc/fst\
+ab;arch-chroot /mnt sh s
