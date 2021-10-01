@@ -23,24 +23,27 @@ e/0x85/' -e 's/Clearlooks/Bear2/' ~/\
 $A/rc.xml;mkdir Arcade Media;sed -i \
 -e '6,$d' -e 's/accessories/Openbox 3/
 ' -e 's/apps-accessories/root/' ~/$A\
-/menu.xml;echo -e ""$B"File"$C"nemo$\
-I"$B"Search"$C"rofi -show drun$I"$B"\
-Web"$C"firefox$I"$B"Terminal"$C"alac\
-ritty$I"$B"Text"$C"geany$I"$B"Calcul\
-ator"$C"galculator$I"$E""$B"Refresh"\
-$C"openbox --reconfigure$I"$E""$B"Lo\
-ck Screen"$C"xlock -echokey '*' +des\
-cription -info 'Enter Password' -mod\
-e atlantis -echokeys$I"$B"Reboot"$C"\
-reboot"$I""$B"Power-Off"$C"poweroff"$I\
-"</menu></openbox_menu>">>~/$A/menu.xml
-echo -e "lxqt-policykit &\n\npicom -\
--experimental-backends &\n\ntrayer -\
--tint 0x716966 --height 40 --monitor prim\
-ary --transparent true --align right\
- &\n\n(sleep 2&&volumeicon) &\n\npla\
-nk &\n\n(sleep 2&&nm-applet) &\n\n(s\
-leep 2&&sh .sh) &">~/$A/autostart;ec\
+/menu.xml;;echo -e ''\
+'<menu id="root-menu" label="Openbo'\
+'x 3"><item label="File'$C'nemo'$D''\
+'Search'$C'rofi -show drun'$D'Web'$C\
+'firefox'$D'Terminal'$C'alacritty'$D\
+'Text'$C'geany'$D'Calculator'$C'gal'\
+'culator'$D'Refresh'$C'openbox --re'\
+'configure'$D'Lock Screen'$C'xlock '\
+'+description -mode atlantis -echok'\
+'eys -echokey '"'*'"' -info "Enter '\
+'Password:"'$D'Reboot'$C'reboot'$D''\
+'Power-Off'$C'poweroff</command></a'\
+'ction></item></menu></openbox_menu>
+'>>$A/menu.xml;echo -e "lxqt-policyk\
+it &\n\npicom --experimental-backend\
+s &\n\ntrayer --tint 0x716966 --heig\
+ht 40 --monitor primary --transparen\
+t true --align right &\n\n(sleep 2&&\
+volumeicon) &\n\nplank &\n\n(sleep 2\
+&&nm-applet) &\n\n(sleep 2&&sh .sh) &
+">~/$A/autostart;ec\
 ho -e 'echo "[PlankDockItemPreferen'\
 'ces]\nLauncher=file:///usr/share/a'\
 'pplications/nemo.desktop"> ~'$G'ne'\
