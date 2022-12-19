@@ -62,4 +62,3 @@ me;chmod 755 /home;rm /T $0;runuser \
 `curl -sSL https://raw.githubusercon\
 tent.com/djSharcode/Mona/main/instal\
 lMo.sh`" 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
